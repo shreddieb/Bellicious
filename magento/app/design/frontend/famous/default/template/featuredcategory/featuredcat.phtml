@@ -1,0 +1,81 @@
+<?php if (Mage::getStoreConfig('featuredcategory/general/featuredcatenable') == "1"):?>
+
+<?php $_featuredCatIds= $this->getLoadedFeaturedCatFront();?>
+<?php /* to show current category and sub categories */?>
+<?php  $showCatAndSubcat= Mage::getStoreConfig('featuredcategory/general/featuedCatOptions');?>
+<div class="featuredCat f-block areaBox">
+    <div class="box-title"><h2><span><?php echo Mage::getStoreConfig('featuredcategory/general/catHeading')?></span></h2></div>
+    
+<?php if(!$_featuredCatIds): ?>
+     	<p class="note-msg"><?php echo $this->__('There are no catgories matching the selection.') ?></p>	
+<?php else:?>
+<?php
+$featuredCatOption = Mage::getStoreConfig('featuredcategory/general/featuedCatOptions');
+?>
+    <ul>
+	<?php foreach($_featuredCatIds as $_featuredCat):
+             $category=Mage::getModel("catalog/category")->load($_featuredCat);
+            // $ThumbnailUrl = Mage::getBaseUrl('media').'catalog/category/'.$category->getMdlFeaturedThumbnail();
+			 $ThumbnailUrl = Mage::getBaseUrl('media').'catalog/category/'.$category->getMdlFeaturedThumbnail();
+             ?>
+             <li class="catBlock <?php if($category->getImage()):?>withfc<?php endif;?> col-sm-4 col-md-2 col-xs-6">
+			 <div class="featuredInner">
+               <?php if($category->getMdlFeaturedThumbnail()):?>
+               <span class="thum-block"><a href="<?php echo $category->getUrl(); ?>"><img src="<?php echo $ThumbnailUrl ?>" alt="" /></a></span>
+               <?php endif ?>
+			   <div class="fc-content">
+                <h3>
+					<a href="<?php echo $category->getUrl(); ?>"><?php echo $category->getName();?>
+					<?php  $productEnable = Mage::getStoreConfig('featuredcategory/general/noofproduct');?>
+					<?php if($productEnable):?>
+					<?php echo '('.count($category->getProductCollection()).')';?>
+					<?php endif ?>
+					</a>
+				</h3>
+				</div>
+			   
+			   
+			   <?php if($featuredCatOption == 1): ?>
+					<?php  $subCategories=$category->getChildrenCategories()//get children of loaded category?>
+					<?php if(count($subCategories)>0) : ?>
+					<div class="featuredsubCat">
+					 <ul>
+					   <?php foreach($subCategories as $subcat): ?>
+						   <li> <a href="<?php echo $subcat->getUrl(); ?>"><?php echo $subcat->getName()?>
+						   <?php /* To Show or hide  no of products in category */?>
+						   <?php if($productEnable):?>
+						   <?php echo '('.count($subcat->getProductCollection()).')';?>
+						   <?php endif ?>
+						   </a>
+						   </li>
+					   <?php endforeach ?>
+					 </ul>
+					</div> 
+					<?php endif ?>
+			   <?php endif; ?>
+			   
+			   <?php if($featuredCatOption == 2 ): ?>
+					<?php  $subCategories=$category->getAllChildren(true); //get children of loaded category?>
+					<?php  array_shift($subCategories);?>
+					<?php if(count($subCategories)>0) : ?>
+					 <div class="featuredsubCat">
+								 <ul> 
+								 <?php foreach($subCategories as $sub) :?>
+								 <?php  $sub1 = Mage::getModel('catalog/category')->load( $sub);?>
+								 <?php $count = $sub1->getProductCount();  ?>
+								<li> <a href="<?php echo $sub1->getUrl() ?>"><?php echo  $sub1->getName() ;?>
+									<?php  $productEnable = Mage::getStoreConfig('featuredcategory/general/noofproduct');?>
+										<?php if($productEnable):?> <?php echo '('.$count.')';?> <?php endif ?></a></li>
+									<?php endforeach ?>
+								</ul>
+								  </div> 
+				   <?php  endif ?>
+			   <?php endif; ?>
+			   </div>
+            </li> 
+    <?php endforeach?>
+	</ul>
+<?php endif ?>
+    
+</div>
+<?php endif ?>

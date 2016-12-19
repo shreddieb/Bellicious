@@ -1,0 +1,22 @@
+<div class="block-banner blocks jcarousel">
+     <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('block-slide-right')->toHtml() ?>
+</div>  
+        
+<script type="text/javascript">
+			(function($) {
+				$('.rightBanner').owlCarousel({
+					loop:true,
+					pagination : true,
+					margin:10,
+					slideSpeed :500,
+					responsiveClass:true,
+					autoplay:true,
+					autoplayTimeout:2000,
+					autoplayHoverPause:true,
+					items:1
+				})
+				
+				
+				
+			})(jQuery);			
+		</script>        

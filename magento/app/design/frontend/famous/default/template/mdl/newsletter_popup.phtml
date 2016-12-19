@@ -1,0 +1,123 @@
+<?php $config = Mage::getStoreConfig('mdloption/newsletter_pop'); ?>
+<?php if($config['enable'] ==1): ?>
+<!--MDL-->
+<div style="display:none;">
+      <div id="newsletter-popup">
+            <div class="newsTextarea 11">
+                  <div class="content">
+                        <div class="register-form">
+								<div class="headingBox">
+								   <?php echo $config['heading'];?>
+								</div>
+								<div class="detailBox">   
+								   <?php echo $config['description']?>
+							    </div>
+                               <form id="newsletter-registration-form" action="<?php echo $this->getUrl('newsletter/subscriber/new/') ?>" method="post" onsubmit="return false;">
+								<div class="form-fields-middle">
+                                          <div class="input-wrapper">
+                                                <input name="email" id="cm_email" onfocus="if(this.value=='Enter Your Email') this.value=''" onblur="if(this.value=='') this.value='Enter Your Email'" class="validate-email required-entry field-left" type="text" value="Enter Your Email" />
+                                          </div>
+                                    </div>
+                                    <div class="btn-sign-up-now">
+                                        <button data-process="0" id="subscr_btn" type="button" class="button">
+											<?php echo $config['btnText']?> 
+										</button>
+										<span class="progressLoader"><i class="fa fa-spinner fa-spin"></i></span>
+                                    </div>
+								<p class="note"><?php echo $config['note']?></p>
+                              </form>
+                        </div>
+                  </div>
+            </div>
+			
+      </div>
+</div>
+<!--MDL-->
+
+
+<?php
+if(Mage::app()->getRequest()->getControllerName() == 'index' && Mage::app()->getRequest()->getActionName() == 'index'):
+?>
+<script type="text/javascript">
+      var newsletterSubscriberFormDetail = new VarienForm('newsletter-refistration-form', true);
+    jQuery(document).ready(function() {
+ 
+        var check_cookie = "<?php echo Mage::getModel('core/cookie')->get('popup-shown'); ?>";
+ 
+        if(check_cookie != 'true') {
+            beginNewsletterForm();
+            <?php Mage::getModel('core/cookie')->set('popup-shown', 'true', $config['newsletter_time']);?>
+        }
+        
+        
+var subscription = function(){
+      jQuery('#cm_email').val(''); 
+      jQuery('#subscr_btn').click(function(){
+            var process = jQuery(this).data('process');
+            var email = jQuery('#cm_email').val();
+            var pattern = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+			if( !pattern.test(email) ){
+				jQuery('#cm_email').addClass('validation-failed');
+				return false;
+			} else {
+				jQuery('#cm_email').removeClass('validation-failed');
+			}
+            if( process == 0 && pattern.test(email) ){
+				jQuery('.btn-sign-up-now').addClass('loading');
+                  jQuery.ajax({
+                        method : 'post',
+                        url : '<?php echo Mage::getBaseUrl() ?>newsletterpopup/index/ajaxpost',
+                        data : {email:email},
+                        dataType : 'json',
+                        beforeSend : function(){ jQuery(this).data('process', 1); },
+                        success : function(xhr){
+							jQuery('.btn-sign-up-now').removeClass('loading');
+                              jQuery(this).data('process', 0);
+                              jQuery('#cm_email').val(''); 
+                              if(xhr != null){
+                                    jQuery.fancybox({
+                                          type: 'inline',
+                                          autoScale: true,
+                                          minHeight: 30,
+                                          content:'<p class="'+xhr.status+'">'+xhr.msg+'</p>'
+                                    });
+                              }
+                        },
+                        error : function(){
+							jQuery('.btn-sign-up-now').removeClass('loading');
+                              jQuery(this).data('process', 0);
+                              jQuery('#cm_email').val('');
+                              jQuery.fancybox({
+                                    type: 'inline',
+                                    autoScale: true,
+                                    minHeight: 30,
+                                    content:'<p class="error">Some error !!</p>'
+                              });
+                        
+                        }
+                  });    
+            }
+      });
+}
+subscription();
+jQuery('#trigger_nlpop').click(function(){
+	beginNewsletterForm();
+});
+    });
+ 
+    function beginNewsletterForm () {
+        jQuery.fancybox({
+             autoScale: true,
+			 padding:0,
+			 scrolling: 'no',
+            'transitionIn': 'fade',
+            'transitionOut': 'fade',
+            'type': 'inline',
+            'href': '#newsletter-popup'
+        });
+        
+      
+    }
+</script>
+<?php endif;// only for index/index?>
+<?php endif;?>

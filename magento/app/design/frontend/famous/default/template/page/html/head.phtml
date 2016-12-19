@@ -1,0 +1,177 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2011 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<?php 
+	$config = Mage::getStoreConfig('mdloption/genral_theme_setting'); 
+	$config2 = Mage::getStoreConfig('mdloptioncolor/genral_theme_setting'); 
+	$config3 = Mage::getStoreConfig('mdloption/highlighter');
+	$config4 = Mage::getStoreConfig('mlayer/settings');
+	$config5 = Mage::getStoreConfig('mdloption/newsletter_pop');
+	$config6 = Mage::getStoreConfig('mdloption/footer');
+?>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+<meta http-equiv="Content-Type" content="<?php echo $this->getContentType() ?>" />
+<title><?php echo $this->getTitle() ?></title>
+<meta name="description" content="<?php echo htmlspecialchars($this->getDescription()) ?>" />
+<meta name="keywords" content="<?php echo htmlspecialchars($this->getKeywords()) ?>" />
+<meta name="robots" content="<?php echo htmlspecialchars($this->getRobots()) ?>" />
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<link rel="icon" href="<?php echo $this->getFaviconFile(); ?>" type="image/x-icon" />
+<link rel="shortcut icon" href="<?php echo $this->getFaviconFile(); ?>" type="image/x-icon" />
+<link href="<?php echo $this->getSkinUrl('css/font-awesome.css');?>" type="text/css" rel="stylesheet" />
+
+<!--[if lt IE 7]>
+<script type="text/javascript">
+//<![CDATA[
+    var BLANK_URL = '<?php echo $this->helper('core/js')->getJsUrl('blank.html') ?>';
+    var BLANK_IMG = '<?php echo $this->helper('core/js')->getJsUrl('spacer.gif') ?>';
+//]]>
+</script>
+<![endif]-->
+<!--[if gte IE 8]>
+<link href="<?php echo $this->getSkinUrl('css/styles-ie.css');?>" type="text/css" rel="stylesheet" />
+<![endif]-->
+<!--[if gte IE 9]>
+  <style type="text/css">
+    .gradient {
+       filter: none;
+    }
+  </style>
+<![endif]-->
+
+<?php echo $this->getCssJsHtml();?>
+<?php if ($config['enable_font']=='1'):?>
+	<link href='//fonts.googleapis.com/css?family=<?php echo str_replace(' ', '+', $config['font']); ?>:300,400,700' rel='stylesheet' type='text/css'>
+<?php else: ?>
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+<?php endif; ?>
+
+
+<link rel="stylesheet" type="text/css" href="<?php echo $this->getSkinUrl('css/themeColor.php') ?>?p=<?php echo Mage::app()->getStore()->getId() ?>" media="all" />
+
+
+<!--body bg color settings-->
+<?php if(($config2['body_bg_color']!='') && ($config2['theme-color-option']==true)):?>
+<style>
+	<?php if($config4['bannerType']==1):?>
+	.wrapper{
+		background-color:<?php echo $config2['body_bg_color'];?>;
+	}	
+	<?php else: ?>
+	body, .wrapper{	
+		background-color:<?php echo $config2['body_bg_color'];?>;
+	}
+	<?php endif; ?>
+</style>	
+<?php endif; ?>
+
+
+<!--end body bg color settings-->
+
+<!--body bg image settings-->
+		
+		<?php if($config4['bannerType']==1):?>
+			<style>
+				.wrapper{
+					<?php if($config['body_bg']):?>
+					background-image:url(<?php  echo Mage::getBaseUrl('media') . 'magic/bg/' . $config['body_bg'];?>);
+					<?php endif; ?>;
+					background-repeat:<?php echo $config['bg_repeat']?>;
+					<?php if($config['basizefix']!=1):?>
+					background-size:<?php echo $config['basizefix']?>;
+					<?php endif; ?>
+					background-attachment:<?php echo $config['bg_attachment']?>;
+					background-position:<?php echo $config['bg_position']?>;
+				}
+			</style>
+		<?php else: ?>
+			<style>
+			body{
+				<?php if($config['body_bg']):?>
+				background-image:url(<?php  echo Mage::getBaseUrl('media') . 'magic/bg/' . $config['body_bg'];?>);
+				<?php endif; ?>;
+				background-repeat:<?php echo $config['bg_repeat']?>;
+				<?php if($config['basizefix']!=1):?>
+				background-size:<?php echo $config['basizefix']?>;
+				<?php endif; ?>
+				background-attachment:<?php echo $config['bg_attachment']?>;
+				background-position:<?php echo $config['bg_position']?>;
+			}
+		</style>
+		<?php endif; ?>	
+<!--end body bg settings-->
+
+<?php echo $this->getChildHtml() ?>
+<?php echo $this->helper('core/js')->getTranslatorScript() ?>
+<?php echo $this->getIncludes() ?>
+
+
+
+
+<!--highlighterBg code-->
+<style>
+.highlighterWrap{
+	<?php if($config3['highlighterBg']):?>
+	background-image:url(<?php  echo Mage::getBaseUrl('media') . 'highlighter/bg/' . $config3['highlighterBg'];?>
+	<?php endif;?>);
+	background-repeat:<?php echo $config3['bg_repeat']?>;
+	background-size:<?php echo $config3['basizefix']?>;
+	background-attachment:<?php echo $config3['bg_attachment']?>;
+	background-position:<?php echo $config3['bg_position']?>;
+}
+</style>
+
+<!--NEWSLETTER POPUP-->
+<?php if($config5['enable'] ==1): ?>
+<style>
+#newsletter-popup{
+	<?php if($config5['newsletter_img']):?>
+	background-image:url(<?php  echo Mage::getBaseUrl('media') . 'newsletter/' . $config5['newsletter_img'];?>
+	<?php endif;?>);
+	background-repeat:<?php echo $config5['bg_repeat']?>;
+	background-size:<?php echo $config5['basizefix']?>;
+	background-attachment:<?php echo $config5['bg_attachment']?>;
+	background-position:<?php echo $config5['bg_position']?>;
+}
+</style>
+<?php endif;?>
+
+<?php if($config6['footer_bg']):?>
+	<style>
+	footer{
+			background-image:url(<?php  echo Mage::getBaseUrl('media') . 'footer/bg/'.$config6['footer_bg'];?>);
+			background-repeat:<?php echo $config6['bg_repeat']?>;
+			background-size:<?php echo $config6['basizefix']?>;
+			background-attachment:<?php echo $config6['bg_attachment']?>;
+			background-position:<?php echo $config6['bg_position']?>;
+	}
+	.copyrightBox{
+		background:none!important;
+		border-top:1px solid #a8a8a8;
+	}
+	</style>
+<?php endif;?>

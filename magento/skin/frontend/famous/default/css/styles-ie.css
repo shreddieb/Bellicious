@@ -1,0 +1,7 @@
+div .page{ display:block; }
+.account-login .form-list input.input-text{ line-height:42px; }
+.form-list input.input-text, .discount-form input.input-text{ line-height:38px; }
+.product-view .product-img-box .more-views li a{ width:45px; height:45px; display:inline-block; }
+.add-to-cart .qty{ line-height:48px; }
+* .hideTopNav .header-wrapper01 #nav:before, * .hideTopNav .header-wrapper01 .sf-menu:before, * .hideTopNav .header-wrapper03 #nav:before, * .hideTopNav .header-wrapper03 .sf-menu:before{  }
+* .header-contact span, .header-info span{ min-width:inherit; float:left; }

@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+<default>
+	<bestsellingproduct>
+		<bestselling>
+			<bestselling_status>1</bestselling_status>
+		</bestselling>
+	</bestsellingproduct>
+</default>
+   <sections>         
+		<bestsellingproduct translate="label">
+			<label>Home Page Product Tabs</label>
+			<tab>Mdlext</tab>
+			<frontend_type>text</frontend_type>
+			<sort_order>120</sort_order>
+			<show_in_default>1</show_in_default>
+			<show_in_website>1</show_in_website>
+			<show_in_store>1</show_in_store> 
+			<groups>
+				<jqueryfile translate="label">
+					<label>General Settings</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>90</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<enable translate="label comment">
+							<label>Enable extension</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>1</sort_order>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<value>1</value>
+						</enable>
+						<name_character translate="label">
+                            <label>Product Name Character Limit: </label>
+                            <comment>Define character limit.</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </name_character>
+						<itemviewbox_quick_view translate="label comment">
+							<label>Quick View: </label>
+							<comment>Here you can enable or disable quick view</comment>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>40</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</itemviewbox_quick_view>
+						<rowPro translate="label">
+                            <label>Product in row: </label>
+                            <comment>Define number of product you want to show on row</comment>
+							<frontend_type>select</frontend_type>
+							<source_model>mdloption/config_procount</source_model>
+							<sort_order>30</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>	
+                        </rowPro>
+						<flip_view translate="label comment">
+							<label>Flip view: </label>
+							<comment>Here you can enable or disable flip view</comment>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>50</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</flip_view>
+						<flip_view_style translate="label comment">
+							<label>Flip view style: </label>
+							<comment>Here you can flip view style</comment>
+							<frontend_type>select</frontend_type>
+							<source_model>mdloption/config_flipviewstyle</source_model>
+							<sort_order>60</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</flip_view_style>
+						<itemviewbox translate="label comment">
+							<label>Item view type: </label>
+							<comment>Here you can set second type of Item view</comment>
+							<frontend_type>select</frontend_type>
+							<source_model>mdloption/config_itemview</source_model>
+							<sort_order>70</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</itemviewbox>
+						<gallery_view translate="label comment">
+							<label>Gallery view: </label>
+							<comment>Here you can enable or disable gallery view</comment>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>80</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<depends><itemviewbox>5</itemviewbox></depends>
+						</gallery_view>
+					</fields>
+				</jqueryfile>
+			</groups>
+			
+			<groups>
+				<bestselling translate="label">
+					<label>Bestselling Products</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>100</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<bestselling_status translate="label comment">
+							<label>Enable</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>1</sort_order>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</bestselling_status>
+						<bestselling_noproduct translate="label comment">
+							<label>Maximum no of product shown on frontend</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>3</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</bestselling_noproduct>
+						<bestselling_filter translate="label comment">
+							<label>Result Display / Filter</label>
+							<frontend_type>select</frontend_type>
+							<source_model>Mdl_Bestseller_Model_System_Config_Source_Filters</source_model>
+							<sort_order>4</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</bestselling_filter>																				
+					</fields>
+				</bestselling>
+			</groups> 
+			<groups>
+				<newproduct translate="label">
+					<label>New Products</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>110</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<newproduct_status translate="label comment">
+							<label>Enable</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>1</sort_order>
+							 <source_model>adminhtml/system_config_source_yesno</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<value>1</value>
+						</newproduct_status>
+						<newproduct_noproduct translate="label comment">
+							<label>Maximum no of product shown on frontend</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>3</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</newproduct_noproduct>
+						<newproduct_filter translate="label comment">
+							<label>Result Display / Filter</label>
+							<frontend_type>select</frontend_type>
+							<source_model>Mdl_Bestseller_Model_System_Config_Source_Filters</source_model>
+							<sort_order>4</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</newproduct_filter>													
+					</fields>
+				</newproduct>
+			</groups>
+			<groups>
+				<mostviewed translate="label">
+					<label>Featured products</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>120</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<mostviewed_status translate="label comment">
+							<label>Enable</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>1</sort_order>
+							 <source_model>adminhtml/system_config_source_yesno</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<value>1</value>
+						</mostviewed_status>
+						<total_pro translate="label comment">
+							<label>Maximum no of product shown on frontend</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>3</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</total_pro>	
+					</fields>
+				</mostviewed>
+			</groups>	
+		</bestsellingproduct>			
+    </sections>
+</config>

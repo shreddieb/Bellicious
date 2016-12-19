@@ -1,0 +1,100 @@
+<?xml version="1.0"?>
+<!--
+/**
+ *
+ * Do not edit or add to this file if you wish to upgrade the to newer versions in the future.
+ * If you wish to customize this module for your needs
+ * Please refer to http://www.magentocommerce.com for more information.
+ * @package   Comming soon page
+ * @version   1.0.0
+ */
+ -->
+<config>
+    <modules>
+        <Mdl_UnderConstruction>
+            <version>1.0.0</version>
+        </Mdl_UnderConstruction>
+    </modules>
+   <global>
+        <helpers>
+            <Mdl_UnderConstruction>
+                <class>Mdl_UnderConstruction_Helper</class>
+            </Mdl_UnderConstruction>
+        </helpers>
+        <blocks>
+            <Mdl_UnderConstruction>
+                <class>Mdl_UnderConstruction_Block</class>
+            </Mdl_UnderConstruction>    
+        </blocks>
+		
+        <models>
+            <Mdl_UnderConstruction>
+                <class>Mdl_UnderConstruction_Model</class>    
+            </Mdl_UnderConstruction>
+        </models>
+    </global>
+	
+    <stores>
+        <default>
+            <web>
+                <routers>
+                    <standard>
+                        <area>frontend</area>
+                        <class>Mdl_UnderConstruction_Controller_Router_Standard</class>
+                    </standard>
+                </routers>
+            </web>
+        </default>
+    </stores>
+
+    <default>
+	    <web>
+            <routers> 
+                <standard>
+                    <area>frontend</area>
+                    <class>Mdl_UnderConstruction_Controller_Router_Standard</class>
+                </standard>
+            </routers>
+        </web>
+        <underConstruction>
+			    <settings>
+                        <enabled>0</enabled>
+						<allowFrontendForAdmins>0</allowFrontendForAdmins>
+						<pageTitle>Coming Soon Page</pageTitle>
+						<body_bg_color>#333333</body_bg_color>
+						<headingText>Our Website is Under Construction.</headingText>
+						<desText>Time until launch</desText>
+						<endTimer>1</endTimer>
+						<socialLinks>
+							<![CDATA[
+							     <div class="social-link">
+									<a class="twitterLink" href="#">twitter</a> 
+									<a class="facebookLink" href="#">facebook</a> 
+									<a class="googleLink" href="#">google</a> 
+									<a class="inLink" href="#">linkedIn</a> 
+									<a class="youtubeLink" href="#">youtube</a> 
+									<a class="shareLink" href="#">shareThis</a> 
+									<a class="dribbleLink" href="#">dribble</a>
+								</div>	
+							]]>
+						</socialLinks>
+						<endDate>16 Nov 2019 19:00</endDate>
+						<footerEditor>Copyright 2015 simonshop.com</footerEditor>
+				</settings>
+				<scriptsetting>
+						<enabledjs>1</enabledjs>
+				</scriptsetting>
+		</underConstruction>				
+    </default>
+ 
+    <adminhtml>
+	    <layout>
+            <updates>
+                <underconstruction>
+                    <file>underconstruction/underconstruction.xml</file>
+                </underconstruction>
+            </updates>
+        </layout>
+    </adminhtml>
+     
+</config>

@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Koolthememaster
+ *
+ * Do not edit or add to this file if you wish to upgrade the to newer versions in the future.
+ * If you wish to customize this module for your needs
+ * Please refer to http://www.magentocommerce.com for more information.
+ * @package   Comming soon page
+ * @version   1.0.0
+ * @copyright Copyright (coffee) 2013 Koolthememaster (http://koolthememaster.net/)
+ */
+ -->
+<layout>
+  <default>        
+    <reference name="head">
+      <action method="addItem"><type>js_css</type><name>bootstrap/ucCss.css</name></action>
+	  <action method="addJs"><script>bootstrap/jquery-noconflict.js</script></action>
+	  <action method="setCanLoadExtJs"><flag>1</flag></action>
+      <action method="setCanLoadTinyMce"><flag>1</flag></action>
+      <action method="addJs"><script>mage/adminhtml/variables.js</script></action>
+      <action method="addJs"><script>mage/adminhtml/wysiwyg/widget.js</script></action>
+      <action method="addJs"><script>lib/flex.js</script></action>
+      <action method="addJs"><script>lib/FABridge.js</script></action>
+      <action method="addJs"><script>mage/adminhtml/flexuploader.js</script></action>
+      <action method="addJs"><script>mage/adminhtml/browser.js</script></action>
+      <action method="addJs"><script>prototype/window.js</script></action>
+      <action method="addJs"><script>prototype/prototype.js</script></action>
+      <action method="addItem"><type>js_css</type><name>prototype/windows/themes/default.css</name></action>
+      <action method="addCss"><name>lib/prototype/windows/themes/magento.css</name></action>
+    </reference>
+  </default> 
+</layout>
+
+            

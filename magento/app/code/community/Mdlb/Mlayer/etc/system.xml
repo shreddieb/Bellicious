@@ -1,0 +1,396 @@
+<?xml version="1.0"?>
+<config>
+	<sections>
+		<mlayer translate="label" module="mlayer">
+			<label>Mdl Banner Settings</label>
+			<tab>Mdlext</tab>
+			<frontend_type>text</frontend_type>
+			<sort_order>140</sort_order>
+			<show_in_default>1</show_in_default>
+			<show_in_website>1</show_in_website>
+			<show_in_store>1</show_in_store>
+			<groups>
+				<settings translate="label">
+				<label>Banner settings</label>
+				<frontend_type>text</frontend_type>
+				<sort_order>10</sort_order>
+				<show_in_default>1</show_in_default>
+				<show_in_website>1</show_in_website>
+				<show_in_store>1</show_in_store>
+					<fields>
+						<bannerenable translate="label">
+                            <label>Banner Status</label>
+                            <comment><![CDATA[You can add here banner status enable or disable.]]></comment>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>1</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+                        </bannerenable>
+						<bannerType translate="label">
+                            <label>Banner Type</label>
+                            <comment><![CDATA[Select banner type form here.]]></comment>
+							<frontend_type>select</frontend_type>
+							<source_model>mlayer/system_config_slidertype</source_model>
+							<sort_order>2</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+                        </bannerType>
+						
+						
+						<!--FULL SCREEN BANNER SETTINGS-->
+						<full_hide_banner translate="label, comment">
+							<label>Hide Banner from small devices</label>
+							<comment><![CDATA[Hide banner from small devices.]]></comment>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>3</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<depends>
+                                <bannerType>1</bannerType>
+                            </depends>
+						</full_hide_banner>
+						
+						<full_show_des translate="label, comment">
+							<label>Show Content</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>4</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<depends>
+                                <bannerType>1</bannerType>
+                            </depends>
+						</full_show_des>
+						
+						<full_show_nav translate="label, comment">
+							<label>Show Navigation</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>5</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<depends>
+                                <bannerType>1</bannerType>
+                            </depends>
+						</full_show_nav>
+						
+						<full_autoplay translate="label, comment">
+							<label>Auto Play</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>6</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<depends>
+                                <bannerType>1</bannerType>
+                            </depends>
+						</full_autoplay>
+						
+						<full_stop_hover translate="label, comment">
+							<label>Pause on Hover</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>7</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<depends>
+                                <bannerType>1</bannerType>
+                            </depends>
+						</full_stop_hover>
+						
+						
+						
+						
+						
+						
+						<!--CAMERA BANNER SETTINGS-->
+						<hide_banner translate="label, comment">
+							<label>Hide Banner from small devices</label>
+							<comment><![CDATA[Hide banner from small devices.]]></comment>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>8</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<depends>
+                                <bannerType>2</bannerType>
+                            </depends>
+						</hide_banner>
+						<banner-effect translate="label, comment">
+							<label>Banner effect</label>
+							<comment><![CDATA[Here you can change banner effect]]></comment>
+							<frontend_type>select</frontend_type>
+							<source_model>mlayer/system_config_animation</source_model>
+							<sort_order>9</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<depends>
+                                <bannerType>2</bannerType>
+                            </depends>
+						</banner-effect>
+						<show_description translate="label, comment">
+							<label>Show Content</label>
+							<comment><![CDATA[show content enable disable]]></comment>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>10</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<depends>
+                                <bannerType>2</bannerType>
+                            </depends>
+						</show_description>
+						<select_banner_loder translate="label, comment">
+							<label>Select loder type</label>
+							<comment><![CDATA[You can select loder type]]></comment>
+							<frontend_type>select</frontend_type>
+							<source_model>mlayer/system_config_contentloder</source_model>
+							<sort_order>11</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<depends>
+                                <bannerType>2</bannerType>
+                            </depends>
+						</select_banner_loder>
+						<select_banner_height translate="label, comment">
+							<label>Banner height</label>
+							<comment><![CDATA[Add banner height in % (Please do not add % sign.)]]></comment>
+							<frontend_type>text</frontend_type>
+							<sort_order>12</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<depends>
+                                <bannerType>2</bannerType>
+                            </depends>
+						</select_banner_height>
+						<select_btn_text translate="label, comment">
+							<label>Banner button text</label>
+							<comment><![CDATA[Add banner button text.)]]></comment>
+							<frontend_type>text</frontend_type>
+							<sort_order>13</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<depends>
+                                <bannerType>2</bannerType>
+                            </depends>
+						</select_btn_text>
+						<select_banner_pagi translate="label, comment">
+							<label>Banner pagination</label>
+							<comment><![CDATA[show description in front of image]]></comment>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>14</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<depends>
+                                <bannerType>2</bannerType>
+                            </depends>
+						</select_banner_pagi>
+						<select_banner_hover translate="label, comment">
+							<label>Banner pause on hover</label>
+							<comment><![CDATA[You can enable or desable on mouse hover]]></comment>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>15</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<depends>
+                                <bannerType>2</bannerType>
+                            </depends>
+						</select_banner_hover>
+						<home-page-option translate="label">
+                            <label>Home page banner with static block: </label>
+                            <comment>Here you can set home page banner with static block</comment>
+							<frontend_type>select</frontend_type>
+							<source_model>mlayer/system_config_homepage</source_model>
+							<sort_order>16</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<depends>
+                                <bannerType>2</bannerType>
+                            </depends>
+                        </home-page-option>
+						
+						
+						
+						<!--OWL BANNER SETTINGS-->
+						
+						<owl_banner_loop translate="label, comment">
+							<label>Banner Loop</label>
+							<comment><![CDATA[You can enable or desable banner loop]]></comment>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>17</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<depends>
+                                <bannerType>3</bannerType>
+                            </depends>
+						</owl_banner_loop>
+						
+						<owl_autoplay translate="label, comment">
+							<label>Banner Autoplay</label>
+							<comment><![CDATA[You can enable or desable banner autoplay]]></comment>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>18</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<depends>
+                                <bannerType>3</bannerType>
+                            </depends>
+						</owl_autoplay>
+						
+						<owl_autoplayTime translate="label, comment">
+							<label>Banner Autoplay Time</label>
+							<comment><![CDATA[You can set autoplay time]]></comment>
+							<frontend_type>text</frontend_type>
+							<sort_order>19</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<depends>
+                                <bannerType>3</bannerType>
+                            </depends>
+						</owl_autoplayTime>
+						
+						<owl_bannerspeed translate="label, comment">
+							<label>Banner Speed</label>
+							<comment><![CDATA[You can set banner speed time]]></comment>
+							<frontend_type>text</frontend_type>
+							<sort_order>20</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<depends>
+                                <bannerType>3</bannerType>
+                            </depends>
+						</owl_bannerspeed>
+						
+						<owl_animateIn translate="label">
+                            <label>Banner Animate In</label>
+                            <comment><![CDATA[Select banner animation In effect]]></comment>
+							<frontend_type>select</frontend_type>
+							<source_model>mlayer/source_animationin</source_model>
+							<sort_order>21</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<depends>
+                                <bannerType>3</bannerType>
+                            </depends>
+                        </owl_animateIn>
+						
+						<owl_animateOut translate="label">
+                            <label>Banner Animate Out</label>
+                            <comment><![CDATA[Select banner animation Out effect]]></comment>
+							<frontend_type>select</frontend_type>
+							<source_model>mlayer/source_animationout</source_model>
+							<sort_order>22</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<depends>
+                                <bannerType>3</bannerType>
+                            </depends>
+                        </owl_animateOut>
+						
+						<owl_height translate="label, comment">
+							<label>Banner Auto Height</label>
+							<comment><![CDATA[You can enable or desable banner auto height]]></comment>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>23</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<depends>
+                                <bannerType>3</bannerType>
+                            </depends>
+						</owl_height>
+						
+						<owl_nav translate="label, comment">
+							<label>Banner Navigation</label>
+							<comment><![CDATA[You can enable or desable banner navigation]]></comment>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>24</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<depends>
+                                <bannerType>3</bannerType>
+                            </depends>
+						</owl_nav>
+						
+						<owl_button translate="label, comment">
+							<label>Banner button text</label>
+							<comment><![CDATA[You can change banner button text]]></comment>
+							<frontend_type>text</frontend_type>
+							<sort_order>25</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<depends>
+                                <bannerType>3</bannerType>
+                            </depends>
+						</owl_button>
+						<owl_des translate="label, comment">
+							<label>Banner content</label>
+							<comment><![CDATA[You can enable or desable banner content]]></comment>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>24</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<depends>
+                                <bannerType>3</bannerType>
+                            </depends>
+						</owl_des>
+						<homeBlock translate="label">
+                            <label>Banner with static block: </label>
+                            <comment>Here you can set home page banner with static block</comment>
+							<frontend_type>select</frontend_type>
+							<source_model>mlayer/system_config_owlblock</source_model>
+							<sort_order>26</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<depends>
+                                <bannerType>3</bannerType>
+                            </depends>
+                        </homeBlock>
+						
+						
+						
+					</fields>
+				</settings>
+				
+				
+				
+				
+			</groups>
+		</mlayer>
+	</sections>
+</config>

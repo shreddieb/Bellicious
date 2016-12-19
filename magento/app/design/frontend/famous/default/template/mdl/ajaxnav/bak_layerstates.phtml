@@ -1,0 +1,168 @@
+<?php
+/*Code for filter state */
+	
+	$current_cat = Mage::registry('current_category');
+	 	if($current_cat): 
+			$currentCat = Mage::registry('current_category')->getId();
+		endif;
+	if($currentCat): 
+	
+	if((Mage::getStoreConfig('ajaxnav/ajaxnav/show_states')=='productlist') && (Mage::getStoreConfig('ajaxnav/ajaxnav/show_states')!='none')): 
+	if ($cat = $this->getLayer()->getCurrentCategory()) {
+            $ajaxUrl = Mage::getUrl('ajaxnav/front/category', array('id' => $cat->getId()));
+        }
+		 $pageKey = Mage::getBlockSingleton('page/html_pager')->getPageVarName();
+
+        //Get parameters of serach
+		
+       $state = Mage::helper('ajaxnav')->getParams(true, $pageKey);
+        if ($state)
+          $state = substr($state, 1);
+		  
+		  endif;
+		  endif;  
+	/*End code for filter state */
+?>
+<!-- Code for filter state  -->
+<div id="ajaxlayer-states">
+  <?php if((Mage::getStoreConfig('ajaxnav/ajaxnav/show_states')=='productlist') && (Mage::getStoreConfig('ajaxnav/ajaxnav/show_states')!='none')): ?>
+  <?php if ($state): ?>
+        <?php $stateAttribute = explode('&',$state); ?>
+		<?php
+				//echo '<pre>';print_r($stateAttribute);echo '</pre>';
+		?>
+		<?php if(Mage::registry('current_category')): ?>
+		<div class="selected-filter f-fix">
+			<div class="currently">
+				<ol>
+					<?php for($i=0;$i<count($stateAttribute);$i++): ?>
+					<?php if($stateAttribute[$i]!='dir=desc' && $stateAttribute[$i]!='dir=asc' && $stateAttribute[$i]!='mode=list' &&
+                         $stateAttribute[$i]!='order=name' && $stateAttribute[$i]!='order=price' && $stateAttribute[$i]!='order=position' &&
+					(strpos( $stateAttribute[$i], 'limit=')===false) && $stateAttribute[$i]!='mode=grid' && strstr($stateAttribute[$i],'=',true)!='id'):  ?>
+					<?php  $getValue = explode('=',$stateAttribute[$i]);
+							$exValue = explode('-',$getValue[1]); 
+					?>
+					
+					<?php if($getValue[0]!='price'):?>
+						<li>
+							<span class="label"><?php echo $getValue[0] ?>:</span>
+							
+					<?php if(count($exValue)==1): ?>
+					<?php 	$attributeDetails = Mage::getSingleton("eav/config")->getAttribute("catalog_product", $getValue[0]);
+							$optionValue = $attributeDetails->getSource()->getOptionText($getValue[1]);
+					?>
+							<span class="value"><?php echo $optionValue ?>
+								<span class="removeFilter" data-class="<?php echo $getValue[0] ?>" id="<?php echo $exValue[0] ?>">X</span>
+							</span>
+							
+					<?php	else: ?>
+					<?php	for($j=0;$j<count($exValue);$j++): ?>
+					<?php	$attributeDetails = Mage::getSingleton("eav/config")->getAttribute("catalog_product", $getValue[0]);
+							$optionValue = $attributeDetails->getSource()->getOptionText($exValue[$j]);
+					?>
+							<span class="value"><?php echo $optionValue ?>
+								<span class="removeFilter" data-class="<?php echo $getValue[0] ?>" id="<?php echo $exValue[$j] ?>">X</span>
+							</span>
+							
+					<?php 	endfor; ?>
+					<?php endif; ?>
+						</li>
+					<?php else: ?>
+					<li>
+						<span class="label"><?php echo $getValue[0] ?>:</span>
+					    <span class="value"><?php echo str_replace('%2C','-',$getValue[1]) ?>
+							<span class="removeFilter" data-class="<?php echo $getValue[0] ?>">X</span>
+						</span>
+					</li>
+					<?php endif; ?>
+					<?php endif; ?>
+					<?php endfor; ?>
+				</ol>
+				
+				<?php if(count($exValue)):?>
+					<div class="actions mdl_layered_clear_all">
+						<span id="clearAll" style="cursor: pointer"><?php echo $this->__('Clear All') ?></span>
+					</div>
+				<?php endif ?> 
+			</div>
+		</div>
+			
+		 
+		<?php endif ?>
+        <?php endif ?>
+		<?php endif ?>
+</div>
+	<!-- End Code for filter state  -->
+<script type="text/javascript">
+		catalog_toolbar_init();
+	function filterRemover(target, str){
+		
+		jQuery('.'+target).off('click').on("click", function(){
+				mdl_layered_add_params(jQuery(this).attr('data-class'),jQuery(this).attr('id'),1);
+		/*	var currentLayer = jQuery(this).attr('data-class');
+			if (currentLayer == "price")
+			{
+				var value = 'clear';
+			}	 
+			else
+			{
+				var colorId = jQuery(this).attr('id');
+				var value = '';
+				console.log(str);
+				var array=str.split("-");
+				for (var i=array.length-1; i>=0; i--)
+				{
+					if (array[i] == colorId) {
+						array.splice(i, 1);      
+					}
+				}
+				value = array.join("-");
+				
+			}*/
+			var cL = jQuery('#mdl_layered_params').val();
+			jQuery.ajax({
+				//url:'<?php echo $this->getUrl('ajaxnav/front/category'); ?>?dir=desc&'+currentLayer+'='+value+'&p=1',
+				url:'<?php echo $this->getUrl('ajaxnav/front/category'); ?>?'+cL,
+				data:{id:'<?php echo $currentCat; ?>'},
+				dataType:'json',
+				beforeSend: function(){ jQuery('div.mdl_loading_filters').show(); },
+				success:function(result)
+				{
+					alert(result.products);
+					jQuery('div.mdl_loading_filters').hide();
+					/*--filter new layer and products--*/
+					jQuery("#catalog-filters").html(result.layer);
+					jQuery("#mdl_layered_container").html(result.products);
+					jQuery("#ajaxlayer-states").html(result.ajaxstate);
+				},
+				error : function(){ 
+					jQuery('div.mdl_loading_filters').hide(); 
+				}
+			});
+		});
+	}	
+	filterRemover('removeFilter', '<?php echo $getValue[1]?>');	
+	
+		//Code for clear Ajax
+	
+	jQuery('#clearAll').on("click", function(){
+	   jQuery.ajax(
+			{
+				url:'<?php echo $this->getUrl('ajaxnav/front/category'); ?>?clearall=true&dir=desc',
+				data:{id:'<?php echo $currentCat; ?>'},
+				dataType:'json',
+				beforeSend:function(){ jQuery('div.mdl_loading_filters').show();  },
+				success:function(result)
+				{
+					jQuery('html,body').animate({ scrollTop: jQuery('#mdl_layered_container').offset().top -50 }, 'slow');
+					/*--filter new layer and products--*/
+					jQuery('div.mdl_loading_filters').hide(); 
+					  jQuery("#catalog-filters").html(result.layer);
+					  jQuery("#mdl_layered_container").html(result.products);
+					  jQuery("#ajaxlayer-states").html(result.ajaxstate);
+				},
+				error: function(){ jQuery('div.mdl_loading_filters').hide(); }
+			}
+			);
+	   });
+</script>

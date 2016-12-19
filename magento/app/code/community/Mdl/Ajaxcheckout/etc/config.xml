@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+            <Mdl_Ajaxcheckout>
+                    <version>0.1.0</version>
+                    <depends>
+                            <Mage_Customer />
+                            <Mage_Checkout />
+                    </depends>
+            </Mdl_Ajaxcheckout>
+    </modules>
+    <global>
+
+        <models>
+            <mdlajaxcheckout>
+                <class>mdl_Ajaxcheckout_Model</class>
+            </mdlajaxcheckout>
+        </models>
+        <blocks>
+            <mdlajaxcheckout>
+                <class>Mdl_Ajaxcheckout_Block</class>
+            </mdlajaxcheckout>
+        </blocks>
+        <helpers>
+            <mdlajaxcheckout>
+                <class>mdl_Ajaxcheckout_Helper</class>
+            </mdlajaxcheckout>
+        </helpers>
+
+    </global>
+
+    <frontend>
+        <layout>
+            <updates>
+                <mdlajaxcheckout>
+                    <file>mdlajaxcheckout.xml</file>
+                </mdlajaxcheckout>
+            </updates>
+        </layout>
+        <translate>
+            <modules>
+                <Mdl_Ajaxcheckout>
+                    <files>
+                        <default>mdl_ajaxcheckout.csv</default>
+                    </files>
+                </Mdl_Ajaxcheckout>
+            </modules>
+        </translate>
+
+    </frontend>
+
+    <frontend>
+        <routers>
+            <mdlajaxcheckout>
+                <use>standard</use>
+                <args>
+                    <module>Mdl_Ajaxcheckout</module>
+                    <frontName>mdlajaxcheckout</frontName>
+                </args>
+            </mdlajaxcheckout>
+        </routers>
+    </frontend>
+	<default>
+        <mdlajaxcheckout>
+            <default>
+				<mdl_ajax_cart_setting>1</mdl_ajax_cart_setting>	
+                <mdl_ajax_cart_loading_size>260x80</mdl_ajax_cart_loading_size>
+                <mdl_ajax_cart_confirm_size>300x150</mdl_ajax_cart_confirm_size>
+                <mdl_ajax_cart_image_size>55x55</mdl_ajax_cart_image_size>
+                <mdl_ajax_cart_show_popup>1</mdl_ajax_cart_show_popup>
+            </default>
+        </mdlajaxcheckout>
+    </default>
+
+    <global>
+    </global>
+</config>
+

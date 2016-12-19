@@ -1,0 +1,9 @@
+<layout>
+<adminhtml_catalog_category_edit>
+    <reference name="category.tree">
+        <action method="setTemplate" ifconfig="mdlmdlnavi/general/mdltreestructure_enable">
+            <template>mdl/mdlnavi/tree.phtml</template>
+        </action>
+    </reference>
+</adminhtml_catalog_category_edit>
+</layout>

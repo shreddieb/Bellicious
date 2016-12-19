@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <default>
+		 <reference name="right">
+            <block type="mdlblog/menu_sidebar" name="right.mdlblog.menu" before="-">
+                <action method="setTemplate" ifconfig="mdlblog/menu/right" ifvalue="1">
+                    <template>magic_mdlblog/menu.phtml</template>
+                </action>
+                <block type="mdlblog/tags" name="mdlblog_tags" />
+            </block>
+        </reference>
+        <reference name="left">
+            <block type="mdlblog/menu_sidebar" name="left.mdlblog.menu"  before="-">
+                <action method="setTemplate" ifconfig="mdlblog/menu/left">
+                    <template>magic_mdlblog/menu.phtml</template>
+                </action>
+                <block type="mdlblog/tags" name="mdlblog_tags" />
+            </block>
+        </reference>
+        <reference name="top.links">
+            <block type="mdlblog/mdlblog" name="add.mdlblog.link">
+                <action method="addBlogLink" ifconfig="mdlblog/menu/top"><param>top</param></action>
+            </block>
+        </reference>
+        
+    </default>
+
+    <mdlblog_index_index>
+        <reference name="content">
+            <block type="mdlblog/mdlblog" name="mdlblog" template="magic_mdlblog/mdlblog.phtml"/>
+        </reference>
+    </mdlblog_index_index>
+
+
+    <mdlblog_index_list>
+        <reference name="content">
+            <block type="mdlblog/mdlblog" name="mdlblog" template="magic_mdlblog/mdlblog.phtml">
+                <block type="mdlblog/product_toolbar" name="magic_mdlblog_list_toolbar" template="magic_mdlblog/toolbar.phtml">
+                    <block type="page/html_pager" name="product_list_toolbar_pager"/>
+                </block>
+            </block>
+        </reference>
+    </mdlblog_index_list>
+    <mdlblog_post_view>
+        <reference name="content">
+            <block type="mdlblog/post" name="post" template="magic_mdlblog/post.phtml">
+                <block type="mdlblog/product_toolbar" name="magic_mdlblog_list_toolbar" template="magic_mdlblog/toolbar.phtml">
+                    <block type="page/html_pager" name="product_list_toolbar_pager"/>
+                </block>
+            </block>
+        </reference>
+    </mdlblog_post_view>
+    <mdlblog_cat_view>
+        <reference name="content">
+            <block type="mdlblog/cat" name="cat" template="magic_mdlblog/cat.phtml">
+                 <block type="mdlblog/product_toolbar" name="magic_mdlblog_list_toolbar" template="magic_mdlblog/toolbar.phtml">
+                    <block type="page/html_pager" name="product_list_toolbar_pager"/>
+                </block>
+            </block>
+        </reference>
+    </mdlblog_cat_view>
+</layout>

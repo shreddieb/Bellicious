@@ -1,0 +1,7 @@
+
+.columns .form-list #row_underConstruction_settings_socialLinks td.value ,
+.form-list #row_underConstruction_settings_socialLinks td.value textarea
+{
+    padding-right: 5px !important;
+    width: 600px;
+}

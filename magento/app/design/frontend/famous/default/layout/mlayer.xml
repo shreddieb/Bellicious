@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+	<cms_index_index>
+		 <reference name="bannercolumn">
+			<block type="mlayer/mlayer" name="cms.page.menu.bottom" template="mlayer/mlayer.phtml">
+                <action method="setBlockPosition">
+                    <block_position>cms-page-menu-bottom</block_position>
+                </action>
+            </block>
+        </reference> 
+    </cms_index_index>
+</layout> 

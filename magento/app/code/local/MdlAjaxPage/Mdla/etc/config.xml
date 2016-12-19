@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <MdlAjaxPage_Mdla>
+            <version>1.0.0</version>
+        </MdlAjaxPage_Mdla>
+    </modules>
+    <frontend>
+        <layout>
+            <updates>
+                <mdlajaxpage_mdla>
+                    <file>mdlajaxpage_mdla.xml</file>
+                </mdlajaxpage_mdla>
+            </updates>
+        </layout>
+     </frontend>
+	<default>
+		<item_view>
+            <ajaxdownslide>1</ajaxdownslide>
+		</item_view>
+	</default>
+</config>
+

@@ -1,0 +1,26 @@
+<form id="search_mini_form" action="<?php echo $this->helper('catalogsearch')->getResultUrl() ?>" method="get">
+    <div class="form-search">
+        <?php $categorySearchHelper = $this->helper('catalogcategorysearch'); ?>
+        <div class="select-cover fffd">
+			<select class="searchMPan" id="<?php echo $categorySearchHelper->getCategoryParamName() ?>" name="<?php echo $categorySearchHelper->getCategoryParamName() ?>">
+				<option class="parent-cat" value=""><?php echo $this->__('All') ?></option>
+				<?php foreach ($this->getSearchableCategories() as $mainCategory): ?>
+					<option class="parent-cat" value="<?php echo $mainCategory->getEntityId()?>"><?php echo $mainCategory->getName() ?></option>
+					<?php if ($categorySearchHelper->showSubCategories()):?>
+						<?php foreach ($this->getSearchableSubCategories($mainCategory) as $category) : ?>
+							<option class="child-cat" value="<?php echo $category->getEntityId()?>">&nbsp;&nbsp; - <?php echo $category->getName()?></option>
+							<?php if ($categorySearchHelper->showSubCategories()):?>
+								<?php foreach ($this->getSearchableSubCategories($category) as $category1) : ?>
+									<option class="child-cat" value="<?php echo $category1->getEntityId()?>">&nbsp;&nbsp;&nbsp;&nbsp; - <?php echo $category1->getName()?></option>
+								<?php endforeach;?>
+							<?php endif ?>
+						<?php endforeach;?>
+					<?php endif ?>
+				<?php endforeach;?>
+			</select>
+		</div>
+        <input id="search" type="text" name="<?php echo $this->helper('catalogsearch')->getQueryParamName() ?>" class="input-text" onfocus="return addclass();"/>
+        <button type="submit" title="<?php echo $this->__('Search') ?>" class="button"><span><span><i class="fa fa-search"></i></span></span></button>
+        <div id="search_autocomplete" class="search-autocomplete"></div>
+    </div>
+</form>

@@ -1,0 +1,23 @@
+<div class="block-banner blocks">
+     <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('block-slide-left')->toHtml() ?>
+</div>  
+<script type="text/javascript">
+			(function($) {
+				
+				
+				$('.leftBanner').owlCarousel({
+					loop:true,
+					pagination : true,
+					margin:10,
+					slideSpeed :500,
+					autoplay:true,
+					autoplayTimeout:2000,
+					autoplayHoverPause:true,
+					responsiveClass:true,
+					items:1
+				})
+				
+				
+				
+			})(jQuery);			
+		</script>

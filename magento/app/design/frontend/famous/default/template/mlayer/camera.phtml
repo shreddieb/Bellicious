@@ -1,0 +1,229 @@
+<?php
+	$bannerCollection = $this->getBannerCollection();
+	$i = 0;
+   	$config2 = Mage::getStoreConfig('mlayer/settings');	
+	$config3 = Mage::getStoreConfig('mdlmdlnavi/navsettings');
+	$config4 = Mage::getStoreConfig('mdlmdlnavi/general');
+?>
+
+<?php $bannerStatus = $this->getBannerStatus() ?>
+<?php $showdesc = $this->isShowDescription() ?>
+<?php $bannerContentPos = $this->getBannerContentPos()?>
+<?php $contentHeight = $this->getContentHeight()?>
+<?php $btntext = $this->getButtonText()?>
+<?php $contentloder = $this->getContentloder()?>
+<?php $contentPage = $this->getContentPage()?>
+<?php $contentHover = $this->getContentHover()?>
+<?php $effectbanner = $this->getEffectbanner()?>
+
+<?php if ($bannerStatus == '1'):?>
+	
+	<?php if ($contentloder == '1'):?>
+		<?php $loderClass = 'bar';?>
+	<?php elseif ($contentloder == '2'):?>
+		<?php $loderClass = 'pie';?>
+	<?php endif;?>
+
+	<!--CAMERA BANNER START-->
+	<?php
+		 $effect = '';
+				switch($effectbanner){
+					case 1:
+						$effect = 'random';
+					break;
+					case 2:
+						$effect = 'simpleFade';
+					break;
+					case 3:
+						$effect = 'curtainTopLeft';
+					break;
+					case 4:
+						$effect = 'curtainTopRight';
+					break;
+					case 5:
+						$effect = 'curtainBottomLeft';
+					break;
+					case 6:
+						$effect = 'curtainBottomRight';
+					break;
+					case 7:
+						$effect = 'curtainSliceLeft';
+					break;
+					case 8:
+						$effect = 'curtainSliceRight';
+					break;
+					case 9:
+						$effect = 'blindCurtainTopLeft';
+					break;
+					case 10:
+						$effect = 'blindCurtainTopRight';
+					break;
+					case 11:
+						$effect = 'blindCurtainBottomLeft';
+					break;
+					case 12:
+						$effect = 'blindCurtainBottomRight';
+					break;
+					case 13:
+						$effect = 'blindCurtainSliceBottom';
+					break;
+					case 14:
+						$effect = 'blindCurtainSliceTop';
+					break;
+					case 15:
+						$effect = 'stampede';
+					break;
+					case 16:
+						$effect = 'mosaic';
+					break;
+					case 17:
+						$effect = 'mosaicReverse';
+					break;
+					case 18:
+						$effect = 'mosaicRandom';
+					break;
+					case 19:
+						$effect = 'mosaicSpiral';
+					break;
+					case 20:
+						$effect = 'mosaicSpiralReverse';
+					break;
+					case 21:
+						$effect = 'topLeftBottomRight';
+					break;
+					case 22:
+						$effect = 'topLeftBottomRight';
+					break;
+					case 23:
+						$effect = 'bottomRightTopLeft';
+					break;
+					case 24:
+						$effect = 'bottomLeftTopRight';
+					break;
+					case 25:
+						$effect = 'bottomLeftTopRight';
+					break;
+					default:
+						$effect = 'random';
+					break;
+				}
+				
+		?>
+	
+	<link rel="stylesheet" property="stylesheet" type="text/css" href="<?php echo $this->getSkinUrl('css/banner2.css');?>" media="all" />
+	<link rel="stylesheet" property="stylesheet" type="text/css" href="<?php echo $this->getSkinUrl('css/camera.css');?>" media="all" />
+	<script type="text/javascript" src="<?php echo $this->getSkinUrl('js/camera.js'); ?>"></script> 
+
+	<script>
+        jQuery(function(){	
+          jQuery('#camera_wrap_4').camera({
+                height: '<?php echo $contentHeight; ?>%',
+                loader: '<?php echo $loderClass;?>',
+                pagination:<?php if ($contentPage == '1'):?><?php echo 'true'?><?php else:?><?php echo 'false'?><?php endif;?>,
+                thumbnails:false,
+				fx         : '<?php echo $effect; ?>',
+                hover:<?php if ($contentHover == '1'):?><?php echo 'true'?><?php else:?><?php echo 'false'?><?php endif;?>,
+				autoAdvance:1,
+				time:7000,
+				transPeriod:400,
+                imagePath: '../images/'
+            });
+        });
+    </script> 
+	<!-- Slider --> 
+	<?php if($config3['navoption_main']==1):?>
+	<!--banner without Nav-->
+	  <div class="f-block">
+		<div class="camera_wrap camera_emboss pattern_1 <?php echo $config2['hide_banner']? 'hideBanner':'' ?>" id="camera_wrap_4">
+		  <?php $i = 0; foreach ($bannerCollection as $banner): $i++; ?>
+		  <?php if ($banner['contentpos'] == '1'):?>
+			<?php $contentClass = 'contentPos-left';?>
+		  <?php elseif ($banner['contentpos'] == '2'):?>
+			<?php $contentClass = 'contentPos-right';?>
+		  <?php elseif ($banner['contentpos'] == '3'):?>
+			<?php $contentClass = 'contentPos-center';?>
+		  <?php endif;?>
+		  <div data-thumb="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) .$banner['filename']?>" data-src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA).$banner['filename']?>">
+			<?php if ($showdesc == '1'):?>
+				<div class="fadeIn camera_effected <?php echo $contentClass; ?>">
+				  <h2><?php echo $banner['title']?></h2>
+				  <p><?php echo $banner['content']; ?></p>
+				  <?php if ($btntext):?>
+				  <a class="btn-cart" href="<?php echo Mage::getBaseUrl().$banner['weblink'];?>"> <span><span><?php echo $btntext;?></span></span> </a>
+				  <?php endif;?>
+				</div>
+			<?php else:?>
+				<div class="fadeIn camera_effected">
+				<a class="fakeanchure"href="<?php echo Mage::getBaseUrl().$banner['weblink'];?>"></a>
+				</div>
+			<?php endif;?>
+		  </div>
+		  <?php endforeach; ?>
+		</div>
+	  </div>
+	  <?php else:?>
+	  <!--banner with Nav-->
+	  <div class="f-fix">
+		<div class="container">
+			<div class="row">
+				<div class="navBox">
+					<div class="leftNav">
+						<?php if($config4['status']==1):?>
+						   <?php echo $this->getLayout()->createBlock('mdlmdlnavi/mdlnavi')->setTemplate('mdl/mdlnavi/top.phtml')->toHtml();?>
+						   <?php echo $this->getLayout()->createBlock('page/html_topmenu')->setTemplate('page/html/mobilemenu.phtml')->toHtml();?>
+						<?php else:?>
+							<?php echo $this->getLayout()->createBlock('page/html_topmenu')->setTemplate('page/html/topmenu.phtml')->toHtml();?>
+						<?php endif;?>
+					</div>
+					<div class="bannerBox">
+						<div class="camera_wrap camera_emboss pattern_1 <?php echo $config2['hide_banner']? 'hideBanner':'' ?>" id="camera_wrap_4">
+						  <?php $i = 0; foreach ($bannerCollection as $banner): $i++; ?>
+						  <?php if ($banner['contentpos'] == '1'):?>
+							<?php $contentClass = 'contentPos-left';?>
+						  <?php elseif ($banner['contentpos'] == '2'):?>
+							<?php $contentClass = 'contentPos-right';?>
+						  <?php elseif ($banner['contentpos'] == '3'):?>
+							<?php $contentClass = 'contentPos-center';?>
+						  <?php endif;?>
+						  <div data-thumb="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) .$banner['filename']?>" data-src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA).$banner['filename']?>">
+							<?php if ($showdesc == '1'):?>
+							<div class="fadeIn camera_effected <?php echo $contentClass; ?>">
+							  <h2><?php echo $banner['title']?></h2>
+							  <p><?php echo $banner['content']; ?></p>
+							  <?php if ($btntext):?>
+							  <a class="btn-cart" href="<?php echo Mage::getBaseUrl().$banner['weblink'];?>"> <span><span><?php echo $btntext;?></span></span> </a>
+							  <?php endif;?>
+							</div>
+							<?php endif;?>
+						  </div>
+						  <?php endforeach; ?>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<?php endif;?>
+	  
+
+	<!--Static block-->
+	<?php if($config2['home-page-option']==1):?>
+	<div class="f-fix">
+		<div class="promoBox f-fix">
+			  <div class="container"> 
+				   <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('promotional_bottom_block_3')->toHtml() ?> 
+			  </div>
+		</div>
+	</div>
+	<?php elseif($config2['home-page-option']==2):?>
+	<div class="f-fix">
+		<div class="promoBox f-fix">
+			  <div class="container"> 
+				   <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('promotional_bottom_block_2')->toHtml() ?> 
+			  </div>
+		</div>
+	</div>
+	<?php endif;?>
+	<!--Static block end --> 
+	
+<?php endif;?>

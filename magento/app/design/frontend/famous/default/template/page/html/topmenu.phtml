@@ -1,0 +1,37 @@
+<?php $config = Mage::getStoreConfig('mdlmdlnavi/navsettings'); ?>
+<?php $config2 = Mage::getStoreConfig('mdloption/genral_theme_setting'); ?>
+<?php $config3 = Mage::getStoreConfig('mdloption/headerpan'); ?>
+<?php $_menu = $this->getHtml('level-top');?>
+<?php if ($_menu): ?>
+		<ul id="nav" class="dmenu">
+            <?php if($config['navoption_home']=='1'):?>
+            <li class="home level0"><a class="level-top" href="<?php echo $this->getUrl('') ?>"><?php echo $this->__('Home')?></a></li>
+            <?php elseif($config['navoption_home']=='2'):?>
+            <li class="home hicon level0"><a href="<?php echo $this->getUrl('') ?>"><i class="fa fa-home"></i></a></li>
+            <?php elseif($config['navoption_home']=='3'):?>
+            <li class="home level0"><a href="<?php echo $this->getUrl('') ?>"><i class="fa fa-home home-link"></i><?php echo $this->__('Home')?></a></li>
+            <?php endif;?>
+			<?php echo $_menu; ?>
+		</ul>
+<?php endif ?>
+
+
+<?php $_menu = $this->getHtml('level-top');?>
+<div class="mobMenu span12">
+<h1>
+<a href="javascript:void(0);" class="menuBox highlight">
+	<span class="sp1"></span>
+	<span class="sp2"></span>
+	<span class="sp3"></span>
+</a>
+<span class="clearfix"></span>
+</h1>
+<div id="menuInnner">
+<?php if ($_menu): ?>
+		<ul class="accordion">
+			<?php echo $_menu; ?>
+		</ul>
+<?php endif ?>
+      
+</div>      
+</div>

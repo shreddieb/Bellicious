@@ -1,0 +1,2496 @@
+<?xml version="1.0"?>
+<config>
+	<tabs>
+		<Mdlext translate="label" module="mdloption">
+			<label>Mdlext</label>
+			<sort_order>205</sort_order>
+		</Mdlext>
+	</tabs>
+	
+	<sections>
+		<mdloption translate="label" module="mdloption">
+			<label>Mdl Theme Settings</label>
+			<tab>Mdlext</tab>
+			<sort_order>100</sort_order>
+			<show_in_default>1</show_in_default>
+			<show_in_website>1</show_in_website>
+			<show_in_store>1</show_in_store>
+			<groups>
+			    <genral_theme_setting translate="label">
+					<label>Genral theme setting</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>10</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<logo_img>
+                            <label>Logo image</label>
+                            <frontend_type>image</frontend_type>
+                            <backend_model>adminhtml/system_config_backend_image</backend_model>
+                            <upload_dir config="system/filesystem/media" scope_info="1">logo</upload_dir>
+                            <base_url type="media" scope_info="1">logo</base_url>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </logo_img>
+						<logo_sm>
+                            <label>Small Logo image</label>
+							<comment>Logo for small devices.</comment>
+                            <frontend_type>image</frontend_type>
+                            <backend_model>adminhtml/system_config_backend_image</backend_model>
+                            <upload_dir config="system/filesystem/media" scope_info="1">logo</upload_dir>
+                            <base_url type="media" scope_info="1">logo</base_url>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </logo_sm>
+						<logo_tp>
+                            <label>Transparent banner Logo image</label>
+							<comment>Logo for transparent banner.</comment>
+                            <frontend_type>image</frontend_type>
+                            <backend_model>adminhtml/system_config_backend_image</backend_model>
+                            <upload_dir config="system/filesystem/media" scope_info="1">logo</upload_dir>
+                            <base_url type="media" scope_info="1">logo</base_url>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </logo_tp>
+						<page-scroll translate="label">
+                            <label>Custom Page scroll: </label>
+                            <comment>Here you can enable or disable custom scroll.</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </page-scroll>
+						
+						
+						<body_bg>
+                            <label>Body background image</label>
+                            <frontend_type>image</frontend_type>
+                            <backend_model>adminhtml/system_config_backend_image</backend_model>
+                            <upload_dir config="system/filesystem/media" scope_info="1">magic/bg</upload_dir>
+                            <base_url type="media" scope_info="1">magic/bg</base_url>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </body_bg>
+						
+						 <bg_repeat translate="label comment">
+							<label>Backgrond repeat: </label>
+                            <comment>Here you can set background repeat</comment>
+							<frontend_type>select</frontend_type>
+							<source_model>mdloption/source_styles</source_model>
+							<sort_order>60</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</bg_repeat>
+						<basizefix translate="label comment">
+							<label>Background size: </label>
+							<comment>Here you can set background size</comment>
+							<frontend_type>select</frontend_type>
+							<source_model>mdloption/source_bgsize</source_model>
+							<sort_order>90</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</basizefix>
+						<bg_position translate="label comment">
+							<label>Backgrond position: </label>
+                            <comment>Here you can set background position</comment>
+							<frontend_type>select</frontend_type>
+							<source_model>mdloption/source_bgposition</source_model>
+							<sort_order>70</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</bg_position>
+						<bg_attachment translate="label comment">
+							<label>Backgrond attachment: </label>
+                            <comment>Here you can set background attachment</comment>
+							<frontend_type>select</frontend_type>
+							<source_model>mdloption/source_bgattachment</source_model>
+							<sort_order>80</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</bg_attachment>
+						<enable_font translate="label comment">
+							<label>Enable Google Font: </label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>90</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</enable_font>
+						
+						<font translate="label comment">
+							<label>Font: </label>
+                            <comment>Enable google font to use this option</comment>
+							<frontend_type>select</frontend_type>
+							<frontend_model>mdloption/adminhtml_system_config_form_field_font</frontend_model>
+							<source_model>mdloption/config_font</source_model>
+							<sort_order>100</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<depends>
+                                <enable_font>1</enable_font>
+                            </depends>
+						</font>
+						 
+						<font_size translate="label">
+                            <label>Body font Size: </label>
+                            <comment>Here you can change body font size</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>110</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </font_size>
+						
+						<compare_box translate="label">
+                            <label>Enable Compare feature from site: </label>
+                            <comment>Here you can Enable compare feature from entire site.</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>120</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </compare_box>
+						
+					</fields>
+				</genral_theme_setting>
+				
+				<!--HEADER SETTINGS-->
+				<headerpan translate="label">
+					<label>Header Setting</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>20</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<header-option translate="label">
+                            <label>Header type: </label>
+                            <comment>Here you can set header type</comment>
+							<frontend_type>select</frontend_type>
+							<source_model>mdloption/config_headerbox</source_model>
+							<sort_order>10</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+                        </header-option>
+						
+					</fields>	
+				</headerpan>
+				
+				<!--HIGHLIGHTER SETTINGS-->
+				<highlighter translate="label">
+					<label>Highlighter Banner for Home page.</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>30</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<highlighterenable translate="label">
+                            <label>Highlighter Enable: </label>
+                            <comment>Here you can highlighter enable or disable.</comment>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>10</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+                        </highlighterenable>
+						
+						<highlighterBg>
+                            <label>Highlighter background image</label>
+                            <frontend_type>image</frontend_type>
+                            <backend_model>adminhtml/system_config_backend_image</backend_model>
+                            <upload_dir config="system/filesystem/media" scope_info="1">highlighter/bg</upload_dir>
+                            <base_url type="media" scope_info="1">highlighter/bg</base_url>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </highlighterBg>
+						
+						 <bg_repeat translate="label comment">
+							<label>Backgrond repeat: </label>
+                            <comment>Here you can set background repeat</comment>
+							<frontend_type>select</frontend_type>
+							<source_model>mdloption/source_styles</source_model>
+							<sort_order>30</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</bg_repeat>
+						
+						<basizefix translate="label comment">
+							<label>Background size 100%: </label>
+							<comment>Here you can set background 100%</comment>
+							<frontend_type>select</frontend_type>
+							<source_model>mdloption/source_bgsize</source_model>
+							<sort_order>40</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</basizefix>
+						<bg_position translate="label comment">
+							<label>Backgrond position: </label>
+                            <comment>Here you can set background position</comment>
+							<frontend_type>select</frontend_type>
+							<source_model>mdloption/source_bgposition</source_model>
+							<sort_order>50</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</bg_position>
+						<bg_attachment translate="label comment">
+							<label>Backgrond attachment: </label>
+                            <comment>Here you can set background attachment</comment>
+							<frontend_type>select</frontend_type>
+							<source_model>mdloption/source_bgattachment</source_model>
+							<sort_order>60</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</bg_attachment>
+						
+						
+						<highlighterHeading translate="label">
+                            <label>Product or brand heading: </label>
+                            <comment>You can add here prduct or brand heading.</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </highlighterHeading>
+						
+						
+						<highlighterDes translate="label">
+                            <label>Product or brand heading: </label>
+                            <comment>You can add here prduct or brand description.</comment>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>110</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </highlighterDes>
+						<highlighterbutton translate="label">
+                            <label>Button text: </label>
+                            <comment>You can add here prduct or brand description.</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>120</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </highlighterbutton>
+						
+						<highlighterUrl translate="label">
+                            <label>Highlighter Url: </label>
+                            <comment>You can add here highlighter url.</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>130</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </highlighterUrl>
+					</fields>
+				</highlighter>
+				
+				<aboutrow translate="label">
+					<label>Hide about us row</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>140</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+                        <enable translate="label comment">
+							<label>Hide about us row</label>
+							<comment>Here you can hide whole about us row including facebook and twitter block.</comment>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>50</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</enable>
+					</fields>
+				</aboutrow>
+				
+				<facebooksetting translate="label">
+					<label>Facebook Like box</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>150</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+                        <facebookuser translate="label">
+                            <label>Facebook user Id ID: </label>
+                            <comment>Here you can add your facebook user Id</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </facebookuser>
+						 <facebook-height translate="label">
+                            <label>Box height: </label>
+                            <comment>Here you can set facebook like box height</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </facebook-height>
+						<option_divider translate="label comment">
+							<label>Important:</label>
+							<comment>Please flush Magento Cache after Facebook Like box setting.</comment>
+							<frontend_type>hidden</frontend_type>
+							<sort_order>30</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</option_divider>
+					</fields>
+				</facebooksetting>
+				<googleMap translate="label">
+					<label>Google Map Setting</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>160</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<enable_map translate="label comment">
+							<label>Enable Google Map: </label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>10</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</enable_map>
+                        <latitude translate="label">
+                            <label>Latitude: </label>
+                            <comment>Here you can add Latitude Point</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </latitude>
+						 <longitude translate="label">
+                            <label>Longitude: </label>
+                            <comment>Here you can add Longitude Point</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </longitude>
+						<description_map translate="label comment">
+							<label>Enable Map Description: </label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>40</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</description_map>
+						<mapheading translate="label">
+                            <label>Heading Text: </label>
+                            <comment>Here you can add description heading</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </mapheading>
+						<mapdescription translate="label">
+                            <label>Description Text: </label>
+                            <comment>Here you can add description</comment>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </mapdescription>
+						<map-height translate="label">
+                            <label>Map height:</label>
+                            <comment>Here you can set Map box height</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>70</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </map-height>
+					</fields>
+				</googleMap>
+				
+				<socialicon translate="label">
+					<label>Social icon manager</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>170</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<heading1 translate="label">
+						    <label>Facebook icon settings</label>
+							<frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+							<sort_order>10</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</heading1>
+						<enable_facebook_ic translate="label comment">
+							<label>Facebook icon</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>20</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</enable_facebook_ic>
+						<facebook_url translate="label">
+                            <label>Facebook URL:</label>
+                            <comment>Your Facebook fan page.</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </facebook_url>
+						
+						
+						<heading2 translate="label">
+						    <label>Twitter icon settings</label>
+							<frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+							<sort_order>40</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</heading2>
+						<enable_twitter_ic translate="label comment">
+							<label>Twitter icon</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>50</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</enable_twitter_ic>
+						<twitter_url translate="label">
+                            <label>Twitter URL:</label>
+                            <comment>Your official Twitter accounts.</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </twitter_url>
+						
+						
+						<heading3 translate="label">
+						    <label>Google Plus icon settings</label>
+							<frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+							<sort_order>70</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</heading3>
+						<enable_googlep_ic translate="label comment">
+							<label>Google Plus icon</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>80</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</enable_googlep_ic>
+						<googlep_url translate="label">
+                            <label>Google Plus URL:</label>
+                            <comment>You official Google Plus page.</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>90</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </googlep_url>
+						
+						
+						<heading4 translate="label">
+						    <label>Youtube icon settings</label>
+							<frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+							<sort_order>100</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</heading4>
+						<enable_youtube_ic translate="label comment">
+							<label>Youtube icon</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>110</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</enable_youtube_ic>
+						<youtube_url translate="label">
+                            <label>Youtube URL:</label>
+                            <comment>Your youtube fan page.</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>120</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </youtube_url>
+						
+						
+						<heading5 translate="label">
+						    <label>Pinterest icon settings</label>
+							<frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+							<sort_order>130</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</heading5>
+						<enable_pinterest_ic translate="label comment">
+							<label>Pinterest icon</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>140</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</enable_pinterest_ic>
+						<pinterest_url translate="label">
+                            <label>Pinterest URL:</label>
+                            <comment>Your pinterest account.</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>150</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </pinterest_url>
+						
+						
+						<heading6 translate="label">
+						    <label>Linkedin icon settings</label>
+							<frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+							<sort_order>160</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</heading6>
+						<enable_linkedin_ic translate="label comment">
+							<label>Linkedin icon</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>170</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</enable_linkedin_ic>
+						<linkedin_url translate="label">
+                            <label>Linkedin URL:</label>
+                            <comment>Your Linkedin account.</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>180</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </linkedin_url>
+						
+						
+						<heading7 translate="label">
+						    <label>dribble icon settings</label>
+							<frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+							<sort_order>190</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</heading7>
+						<enable_dribble_ic translate="label comment">
+							<label>Dribble icon</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>200</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</enable_dribble_ic>
+						<dribble_url translate="label">
+                            <label>Dribble URL:</label>
+                            <comment>Your Dribble account.</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>210</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </dribble_url>
+						
+						
+						<heading8 translate="label">
+						    <label>RSS icon settings</label>
+							<frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+							<sort_order>220</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</heading8>
+						<enable_rss_ic translate="label comment">
+							<label>RSS icon</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>230</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</enable_rss_ic>
+						<rss_url translate="label">
+                            <label>RSS URL:</label>
+                            <comment>The RSS feed of your choice (your blog, your store, etc.).</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>240</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </rss_url>
+						
+						
+						<heading9 translate="label">
+						    <label>Tumblr icon settings</label>
+							<frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+							<sort_order>250</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</heading9>
+						<enable_tumblr_ic translate="label comment">
+							<label>Tumblr icon</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>260</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</enable_tumblr_ic>
+						<tumblr_url translate="label">
+                            <label>Tumblr URL:</label>
+                            <comment>Your tumblr account.</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>270</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </tumblr_url>
+					</fields>	
+				</socialicon>
+				
+				<newsletter_pop translate="label">
+					<label>Newsletter Popup</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>170</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<enable translate="label comment">
+							<label>Newsletter Popup: </label>
+							<comment>Here you can enable or disable newsletter Popup.</comment>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>10</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</enable>
+						<heading translate="label">
+                            <label>Newsletter popup hading: </label>
+                            <comment>Here you can add Newsletter popup hading</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>11</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </heading>
+						<description translate="label">
+                            <label>Small description: </label>
+                            <comment>Here you can add small description.</comment>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>12</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </description>
+						<btnText translate="label">
+                            <label>Newsletter Button text: </label>
+                            <comment>Here you can add Newsletter button text</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>13</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </btnText>
+						<note translate="label">
+							<label>Note: </label>
+                            <comment>Here you can add note.</comment>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>15</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+						</note>
+						<newsletter_img>
+                            <label>Newsletter Backgrond image</label>
+                            <frontend_type>image</frontend_type>
+                            <backend_model>adminhtml/system_config_backend_image</backend_model>
+                            <upload_dir config="system/filesystem/media" scope_info="1">newsletter</upload_dir>
+                            <base_url type="media" scope_info="1">newsletter</base_url>
+                            <sort_order>16</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </newsletter_img>
+						 <bg_repeat translate="label comment">
+							<label>Backgrond repeat: </label>
+                            <comment>Here you can set background repeat</comment>
+							<frontend_type>select</frontend_type>
+							<source_model>mdloption/source_styles</source_model>
+							<sort_order>17</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</bg_repeat>
+						
+						<basizefix translate="label comment">
+							<label>Background size 100%: </label>
+							<comment>Here you can set background 100%</comment>
+							<frontend_type>select</frontend_type>
+							<source_model>mdloption/source_bgsize</source_model>
+							<sort_order>18</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</basizefix>
+						<bg_position translate="label comment">
+							<label>Backgrond position: </label>
+                            <comment>Here you can set background position</comment>
+							<frontend_type>select</frontend_type>
+							<source_model>mdloption/source_bgposition</source_model>
+							<sort_order>19</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</bg_position>
+						<bg_attachment translate="label comment">
+							<label>Backgrond attachment: </label>
+                            <comment>Here you can set background attachment</comment>
+							<frontend_type>select</frontend_type>
+							<source_model>mdloption/source_bgattachment</source_model>
+							<sort_order>20</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</bg_attachment>
+						<newsletter_time translate="label">
+                            <label>Newsletter Cookie Time: </label>
+                            <comment>Here you can set Newsletter Cookie time.</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>21</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </newsletter_time>
+						
+					</fields>
+				</newsletter_pop>
+				
+				
+				<footer translate="label">
+					<label>Footer Setting</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>190</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<footerType translate="label comment">
+							<label>Footer type: </label>
+							<comment>Here you can footer type.</comment>
+							<frontend_type>select</frontend_type>
+							<source_model>mdloption/config_footerbox</source_model>
+							<sort_order>10</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</footerType>
+						<footer_bg>
+                            <label>Body background image</label>
+                            <frontend_type>image</frontend_type>
+                            <backend_model>adminhtml/system_config_backend_image</backend_model>
+                            <upload_dir config="system/filesystem/media" scope_info="1">footer/bg</upload_dir>
+                            <base_url type="media" scope_info="1">footer/bg</base_url>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </footer_bg>
+						<bg_repeat translate="label comment">
+							<label>Backgrond repeat: </label>
+                            <comment>Here you can set background repeat</comment>
+							<frontend_type>select</frontend_type>
+							<source_model>mdloption/source_styles</source_model>
+							<sort_order>60</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</bg_repeat>
+						<basizefix translate="label comment">
+							<label>Background size: </label>
+							<comment>Here you can set background size</comment>
+							<frontend_type>select</frontend_type>
+							<source_model>mdloption/source_bgsize</source_model>
+							<sort_order>90</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</basizefix>
+						<bg_position translate="label comment">
+							<label>Backgrond position: </label>
+                            <comment>Here you can set background position</comment>
+							<frontend_type>select</frontend_type>
+							<source_model>mdloption/source_bgposition</source_model>
+							<sort_order>70</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</bg_position>
+						<bg_attachment translate="label comment">
+							<label>Backgrond attachment: </label>
+                            <comment>Here you can set background attachment</comment>
+							<frontend_type>select</frontend_type>
+							<source_model>mdloption/source_bgattachment</source_model>
+							<sort_order>80</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</bg_attachment>
+					</fields>
+				</footer>
+				       
+			</groups>
+		</mdloption>
+		
+		<mdloptioncolor translate="label" module="mdloption">
+			<label>Mdl Color settings</label>
+			<tab>Mdlext</tab>
+			<sort_order>110</sort_order>
+			<show_in_default>1</show_in_default>
+			<show_in_website>1</show_in_website>
+			<show_in_store>1</show_in_store>
+			<groups>			
+                <genral_theme_setting translate="label">
+					<label>Genral theme color setting</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>10</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<body_bg_color translate="label comment">
+                            <label>Body Bg Color: </label>
+                            <comment>Here you can change body background color</comment>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>mdloption/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </body_bg_color>
+						
+						<color translate="label comment">
+                            <label>Theme Color: </label>
+                            <comment>Here you can theme base color</comment>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>mdloption/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </color>
+						
+						
+						<body_font_color translate="label comment">
+                            <label>Body font color: </label>
+                            <comment>This color will change body font color</comment>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>mdloption/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>6</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </body_font_color>					
+						<anchor_color translate="label comment">
+                            <label>Default anchor color </label>
+                            <comment>Here you can change anchor color</comment>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>mdloption/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>7</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </anchor_color>
+						<anchor_hover translate="label comment">
+                            <label>Default anchor hover color </label>
+                            <comment>Here you can change anchor hover color</comment>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>mdloption/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>8</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </anchor_hover>
+						
+						<breadcrumbs_anchore translate="label">
+                            <label>Breadcrumb Anchore Color: </label>
+                            <comment>Here you can change breadcrumb anchore color</comment>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>mdloption/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>9</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </breadcrumbs_anchore>
+						
+						<breadcrumbs_text translate="label">
+                            <label>Breadcrumb Text Color: </label>
+                            <comment>Here you can change breadcrumb text color</comment>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>mdloption/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </breadcrumbs_text>
+						
+						
+						<block_heading_color translate="label comment">
+                            <label>Block heading color</label>
+                            <comment>Here you can change block heading color</comment>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>mdloption/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>11</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </block_heading_color>
+						
+						<new_batch translate="label comment">
+                            <label>New badge bg color</label>
+                            <comment>Here you can change new badge bg color</comment>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>mdloption/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>12</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </new_batch>
+						<new_batch_color translate="label comment">
+                            <label>New badge text color</label>
+                            <comment>Here you can change new badge text color</comment>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>mdloption/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>13</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </new_batch_color>
+						
+						<sale_batch translate="label comment">
+                            <label>Sale badge bg color</label>
+                            <comment>Here you can change sale badge bg color</comment>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>mdloption/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>14</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </sale_batch>
+						<sale_batch_color translate="label comment">
+                            <label>Sale badge text color</label>
+                            <comment>Here you can change sale badge text color</comment>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>mdloption/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>15</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </sale_batch_color>
+						
+					</fields>
+				</genral_theme_setting>	
+				
+				<header_color_setting translate="label">
+					<label>Header color setting</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>20</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+					   <header_bg translate="label">
+                            <label>Header top bg color: </label>
+                            <comment>Here you can change header bg color</comment>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>mdloption/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </header_bg>
+						
+						<header_top_text translate="label">
+                            <label>Header top text Color: </label>
+                            <comment>Here you can change header top bar bg color</comment>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>mdloption/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </header_top_text>
+						
+						<header_top_anchore translate="label">
+                            <label>Header top anchore Color: </label>
+                            <comment>Here you can change header text color</comment>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>mdloption/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </header_top_anchore>
+						
+						<header_top_anchore_hover translate="label">
+                            <label>Header top anchore hover Color: </label>
+                            <comment>Here you can change header text color</comment>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>mdloption/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>6</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </header_top_anchore_hover>
+						
+					 </fields>
+				</header_color_setting>	
+						
+				<navsettings translate="label">
+					<label>Navigation color setting</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>30</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						
+						<mainbg translate="label comment">
+                            <label>Main menu bg color </label>
+                            <comment><![CDATA[Here you can change main menu bg color]]></comment>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>mdloption/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </mainbg>
+						
+						<mainTextColor translate="label comment">
+                            <label>Main menu Link color </label>
+                            <comment><![CDATA[Here you can change main menu link color]]></comment>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>mdloption/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </mainTextColor>
+						
+						<activeBgColor translate="label comment">
+                            <label>Main menu active bg color</label>
+                            <comment><![CDATA[Here you can change main menu active bg color]]></comment>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>mdloption/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </activeBgColor>
+						
+						<activeColor translate="label comment">
+                            <label>Main menu active color</label>
+                            <comment><![CDATA[Here you can change main menu active bg color]]></comment>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>mdloption/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </activeColor>
+						
+						<mainTextHoverColor translate="label comment">
+                            <label>Main menu link hover color </label>
+                            <comment><![CDATA[Here you can change main menu hover link color]]></comment>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>mdloption/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </mainTextHoverColor>
+						
+						<mainMenuBottom translate="label comment">
+                            <label>Main menu bottom border color </label>
+                            <comment><![CDATA[Here you can change main menu bottom border color]]></comment>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>mdloption/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>6</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </mainMenuBottom>
+						
+						
+						
+						<submenubg translate="label comment">
+                            <label>Submenu bg</label>
+                            <comment><![CDATA[Here you can change submenu bg color]]></comment>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>mdloption/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>7</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </submenubg>
+						
+						<submenubgH translate="label comment">
+                            <label>Submenu Heading color</label>
+                            <comment><![CDATA[Here you can change submenu heading color]]></comment>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>mdloption/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>8</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </submenubgH>
+						
+						<submenutext translate="label comment">
+                            <label>Submenu link color</label>
+                            <comment><![CDATA[Here you can change submenu text color]]></comment>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>mdloption/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>9</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </submenutext>
+						
+						<submenutexthover translate="label comment">
+                            <label>Submenu link hover color</label>
+                            <comment><![CDATA[Here you can change submenu text hover color]]></comment>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>mdloption/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </submenutexthover>
+						
+						<submenuActiveColor translate="label comment">
+                            <label>Submenu active color</label>
+                            <comment><![CDATA[Here you can change submenu text hover color]]></comment>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>mdloption/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>11</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </submenuActiveColor>
+						
+						<headerfixbg translate="label comment">
+                            <label>Fix Navigation bg color</label>
+                            <comment><![CDATA[Here you can change fix navigation bg color]]></comment>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>mdloption/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>12</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </headerfixbg>
+						
+					</fields>
+				</navsettings> 
+				
+				<navsettingMob translate="label">
+					<label>Mobile Navigation setting</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>40</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<mainmenuBg translate="label comment">
+                            <label>Main menu bg color </label>
+                            <comment><![CDATA[Here you can change main menu bg color]]></comment>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>mdloption/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </mainmenuBg>
+						
+						<mainmenuBghover translate="label comment">
+                            <label>Menu bg hover color </label>
+                            <comment><![CDATA[Here you can change main menu bg hover color]]></comment>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>mdloption/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>6</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </mainmenuBghover>
+						
+						<sapborder translate="label comment">
+                            <label>border color </label>
+                            <comment><![CDATA[Here you can change menu border color]]></comment>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>mdloption/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>7</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </sapborder>
+						
+						<mobMainmenuTextColor translate="label comment">
+                            <label>Main menu text color </label>
+                            <comment><![CDATA[Here you can change main menu text color]]></comment>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>mdloption/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>8</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </mobMainmenuTextColor>
+						
+						<mobMainmenuTextHoverColor translate="label comment">
+                            <label>Main menu hover text color </label>
+                            <comment><![CDATA[Here you can change main menu text hover color]]></comment>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>mdloption/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>9</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </mobMainmenuTextHoverColor>
+					</fields>
+				</navsettingMob>
+				
+				
+				<buttonSetting translate="label">
+					<label>Button color setting</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>50</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<button_color_bg translate="label comment">
+                            <label>Button background color: </label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>mdloption/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </button_color_bg>
+						
+						<button_text_color translate="label comment">
+                            <label>Button text color: </label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>mdloption/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </button_text_color>
+						
+						<button_border_color translate="label comment">
+                            <label>Button border color: </label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>mdloption/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </button_border_color>
+						
+						
+						<button_hover_bg translate="label comment">
+                            <label>Button hover background color: </label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>mdloption/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </button_hover_bg>
+						
+						<button_hover_text translate="label comment">
+                            <label>Button hover text color: </label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>mdloption/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>6</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </button_hover_text>
+						
+						<button_border_hover_color translate="label comment">
+                            <label>Button border hover color: </label>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>mdloption/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>7</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </button_border_hover_color>
+						
+					</fields>
+				</buttonSetting>
+				
+				
+				<priceSetting translate="label">
+					<label>Price color setting</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>60</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						
+						<regular_price translate="label comment">
+                            <label>Regular price color: </label>
+                            <comment>Here you can change regular price color</comment>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>mdloption/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </regular_price>
+						
+						<price_label translate="label comment">
+                            <label>Price label color: </label>
+                            <comment>Here you can change special price color</comment>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>mdloption/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </price_label>
+						
+						<special_price translate="label comment">
+                            <label>Special price color: </label>
+                            <comment>Here you can change special price color</comment>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>mdloption/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </special_price>
+						<old_price translate="label comment">
+                            <label>Old price color: </label>
+                            <comment>Here you can change old price color</comment>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>mdloption/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </old_price>
+					</fields>
+				</priceSetting>
+				
+				
+				
+				
+				
+				<footer_setting translate="label">
+					<label>Footer color setting</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>80</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						
+						<footer_bg translate="label comment">
+                            <label>Footer background color</label>
+							<comment><![CDATA[Here you can change footer top background]]></comment>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>mdloption/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </footer_bg>
+						
+						<footer_heading translate="label comment">
+                            <label>Footer heading color</label>
+							<comment><![CDATA[Here you can change footer heading color]]></comment>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>mdloption/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </footer_heading>
+						
+						<footer_text_color translate="label comment">
+                            <label>Footer text color</label>
+							<comment><![CDATA[Here you can footer text color]]></comment>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>mdloption/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </footer_text_color>
+						
+						<footer_text_anchore_color translate="label comment">
+                            <label>Footer anchore color</label>
+							<comment><![CDATA[Here you can footer link color]]></comment>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>mdloption/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>6</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </footer_text_anchore_color>
+						
+						<footer_text_color_hover translate="label comment">
+                            <label>Footer anchore hover color</label>
+							<comment><![CDATA[Here you can footer link hover color]]></comment>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>mdloption/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>7</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </footer_text_color_hover>
+						
+						<footer_border_color translate="label comment">
+                            <label>Footer border color</label>
+							<comment><![CDATA[Here you can footer border color]]></comment>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>mdloption/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>8</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </footer_border_color>
+						
+						<footer_bg_bottom translate="label comment">
+                            <label>Footer bottom background color</label>
+							<comment><![CDATA[Here you can change footer bottom background]]></comment>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>mdloption/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>9</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </footer_bg_bottom>
+						
+						<footer_bg_copy_text translate="label comment">
+                            <label>Footer bottom copyright text color</label>
+							<comment><![CDATA[Here you can change footer bottom background]]></comment>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>mdloption/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </footer_bg_copy_text>
+					</fields>
+					
+				</footer_setting>
+				
+				
+				<newsletter_color_setting translate="label">
+					<label>Newsletter Popup color setting</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>90</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						
+						<nl_left_bg translate="label comment">
+                            <label>left Block Backgrond color</label>
+							<comment><![CDATA[Here you can change left block background color]]></comment>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>mdloption/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </nl_left_bg>
+						
+						<nl_right_bg translate="label comment">
+                            <label>Right Block Backgrond color</label>
+							<comment><![CDATA[Here you can change Right block background color]]></comment>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>mdloption/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </nl_right_bg>
+						
+						<nl_heading_color translate="label comment">
+                            <label>Heading color</label>
+							<comment><![CDATA[Here you can change heading color]]></comment>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>mdloption/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </nl_heading_color>
+						
+						<nl_des_color translate="label comment">
+                            <label>Description color</label>
+							<comment><![CDATA[Here you can change description color]]></comment>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>mdloption/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </nl_des_color>
+						
+						<nl_btn_border translate="label comment">
+                            <label>Button border color</label>
+							<comment><![CDATA[Here you can change button border color]]></comment>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>mdloption/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </nl_btn_border>
+						
+						<nl_btn_text translate="label comment">
+                            <label>Button Text color</label>
+							<comment><![CDATA[Here you can change button text color]]></comment>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>mdloption/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>6</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </nl_btn_text>
+						
+						
+					</fields>
+					
+				</newsletter_color_setting>
+				
+					
+			</groups>
+		</mdloptioncolor>
+		
+		
+		<mdlpump translate="label" module="mdloption">
+			<label>Mdl Product settings</label>
+			<tab>Mdlext</tab>
+			<sort_order>120</sort_order>
+			<show_in_default>1</show_in_default>
+			<show_in_website>1</show_in_website>
+			<show_in_store>1</show_in_store>
+			<groups>			
+                <!--NEW TRENDS PRODUCT SETTINGS-->
+				<homeproducts translate="label">
+					<label>New Trends (home page product slider)</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>40</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<enable translate="label">
+                            <label>Enable setting</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+							<comment>Here you can enable product settings.</comment>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enable>
+						<category_id translate="label">
+                            <label>Category ID:</label>
+                            <comment>Define Category ID which products you want to show.</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </category_id>
+						<heading translate="label">
+                            <label>Product Heading: </label>
+                            <comment>Define heading here.</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </heading>
+						<name_character translate="label">
+                            <label>Product Name Character Limit: </label>
+                            <comment>Define character limit.</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </name_character>
+						<row_pro translate="label">
+                            <label>Product in row:</label>
+                            <comment>Define number of products you want to show on one row.</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </row_pro>
+						<total_pro translate="label">
+                            <label>Total products:</label>
+                            <comment>Define number of products you want to show.</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>6</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </total_pro>
+						<itemviewbox_quick_view translate="label comment">
+							<label>Quick View: </label>
+							<comment>Here you can enable or disable quick view</comment>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>7</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</itemviewbox_quick_view>
+						<flip_view translate="label comment">
+							<label>Flip view: </label>
+							<comment>Here you can enable or disable flip view</comment>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>8</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</flip_view>
+						<flip_view_style translate="label comment">
+							<label>Flip view style: </label>
+							<comment>Here you can flip view style</comment>
+							<frontend_type>select</frontend_type>
+							<source_model>mdloption/config_flipviewstyle</source_model>
+							<sort_order>9</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</flip_view_style>
+						<itemviewbox translate="label comment">
+							<label>Item view type: </label>
+							<comment>Here you can set second type of Item view</comment>
+							<frontend_type>select</frontend_type>
+							<source_model>mdloption/config_itemview</source_model>
+							<sort_order>10</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</itemviewbox>
+						<gallery_view translate="label comment">
+							<label>Gallery view: </label>
+							<comment>Here you can enable or disable gallery view</comment>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>11</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<depends><itemviewbox>5</itemviewbox></depends>
+						</gallery_view>
+					</fields>
+				</homeproducts>
+				
+				
+				
+				<!--FEATURED PRODUCT SETTINGS-->
+				<featuredpro translate="label">
+					<label>Featured products(home page product slider)</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>50</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<enable translate="label">
+                            <label>Enable setting</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+							<comment>Here you can enable featued product settings.</comment>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enable>
+						<heading translate="label">
+                            <label>Heading: </label>
+                            <comment>Define heading here.</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </heading>
+						<name_character translate="label">
+                            <label>Product Name Character Limit: </label>
+                            <comment>Define character limit.</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </name_character>
+						<left_pos translate="label comment">
+							<label>Show on left Column: </label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>4</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</left_pos>
+						<row_pro translate="label">
+                            <label>Product in row: </label>
+                            <comment>Define number of products you want to show on one row</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+						</row_pro>
+						<total_pro translate="label">
+                            <label>Total products: </label>
+                            <comment>Define number of products you want to show.</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>6</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							</total_pro>
+						<itemviewbox_quick_view translate="label comment">
+							<label>Quick View: </label>
+							<comment>Here you can enable or disable quick view</comment>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>7</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</itemviewbox_quick_view>
+						<flip_view translate="label comment">
+							<label>Flip view: </label>
+							<comment>Here you can enable or disable flip view</comment>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>8</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</flip_view>
+						<flip_view_style translate="label comment">
+							<label>Flip view style: </label>
+							<comment>Here you can flip view style</comment>
+							<frontend_type>select</frontend_type>
+							<source_model>mdloption/config_flipviewstyle</source_model>
+							<sort_order>9</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</flip_view_style>
+						<itemviewbox translate="label comment">
+							<label>Item view type: </label>
+							<comment>Here you can set second type of Item view</comment>
+							<frontend_type>select</frontend_type>
+							<source_model>mdloption/config_itemview</source_model>
+							<sort_order>10</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</itemviewbox>
+						<gallery_view translate="label comment">
+							<label>Gallery view: </label>
+							<comment>Here you can enable or disable gallery view</comment>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>11</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<depends><itemviewbox>5</itemviewbox></depends>
+						</gallery_view>
+						
+					</fields>
+				</featuredpro>
+				
+				
+				<!--MOST POPULAR PRODUCT SETTINGS-->
+				<mostpro translate="label">
+					<label>Most Popular Products(home page product slider)</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>60</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<enable translate="label">
+                            <label>Enable setting</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+							<comment>Here you can enable product settings.</comment>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enable>
+						<category_id translate="label">
+                            <label>Category ID:</label>
+                            <comment>Define Category ID which products you want to show.</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </category_id>
+						<heading translate="label">
+                            <label>Product Heading: </label>
+                            <comment>Define heading here.</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </heading>
+						<name_character translate="label">
+                            <label>Product Name Character Limit: </label>
+                            <comment>Define character limit.</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </name_character>
+						<row_pro translate="label">
+                            <label>Product in row:</label>
+                            <comment>Define number of products you want to show on one row.</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </row_pro>
+						<total_pro translate="label">
+                            <label>Total products:</label>
+                            <comment>Define number of products you want to show.</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>6</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </total_pro>
+						<itemviewbox_quick_view translate="label comment">
+							<label>Quick View: </label>
+							<comment>Here you can enable or disable quick view</comment>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>7</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</itemviewbox_quick_view>
+						<flip_view translate="label comment">
+							<label>Flip view: </label>
+							<comment>Here you can enable or disable flip view</comment>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>8</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</flip_view>
+						<flip_view_style translate="label comment">
+							<label>Flip view style: </label>
+							<comment>Here you can flip view style</comment>
+							<frontend_type>select</frontend_type>
+							<source_model>mdloption/config_flipviewstyle</source_model>
+							<sort_order>9</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</flip_view_style>
+						<itemviewbox translate="label comment">
+							<label>Item view type: </label>
+							<comment>Here you can set second type of Item view</comment>
+							<frontend_type>select</frontend_type>
+							<source_model>mdloption/config_itemview</source_model>
+							<sort_order>10</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</itemviewbox>
+						<gallery_view translate="label comment">
+							<label>Gallery view: </label>
+							<comment>Here you can enable or disable gallery view</comment>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>11</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<depends><itemviewbox>5</itemviewbox></depends>
+						</gallery_view>
+					</fields>
+				</mostpro>
+				
+				
+				<!--NEW PRODUCT SETTINGS-->
+				<newpro translate="label">
+					<label>New products(home page product slider)</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>70</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<enable translate="label">
+                            <label>Enable setting</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+							<comment>Here you can enable featued product settings.</comment>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enable>
+						<heading translate="label">
+                            <label>Heading: </label>
+                            <comment>Define heading here.</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </heading>
+						<name_character translate="label">
+                            <label>Product Name Character Limit: </label>
+                            <comment>Define character limit.</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </name_character>
+						<row_pro translate="label">
+                            <label>Product in row: </label>
+                            <comment>Define number of products you want to show on one row</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </row_pro>
+						<total_pro translate="label">
+                            <label>Total products: </label>
+                            <comment>Define number of products you want to show.</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>6</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </total_pro>
+						<itemviewbox_quick_view translate="label comment">
+							<label>Quick View: </label>
+							<comment>Here you can enable or disable quick view</comment>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>7</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</itemviewbox_quick_view>
+						<flip_view translate="label comment">
+							<label>Flip view: </label>
+							<comment>Here you can enable or disable flip view</comment>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>8</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</flip_view>
+						<flip_view_style translate="label comment">
+							<label>Flip view style: </label>
+							<comment>Here you can flip view style</comment>
+							<frontend_type>select</frontend_type>
+							<source_model>mdloption/config_flipviewstyle</source_model>
+							<sort_order>9</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</flip_view_style>
+						<itemviewbox translate="label comment">
+							<label>Item view type: </label>
+							<comment>Here you can set second type of Item view</comment>
+							<frontend_type>select</frontend_type>
+							<source_model>mdloption/config_itemview</source_model>
+							<sort_order>10</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</itemviewbox>
+						<gallery_view translate="label comment">
+							<label>Gallery view: </label>
+							<comment>Here you can enable or disable gallery view</comment>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>11</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<depends><itemviewbox>5</itemviewbox></depends>
+						</gallery_view>
+					</fields>
+				</newpro>
+				
+				
+				
+				<!--Quick Featured products-->
+				<qfreatured translate="label">
+					<label>Quick Featured products</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>71</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<quick_featued_settings translate="label">
+                            <label>Enable setting</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+							<comment>Here you can enable featued product settings.</comment>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </quick_featued_settings>
+						<quick_featured_heading translate="label">
+                            <label>Heading: </label>
+                            <comment>Define heading here.</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </quick_featured_heading>
+						<quick_featured_name_character translate="label">
+                            <label>Product Name Character Limit: </label>
+                            <comment>Define character limit.</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </quick_featured_name_character>
+						<quick_featured_column translate="label">
+                            <label>Product in Column: </label>
+                            <comment>Define number of products you want to show on one Column</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </quick_featured_column>
+					</fields>
+				</qfreatured>
+				
+				
+				<!--Quick New products-->
+				<qnew translate="label">
+					<label>Quick New Products</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>72</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<quick_new_settings translate="label">
+                            <label>Enable setting</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+							<comment>Here you can enable new product settings.</comment>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </quick_new_settings>
+						<quick_new_heading translate="label">
+                            <label>Heading: </label>
+                            <comment>Define heading here.</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </quick_new_heading>
+						<quick_new_name_character translate="label">
+                            <label>Product Name Character Limit: </label>
+                            <comment>Define character limit.</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </quick_new_name_character>
+						<quick_new_column translate="label">
+                            <label>Product in Column: </label>
+                            <comment>Define number of products you want to show on one Column</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </quick_new_column>
+					</fields>
+				</qnew>
+				
+				
+				<!--Quick Sale products-->
+				<qsale translate="label">
+					<label>Quick Sale Products</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>73</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<quick_sale_settings translate="label">
+                            <label>Enable setting</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+							<comment>Here you can enable sale product settings.</comment>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </quick_sale_settings>
+						<quick_sale_category translate="label">
+                            <label>Category ID: </label>
+                            <comment>Define Category ID which products you want to show on sale products</comment>s
+                            <frontend_type>text</frontend_type>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </quick_sale_category>
+						<quick_sale_heading translate="label">
+                            <label>Heading: </label>
+                            <comment>Define heading here.</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </quick_sale_heading>
+						<quick_sale_name_character translate="label">
+                            <label>Product Name Character Limit: </label>
+                            <comment>Define character limit.</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </quick_sale_name_character>
+						<quick_sale_column translate="label">
+                            <label>Product in Column: </label>
+                            <comment>Define number of products you want to show on one Column</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </quick_sale_column>
+					</fields>
+				</qsale>
+				
+				
+				<!--Quick Hot products-->
+				<qhot translate="label">
+					<label>Quick Hot Products</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>74</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<quick_hote_settings translate="label">
+                            <label>Enable setting</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+							<comment>Here you can enable hot product settings.</comment>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </quick_hote_settings>
+						<quick_hot_category translate="label">
+                            <label>Category ID: </label>
+                            <comment>Define Category ID which products you want to show on hot products</comment>s
+                            <frontend_type>text</frontend_type>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </quick_hot_category>
+						<quick_hot_heading translate="label">
+                            <label>Heading: </label>
+                            <comment>Define heading here.</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </quick_hot_heading>
+						<quick_hot_name_character translate="label">
+                            <label>Product Name Character Limit: </label>
+                            <comment>Define character limit.</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </quick_hot_name_character>
+						<quick_hot_column translate="label">
+                            <label>Product in Column: </label>
+                            <comment>Define number of products you want to show on one Column</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </quick_hot_column>
+					</fields>
+				</qhot>
+				
+				
+				<item_view translate="label">
+					<label>Category product view setting</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>80</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<name_character translate="label">
+                            <label>Product Name Character Limit: </label>
+                            <comment>Define character limit.</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </name_character>
+						<itemviewbox_quick_view translate="label comment">
+							<label>Quick View: </label>
+							<comment>Here you can enable or disable quick view</comment>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>2</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</itemviewbox_quick_view>
+						<flip_view translate="label comment">
+							<label>Flip view: </label>
+							<comment>Here you can enable or disable flip view</comment>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>3</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</flip_view>
+						<flip_view_style translate="label comment">
+							<label>Flip view style: </label>
+							<comment>Here you can flip view style</comment>
+							<frontend_type>select</frontend_type>
+							<source_model>mdloption/config_flipviewstyle</source_model>
+							<sort_order>4</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</flip_view_style>
+						<itemviewbox translate="label comment">
+							<label>Item view type: </label>
+							<comment>Here you can set second type of Item view</comment>
+							<frontend_type>select</frontend_type>
+							<source_model>mdloption/config_itemview</source_model>
+							<sort_order>5</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</itemviewbox>
+						<gallery_view translate="label comment">
+							<label>Gallery view: </label>
+							<comment>Here you can enable or disable gallery view</comment>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>6</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<depends><itemviewbox>5</itemviewbox></depends>
+						</gallery_view>
+					</fields>
+				</item_view>
+				
+				<product-type-option translate="label">
+					<label>Prodcut Page Type</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>90</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<product-view-option translate="label">
+                            <label>Product page type: </label>
+                            <comment>Here you can change product page design type</comment>
+							<frontend_type>select</frontend_type>
+							<source_model>mdloption/config_productview</source_model>
+							<sort_order>10</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+                        </product-view-option>
+						
+						<moreViewType translate="label">
+                            <label>More view type: </label>
+                            <comment>Here you can change more view design type</comment>
+							<frontend_type>select</frontend_type>
+							<source_model>mdloption/config_moreview</source_model>
+							<sort_order>20</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+                        </moreViewType>
+						
+					</fields>	
+				</product-type-option>
+				
+				<upsellsetting translate="label">
+					<label>Upsell setting on product setting</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>100</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<upsellC translate="label comment">
+							<label>Upsell carousel: </label>
+							<comment>Here you can enable or disable carousel</comment>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>10</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</upsellC>
+						<upsellblocks translate="label">
+                            <label>Upsell setting on product page</label>
+                            <comment>Here you can set upsell product or static block</comment>
+							<frontend_type>select</frontend_type>
+							<source_model>mdloption/config_upsellsettings</source_model>
+							<sort_order>20</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+                        </upsellblocks>
+					</fields>	
+				</upsellsetting>
+				
+				<recentVeiw translate="label">
+					<label>Recent Viewed Tab</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>110</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<recent_veiw translate="label comment">
+							<label>Recent viewed tab: </label>
+							<comment>Here you can enable or disable Recent viewed tab.</comment>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>10</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</recent_veiw>
+                      
+					</fields>
+				</recentVeiw>
+			</groups>			
+		</mdlpump>
+		
+		
+		
+	</sections>
+</config>
+
+

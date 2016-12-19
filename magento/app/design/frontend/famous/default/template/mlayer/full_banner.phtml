@@ -1,0 +1,105 @@
+<?php
+	$bannerCollection = $this->getBannerCollection();
+	$i = 0;
+	$config = Mage::getStoreConfig('mdloption/headerpan');
+   	$config2 = Mage::getStoreConfig('mlayer/settings');	
+	$config3 = Mage::getStoreConfig('mdlmdlnavi/navsettings');
+?>
+
+<?php $bannerStatus = $this->getBannerStatus();?>
+<?php $showdesc = $this->isShowDescription();?>
+<?php $bannerContentPos = $this->getBannerContentPos();?>
+<?php $contentHeight = $this->getContentHeight();?>
+<?php $btntext = $this->getButtonText()?>
+<?php $contentloder = $this->getContentloder()?>
+<?php $contentPage = $this->getContentPage()?>
+<?php $contentHover = $this->getContentHover()?>
+<?php $effectbanner = $this->getEffectbanner()?>
+<?php if ($bannerStatus == '1'):?>
+	<?php if (!count($bannerCollection)): ?>
+		<div class="f-fix"><div class="no-banner container"><?php echo $this->__('Please upload banner');?></div></div>
+	<?php else:?>
+
+	<!--FULL WIDTH BANNER START-->
+	<!-- Slider full screen -->
+	<link rel="stylesheet" property="stylesheet" type="text/css" href="<?php echo $this->getSkinUrl('css/supersized.shutter.css');?>" media="all" />
+	<link rel="stylesheet" property="stylesheet" type="text/css" href="<?php echo $this->getSkinUrl('css/supersized.css');?>" media="all" />
+	<script type="text/javascript" src="<?php echo $this->getSkinUrl('js/supersized.3.2.7.min.js'); ?>"></script> 
+	<script>
+				jQuery(function($){
+					
+					$.supersized({
+					
+						// Functionality
+						slideshow               :   1,			// Slideshow on/off
+						autoplay				:   <?php echo(($config2['full_autoplay']==1)?'1':'0');?>,			// Slideshow starts playing automatically
+						start_slide             :   1,			// Start slide (0 is random)
+						stop_loop			   :   0,			// Pauses slideshow on last slide
+						random				  :   0,			// Randomize slide order (Ignores start slide)
+						slide_interval          :   4000,		// Length between transitions
+						transition              :   1, 			// 0-None, 1-Fade, 2-Slide Top, 3-Slide Right, 4-Slide Bottom, 5-Slide Left, 6-Carousel Right, 7-Carousel Left
+						transition_speed		:   1000,		// Speed of transition
+						new_window			  :   1,			// Image links open in new window/tab
+						pause_hover             : <?php echo (($config2['full_stop_hover']==1)?'1':'0');?>,			// Pause slideshow on hover
+						keyboard_nav            :   1,			// Keyboard navigation on/off
+						performance			 :   1,			// 0-Normal, 1-Hybrid speed/quality, 2-Optimizes image quality, 3-Optimizes transition speed // (Only works for Firefox/IE, not Webkit)
+						image_protect		   :   1,			// Disables image dragging and right click with Javascript
+							   
+						min_width		       :   0,			// Min width allowed (in pixels)
+						min_height		      :   0,			// Min height allowed (in pixels)
+						vertical_center         :   1,			// Vertically center background
+						horizontal_center       :   1,			// Horizontally center background
+						fit_always			  :   0,			// Image will never exceed browser width or height (Ignores min. dimensions)
+						fit_portrait         	:   1,			// Portrait images will not exceed browser height
+						fit_landscape		   :   0,			// Landscape images will not exceed browser width
+								
+						slide_links			 :   'blank',	// Individual links for each slide (Options: false, 'num', 'name', 'blank')
+						thumb_links			 :   0,			// Individual thumb links for each slide
+						thumbnail_navigation    :   0,			// Thumbnail navigation
+						slides 				  :   [						   
+					   <?php 
+						  foreach ($bannerCollection as $slide){ ?>
+							{image : '<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA).$slide['filename']?>', title : '<?php echo $slide['title'].'<div class="slidedescription">'.$slide['content'].'</div><span class="btnBox"><a class="bannerBtn" href="'.Mage::getBaseUrl().$slide['weblink'].'">'.$btntext.'</a></span>';?>'
+							, thumb : '', url : '#'},
+						<?php } //end foreach ?>          
+						],		   
+						progress_bar		:0,			// Timer for each slide							
+						mouse_scrub			:0
+						
+					});
+					
+					/*----------------------------------------------------*/
+					/* FULLSCREEN IMAGE HEIGHT
+					/*----------------------------------------------------*/
+					function mdlFullScreen(){
+						window_height = jQuery(window).height();
+						jQuery('.fullscreen').css({height:window_height});		  
+					}
+					mdlFullScreen();
+					jQuery( window ).resize(function() {
+						mdlFullScreen();	
+					});
+					
+					
+					
+				});
+	</script> 
+			
+			<?php if($config2['full_show_des']==1):?>
+                <div class="slider-text f-fix clearfix">
+                    <div class="container" style="position:relative;">
+                        <div class="col-sm-12">
+                            <div id="slidecaption"></div>
+                        </div>
+                        <?php if($config2['full_show_nav']==1):?>					
+                            <div class="col-sm-12" style="position:static;">
+                                <a id="prevslide" class="load-item"><i class="fa fa-angle-left"></i></a>
+                                <a id="nextslide" class="load-item"><i class="fa fa-angle-right"></i></a>
+                            </div>
+                        <?php endif;?>
+                    </div>
+                </div>
+            <?php endif;?>	
+	
+	<?php endif;?>
+<?php endif;?>

@@ -1,0 +1,608 @@
+<?xml version="1.0"?>
+<root>
+    <cms>
+        <pages>
+            <item>
+                <title>Famous - Home Page</title>
+                <identifier>famous_home_page</identifier>
+                <content><![CDATA[
+					<div>{{block type="catalog/product_list" template="catalog/product/home.phtml"}}</div>
+                	]]>
+				</content>
+                <is_active>1</is_active>
+                <sort_order>0</sort_order>
+                <stores>
+                    <item>0</item>
+                </stores>
+                <root_template>one_column</root_template>
+            </item>
+
+			<item>
+                <title>Famous-Lingerie (Demo Lingerie store)</title>
+                <identifier>famous_lingerie_home</identifier>
+                <content><![CDATA[
+					<div class="container zeroNine">
+						<div class="row oneBox">
+							<div class="col-sm-4"><a href="#"><img alt="" src="{{media url="wysiwyg/model3.jpg"}}" /></a></div>
+							<div class="col-sm-4"><a href="#"><img alt="" src="{{media url="wysiwyg/model2.jpg"}}" /></a></div>
+							<div class="col-sm-4"><a href="#"><img alt="" src="{{media url="wysiwyg/model1.jpg"}}" /></a></div>
+						</div>
+						<div class="row oneBox">
+							<div class="slider-box f-block areaBox">{{block type="catalog/product_list" name="new_trends" template="catalog/product/new_trends.phtml"}}</div>
+						</div>
+					</div>
+                	]]>
+				</content>
+                <is_active>1</is_active>
+                <sort_order>0</sort_order>
+                <stores>
+                    <item>0</item>
+                </stores>
+                <root_template>one_column</root_template>
+            </item>
+
+			<item>
+                <title>Famous - Sport(Demo Sport store)</title>
+                <identifier>famous_sport</identifier>
+                <content><![CDATA[
+					<div>{{block type="catalog/product_list" template="catalog/product/home.phtml"}}</div>
+                	]]>
+				</content>
+                <is_active>1</is_active>
+                <sort_order>0</sort_order>
+                <stores>
+                    <item>0</item>
+                </stores>
+                <root_template>two_columns_left</root_template>
+            </item>	
+			
+		</pages>
+		
+        <blocks>  
+			 <item>
+                <title>famous-Contact Detail (Contact us page)</title>
+                <identifier>contactDetail</identifier>
+                <content><![CDATA[
+					<h2 class="legend">Address</h2>
+					<p><strong>Address:</strong> 8901 Marmora Road, Glasgow, D04 89GR</p>
+					<p><strong>Telephone:</strong> (800)2345-6789</p>
+					<p><strong>Fax:</strong> (800)2345-6789</p>
+					<p><strong>Mail:</strong> info@Simo Shop.com</p>
+				]]></content>
+                <is_active>1</is_active>
+                <stores>
+                    <item>0</item>
+                </stores>
+            </item>
+			
+			<item>
+                <title>famous-Promotional 3 bottom blocks  -(Bottom side with banner)</title>
+                <identifier>promotional_bottom_block_3</identifier>
+                <content><![CDATA[
+					<ul class="staticBlock row">
+						<li class="col-sm-4"><a class="areaBox" title="" href="#"><img alt="" src="{{media url="wysiwyg/static31.jpg"}}" /></a></li>
+						<li class="col-sm-4"><a class="areaBox" title="" href="#"><img alt="" src="{{media url="wysiwyg/static32.jpg"}}" /></a></li>
+						<li class="col-sm-4"><a class="areaBox" title="" href="#"><img alt="" src="{{media url="wysiwyg/static32.jpg"}}" /></a></li>
+					</ul>
+				]]></content>
+                <is_active>1</is_active>
+                <stores>
+                    <item>0</item>
+                </stores>
+            </item>
+			
+			<item>
+                <title>famous-Promotional 2 bottom blocks  -(Bottom side with banner)</title>
+                <identifier>promotional_bottom_block_2</identifier>
+                <content><![CDATA[
+					<ul class="staticBlock row">
+						<li class="col-sm-6"><a class="areaBox" title="" href="#"><img alt="" src="{{media url="wysiwyg/static1.jpg"}}" /></a></li>
+						<li class="col-sm-6"><a class="areaBox" title="" href="#"><img alt="" src="{{media url="wysiwyg/static2.jpg"}}" /></a></li>
+					</ul>
+				]]></content>
+                <is_active>1</is_active>
+                <stores>
+                    <item>0</item>
+                </stores>
+            </item>
+			
+			<item>
+                <title>famous-Block Slider Left (Left column banner block)</title>
+                <identifier>block-slide-left</identifier>
+                <content><![CDATA[
+					<div id="slideLeft" class="jcarousel leftBanner">
+						<!--slide one-->
+						<div class="innerSlids">
+							<div class="block-title">
+								<strong>
+									<span>1 Types of sliders</span>
+								</strong>
+							</div>
+							<a href="#">
+								<img alt="" src="{{media url="wysiwyg/banner_left1.jpg"}}" />
+							</a>
+							<p>All sliders are manageble by admin.</p>
+						</div>
+						<!--end slide one--> 
+						<!--slide two-->
+						<div class="innerSlids">
+							<div class="block-title">
+								<strong>
+									<span>2 Types of sliders</span>
+								</strong>
+							</div>
+							<a href="#">
+								<img alt="" src="{{media url="wysiwyg/banner_left2.jpg"}}" />
+							</a>
+							<p>All sliders are manageble by admin.</p>
+						</div>
+						<!--end slide two-->
+					</div>
+				]]></content>
+                <is_active>1</is_active>
+                <stores>
+                    <item>0</item>
+                </stores>
+            </item>
+			
+			<item>
+                <title>famous-Block Slider Right (Right column banner block)</title>
+                <identifier>block-slide-right</identifier>
+                <content><![CDATA[
+					<div id="slideRight" class="jcarousel rightBanner">
+						<!--slide one-->
+						<div class="innerSlids">
+							<div class="block-title">
+								<strong>
+									<span>1 Types of sliders</span>
+								</strong>
+							</div>
+							<a href="#"> 
+								<img alt="" src="{{media url="wysiwyg/banner_right1.jpg"}}" />
+							</a>
+							<p>All sliders are manageble by admin.</p>
+						</div>
+						<!--end slide one--> 
+						<!--slide two-->
+						<div class="innerSlids">
+							<div class="block-title">
+								<strong>
+									<span>2 Types of sliders</span>
+								</strong>
+							</div>
+							<a href="#">
+								<img alt="" src="{{media url="wysiwyg/banner_right2.jpg"}}" />
+							</a>
+							<p>All sliders are manageble by admin.</p>
+						</div>
+						<!--end slide two-->
+					</div>
+				]]></content>
+                <is_active>1</is_active>
+                <stores>
+                    <item>0</item>
+                </stores>
+            </item>
+			
+			<item>
+                <title>famous-Payment Block</title>
+                <identifier>payment-box</identifier>
+                <content><![CDATA[
+					<div class="media-payment"><img alt="" src="{{media url="wysiwyg/payments.png"}}" /></div>
+				]]></content>
+                <is_active>1</is_active>
+                <stores>
+                    <item>0</item>
+                </stores>
+            </item>
+			
+			
+			<item>
+                <title>famous-About Us Block (Footer)</title>
+                <identifier>fo-about</identifier>
+                <content><![CDATA[
+					<h3>About us</h3>
+					<p><img alt="" src="{{media url="wysiwyg/logo_1.png"}}" /></p>
+					<p class="aboutText">Duis autem vel eum iriure dolor in hend lputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis. At vero eros et accumsan et iusto odio di ssim qui blandit atum nulla facilisi.. read more.<a title="Read more" href="#">Read more...</a></p>
+				]]></content>
+                <is_active>1</is_active>
+                <stores>
+                    <item>0</item>
+                </stores>
+            </item>
+			
+			
+			<item>
+                <title>famous-Left Column Static Block (Home page)</title>
+                <identifier>left-static-block-1</identifier>
+                <content><![CDATA[
+					<div class="sidebarStatic block"><img alt="" src="{{media url="wysiwyg/homeleft.jpg"}}" /></div>
+				]]></content>
+                <is_active>1</is_active>
+                <stores>
+                    <item>0</item>
+                </stores>
+            </item>
+			
+			
+			<item>
+                <title>famous-Right Column Static Block (Home page)</title>
+                <identifier>right-static-block-1</identifier>
+                <content><![CDATA[
+					<div class="block">
+						<div class="sidebarStatic"><img alt="" src="{{media url="wysiwyg/homeright.jpg"}}" /></div>
+					</div>
+				]]></content>
+                <is_active>1</is_active>
+                <stores>
+                    <item>0</item>
+                </stores>
+            </item>
+			
+			<item>
+                <title>famous-Left Column Static Block (Category page)</title>
+                <identifier>category-left-static-block-01</identifier>
+                <content><![CDATA[
+					<div class="block">
+						<div class="sidebarStatic"><img alt="" src="{{media url="wysiwyg/categoryLeft.jpg"}}" /></div>
+					</div>
+				]]></content>
+                <is_active>1</is_active>
+                <stores>
+                    <item>0</item>
+                </stores>
+            </item>
+			
+			<item>
+                <title>famous-Right Column Static Block (Category page)</title>
+                <identifier>category-right-static-block-01</identifier>
+                <content><![CDATA[
+					<div class="block">
+						<div class="sidebarStatic"><img alt="" src="{{media url="wysiwyg/categoryRight.jpg"}}" /></div>
+					</div>
+				]]></content>
+                <is_active>1</is_active>
+                <stores>
+                    <item>0</item>
+                </stores>
+            </item>
+			
+			<item>
+                <title>famous-Add This buttons</title>
+                <identifier>mdl_addthis</identifier>
+                <content><![CDATA[
+					<div class="addthis_sharing_toolbox">&nbsp;</div>
+				]]></content>
+                <is_active>1</is_active>
+                <stores>
+                    <item>0</item>
+                </stores>
+            </item>
+			
+			<item>
+                <title>famous-Product-static-box (Product page)</title>
+                <identifier>product-static-box</identifier>
+                <content><![CDATA[
+					<div class="sidebarStatic areaBox col-sm-12"><img alt="" src="{{media url="wysiwyg/product_banner.jpg"}}" /></div>
+				]]></content>
+                <is_active>1</is_active>
+                <stores>
+                    <item>0</item>
+                </stores>
+            </item>
+			
+			<item>
+                <title>famous-Product Custom Block On Right Side (Product page)</title>
+                <identifier>product_custom_block</identifier>
+                <content><![CDATA[
+					<ul class="pro-static-block col-sm-6 col-md-12">
+						<li>
+							<div class="f-left"><em class="fa fa-star">&nbsp;</em></div>
+							<p>There are many variations of passages</p>
+						</li>
+						<li>
+							<div class="f-left"><em class="fa fa-leaf">&nbsp;</em></div>
+							<p>There are many variations of passages</p>
+						</li>
+						<li>
+							<div class="f-left"><em class="fa fa-dot-circle-o">&nbsp;</em></div>
+							<p>There are many variations of passages</p>
+						</li>
+						<li>
+							<div class="f-left"><em class="fa fa-umbrella">&nbsp;</em></div>
+							<p>There are many variations of passages</p>
+						</li>
+						<li>
+							<div class="f-left"><em class="fa fa-gavel">&nbsp;</em></div>
+							<p>There are many variations of passages</p>
+						</li>
+					</ul>
+				]]></content>
+                <is_active>1</is_active>
+                <stores>
+                    <item>0</item>
+                </stores>
+            </item>
+			
+			<item>
+                <title>famous-Right Menu Static Block(Header 4)</title>
+                <identifier>right_mene_block</identifier>
+                <content><![CDATA[
+					<div class="block">
+						<div class="sidebarStatic"><img alt="" src="{{media url="wysiwyg/menuRighBlock.jpg"}}" /></div>
+					</div>
+				]]></content>
+                <is_active>1</is_active>
+                <stores>
+                    <item>0</item>
+                </stores>
+            </item>
+			
+			
+			<item>
+                <title>famous-usp</title>
+                <identifier>usp-box</identifier>
+                <content><![CDATA[
+					<ul class="uspBox">
+						<li>
+							<i class="fa fa-money"></i>
+							<h3>Great Value</h3>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus congue non semper lectus lacinia.</p>
+						</li>
+						<li>
+							<i class="fa fa-bus"></i>
+							<h3>Worldwide Delivery</h3>
+							<p>Donec pharetra felis quis tellus porta iaculis. Quisque ut placerat sapien  non semper lectus lacinia.</p>
+						</li>
+						<li>
+							<i class="fa fa-credit-card"></i>
+							<h3>Safe Payment</h3>
+							<p>Integer vitae congue nibh. Ut luctus dolor neque, eu pellentesque erat elementum  non semper lectus lacinia.</p>
+						</li>
+						<li>
+							<i class="fa fa-hand-rock-o"></i>
+							<h3>Shop with Confidence</h3>
+							<p>Duis mattis lectus eu ipsum sagittis, non semper lectus lacinia. Nulla accumsan neque id leo dignissim</p>
+						</li>
+						<li>
+							<i class="fa fa-users"></i>
+							<h3>24/7 Help Center</h3>
+							<p>Suspendisse rutrum, nulla nec ultricies tristique, odio ante rhoncus nulla  non semper lectus lacinia.</p>
+						</li>
+					</ul>
+				]]></content>
+                <is_active>1</is_active>
+                <stores>
+                    <item>0</item>
+                </stores>
+            </item>
+			
+			<item>
+                <title>famous-Footer 01</title>
+                <identifier>footer1</identifier>
+                <content><![CDATA[
+					<div class="links col-sm-4">
+						<h3>About us</h3>
+						<ul>
+						<li><a title="Products" href="#">Contact Us</a></li>
+						<li><a title="Community" href="#">About Us</a></li>
+						<li><a title="Support" href="#">Careers</a></li>
+						<li><a title="Products" href="#">Blog</a></li>
+						<li><a title="Community" href="#">Press</a></li>
+						</ul>
+						</div>
+						<div class="links col-sm-4">
+						<h3>Help</h3>
+						<ul>
+						<li><a title="Products" href="#">Payments</a></li>
+						<li><a title="Community" href="#">Saved Cards</a></li>
+						<li><a title="Support" href="#">Shipping</a></li>
+						<li><a title="Products" href="#">Cancellation &amp; Returns</a></li>
+						<li><a title="Community" href="#">FAQ</a></li>
+						</ul>
+						</div>
+						<div class="links col-sm-4">
+						<h3>Shipping</h3>
+						<ul>
+						<li><a title="Products" href="#">Delivery</a></li>
+						<li><a title="Community" href="#">Track your order</a></li>
+						<li><a title="Products" href="#">Discount</a></li>
+						<li><a title="Community" href="#">Returns</a></li>
+						<li><a title="Support" href="#">Buy gift cards</a></li>
+						</ul>
+					</div>
+				]]></content>
+                <is_active>1</is_active>
+                <stores>
+                    <item>0</item>
+                </stores>
+            </item>
+			
+			<item>
+                <title>famous-Footer 02</title>
+                <identifier>footer2</identifier>
+                <content><![CDATA[
+					<div class="links col-sm-20">
+						<h3>Information</h3>
+						<ul>
+							<li><a href="#">About Us</a></li>
+							<li><a href="#">New products</a></li>
+							<li><a href="#">Orders and Returns</a></li>
+						</ul>
+					</div>
+
+					<div class="links col-sm-20">
+						<h3>Customer Service</h3>
+						<ul>
+							<li><a href="#">Contact Us</a></li>
+							<li><a href="#">Returns</a></li>
+							<li><a href="#">Site Map</a></li>
+						</ul>
+					</div>
+
+					<div class="links col-sm-20">
+						<h3>Extras</h3>
+						<ul>
+							<li><a href="#">Brands</a></li>
+							<li><a href="#">Affiliates</a></li>
+							<li><a href="#">Specials</a></li>
+						</ul>
+					</div>
+
+
+					<div class="links col-sm-20">
+						<h3>My Account</h3>
+						<ul>
+							<li><a href="#">My Account</a></li>
+							<li><a href="#">Order History</a></li>
+							<li><a href="#">Wish List</a></li>
+						</ul>
+					</div>    
+						
+
+					<div class="links col-sm-20">
+						<h3>Contact</h3>
+						<ul>
+							<li>2506 SARYOBA ROAD, MSATGOLP, T104 89CG</li>
+							<li><a href="#">info@menzshop.com</a></li>
+						</ul>
+					</div> 
+				]]></content>
+                <is_active>1</is_active>
+                <stores>
+                    <item>0</item>
+                </stores>
+            </item>
+			
+			<item>
+                <title>famous-Footer 03</title>
+                <identifier>footer3</identifier>
+                <content><![CDATA[
+					<div class="links col-sm-4">
+						<h3>About us</h3>
+						<ul>
+						<li><a title="Products" href="#">Contact Us</a></li>
+						<li><a title="Community" href="#">About Us</a></li>
+						<li><a title="Support" href="#">Careers</a></li>
+						<li><a title="Products" href="#">Blog</a></li>
+						<li><a title="Community" href="#">Press</a></li>
+						</ul>
+						</div>
+						<div class="links col-sm-4">
+						<h3>Help</h3>
+						<ul>
+						<li><a title="Products" href="#">Payments</a></li>
+						<li><a title="Community" href="#">Saved Cards</a></li>
+						<li><a title="Support" href="#">Shipping</a></li>
+						<li><a title="Products" href="#">Cancellation &amp; Returns</a></li>
+						<li><a title="Community" href="#">FAQ</a></li>
+						</ul>
+						</div>
+						<div class="links col-sm-4">
+						<h3>Shipping</h3>
+						<ul>
+						<li><a title="Products" href="#">Delivery</a></li>
+						<li><a title="Community" href="#">Track your order</a></li>
+						<li><a title="Products" href="#">Discount</a></li>
+						<li><a title="Community" href="#">Returns</a></li>
+						<li><a title="Support" href="#">Buy gift cards</a></li>
+						</ul>
+					</div>
+				]]></content>
+                <is_active>1</is_active>
+                <stores>
+                    <item>0</item>
+                </stores>
+            </item>
+			
+			
+			<item>
+                <title>famous-Footer 04</title>
+                <identifier>footer4</identifier>
+                <content><![CDATA[
+					<div class="links col-sm-20">
+						<h3>Information</h3>
+						<ul>
+							<li><a href="#">About Us</a></li>
+							<li><a href="#">New products</a></li>
+						</ul>
+					</div>
+
+					<div class="links col-sm-20">
+						<h3>Customer Service</h3>
+						<ul>
+							<li><a href="#">Contact Us</a></li>
+							<li><a href="#">Returns</a></li>
+						</ul>
+					</div>
+
+					<div class="links col-sm-20">
+						<h3>Extras</h3>
+						<ul>
+							<li><a href="#">Brands</a></li>
+							<li><a href="#">Affiliates</a></li>
+						</ul>
+					</div>
+
+
+					<div class="links col-sm-20">
+						<h3>My Account</h3>
+						<ul>
+							<li><a href="#">My Account</a></li>
+							<li><a href="#">Order History</a></li>
+						</ul>
+					</div>    
+						
+
+					<div class="links col-sm-20">
+						<h3>Contact</h3>
+						<ul>
+							<li>2506 SARYOBA ROAD</li>
+							<li><a href="#">info@famousktm.com</a></li>
+						</ul>
+					</div> 
+				]]></content>
+                <is_active>1</is_active>
+                <stores>
+                    <item>0</item>
+                </stores>
+            </item>
+			
+			
+			<item>
+                <title>famous-Footer 5</title>
+                <identifier>footer5</identifier>
+                <content><![CDATA[
+					<ul class="smallFooter">
+						<li><a href="#">About us</a></li>
+						<li><a href="#">Services</a></li>
+						<li><a href="#">Blog</a></li>
+						<li><a href="#">Returns</a></li>
+						<li><a href="#">Contact Us</a></li>
+					</ul>
+				]]></content>
+                <is_active>1</is_active>
+                <stores>
+                    <item>0</item>
+                </stores>
+            </item>
+			
+			<item>
+                <title>famous-left Block (Success page)</title>
+                <identifier>left_promo_success</identifier>
+                <content><![CDATA[
+					<div class="block">
+						<div class="successStatic"><img alt="" src="{{media url="wysiwyg/success.jpg"}}" /></div>
+					</div>
+				]]></content>
+                <is_active>1</is_active>
+                <stores>
+                    <item>0</item>
+                </stores>
+            </item>
+			
+			
+			
+        </blocks>
+    </cms>
+</root>

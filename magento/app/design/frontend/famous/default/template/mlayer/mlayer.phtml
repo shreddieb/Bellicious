@@ -1,0 +1,28 @@
+<?php
+	$bannerCollection = $this->getBannerCollection();
+	$i = 0;
+   	$config2 = Mage::getStoreConfig('mlayer/settings');	
+	$config3 = Mage::getStoreConfig('mdlmdlnavi/navsettings');
+?>
+<?php $bannerStatus = $this->getBannerStatus();?>
+<?php $showdesc = $this->isShowDescription() ?>
+<?php $bannerContentPos = $this->getBannerContentPos()?>
+<?php $contentHeight = $this->getContentHeight()?>
+<?php $btntext = $this->getButtonText()?>
+<?php $contentloder = $this->getContentloder()?>
+<?php $contentPage = $this->getContentPage()?>
+<?php $contentHover = $this->getContentHover()?>
+<?php $effectbanner = $this->getEffectbanner()?>
+<?php if ($bannerStatus == '1'):?>
+	<?php if (!count($bannerCollection)): ?>
+		<div class="f-fix"><div class="container"><p class="note-msg"><?php echo $this->__('Please upload banner');?></p></div></div>
+	<?php else:?>
+		<?php if($config2['bannerType']==1):?>
+			<?php echo $this->getLayout()->createBlock('mlayer/mlayer')->setTemplate('mlayer/full_banner.phtml')->toHtml();?>
+		<?php elseif($config2['bannerType']==2):?>
+			<?php echo $this->getLayout()->createBlock('mlayer/mlayer')->setTemplate('mlayer/camera.phtml')->toHtml();?>
+		<?php else:?>
+			<?php echo $this->getLayout()->createBlock('mlayer/mlayer')->setTemplate('mlayer/owlbanner.phtml')->toHtml();?>
+		<?php endif;?>
+	<?php endif;?>	
+<?php endif;?>

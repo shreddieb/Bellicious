@@ -1,0 +1,17 @@
+<layout version="0.1.0">
+    <default>
+       <reference name="head">
+            <action method="addCss"><stylesheet>css/featuredcategory/featuredcatshow.css</stylesheet></action>
+        </reference>
+	</default>
+  <!-- 	 for our featured category module front end -->
+  <featuredcategory_index_index>
+	    <reference name="root">
+            <action method="setTemplate"><template>page/3columns.phtml</template></action>
+			    <reference name="content">
+				     <block type="featuredcategory/categoryblock"    name="featured" template="featuredcategory/featuredcat.phtml"/>
+		        </reference>   
+        </reference>
+    </featuredcategory_index_index>
+	<!--To show Featured category on home Page at content  -->
+</layout>

@@ -1,0 +1,137 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+
+<ajaxnav_front_category>
+    <remove name="right"/>
+    <remove name="left"/>
+    <block type="ajaxnav/layer_view" name="layer" template="mdl/ajaxnav/layer.phtml"/>
+	
+    <block type="ajaxnav/list" name="root">
+        <block type="catalog/product_list" name="product_list" template="catalog/product/list.phtml">
+			<block type="catalog/product_list" name="product.list.states" as="ajaxstates" before="product_list_toolbar" template="mdl/ajaxnav/layerstates.phtml"/>
+            <block type="catalog/product_list_toolbar" name="product_list_toolbar" template="catalog/product/list/toolbar.phtml">
+                <block type="page/html_pager" name="product_list_toolbar_pager"/>
+            </block>
+            <action method="addColumnCountLayoutDepend"><layout>empty</layout><count>6</count></action>
+            <action method="addColumnCountLayoutDepend"><layout>one_column</layout><count>5</count></action>
+            <action method="addColumnCountLayoutDepend"><layout>two_columns_left</layout><count>4</count></action>
+            <action method="addColumnCountLayoutDepend"><layout>two_columns_right</layout><count>4</count></action>
+            <action method="addColumnCountLayoutDepend"><layout>three_columns</layout><count>3</count></action>
+            <action method="setToolbarBlockName"><name>product_list_toolbar</name></action>
+        </block>
+    </block>
+	
+	<block type="ajaxnav/list" name="type2">
+        <block type="catalog/product_list" name="product_list" template="catalog/product/product-type/type2.phtml">
+			<block type="catalog/product_list" name="product.list.states" as="ajaxstates" before="product_list_toolbar" template="mdl/ajaxnav/layerstates.phtml"/>
+            <block type="catalog/product_list_toolbar" name="product_list_toolbar" template="catalog/product/list/toolbar.phtml">
+                <block type="page/html_pager" name="product_list_toolbar_pager"/>
+            </block>
+            <action method="addColumnCountLayoutDepend"><layout>empty</layout><count>6</count></action>
+            <action method="addColumnCountLayoutDepend"><layout>one_column</layout><count>5</count></action>
+            <action method="addColumnCountLayoutDepend"><layout>two_columns_left</layout><count>4</count></action>
+            <action method="addColumnCountLayoutDepend"><layout>two_columns_right</layout><count>4</count></action>
+            <action method="addColumnCountLayoutDepend"><layout>three_columns</layout><count>3</count></action>
+            <action method="setToolbarBlockName"><name>product_list_toolbar</name></action>
+        </block>
+    </block>
+	
+	<block type="ajaxnav/list" name="type3">
+        <block type="catalog/product_list" name="product_list" template="catalog/product/product-type/type3.phtml">
+			<block type="catalog/product_list" name="product.list.states" as="ajaxstates" before="product_list_toolbar" template="mdl/ajaxnav/layerstates.phtml"/>
+            <block type="catalog/product_list_toolbar" name="product_list_toolbar" template="catalog/product/list/toolbar.phtml">
+                <block type="page/html_pager" name="product_list_toolbar_pager"/>
+            </block>
+            <action method="addColumnCountLayoutDepend"><layout>empty</layout><count>6</count></action>
+            <action method="addColumnCountLayoutDepend"><layout>one_column</layout><count>5</count></action>
+            <action method="addColumnCountLayoutDepend"><layout>two_columns_left</layout><count>4</count></action>
+            <action method="addColumnCountLayoutDepend"><layout>two_columns_right</layout><count>4</count></action>
+            <action method="addColumnCountLayoutDepend"><layout>three_columns</layout><count>3</count></action>
+            <action method="setToolbarBlockName"><name>product_list_toolbar</name></action>
+        </block>
+    </block>
+	
+	<block type="ajaxnav/list" name="type4">
+        <block type="catalog/product_list" name="product_list" template="catalog/product/product-type/type4.phtml">
+			<block type="catalog/product_list" name="product.list.states" as="ajaxstates" before="product_list_toolbar" template="mdl/ajaxnav/layerstates.phtml"/>
+            <block type="catalog/product_list_toolbar" name="product_list_toolbar" template="catalog/product/list/toolbar.phtml">
+                <block type="page/html_pager" name="product_list_toolbar_pager"/>
+            </block>
+            <action method="addColumnCountLayoutDepend"><layout>empty</layout><count>6</count></action>
+            <action method="addColumnCountLayoutDepend"><layout>one_column</layout><count>5</count></action>
+            <action method="addColumnCountLayoutDepend"><layout>two_columns_left</layout><count>4</count></action>
+            <action method="addColumnCountLayoutDepend"><layout>two_columns_right</layout><count>4</count></action>
+            <action method="addColumnCountLayoutDepend"><layout>three_columns</layout><count>3</count></action>
+            <action method="setToolbarBlockName"><name>product_list_toolbar</name></action>
+        </block>
+    </block>
+	
+	<block type="ajaxnav/list" name="type5">
+        <block type="catalog/product_list" name="product_list" template="catalog/product/product-type/type5.phtml">
+			<block type="catalog/product_list" name="product.list.states" as="ajaxstates" before="product_list_toolbar" template="mdl/ajaxnav/layerstates.phtml"/>
+            <block type="catalog/product_list_toolbar" name="product_list_toolbar" template="catalog/product/list/toolbar.phtml">
+                <block type="page/html_pager" name="product_list_toolbar_pager"/>
+            </block>
+            <action method="addColumnCountLayoutDepend"><layout>empty</layout><count>6</count></action>
+            <action method="addColumnCountLayoutDepend"><layout>one_column</layout><count>5</count></action>
+            <action method="addColumnCountLayoutDepend"><layout>two_columns_left</layout><count>4</count></action>
+            <action method="addColumnCountLayoutDepend"><layout>two_columns_right</layout><count>4</count></action>
+            <action method="addColumnCountLayoutDepend"><layout>three_columns</layout><count>3</count></action>
+            <action method="setToolbarBlockName"><name>product_list_toolbar</name></action>
+        </block>
+    </block>
+</ajaxnav_front_category>
+ 
+
+<ajaxnav_front_search>
+    <remove name="right"/>
+    <remove name="left"/>
+    <block type="ajaxnav/search_layer" name="layer"  template="mdl/ajaxnav/layer.phtml"/>
+    <block type="ajaxnav/list" name="root">
+        <block type="catalog/product_list" name="product_list" template="catalog/product/list.phtml">
+            <block type="catalog/product_list_toolbar" name="product_list_toolbar" template="catalog/product/list/toolbar.phtml">
+                <block type="page/html_pager" name="product_list_toolbar_pager"/>
+            </block>
+            <action method="addColumnCountLayoutDepend"><layout>empty</layout><count>6</count></action>
+            <action method="addColumnCountLayoutDepend"><layout>one_column</layout><count>5</count></action>
+            <action method="addColumnCountLayoutDepend"><layout>two_columns_left</layout><count>4</count></action>
+            <action method="addColumnCountLayoutDepend"><layout>two_columns_right</layout><count>4</count></action>
+            <action method="addColumnCountLayoutDepend"><layout>three_columns</layout><count>3</count></action>
+            <action method="setToolbarBlockName"><name>product_list_toolbar</name></action>
+        </block>
+    </block>
+</ajaxnav_front_search>
+
+<catalog_category_layered> 
+    
+    <reference name="head">
+        <action method="addCss"><stylesheet>css/mdl/mdl_layered_nav.css</stylesheet></action>
+		<action method="addItem"><type>skin_js</type><name>js/mdl/mdl_layered_nav.js</name></action>
+	    <action method="addItem"><type>skin_css</type><name>css/mdl/iThing.css</name></action>
+		<action method="addItem"><type>skin_js</type><name>js/mdl/jquery-ui.min.js</name></action>
+		<action method="addItem"><type>skin_js</type><name>js/mdl/jQRangeSlider-min.js</name></action>
+    </reference>
+   <block type="ajaxnav/layer_view" name="filter.catalog" after="currency" template="mdl/ajaxnav/layer.phtml"/>
+    <reference name="left">
+        <action method="append" ifconfig="ajaxnav/ajaxnav/enabled"><block>filter.catalog</block></action>
+		<action method="unsetChild" ifconfig="ajaxnav/ajaxnav/enabled"><block>catalog.leftnav</block></action>
+    </reference>
+	 <reference name="content">
+        <block type="catalog/product_list" name="product.list.states" as="ajaxstates" before="product_list_toolbar" template="mdl/ajaxnav/layerstates.phtml"/>
+		<block type="core/template" name="ajaxscroll" template="ajaxscroll/mdlajaxscroll.phtml" after="-" />
+    </reference>
+	 
+</catalog_category_layered> 
+
+<catalogsearch_result_index translate="label">
+   <remove name="catalogsearch.leftnav"/>
+    <reference name="head">
+        <action method="addCss"><stylesheet>css/mdl/mdl_layered_nav.css</stylesheet></action>
+		<action method="addItem"><type>skin_js</type><name>js/mdl/mdl_layered_nav.js</name></action>
+    </reference>
+    <reference name="left">
+            <block type="ajaxnav/search_layer" name="catalogsearch.ajaxnav" after="currency" template="mdl/ajaxnav/layer.phtml"/>
+    </reference>
+</catalogsearch_result_index>
+
+</layout>

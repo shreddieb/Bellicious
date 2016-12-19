@@ -1,0 +1,55 @@
+<?php // block Mdl_brand_Block_Brand
+
+$config=Mage::helper('brand/data')->getStoreConfig();
+$enable=$config['general']['enable'];
+$enableSearch=$config['frontend']['enable_brand_search'];
+?>
+
+<?php if($enable && $enableSearch=="right"):?>
+<form id="brand_search_form" action="" onsubmit="return false;">
+  <div class="form-search">
+        <label for="brandsearch"><?php echo $this->__('Search Brand :') ?></label>
+        <input id="brand_search" type="text" name="brandsearch" value="" class="input-text" maxlength="128" />
+
+        <div id="brand_search_complete" class="brand-search-complete"></div>
+        <script type="text/javascript">
+        //<![CDATA[
+                 jQuery('document').ready(function(){
+                  
+                     
+                    jQuery( "#brand_search").keyup(function() {
+                        var   data = jQuery(this).serialize() ;
+                           data = jQuery(this).serialize() ;
+                        var url='<?php echo $this->getUrl('brands/index/brandajax')?>';
+                      
+                        jQuery.ajax(
+                                    { url:url,
+                                      type:'post',
+                                      dataType: "json",
+                                      data:data,
+                                      success: function(data) {
+                                        jQuery('#brand_search_complete').html('');
+                                        jQuery('#brand_search_complete').html(data);
+                                      }
+                                     
+                         })
+   
+                        });
+                  
+                 })
+        //]]>
+        </script>
+    </div>
+  
+</form>
+
+<?php endif ?>
+
+
+
+
+
+
+
+
+

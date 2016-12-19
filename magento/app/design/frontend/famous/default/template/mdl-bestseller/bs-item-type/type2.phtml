@@ -1,0 +1,136 @@
+<?php 
+$config = Mage::getStoreConfig('mdloption/homeproducts');
+$config2 = Mage::getStoreConfig('bestsellingproduct/jqueryfile');
+$config3 = Mage::getStoreConfig('mdloption/genral_theme_setting');
+$id = $this->getRequest()->getParam('tabid');
+
+// Check if clicked tab is bestseller
+if($id=='tab-bestseller')
+	{
+		$new_new = $this->getLayout()->getBlockSingleton('Mdl_Bestseller_Block_Bestsellingproduct');
+				
+				$new_product=$new_new->getProductCollection();
+				$count_product = count($new_product);
+				$jcarousel_status = Mage::helper('bestsellingproduct')->getBestsellingJcarousel();
+	}
+ ?>
+			<?php if($config2['rowPro']=='1'):?>
+				<?php $itemwidth = 'col-xs-6 col-sm-6'; $proCount = '2';?>
+			<?php $imgSize = '600'?>
+				<?php elseif ($config2['rowPro']=='2'):?>
+			<?php $itemwidth = 'col-sm-4';  $proCount = '3'; ?>
+				<?php $imgSize = '400'?>
+			<?php elseif ($config2['rowPro']=='3'):?>
+				<?php $itemwidth = 'col-xs-6 col-sm-3 col-md-3';  $proCount = '4'; ?>
+			<?php $imgSize = '300'?>
+				<?php elseif ($config2['rowPro']=='4'):?>
+			<?php $itemwidth = 'col-xs-6 col-sm-4 col-md-2' ;  $proCount = '6'; ?>
+				<?php $imgSize = '200'?>
+			<?php endif; ?>
+             
+			<?php if($config['flip_view']==1 && $config['flip_view_style']==2):?>
+				<?php $flipviewStyleL='fadeView'; ?>
+			<?php endif; ?>  
+
+	<?php foreach($new_product as $new):?>	
+	<li class="item secView <?php echo $itemwidth ?>">
+			<div class="itemInner">
+				<!--Images and price container-->
+                    <div class="proImage <?php echo $flipviewStyleL; ?> flipView">
+						<!--Badge view-->
+							<div class="badgeBox">
+								<!--Comapare-->
+										<?php if ($config3['compare_box']) :?>
+											 <?php if($_compareUrl=$this->getAddToCompareUrl($new)): ?>
+												  <a href="javascript:void(0);" class="compareBtn" onclick="setLocation('<?php echo $_compareUrl?>','<?php echo $new->getId()?>'); return false;" > 
+														<i class="fa fa-clone"></i>
+												  </a>
+											 <?php endif; ?>
+										<?php endif; ?>	 
+								<!--End comapare-->	
+							</div>	
+						<!--end badge view-->
+						
+						
+						<!--wishlist-->
+						  <?php if ($this->helper('wishlist')->isAllow()) : ?>
+						  <a href="<?php echo $this->helper('wishlist')->getAddUrl($new) ?>" title="<?php echo $this->__('Add to Wishlist') ?>"  class="heart">
+								<?php if($config['itemviewbox']==2):?>
+									<i class="fa fa-heart-o"></i>
+								<?php else:?>
+									<i class="fa fa-heart"></i>
+								<?php endif;?>
+						  </a>
+						  <?php endif; ?>
+					    <!--End wishlist-->
+						
+						
+                   		<?php if($config['flip_view']==1):?>
+							<a href="<?php echo $new->getProductUrl() ?>" class="product-image"> 
+							<img class="spacer-img" src="<?php echo $this->getSkinUrl('images/spacer.png');?>" title="" alt="" />
+							<span class="face">
+							<img id="product-collection-image-<?php echo $new->getId(); ?>" class="front-img" src="<?php echo $this->helper('catalog/image')->init($new, 'small_image')->resize($imgSize); ?>" alt="<?php echo $this->stripTags($this->getImageLabel($new, 'small_image'), null, true) ?>"  />
+							</span>
+							<span class="back-img back face">
+								<img class="hoverImg" src="<?php echo Mage::helper('catalog/image')->init($new, 'thumbnail')->resize($imgSize); ?>" 
+								alt="<?php echo $this->htmlEscape($new['name']); ?>"  />
+							</span> 
+							</a>
+                        <?php else: ?>
+                            <a href="<?php echo $new->getProductUrl() ?>" class="product-image"> 
+                                <img id="product-collection-image-<?php echo $new->getId(); ?>" src="<?php echo $this->helper('catalog/image')->init($new, 'small_image')->resize($imgSize); ?>" alt="<?php echo $this->stripTags($this->getImageLabel($new, 'small_image'), null, true) ?>" /> 
+                            </a>
+						<?php endif; ?>
+						
+							  <!--Quick view icon-->
+								  <?php if($config2['itemviewbox_quick_view']==1):?>
+								  <a  title="<?php echo $this->__('Quick View')?>" href='<?php echo $this->getUrl('ajax/index/options',array('product_id'=>$new->getId()));?>' class='fancybox qv-btn' id='fpfancybox<?php echo $new->getId();?>'><i class="fa fa-search"></i></a>
+								  <?php endif; ?>
+							  <!--End quick view icon-->
+                        
+                    </div>
+				<!--End images and price container--> 
+                
+				<!--Product detail container-->  
+				
+				
+                <div class="bottomProDetail">
+					
+					
+				
+				
+                	<h2 class="product-name"> 
+                    	<a href="<?php echo $new->getProductUrl() ?>" title="<?php echo $this->stripTags($new->getName(), null, true) ?>"> 
+                        	<?php if($config2['name_character']!=''):?>
+                            	<?php echo substr($new->getName(),0, $config2['name_character']);?>
+                            <?php else:?>
+                            	<?php echo $new->getName();?>
+                            <?php endif;?>        
+                        </a> 
+                    </h2>
+					
+					<!-- Rating -->
+                        <?php echo $this->getReviewsSummaryHtml($new, "short", true)?>
+                    <!-- End rating -->
+					
+                    <!--Price-->  
+                        <?php echo $this->getPriceHtml($new, true, '-right') ?>
+						
+							<!--Sale badge view-->
+							<?php if($new->getSpecialPrice()): ?>
+								<?php echo Mage::helper("myfunction")->specialPriceDiscount($new); ?>
+							<?php endif; ?>
+							<!--End sale badge view-->
+						
+					<!--End price--> 
+					
+                    
+                </div>
+                <!--End product detail container-->     
+        </div>
+	</li>	
+		
+        
+      <?php $i++; $j++; endforeach;?>
+    </div>
+  </div>

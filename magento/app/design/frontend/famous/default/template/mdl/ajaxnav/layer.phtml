@@ -1,0 +1,144 @@
+<?php
+/*
+ * Adding javascript include
+ */
+if ('front' != Mage::app()->getRequest()->getControllerName()) {
+    ?>
+   <!-- <script type="text/javascript" src="<?php //echo $this->getSkinUrl(); ?>js/mdl/mdl_layered_nav.js"></script> -->
+    <?php
+}
+	$showSwatches = Mage::getStoreConfig('ajaxnav/ajaxnav/show_swatches');
+?>
+
+<?php if ($this->canShowBlock()): $state = $this->getStateInfo();?>
+<?php 
+	$filterCount = 0;
+?>
+    <div class="blocks block-layered-nav">
+        <div class="block-title">
+            <strong><span><?php echo $this->__('Shop by') ?></span></strong>
+        </div>
+        <div class="block-content">
+            <?php echo $this->getStateHtml();?>
+            <?php if ($this->canShowOptions()): ?>
+               <div class="mdl-filter">
+                    <input type="hidden" id="mdl_layered_url" value="<?php echo $this->htmlEscape($state[0]) ?>"/>
+                    <input type="hidden" id="mdl_layered_params" value="<?php echo $this->htmlEscape($state[1]) ?>"/> 
+                    <input type="hidden" id="mdl_layered_ajax" value="<?php echo $this->htmlEscape($state[2]) ?>"/> 
+                    <dl id="mdl_filters_list">
+                        <!-- Code for filter state  -->
+					<?php if((Mage::getStoreConfig('ajaxnav/ajaxnav/show_states')=='sidebar') && (Mage::getStoreConfig('ajaxnav/ajaxnav/show_states')!='none') && (Mage::getStoreConfig('ajaxnav/ajaxnav/show_states')!='productlist')): ?>
+					<?php if ($state[1] AND $this->bNeedClearAll()): ?>
+					<?php $stateAttribute = explode('&',$state[1]); ?>
+					<?php $val = explode('=',$stateAttribute[0]);?>
+					<?php if(count($stateAttribute) > 2 || $val[0]!='dir'):?>
+					<div class="selected-filter f-fix">
+						<div class="currently leftSidebar">
+							<ol>
+						
+								<?php for($i=0;$i<count($stateAttribute);$i++): ?>
+								<?php if($stateAttribute[$i]!='dir=desc' && $stateAttribute[$i]!='dir=asc' && $stateAttribute[$i]!='mode=list' &&
+                         $stateAttribute[$i]!='order=name' && $stateAttribute[$i]!='order=price' && $stateAttribute[$i]!='order=position' &&
+					(strpos( $stateAttribute[$i], 'limit=')===false) && (strpos( $stateAttribute[$i], '___SID=')===false) && $stateAttribute[$i]!='mode=grid' && strstr($stateAttribute[$i],'=',true)!='id'):  ?>
+								<?php  $getValue = explode('=',$stateAttribute[$i]);
+										$exValue = explode('-',$getValue[1]);
+								?>
+								<?php
+								if($getValue[0] == '___SID') continue;
+								$filterCount++;
+								if($getValue[0]!='price'): ?>
+								<li>
+										<span class="label"><?php echo $getValue[0] ?>:</span>
+										
+								<?php if(count($exValue)==1): ?>
+								<?php 	$attributeDetails = Mage::getSingleton("eav/config")->getAttribute("catalog_product", $getValue[0]);
+										$optionValue = $attributeDetails->getSource()->getOptionText($getValue[1]);
+								?>
+										<span class="value"><?php echo $optionValue ?>
+											<span class="open-closee" data-class="<?php echo $getValue[0] ?>" id="<?php echo $exValue[0] ?>">X</span>
+										</span>
+										
+								<?php	else: ?>
+								<?php	for($j=0;$j<count($exValue);$j++): ?>
+								<?php	$attributeDetails = Mage::getSingleton("eav/config")->getAttribute("catalog_product", $getValue[0]);
+										$optionValue = $attributeDetails->getSource()->getOptionText($exValue[$j]);
+								?>
+										<span class="value"><?php echo $optionValue ?>
+										<span class="open-closee" data-class="<?php echo $getValue[0] ?>" id="<?php echo $exValue[$j] ?>">X</span>
+										</span>
+										
+								<?php 	endfor; ?>
+								<?php endif; ?>
+								</li>
+								<?php else: ?>
+								<li>
+									<span class="label"><?php echo $getValue[0] ?>:</span>
+									<div class="valueLeft">
+										<span class="value"><?php echo str_replace('%2C','-',$getValue[1]) ?>
+										<span class="open-closee" data-class="<?php echo $getValue[0] ?>">X</span>
+										</span>
+										
+									</div>
+								</li>
+								<?php endif; ?>	
+								<?php endif; ?>
+								<?php endfor; ?>
+							</ol>
+							<?php if($filterCount):?>
+								<?php if ($state[1] AND $this->bNeedClearAll() && (Mage::getStoreConfig('ajaxnav/ajaxnav/show_states')!='none') && (Mage::getStoreConfig('ajaxnav/ajaxnav/show_states')!='productlist')): ?>
+								<div class="actions mdl_layered_clear_all"><a class="mdl_layered_clearall" href="<?php echo $this->htmlEscape($this->getClearAllUrl()) ?>"><?php echo $this->__('Clear All') ?></a></div>
+								<?php endif; ?>
+							<?php endif; ?>
+						</div>
+					</div>
+					<?php endif ?>
+					<?php endif ?>
+					<?php endif ?>
+
+        
+	<!-- End Code for filter state  -->
+    
+                        <?php $_filters = $this->getFilters() ?>
+                        <?php foreach ($_filters as $_filter): ?>
+                            <?php if ($_filter->getItemsCount()): ?>
+                                <dt class="mdl_layered_dt">
+                                <?php if ($clearUrl = $_filter->getClearUrl()): ?>
+                                    <a id="<?php echo $_filter->getVar() ?>-clear" <?php if (!$this->getIsRemoveLinks()): ?>href="<?php echo $this->htmlEscape($clearUrl) ?>" <?php endif; ?> class="btn-remove mdl_layered_clear" title="<?php echo $this->__('Remove This Item') ?>"><?php echo $this->__('Remove This Item') ?></a>
+                                <?php endif ?>
+                                <?php echo $this->__($_filter->getName()) ?>
+                                </dt>
+								<?php if($_filter->getVar()=='color'): ?>
+								<?php if($showSwatches=='iconslinks'):  ?>
+								<?php $colClass = 'iconlinks'; ?>
+								<?php elseif($showSwatches=='icons'):  ?>
+								<?php $colClass = 'icononly'; ?>
+								<?php elseif($showSwatches=='link'):  ?>
+								<?php $colClass = 'linkonly'; ?>
+								<?php endif; ?>
+								<?php else: ?>
+								<?php $colClass = ''; ?>
+								<?php endif; ?>
+                                <dd <?php echo $this->getHeightStyle() ?> class="<?php echo $colClass; ?>" id="mdl_layered_<?php echo $_filter->getVar() ?>"><?php echo $_filter->getHtml() ?></dd>
+                            <?php endif; ?>
+                        <?php endforeach; ?>
+                    </dl>
+                    <script type="text/javascript">
+                        decorateDataList('narrow-by-list');
+                    </script>
+                </div>
+            <?php endif; ?>
+        </div>
+
+		
+		
+    </div>
+<?php endif; ?>
+
+<script type="text/javascript">
+    mdl_layered_init();
+	var headerHeight = jQuery('.header-block').height()+30;
+	if('0' == '<?php echo $filterCount; ?>'){
+		//jQuery('.selected-filter').remove();
+	} 
+	filterRemover('open-closee', '<?php echo $getValue[1]?>');	
+</script>

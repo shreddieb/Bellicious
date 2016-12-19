@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+		<Mdl_Myfunction>
+			<active>true</active>
+			<codePool>local</codePool>
+		</Mdl_Myfunction>
+    </modules>
+</config>

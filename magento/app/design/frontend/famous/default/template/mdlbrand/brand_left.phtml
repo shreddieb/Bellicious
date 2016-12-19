@@ -1,0 +1,114 @@
+<?php // block Mdl_brand_Block_Brand
+
+$config=Mage::helper('brand/data')->getStoreConfig();
+$enable=$config['general']['enable'];
+$enable_sidebar=$config['sidebar']['enable_sidebar'];?>
+<?php if($enable && $enable_sidebar=='left'):?>
+<?php  $_brandCollection=$this->getBrandColletion();
+  $_helper=Mage::helper('brand');
+  if($_brandCollection->count()): ?>
+   <?php $count=$_brandCollection->count();?>
+   <?php $no_of_brands=$config['sidebar']['no_of_brands'];?>
+   
+     <div id="brand_left" class="block brand-left">
+      <div class="block-title">
+        <strong><span><?php echo $this->__('Shop by Brand') ?></span></strong>
+      </div>
+      <div class="block-content">
+          <?php $i = 0; ?>
+        <?php foreach ($_brandCollection as $_brand): ?>
+        <?php if ($i++%$no_of_brands==0): ?>
+        <ul <?php if($i > $no_of_brands):?>style="display:none"<?php endif ;?>>
+        <?php endif ?>
+           <li><a href="<?php echo  $_helper->getBrandUrl($_brand->getBrandOptionName()); ?>" title=" <?php echo $this->__($_brand->getBrandTitle()); ?>" class="brand-name">
+               <?php echo $this->__($_brand->getBrandTitle()); ?>
+            </a></li>
+          <?php if ($i%$no_of_brands==0 || $i==$count): ?>
+        </ul>
+        <?php endif ?>
+        <?php endforeach ?>
+      
+       <?php if($count > $no_of_brands) :?>
+        <a class="show-more-brands" href='javascript:void(0)'><?php echo $this->__('Show More'); ?></a>
+        <a class="show-less-brands" href='javascript:void(0)'><?php echo $this->__('Show Less'); ?></a>
+       
+       <?php endif;?>
+       </div>
+      </div>
+     
+<script type="text/javascript">
+  
+  jQuery('document').ready(function(){ var visiable=1
+    var total = jQuery('#brand_left ul').length; 
+    jQuery('.show-more-brands').click(function(){ 
+       var element_show=jQuery(this);
+       
+      jQuery('#brand_left ul').each(function(index){
+        if(!(jQuery(this).is(':visible'))) {
+          if (visiable > 0) {
+              
+             jQuery('.show-less-brands').show();
+           
+          }
+             visiable+=1;
+             jQuery(this).css('display','');
+             
+           return false;
+          }
+          if (index ==total-2) {
+           jQuery(this).css('display','');
+           jQuery('.show-more-brands').css('display','none');
+          
+         }
+    });
+       
+    });
+    
+    
+    
+    jQuery('.show-less-brands').click(function(){
+      if (visiable==2) { 
+             
+             jQuery('.show-less-brands').hide();
+            
+          }
+      
+      
+      jQuery('#brand_left ul').each(function(index){   
+        if((jQuery(this).is(':visible'))) { 
+         if (visiable-1==index) {
+          if (visiable==1) { 
+             
+             jQuery('.show-less-brands').hide();
+            return false;
+          }
+           jQuery('.show-more-brands').css('display','')
+          visiable-=1;
+         jQuery(this).css('display','none');
+         return false;
+         }
+           
+          
+          }
+         
+    });
+       
+    })
+    
+    if (visiable==1) { 
+             
+             jQuery('.show-less-brands').hide();
+            return false;
+          }
+})
+</script>
+
+   <?php endif; ?>
+<?php endif ?>
+
+
+
+
+
+
+

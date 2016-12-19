@@ -1,0 +1,98 @@
+
+<div class="blocks blogLeft">
+	<div class="">
+		<section class="block-news areaBox">
+			<div class="block-title">
+			  <h2><span><?php echo Mage::getStoreConfig('mdlblog/mdlblog/title');?></span></h2>
+			</div>
+		<?php 
+		 $posts = $this->getPosts();
+		 $numberofpost = Mage::getStoreConfig('mdlblog/mdlblog/numCount');
+		 $jcarousel_status = Mage::helper('mdlblog')->getJcarousel(); 
+		?>
+		
+		<?php if(count($posts)>0):?>
+		<?php if($jcarousel_status==1):?>
+			
+			<div class="jcarousel-wrapper">
+			  <div class="jcarousel scrollBlogLeft">
+				  <?php $i=1; foreach ($posts as $post):
+					if($i<=$numberofpost) {
+				  ?>
+					<div class="blogItem"> 
+						<div class="img-block">
+							<a class="blog-img" href="<?php echo $post->getAddress()?>"> 
+								<img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) . $post->getBlogthumb(); ?>" alt="<?php echo $post->getTitle(); ?>"  /> 
+							</a>
+						</div>
+						<h3><?php echo $post->getTitle(); ?></h3>
+						<p class="shortdes">
+							<?php 
+							   $desc = $post->getPostContent();
+							   $text = substr(strip_tags($desc),0,120);
+							   echo $text; 
+							?>
+						</p>
+						<ul class="f-block bList">
+							<li><span class="Rblog"><a class="blog-img" href="<?php echo $post->getAddress()?>">
+								<?php echo $this->__('Read More')?></a></span><strong>|</strong>
+							</li>
+							<li><span class="author">By <?php echo $post->getUser(); ?></span><strong>|</strong></li>
+							<li class="date-block"><?php echo date('M d, Y', strtotime($post->getCreatedTime())); ?></li>
+						</ul>
+					</div>
+				  <?php $i++; } endforeach; ?>
+				</div>
+		</div>
+		
+		<script type="text/javascript">
+					(function($) {	
+					
+					
+					$('.scrollBlogLeft').owlCarousel({
+							loop:true,
+							smartSpeed: 500,
+							dots: false,
+							margin:30,
+							items:1,
+							navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>" ],
+							responsiveClass:true,
+							nav: true
+						})
+					
+						
+					})(jQuery);			
+				</script>
+		
+			  
+			<?php else :?>
+			<ul class="all-news">
+			  <?php $i=1; foreach ($posts as $post):
+											if($i<=$numberofpost) {
+								 ?>
+			  <li> <img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) . $post->getBlogthumb(); ?>" alt=""  />
+				<h2><?php echo $post->getTitle(); ?></h2>
+				<h3><i class="fa fa-calendar"></i> <?php echo date('M d, Y', strtotime($post->getCreatedTime())); ?><span>/</span><i class="fa fa-comments-o"></i>
+				  <?php $this->__('Comments') ?>
+				  (<?php echo $this->getCommentsCount($post->getId()) ?>)</h3>
+				<?php 
+					$desc = $post->getPostContent();
+					$text = substr($desc,0,180);
+					echo $text; 
+				?>
+				<div class="f-block">
+				  <author class="f-left"><i class="fa fa-user"></i> <?php echo $post->getUser(); ?></author>
+				  <a class="magic-mdlblog-read-more f-right" href="<?php echo $post->getAddress()?>"><?php echo $this->__('Read More')?></a> </div>
+			  </li>
+			  <?php $i++; } endforeach; ?>
+			</ul>
+			<?php endif;?>
+			<?php else:?>
+			
+				<p class="note-msg">
+				There is no any post.
+				</p>
+			  <?php endif;?>
+		</section>
+	</div>
+</div>
