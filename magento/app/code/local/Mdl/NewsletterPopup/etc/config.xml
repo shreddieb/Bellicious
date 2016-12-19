@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <Mdl_NewsletterPopup>
+      <version>1.0.0</version>
+    </Mdl_NewsletterPopup>
+  </modules>
+  <frontend>
+    <routers>
+      <mdlnewsletterpopup>
+        <use>standard</use>
+        <args>
+         <module>Mdl_NewsletterPopup</module>
+         <frontName>newsletterpopup</frontName>
+       </args>
+     </mdlnewsletterpopup>
+   </routers>
+   <layout>
+    <updates>
+      <newsletterpopup>
+        <file>mdl_newsletterpopup.xml</file>
+      </newsletterpopup>
+    </updates>
+  </layout>
+</frontend>
+<adminhtml>
+    <acl>
+      <resources>
+        <all>
+          <title>Allow Everything</title>
+        </all>
+        <admin>
+          <children>
+            <system>
+              <children>
+                <config>
+                  <children>
+                    <newsletterpopup>
+                      <title>MDL -NewsletterPopup</title>
+                    </newsletterpopup>
+                  </children>
+                </config>
+              </children>
+            </system>
+          </children>
+        </admin>
+      </resources>
+    </acl>
+  </adminhtml>
+</config> 

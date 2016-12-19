@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Mdl_Blockpermission>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Mdl_Blockpermission>
+    </modules>
+</config> 

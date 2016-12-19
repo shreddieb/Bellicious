@@ -1,0 +1,71 @@
+<?php
+	 $config = Mage::getStoreConfig('mdloption/footerpan');
+	 $config2 = Mage::getStoreConfig('mdltestimonials/general');
+ ?>
+
+
+		<?php 
+		if (Mage::getStoreConfig('mdltestimonials/general/mdltestimonialsenabled') == "1"):         
+			$brandModel = Mage::getModel('mdltestimonials/mdltestimonials')->getCollection()->addFieldToFilter('status', 1);
+			if (count($brandModel) > 0):
+		?>
+
+		<section class="blocks testimonial-wrapper testimonialLeft">
+		
+		<div class="block-title">
+		  <h2><span><?php echo $config2['testimonialstitle'];?></span></h2>
+		</div>
+
+		  <div class="jcarousel-wrapper">
+			<div class="jcarousel">
+			  <div class="scroller-testimonial">
+				<?php
+				$imageUrl = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA)  ;
+				foreach ($brandModel as $k => $v) {
+				$pi = pathinfo($v->getFilename());
+				if ($config2['mdltestimonialsresizeenabled']== 1) {
+				$fileThumb = $imageUrl .$pi['filename'].'_thumb.'.$pi['extension'];	   
+				} else{
+				$fileThumb = $imageUrl .$pi['filename'].'.'.$pi['extension'];
+				}
+				
+				?>
+				
+		 <?php $store_id = Mage::app()->getStore()->getStoreId();	$mdltestiId=$v->getStoreId();	$storeIds=explode(",",$mdltestiId);	if(in_array($store_id,$storeIds) || in_array(0,$storeIds)) :?>
+				<div class="testimonialPan">
+					<?php if($v->getFilename() !=''):?>	
+						<img class="testimonialThumb" src="<?php echo $fileThumb;?>" alt="<?php echo $v->getAuthor(); ?>">	
+					<?php endif;?>
+					<p><i class="quote fa fa-quote-left"></i> <?php echo $v->getContent(); ?> <span class="author"><?php echo $v->getAuthor(); ?></span> </p>
+					 
+				</div>		 
+				 <?php endif; ?>
+				<?php
+				}?>
+			  </div>
+			</div>
+			</div>
+		</section>
+			<script type="text/javascript">
+				(function($) {	
+				$('.scroller-testimonial').owlCarousel({
+				loop:true,
+				lazyLoad:true,
+				autoHeight: true,
+				smartSpeed: 500,
+				dots: false,
+				items:1,
+				nav: true,
+				dotsContainer: false,
+				navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>" ],
+				responsiveClass:true,
+				<?php if ($config2['enableautoslide']== 1):?>
+				autoplay: true,
+				autoplayTimeout: 5000
+				<?php endif;?>
+				})
+
+			})(jQuery);			
+			</script>
+ <?php endif; ?>
+  <?php endif; ?>

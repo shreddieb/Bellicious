@@ -1,0 +1,66 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     default_modern
+ * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+ <?php $config = Mage::getStoreConfig('mdloption/socialicon'); ?>       	
+ <!--social links-->
+            <h3><?php echo $this->__('Follow Us');?></h3>
+            <ul class="mdl-social">
+              <?php if($config['enable_facebook_ic']==1):?>
+                 <li class="facebook"><a title="facebook" href="<?php echo $config['facebook_url']?>"><i class="fa fa-facebook"></i></a></li>
+              <?php endif;?>
+              
+              <?php if($config['enable_twitter_ic']==1):?>
+                 <li class="twitter"><a title="twitter" href="<?php echo $config['twitter_url']?>"><i class="fa fa-twitter"></i></a></li>
+              <?php endif;?>
+              
+              <?php if($config['enable_googlep_ic']==1):?>
+                 <li class="google-plus"><a title="google plus" href="<?php echo $config['googlep_url']?>"><i class="fa fa-google-plus"></i></a></li>
+              <?php endif;?>
+              
+              <?php if($config['enable_youtube_ic']==1):?>
+                 <li class="youtube"><a title="youtube" href="<?php echo $config['youtube_url']?>"><i class="fa fa-youtube"></i></a></li>
+              <?php endif;?>
+              
+              <?php if($config['enable_pinterest_ic']==1):?>
+                 <li class="pinterest"><a title="pinterest" href="<?php echo $config['pinterest_url']?>"><i class="fa fa-pinterest"></i></a></li>
+              <?php endif;?>
+              
+              <?php if($config['enable_linkedin_ic']==1):?>
+                  <li class="linkedin"><a title="linkedin" href="<?php echo $config['linkedin_url']?>"><i class="fa fa-linkedin"></i></a></li>
+              <?php endif;?>
+              
+              <?php if($config['enable_dribbble_ic']==1):?>
+                 <li class="dribbble"><a title="dribbble" href="<?php echo $config['dribbble_url']?>"><i class="fa fa-dribbble"></i></a></li>
+              <?php endif;?>
+              
+              <?php if($config['enable_rss_ic']==1):?>
+                 <li class="rss"><a title="rss" href="<?php echo $config['rss_url']?>"><i class="fa fa-rss"></i></a></li>
+              <?php endif;?>
+              
+              <?php if($config['enable_tumblr_ic']==1):?>
+                 <li class="tumblr"><a title="tumblr" href="<?php echo $config['tumblr_url']?>"><i class="fa fa-tumblr"></i></a></li> 
+              <?php endif;?>  
+            </ul>

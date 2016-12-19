@@ -1,0 +1,141 @@
+<?php 
+$status = Mage::helper('bestsellingproduct')->getBestsellingStatus();
+$status_newp = Mage::helper('bestsellingproduct')->getNewproductStatus();
+$status_featurep = Mage::helper('bestsellingproduct')->getFeaturedStatus();
+
+
+  $_product_news = $this->getLayout()->getBlockSingleton('Mdl_Bestseller_Block_Newproduct'); 
+  $_product_news_dtl = $_product_news->getProductCollection();
+  //echo 'count='.$_product_news_dtl;
+  $toalCount = $this->getTabCount();
+?>
+<?php $jquerystatus = Mage::helper('bestsellingproduct')->getJquerySetting(); 
+		if($jquerystatus==1) {
+?>
+<?php } ?>
+  <script type="text/javascript">
+  jQuery(document).ready(function() {
+  jQuery('.tab-bestseller a').addClass('active');
+  jQuery('.tab-contents').html('<div class="a-center spinner-block"><i class="fa fa-spinner fa-spin"></i></div>');
+  <?php if($status==1) {   // To check bestseller tab is enable from admin
+	 $_products=$this->getProductCollection();
+  ?>
+  var tid='tab-bestseller';
+  <?php
+  }
+  else if($status_newp==1)    // To check new product tab is enable from admin
+  {
+   $_products = $_product_news->getProductCollection();
+  ?>
+	 var tid='tab-newproduct';
+	 <?php
+  }
+  else if($status_featurep==1)   // To check featured product tab is enable from admin
+  { 
+  $attribute_code = "mdl_featured";
+			$attribute_details = Mage::getSingleton("eav/config")->getAttribute("catalog_product", $attribute_code);
+			$options = $attribute_details->getSource()->getAllOptions(false);
+			foreach($options as $option){
+				if($option["label"]=='Yes')
+				{
+					$option_value=$option["value"];
+				}
+			}
+	$_products = Mage::getModel('catalog/product')->getCollection()->addAttributeToSelect('*')->addFieldToFilter('mdl_featured', $option_value);
+  ?>
+	var tid='tab-featured';
+	<?php
+  } ?>
+  // Call Ajax action on page load
+	jQuery.ajax(
+	{
+		url:'<?php echo $this->getUrl('bestseller/index/tab'); ?>',
+		data:{tabid:tid},
+		success:function(result){
+				<?php if(count($_products) == 0) {  ?>
+					jQuery('.tab-contents').html('<div class="note-msg"><?php echo $this->__('No products sold yet. Products will be listed here after purchases are made ...');?> </div>');
+					<?php } else { ?>
+					jQuery('.tab-contents').html(result);
+					<?php } ?>
+				}
+	}
+	);
+	// End ajax action of page load
+	
+ 	jQuery('#tabs h2 span').click(function() {
+	jQuery('#tabs h2 span').each(function() {
+		jQuery(this).removeClass('active');
+	});
+	jQuery(this).addClass('active');
+	var tabid=jQuery(this).find('a').attr('class');
+	var htmlDiv='';
+	if(tabid=='tab-bestseller'){
+		htmlDiv = '.tab-contents';
+		jQuery('.tab-contents-new').hide();
+		jQuery('.tab-contents-feature').hide();
+	}
+	else if(tabid=='tab-newproduct')
+	{
+		htmlDiv = '.tab-contents-new';
+		jQuery('.tab-contents').hide();
+		jQuery('.tab-contents-feature').hide();
+	}
+	else if(tabid=='tab-featured')
+	{
+		htmlDiv = '.tab-contents-feature';
+		jQuery('.tab-contents-new').hide();
+		jQuery('.tab-contents').hide();
+	}
+	else
+	{
+		htmlDiv = '.tab-contents';
+	}
+	jQuery(htmlDiv).show();
+	if(jQuery(htmlDiv).html()=='') 
+	{
+	jQuery(htmlDiv).html('<div class="a-center spinner-block"><i class="fa fa-spinner fa-spin"></i></div>');
+	
+	jQuery.ajax(
+	{
+		url:'<?php echo $this->getUrl('bestseller/index/tab'); ?>',
+		data:{tabid:tabid},
+		success:function(result){
+			        jQuery.trim(result);
+					var str = result;
+					str = str.replace( /[\s\n\r]+/g, ' ' );
+					console.log( str );
+					
+					if(jQuery(str).html()){
+						jQuery(htmlDiv).show();
+						jQuery(htmlDiv).html(result);
+					} else {
+						jQuery(htmlDiv).show();
+						jQuery(htmlDiv).html('<div class="note-msg"><?php echo $this->__('No products found.') ?></div>');
+					}
+				}
+	       }
+	);
+	}
+  });
+ 
+  });
+  </script>
+  <?php 
+  $arr=$this->getTabEnable(); 
+  $arr_name=$this->getTabNameEnable();
+  ?>
+<div id="tabs">
+	<div class="bestselling-title">
+		<h2>
+			<?php for($i=1;$i<=$toalCount;$i++) { ?>
+			<span <?php if($i==1) { ?> class="active" <?php } ?>><a class="<?php echo $arr_name[$i-1]; ?>" href="javascript:void(0);"><?php echo $arr[$i-1]; ?></a></span>
+			  <?php } ?>
+		</h2>
+	</div>
+ <div class="tab-contents f-block"></div>
+ <div class="tab-contents-new f-block" style="display:none;"></div>
+ <div class="tab-contents-feature f-block" style="display:none;"></div>
+</div>
+
+
+

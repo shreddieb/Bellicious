@@ -1,0 +1,17 @@
+a.paypal-auth,
+#login-with-paypal{position:relative;}
+a.paypal-auth:before {
+    color: #34a1fc;
+    content:'\f1ed';	
+    font-family: FontAwesome;
+    left: 0;
+    position: absolute;
+    top: 0;
+}
+a.paypal-auth:after {
+    content: "Login with paypal";
+    padding-left: 20px;
+}
+
+
+.paypal-or { border-bottom:1px solid #ddd;border-top:1px solid #ddd; padding:5px 0 5px; margin:10px 0 10px; }

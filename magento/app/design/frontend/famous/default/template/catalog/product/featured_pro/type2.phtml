@@ -1,0 +1,196 @@
+<?php $config = Mage::getStoreConfig('mdlpump/featuredpro');?>
+<?php $config2 = Mage::getStoreConfig('mdloption/genral_theme_setting'); ?>
+<?php 
+           $collection = Mage::getModel('catalog/product')->getCollection();
+		   $attributes = Mage::getSingleton('catalog/config')
+			->getProductAttributes();
+		   $collection->addAttributeToSelect($attributes)
+			->addMinimalPrice()
+			->addFinalPrice()
+			->addTaxPercents()
+						->addAttributeToFilter(array(array( // Flat Catalog Product workaround
+							'attribute' => 'mdl_featured',
+							'eq' => 1,
+						)), null, 'left')
+			->addStoreFilter()->setPageSize($config['total_pro']);
+		   Mage::getSingleton('catalog/product_status')->addVisibleFilterToCollection($collection);
+		   Mage::getSingleton('catalog/product_visibility')->addVisibleInCatalogFilterToCollection($collection);
+		   Mage::getSingleton('cataloginventory/stock')->addInStockFilterToCollection($collection);
+		  $_helper = $this->helper('catalog/output');	
+
+		 
+ ?>
+			<?php if($config['row_pro']=='1'):?>
+				<?php $imgSize = '800'?>
+			<?php elseif ($config['row_pro']=='2'):?>
+				<?php $imgSize = '600'?>
+			<?php elseif ($config['row_pro']=='3'):?>
+				<?php $imgSize = '400'?>
+			<?php elseif ($config['row_pro']=='4'):?>
+				<?php $imgSize = '300'?>
+			<?php elseif ($config['row_pro']=='5'):?>	
+				<?php $imgSize = '300'?>
+			<?php else:?>
+				<?php $imgSize = '200'?>
+			<?php endif; ?>
+
+
+  <div class="jcarousel">
+    <div class="products-grid scrollerfp">
+
+      <?php $i=1; foreach($collection as $_productData): ?>
+      <?php $_product = Mage::getModel('catalog/product')->load($_productData['entity_id']); ?>
+      
+		 
+		<?php if($config['flip_view']==1 && $config['flip_view_style']==2):?>
+			<?php $flipviewStyleL='fadeView'; ?>
+		<?php endif; ?>
+	<div class="item secView">	
+		<div class="itemInner">
+				<!--Images and price container-->
+                    <div class="proImage <?php echo $flipviewStyleL; ?> flipView">
+						<!--Badge view-->
+							<div class="badgeBox">
+								<!--Comapare-->
+										<?php if ($config2['compare_box']) :?>
+											 <?php if($_compareUrl=$this->getAddToCompareUrl($_product)): ?>
+												  <a href="javascript:void(0);" class="compareBtn" onclick="setLocation('<?php echo $_compareUrl?>','<?php echo $_product->getId()?>'); return false;" > 
+														<i class="fa fa-clone"></i>
+												  </a>
+											 <?php endif; ?>
+										<?php endif; ?>	 
+								<!--End comapare-->	
+							</div>	
+						<!--end badge view-->
+						
+						
+						<!--wishlist-->
+						  <?php if ($this->helper('wishlist')->isAllow()) : ?>
+						  <a href="<?php echo $this->helper('wishlist')->getAddUrl($_product) ?>" title="<?php echo $this->__('Add to Wishlist') ?>"  class="heart">
+								<?php if($config['itemviewbox']==2):?>
+									<i class="fa fa-heart-o"></i>
+								<?php else:?>
+									<i class="fa fa-heart"></i>
+								<?php endif;?>
+						  </a>
+						  <?php endif; ?>
+					    <!--End wishlist-->
+						
+						
+                   		<?php if($config['flip_view']==1):?>
+							<a href="<?php echo $_product->getProductUrl() ?>" class="product-image"> 
+							<img class="spacer-img" src="<?php echo $this->getSkinUrl('images/spacer.png');?>" title="" alt="" />
+							<span class="face">
+							<img id="product-collection-image-<?php echo $_product->getId(); ?>" class="front-img" src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize($imgSize); ?>" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>"  />
+							</span>
+							<span class="back-img back face">
+								<img class="hoverImg" src="<?php echo Mage::helper('catalog/image')->init($_product, 'thumbnail')->resize($imgSize); ?>" 
+								alt="<?php echo $this->htmlEscape($_product['name']); ?>"  />
+							</span> 
+							</a>
+                        <?php else: ?>
+                            <a href="<?php echo $_product->getProductUrl() ?>" class="product-image"> 
+                                <img id="product-collection-image-<?php echo $_product->getId(); ?>" src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize($imgSize); ?>" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" /> 
+                            </a>
+						<?php endif; ?>
+						
+							  <!--Quick view icon-->
+								  <?php if($config['itemviewbox_quick_view']==1):?>
+								  <a  title="<?php echo $this->__('Quick View')?>" href='<?php echo $this->getUrl('ajax/index/options',array('product_id'=>$_product->getId()));?>' class='fancybox qv-btn' id='fpfancybox<?php echo $_product->getId();?>'><i class="fa fa-search"></i></a>
+								  <?php endif; ?>
+							  <!--End quick view icon-->
+                        
+                    </div>
+				<!--End images and price container--> 
+                
+				<!--Product detail container-->  
+				
+				
+                <div class="bottomProDetail">
+					
+					
+				
+				
+                	<h2 class="product-name"> 
+                    	<a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($_product->getName(), null, true) ?>"> 
+                        	<?php if($config['name_character']!=''):?>
+                            	<?php echo substr($_helper->productAttribute($_product, $_product->getName(), 'name'),0, $config['name_character'])?>
+                            <?php else:?>
+                            	<?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?> 
+                            <?php endif;?>        
+                        </a> 
+                    </h2>
+					
+					<!-- Rating -->
+                        <?php echo $this->getReviewsSummaryHtml($_product, "short", true)?>
+                    <!-- End rating -->
+					
+                    <!--Price-->  
+                        <?php echo $this->getPriceHtml($_product, true, '-right') ?>
+						
+							<!--Sale badge view-->
+							<?php if($_product->getSpecialPrice()): ?>
+								<?php echo Mage::helper("myfunction")->specialPriceDiscount($_product); ?>
+							<?php endif; ?>
+							<!--End sale badge view-->
+						
+					<!--End price--> 
+					
+                    <!-- Color swatch -->
+                    <?php if ($this->getChild('name.after')):?>
+                        <?php $_nameAfterChildren = $this->getChild('name.after')->getSortedChildren();?>
+                        <?php foreach ($_nameAfterChildren as $_nameAfterChildName):?>
+                            <?php $_nameAfterChild = $this->getChild('name.after')->getChild($_nameAfterChildName);?>
+                            <?php $_nameAfterChild->setProduct($_product);?>
+                            <div class="listColorSwatch">
+                            <?php echo $_nameAfterChild->toHtml();?>
+                            </div>
+                        <?php endforeach ?>
+                    <?php endif;?>
+                    <!--End Color swatch -->
+					
+                    
+                </div>
+                <!--End product detail container-->     
+        </div>
+	</div>		
+		
+
+        
+      <?php endforeach ?>
+    </div>
+  </div>
+
+<script type="text/javascript">
+(function($){
+    $(function() {
+
+		$('.scrollerfp').owlCarousel({
+					loop:true,
+					smartSpeed: 500,
+					dots: false,
+					margin:10,
+					navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>" ],
+					responsiveClass:true,
+					responsive:{
+						0:{
+							items:1,
+							nav: true
+						},
+						600:{
+							items:2,
+							nav: true
+						},
+						1000:{
+							items:<?php echo $config['row_pro'];?>,
+							nav: true,
+							loop:true
+						}
+					}
+				})
+	
+	
+    });
+	
+})(jQuery);			
+</script>

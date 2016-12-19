@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<config>
+	<modules>
+		<Mdl_Blockpermission>
+			<version>1.1.2</version>
+		</Mdl_Blockpermission>
+	</modules>
+	<global>
+		<resources>
+			<blockpermission_setup>
+				<setup>
+					<module>Mdl_Blockpermission</module>
+				</setup>
+				<connection>
+					<use>core_setup</use>
+				</connection>
+			</blockpermission_setup>
+			<blockpermission_write>
+				<connection>
+					<use>core_write</use>
+				</connection>
+			</blockpermission_write>
+			<blockpermission_read>
+				<connection>
+					<use>core_read</use>
+				</connection>
+			</blockpermission_read>
+		</resources>
+	</global>
+</config>

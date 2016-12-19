@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<config>
+	<sections>
+        <featuredcategory translate="label" module="featuredcategory">
+            <label>Featured category Settings</label>
+            <tab>Mdlext</tab>
+            <sort_order>180</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <general translate="label comment">
+                    <label>General</label>
+                    <sort_order></sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+						<featuredcatenable translate="label">
+                            <label>Featured cetegory enable</label>
+                            <frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </featuredcatenable>
+						<catHeading translate="label">
+                            <label>Category Heading: </label>
+                            <comment>You can add your featured category heading.</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </catHeading>	
+						
+                         <noofproduct translate="label">
+                            <label>Show products count</label>
+                            <frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </noofproduct>
+						<featuedCatOptions translate="label">
+							 <label>Featured category option</label>
+							 <frontend_type>select</frontend_type>
+							 <source_model>featuredcategory/system_config_source_Featuredcatcustomoptions</source_model>
+							 <sort_order>50</sort_order>
+							 <show_in_default>1</show_in_default>
+							 <show_in_website>1</show_in_website>
+							 <show_in_store>1</show_in_store>
+					  </featuedCatOptions>
+					</fields>
+               </general>
+			   <HowtoUseExtension translate="label">
+                    <label>How to use Featured Category extension</label>
+                    <frontend_model>featuredcategory/adminhtml_system_configuration_HowtoUseExtension</frontend_model>
+                    <sort_order>11</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                </HowtoUseExtension>
+		    </groups>
+        </featuredcategory>
+    </sections>
+</config>

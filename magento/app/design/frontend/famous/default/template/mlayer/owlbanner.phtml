@@ -1,0 +1,144 @@
+<?php
+	$bannerCollection = $this->getBannerCollection();
+	$i = 0;
+   	$config2 = Mage::getStoreConfig('mlayer/settings');	
+	$config3 = Mage::getStoreConfig('mdlmdlnavi/navsettings');
+	$config4 = Mage::getStoreConfig('mdlmdlnavi/general');
+?>
+
+<?php $bannerStatus = $this->getBannerStatus() ?>
+<?php $showdesc = $this->isShowDescription() ?>
+<?php $bannerContentPos = $this->getBannerContentPos()?>
+<?php $contentHeight = $this->getContentHeight()?>
+<?php $btntext = $this->getButtonText()?>
+<?php $contentloder = $this->getContentloder()?>
+<?php $contentPage = $this->getContentPage()?>
+<?php $contentHover = $this->getContentHover()?>
+<?php $effectbanner = $this->getEffectbanner()?>
+
+<?php if ($bannerStatus == '1'):?>
+	<?php if (!count($bannerCollection)): ?>
+		<div class="f-block"><div class="no-banner container"><?php echo $this->__('Please upload banner');?></div></div>
+	<?php else:?>
+		<!--OWL BANNER START-->
+		<link rel="stylesheet" property="stylesheet" type="text/css" href="<?php echo $this->getSkinUrl('css/animate.css');?>" media="all"/>
+		<?php if($config3['navoption_main']==1):?>
+			<div class="f-block">
+				<div class="container mainOwlBanner">
+					<div id="owlBanner" class="owl-carousel owl-theme areaBox">
+						<?php $i = 0; foreach ($bannerCollection as $banner): $i++; ?>
+							  <?php if ($banner['contentpos'] == '1'):?>
+								<?php $contentClass = 'bottomleft';?>
+							  <?php elseif ($banner['contentpos'] == '2'):?>
+								<?php $contentClass = 'bottomright';?>
+							  <?php elseif ($banner['contentpos'] == '3'):?>
+								<?php $contentClass = 'bottomcenter';?>
+							  <?php endif;?>
+							<div class="banner_item">
+								<?php if($config2['owl_des']):?>
+									<img alt="<?php echo $banner['title']?>" src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA).$banner['filename']?>">
+									<div class="owlContent <?php echo $contentClass;?>">
+										<h3><?php echo $banner['title']?></h3>
+										<p><?php echo $banner['content']?></p>
+										<a class="owlBtn" href="<?php echo Mage::getBaseUrl().$banner['weblink'];?>"><?php echo $btntext;?></a>
+									</div>
+								<?php else:?>
+									<a href="<?php echo Mage::getBaseUrl().$banner['weblink'];?>">
+										<img alt="<?php echo $banner['title']?>" src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA).$banner['filename']?>">
+									</a>									
+								<?php endif;?>	
+							</div>
+						<?php endforeach;?>
+					</div>
+				</div>    
+			</div> 
+		<?php else:?>	
+		<!--banner with Nav-->
+		  <div class="f-block">
+			<div class="container">
+				<div class="row">
+					<div class="navBox">
+						<div class="leftNav">
+							<?php if($config4['status']==1):?>
+							   <?php echo $this->getLayout()->createBlock('mdlmdlnavi/mdlnavi')->setTemplate('mdl/mdlnavi/top.phtml')->toHtml();?>
+							   <?php echo $this->getLayout()->createBlock('page/html_topmenu')->setTemplate('page/html/mobilemenu.phtml')->toHtml();?>
+							<?php else:?>
+								<?php echo $this->getLayout()->createBlock('page/html_topmenu')->setTemplate('page/html/topmenu.phtml')->toHtml();?>
+							<?php endif;?>
+						</div>
+						<div class="bannerBox">
+							<div class="mainOwlBanner">
+								<div id="owlBanner" class="owl-carousel owl-theme areaBox">
+									<?php $i = 0; foreach ($bannerCollection as $banner): $i++; ?>
+										  <?php if ($banner['contentpos'] == '1'):?>
+											<?php $contentClass = 'bottomleft';?>
+										  <?php elseif ($banner['contentpos'] == '2'):?>
+											<?php $contentClass = 'bottomright';?>
+										  <?php elseif ($banner['contentpos'] == '3'):?>
+											<?php $contentClass = 'bottomcenter';?>
+										  <?php endif;?>
+										<div class="banner_item">
+											<?php if($config2['owl_des']):?>
+												<img alt="<?php echo $banner['title']?>" src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA).$banner['filename']?>">
+												<div class="owlContent <?php echo $contentClass;?>">
+													<h3><?php echo $banner['title']?></h3>
+													<p><?php echo $banner['content']?></p>
+													<a class="owlBtn" href="<?php echo Mage::getBaseUrl().$banner['weblink'];?>"><?php echo $btntext;?></a>
+												</div>
+											<?php else:?>
+												<a href="<?php echo Mage::getBaseUrl().$banner['weblink'];?>">
+													<img alt="<?php echo $banner['title']?>" src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA).$banner['filename']?>">
+												</a>									
+											<?php endif;?>
+										</div>
+									<?php endforeach;?>
+								</div>
+							</div> 
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<?php endif;?>
+		
+		
+		<!--Static block-->
+		<?php if($config2['homeBlock']==1):?>
+			<div class="f-block">
+				<div class="promoBox f-block">
+					  <div class="container"> 
+						   <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('promotional_bottom_block_3')->toHtml() ?> 
+					  </div>
+				</div>
+			</div>
+		<?php elseif($config2['homeBlock']==2):?>
+			<div class="f-block">
+			  <div class="promoBox f-block">
+				<div class="container"> 
+					<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('promotional_bottom_block_2')->toHtml() ?> 
+				</div>
+			  </div>
+			</div>
+		<?php endif;?>
+		<!--Static block end -->
+
+		<script>
+				jQuery(document).ready(function(){
+				  jQuery("#owlBanner").owlCarousel({
+						animateOut:'<?php echo $config2['owl_animateOut'];?>',
+						animateIn:'<?php echo $config2['owl_animateIn'];?>',
+						loop:<?php echo (($config2['owl_banner_loop']=='1')?'true':'false');?>,
+						items:1,
+						autoplay:<?php echo (($config2['owl_autoplay']=='1')?'true':'false');?>,
+						autoplayTimeout:<?php echo $config2['owl_autoplayTime'];?>,
+						autoHeight:<?php echo (($config2['owl_height']=='1')?'true':'false');?>,
+						nav:<?php echo (($config2['owl_nav']=='1')?'true':'false');?>,
+						navText:["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>"],
+						smartSpeed:<?php echo $config2['owl_bannerspeed'];?>,
+						stagePadding:0
+						
+					 });
+				});
+		</script>
+	<?php endif;?>	
+<?php endif;?>	

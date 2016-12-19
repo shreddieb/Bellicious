@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Mdl_CatalogCategorySearch>
+            <active>true</active>
+            <codePool>community</codePool>
+                <depends>
+                    <Mage_CatalogSearch/>
+                </depends>
+        </Mdl_CatalogCategorySearch>
+    </modules>
+</config>

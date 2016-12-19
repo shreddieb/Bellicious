@@ -1,0 +1,45 @@
+<?php $_product = $this->getProduct(); ?>
+<?php $buttonTitle = $this->__('Add to Cart'); ?>
+<?php if($_product->isSaleable()): ?>
+    <div class="add-to-cart">
+        <?php if(!$_product->isGrouped()): ?>
+        <label for="qty"><?php echo $this->__('Qty:') ?></label>
+        <div class="qty_pan">
+        <input type="text" name="qty" id="qty" maxlength="12" value="1" title="<?php echo $this->__('Qty') ?>" class="input-text qty" />
+        </div>
+        <?php endif; ?>
+        <button type="button" title="<?php echo $buttonTitle ?>" class="button btn-cart" onclick="productAddToCartForm.submit(this)"><span><span><?php echo $buttonTitle ?></span></span></button>
+        <span id='ajax_loader' style='display:none'><i class="fa fa-spinner fa-spin"></i></span>
+        
+        <?php echo $this->getChildHtml('', true, true) ?>
+    </div>
+<?php endif; ?>
+<script type="text/javascript">
+jQuery(function() {
+
+    jQuery("div.add-to-cart .qty_pan").append('<div class="add">+</div><div class="dec add">-</div>');
+
+    jQuery(".add").click(function() {
+        var jQueryadd = jQuery(this);
+        var oldValue = jQueryadd.parent().find("input").val();
+		var newVal = oldValue;
+    
+        if (jQueryadd.text() == "+") {
+    	   newVal = parseFloat(oldValue) + 1;
+    	  // AJAX save would go here
+    	} else {
+			
+    	  // Don't allow decrementing below zero
+    	  if (oldValue > 1) {
+    	      newVal = parseFloat(oldValue) - 1;
+    	      // AJAX save would go here
+    	  }
+		  
+    	}
+    	jQueryadd.parent().find("input").val(newVal);
+    });
+	
+
+});
+	
+</script>

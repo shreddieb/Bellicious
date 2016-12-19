@@ -1,0 +1,75 @@
+<?php 
+    // move logic to the block
+    list($min,$max) = $this->_filter->getMinMaxPriceInt(); 
+    list($from,$to) = explode(',', $this->_filter->getActiveState()); 
+    
+    $from = floor(max($from, $min));
+    
+    if ($to) {
+        $to   = ceil(min($to, $max));
+    } else {
+        $to = $max;
+    }
+    
+    if ($to<1 && $from<1) {
+        $to = $max;
+    }
+
+	//Set the slider width
+  /*  $width = 170;
+    
+    if ($max) {
+        if ($max == $min) {
+            $firstOffset = 0;
+            $secondOffset = $width;
+        } else  {
+			$firstOffset  = ($from-$min)*$width/($max-$min);
+			$secondOffset = ($to-$min)*$width/($max-$min);
+        }
+    } else  {
+			$firstOffset  = 0;
+			$secondOffset = 0;
+    }*/
+?>
+<ol>
+    <li>
+<?php if ($to != $from) :?> 
+     <div id="slider"></div>
+<script>
+jQuery("#slider").rangeSlider({
+	arrows:false,
+  bounds: {min:<?php echo $min?>,max: <?php echo $max ?>},
+  defaultValues:{min:<?php echo $from ?>,max:<?php echo $to ?>}
+});
+   
+  jQuery("#slider").on("userValuesChanged", function(e, data){ 
+  create_price_slider_custom(data.values.min,data.values.max,'<?php echo $this->_filter->getRequestVar();?>');
+     console.log("min"+data.values.min+"max"+data.values.max);
+});    
+       
+// jQuery("#slider").rangeSlider("option","bounds",<?php echo $from;?> , <?php echo $to; ?>);
+	    </script>
+<?php endif;?> 
+
+<?php if ($to != $from) :?> 
+<?php //echo $this->__('Range:')?> 
+<?php //echo $this->getSymbol()?>
+<span style="display: none;" id="price_range_from<?php echo $this->_filter->getRequestVar()?>"><?php echo $from?></span>-<?php echo $this->getSymbol()?><span style="display: none;" id="price_range_to<?php echo $this->_filter->getRequestVar()?>"><?php echo $to?></span>
+<script type="text/javascript">
+    //var slider = create_price_slider("<?php echo $width.', '.$firstOffset.', '.$secondOffset.', '.$min.', '.$max.',"'.$this->_filter->getRequestVar()?>");
+</script>
+
+<?php else:?>
+<?php echo $this->__('Value:')?> 
+<?php echo $this->getSymbol()?><span id="price_range_from<?php echo $this->_filter->getRequestVar()?>"><?php echo $from?></span>
+<?php endif;?> 
+
+<input class="input-text" type="text" maxlength="12" size="4" id="price_range_from---<?php echo $this->_filter->getRequestVar()?>" value="<?php echo $from?>"
+onclick="if(this.value==this.name) this.value='';"  name="<?php echo $this->__('From')?>"/>
+<span>-</span>
+<input class="input-text" type="text" maxlength="12" size="4" id="price_range_to---<?php echo $this->_filter->getRequestVar()?>" value="<?php echo $to?>"
+onclick="if(this.value==this.name) this.value='';" name="<?php echo $this->__('To')?>"/>
+<button type="button" class="button" id="price_button_go---<?php echo $this->_filter->getRequestVar()?>"><span><?php echo $this->__('Go')?></span></button>
+</li>
+</ol>
+<input type="hidden" value="<?php echo $this->_filter->getRequestVar()?>" class="price-input">

@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<layout version="1.0.0">
+	<default>
+		<reference name="top.menu">
+			<action ifconfig="mdlmdlnavi/general/status" method="unsetChild">
+				<name>catalog.topnav</name>
+			</action>
+			
+			<block type="page/html_topmenu" name="catalog.topnavm">
+                <action method="setTemplate" ifconfig="mdlmdlnavi/general/status">
+                    <template>page/html/mobilemenu.phtml</template>
+                </action>
+            </block>
+			
+			<block type="mdlmdlnavi/mdlnavi" name="mdlmdlnavi.mdlnavi">
+                <action method="setTemplate" ifconfig="mdlmdlnavi/general/status">
+                    <template>mdl/mdlnavi/top.phtml</template>
+                </action>
+            </block>
+			
+		</reference>
+	</default>
+</layout>

@@ -1,0 +1,145 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<?php
+/**
+ * Template for Mage_Page_Block_Html
+ */
+?>
+<!DOCTYPE html>
+<html>
+<head>
+<?php echo $this->getChildHtml('head') ?>
+</head>
+<?php $config = Mage::getStoreConfig('mdloption/headerpan'); ?>
+<?php $config2 = Mage::getStoreConfig('mdlmdlnavi/navsettings'); ?>
+<?php $config3 = Mage::getStoreConfig('mdloption/genral_theme_setting'); ?>
+<?php $config4 = Mage::getStoreConfig('mlayer/settings');?>
+<?php $config5 = Mage::getStoreConfig('mdlpump/recentVeiw'); ?>
+<?php $config6 = Mage::getStoreConfig('mlayer/settings');?>
+
+<?php if($config2['nav-fix']):?>
+	<?php if($config4['bannerType']!=1):?>
+	    <?php $headerfix = 'headerfix' ?>
+	<?php endif;?>  
+<?php endif;?>
+
+
+<body id="bg_color" <?php echo $this->getBodyClass()?' class="'.'header'.$config['header-option'].' '.$headerfix.$this->getBodyClass().'"':''?> >
+<?php echo $this->getChildHtml('after_body_start') ?>
+
+<?php if($config4['bannerType']=='1'):?>
+	<div class="fullscreen <?php echo $config4['full_hide_banner']=='1' ? 'hideBanner':'' ?>"></div>
+<?php endif;?>
+
+<div class="wrapper bType<?php echo $config6['bannerType']?>">
+<?php if($config5['recent_veiw']==1):?>
+	<?php echo $this->getLayout()->createBlock('reports/product_viewed')->setTemplate('reports/side_product_viewed.phtml')->toHtml(); ?>
+<?php endif;?>	
+    <?php echo $this->getChildHtml('global_notices') ?>
+    <div class="page">
+        <?php echo $this->getChildHtml('header') ?>
+        <?php echo $this->getChildHtml('bannercolumn');?>
+		<section class="f-fix content-wrapper oneCol">       
+		
+		
+		<!--Category image and description-->
+				<?php if (Mage::registry('current_category') && $this->getRequest()->getControllerName()=='category'): ?>
+      <?php $cat=Mage::registry('current_category'); ?>
+					<?php  if ($_imgUrl = $cat->getImageUrl()): ?>
+						<div class="category-banner bb" style="background:url('<?php echo $_imgUrl;?>'); background-size:cover;">
+							<div class="container">
+								<div class="category-top-description">
+									<div class="category-title">
+										<h2><?php echo $cat->getName();?></h2>
+									</div>
+									<?php  if ($_description = $cat->getDescription()): ?>
+										<?php echo $_description;?>
+									<?php endif;?>
+								</div>
+							</div>	
+						</div>
+					<?php else:?>
+							<div class="category-banner cc">
+								<div class="container">
+									<div class="category-top-description">
+										<div class="category-title">
+											<h2><?php echo $cat->getName();?></h2>
+										</div>
+										<?php  if ($_description = $cat->getDescription()): ?>
+											<?php echo $_description;?>
+										<?php endif;?>
+									</div>
+								</div>	
+							</div>
+					<?php endif;?>
+				<?php endif; ?>
+				<!--End category image and description-->
+				
+				<!--Brand image and description-->
+				    <?php $isModuleEnable=false; $isBrandPage=false;$moduleName = 'Mdl_Brand'; ?>
+					<?php if(Mage::helper('core')->isModuleEnabled($moduleName)) : ?>
+						<?php $isModuleEnable=true; ?>
+					<?php endif;?>
+					
+					<?php if(Mage::app()->getRequest()->getModuleName()=="brands"):?>
+						<?php $isBrandPage=true; ?>
+					<?php endif;?>
+					
+					<?php if($isModuleEnable && $isBrandPage): ?>
+						<?php  echo $this->getLayout()->createBlock('brand/brand')->setTemplate('mdlbrand/brand_image.phtml')->toHtml();?>
+					<?php endif ;?>
+				<!--End brand image and description-->
+				
+				
+				<?php if($this->getChildHtml('breadcrumbs')!=''):?>
+					<div class="f-block breadcrumbBox ">
+						<div class="container">
+							<?php echo $this->getChildHtml('breadcrumbs');?>
+						</div>
+					</div>
+				<?php endif;?> 
+		
+			<div class="container zero padTop">
+				<div class="oneBox">
+					<div class="columnOne areaBox proArea">
+						<?php echo $this->getChildHtml('global_messages') ?>
+						<?php echo $this->getChildHtml('content') ?>
+					</div>
+				</div>
+	        </div>
+		</section>
+		<?php echo $this->getChildHtml('midcolumn');?>
+        <?php echo $this->getChildHtml('footer');?>
+        <?php echo $this->getChildHtml('before_body_end');?>
+        <?php echo $this->getAbsoluteFooter() ?>
+        <div class="clearfix"></div>
+    </div>
+
+    
+</div>
+</body>
+</html>

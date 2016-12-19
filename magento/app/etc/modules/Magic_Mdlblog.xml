@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Magic_Mdlblog>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Magic_Mdlblog>
+    </modules>
+</config>

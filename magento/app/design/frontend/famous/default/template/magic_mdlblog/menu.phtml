@@ -1,0 +1,30 @@
+<div class="block block-blog">
+    <div class="block-title">
+        <h2><span><?php echo Mage::getStoreConfig('mdlblog/mdlblog/title'); ?></span></h2>
+    </div>
+    <div class="block-content">
+        <?php if ($posts = $this->getRecent()): ?>
+        <div class="menu-recent magicat-container">
+                <ul class="listStyle">
+                    <?php foreach ($posts as $post): ?>
+                        <li><span><a href="<?php echo $post->getAddress(); ?>" ><?php echo $post->getTitle(); ?></a></span></li>
+                    <?php endforeach; ?>
+                </ul>
+            </div>
+        <?php endif; ?>
+
+        <?php if ($this->getCategories()->count() && Mage::getStoreConfig('mdlblog/menu/category')): ?>
+            <div class="menu-categories">
+                 <p class="block-subtitle"><?php echo Mage::helper('mdlblog')->__('Categories'); ?></p>
+                <ul class="listStyle">
+                    <?php $cats = $this->getCategories(); ?>
+                    <?php foreach ($cats as $cat): ?>
+                        <li><span><a href="<?php echo $cat->getAddress(); ?>" ><?php echo $cat->getTitle(); ?></a></span></li>
+                    <?php endforeach; ?>
+                </ul>
+            </div>
+        <?php endif; ?>
+
+        <?php echo $this->getChildHtml('blog_tags'); ?>
+    </div>
+</div>

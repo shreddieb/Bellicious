@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Mdl_Myfunction>
+            <version>1.0.0</version>
+        </Mdl_Myfunction>
+    </modules>
+    <global>
+        <helpers>
+            <myfunction>
+                <class>Mdl_Myfunction_Helper</class>
+            </myfunction>
+        </helpers>
+    </global>
+</config>

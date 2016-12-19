@@ -1,0 +1,204 @@
+<?php  echo $this->getChildHtml('store_switcher');?>
+<?php $storeId=$this->getStoreId();;?>
+<?php if($storeId==0) :?>
+<script type="text/javascript">
+	
+	jQuery('document').ready(function(){
+		jQuery('#store_switcher option:selected') .val(1).change();
+		})
+</script>
+<?php endif ;?>
+<!-- BEGIN website switcher -->
+<?php  $block=$this->getLayout()->createBlock('Mage_Adminhtml_Block_Store_Switcher'); ?>
+<?php if ($websites = $block->getWebsites()): ?>
+<p class="switcher"><label for="store_switcher"><?php echo $block->__('Choose Store View:') ?></label>
+<select name="store_switcher" id="store_switcher" onchange="return switchStore(this);">
+<?php if ($block->hasDefaultOption()): ?>
+   <!-- <option value=""><?php // echo $block->getDefaultStoreName() ?></option>-->
+<?php endif; ?>
+    <?php foreach ($websites as $website): ?>
+        <?php $showWebsite = false; ?>
+        <?php foreach ($website->getGroups() as $group): ?>
+            <?php $showGroup = false; ?>
+            <?php foreach ($block->getStores($group) as $store): ?>
+                <?php if ($showWebsite == false): ?>
+                    <?php $showWebsite = true; ?>
+                    <optgroup label="<?php echo $block->escapeHtml($website->getName()) ?>"></optgroup>
+                <?php endif; ?>
+                <?php if ($showGroup == false): ?>
+                    <?php $showGroup = true; ?>
+                    <optgroup label="&nbsp;&nbsp;&nbsp;<?php echo $block->escapeHtml($group->getName()) ?>">
+                <?php endif; ?>
+                <option value="<?php echo $block->escapeHtml($store->getId()) ?>"<?php if($block->getStoreId() == $store->getId()): ?> selected="selected"<?php endif; ?>>&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $block->escapeHtml($store->getName()) ?></option>
+            <?php endforeach; ?>
+            <?php if ($showGroup): ?>
+                </optgroup>
+            <?php endif; ?>
+        <?php endforeach; ?>
+    <?php endforeach; ?>
+</select>
+<?php echo $block->getHintHtml() ?>
+</p>
+<script type="text/javascript">
+    function switchStore(obj) {
+        var storeParam = obj.value ? 'store/' + obj.value + '/' : '';
+        if (obj.switchParams) {
+            storeParam += obj.switchParams;
+        }
+    <?php if (false): ?>
+        if (confirm("<?php echo $block->__('Please confirm site switching. All data that hasn\'t been saved will be lost.') ?>")) {
+            setLocation('<?php echo $block->getSwitchUrl() ?>' + storeParam);
+            return true;
+        } else {
+            obj.value = '<?php echo $block->getStoreId() ?>';
+        }
+        return false;
+    <?php else: ?>
+        setLocation('<?php echo $block->getSwitchUrl() ?>' + storeParam);
+    <?php endif; ?>
+    }
+</script>
+<?php endif;  ?>
+
+<div class="content-header">
+    <table cellspacing="0" class="grid-header">
+        <tr>
+            <td><h3><?php echo $this->__('Manage Featured Categories')?></h3></td>
+            <td class="a-right">
+                <button onclick="editForm.submit()" class="scalable save" type="button"><span>Submit</span></button>
+            </td>
+        </tr>
+    </table>
+</div>
+<?php if($storeId):?>
+
+<?php $_featuredCatIds= $this->getLoadedFeaturedCat();?>
+
+<div class="entry-edit">
+	<form name="edit_form" id="edit_form" action="<?php echo $this->getUrl('adminfeaturedcategory/adminhtml_index/savecategory')?>" method="post" >
+		<input name="form_key" type="hidden" value="<?php echo Mage::getSingleton('core/session')->getFormKey() ?>"  />
+		<!-- new added -->
+		<input name="store_id" type="hidden" value="<?php echo $storeId?>"  />
+		<h4 class="icon-head head-edit-form fieldset-legend"><?php echo $this->__('Featured Category Manager')?></h4>
+		<fieldset id="my-fieldset">
+		
+        <div class="tree-holder">
+        <div style="width:100%; overflow:auto;" id="tree-div" class="x-tree">     
+ <?php  $rootCategory = $this->childCategory();
+	    $categories=$rootCategory->getChildrenCategories();?>
+	    
+		<ul class="x-tree-root-ct x-tree-lines">
+		<div class="x-tree-root-node">
+		<li class="x-tree-node">
+        <div id="root-cat-id" class="cat-tree x-tree-node-el folder active-category x-tree-node-expanded "><!--  x-tree-node-collapsed x-tree-selected -->
+		<span class="x-tree-node-indent"></span>
+		<img id="" src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_JS).'spacer.gif';?>" class="x-tree-ec-icon x-tree-elbow-minus"><!-- x-tree-elbow-plus x-tree-elbow-minus-->
+		<img id="" src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_JS).'spacer.gif';?>" class="x-tree-node-icon" unselectable="on">
+		<a id="" hidefocus="on" href="javascript:void(0)" tabindex="1">
+			<span id="" unselectable="on"><?php echo $rootCategory->getName(); $level= $rootCategory->getLevel();?></span>
+		</a>
+		</div>
+		
+       <?php   echo render_flat_nav($categories,$_featuredCatIds,'2');?>
+	    </li>
+	    </div>
+		</ul>
+	   </div>
+	   </div>
+        </fieldset>
+    </form>
+</div>
+
+<script type="text/javascript">
+    var editForm = new varienForm('edit_form');
+</script>
+
+<script type="text/javascript">
+	jQuery('document').ready(function(){
+		  jQuery('.cat-tree').click(function(){
+			  var catCurrent=jQuery(this);
+			  if(jQuery(this).hasClass('x-tree-node-expanded'))
+				 { 
+				    jQuery(this).removeClass('x-tree-node-expanded');
+					jQuery(this).addClass('x-tree-node-collapsed');
+					var plusIcon=jQuery(this).find('.x-tree-elbow-minus');
+					if (plusIcon) {
+                       plusIcon.removeClass('x-tree-elbow-minus');
+					   plusIcon.addClass('x-tree-elbow-plus');
+                    }
+					
+				   jQuery(this).next().hide();
+			  
+				 
+				 }
+			  else if (jQuery(this).hasClass('x-tree-node-collapsed')) 
+			  {
+				    jQuery(this).removeClass('x-tree-node-collapsed');
+					jQuery(this).addClass('x-tree-node-expanded');
+					var minusIcon=jQuery(this).find('.x-tree-elbow-plus');
+					if (minusIcon) {
+                       minusIcon.removeClass('x-tree-elbow-plus');
+					   minusIcon.addClass('x-tree-elbow-minus');
+                    }
+					
+					 jQuery(this).next().show();
+			  }
+			     jQuery('.cat-tree').each(function(){
+				jQuery(this).removeClass('x-tree-selected');
+				});
+			   catCurrent.addClass('x-tree-selected');
+			  
+			});
+			jQuery(".cat-tree a").click(function(e) {
+            e.stopPropagation();
+           });
+		});
+</script>
+<?php else :?>
+ 
+<?php endif ;?>
+<?php 
+function render_flat_nav($categories,$_featuredCatIds,$level) {
+    
+	$html = '<ul class="x-tree-node-ct '.$level.' " '?><?php  if($level > 2) { $html .= 'style="display:none"';}?> <?php $html .= '>';
+    foreach($categories as $category) {
+        $html .= '<li class="x-tree-node">
+		<div class="cat-tree x-tree-node-el folder  x-tree-node-collapsed" >
+		<span class="x-tree-node-indent">
+		<img class="x-tree-elbow-line" src="'.Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_JS).'spacer.gif'.'">';
+		 $level=$category->getLevel();
+		 for($i=2; $i< $level;$i++)
+		 {
+			$html .= '<img class="x-tree-icon" src="'.Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_JS).'spacer.gif'.'">';
+			
+		 }
+		$html .= '</span>';
+		if($category->hasChildren())
+		{
+		$html .='<img class="x-tree-ec-icon x-tree-elbow-plus" src="'.Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_JS).'spacer.gif'.'">';
+		}
+		$html .='<img unselectable="on" class="x-tree-node-icon" src="'.Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_JS).'spacer.gif'.'">
+		<a tabindex="1" href="javascript:void(0)" hidefocus="on">
+		<span unselectable="on">'.$category->getName().$level.'</span>';
+		 $html .= '<input type="checkbox" name="category[]" value="'.$category->getId().'"';
+		  ?>
+		  <?php $categoryId=$category->getId();?>
+		  <?php  if(in_array($categoryId,$_featuredCatIds)): ?>
+		  <?php $html .='checked="checked"';?>
+		  <?php endif ?>
+		  <?php $html .='/>';
+		$html .= '</a>
+	    </div>';
+         
+         
+         // $html .='<span>'.$category->getName().'</span>
+         // </span>';
+        if($category->hasChildren()) {
+            $children = $category->getChildrenCategories($categoryId);
+            $html .= render_flat_nav($children,$_featuredCatIds,$level+1);
+            }
+        $html .= '</li>';
+    }
+    return $html . '</ul>';
+}
+?>

@@ -1,0 +1,24 @@
+<div class="magicat-container">
+    <div class="block">
+    <?php if (Mage::registry('current_category')) :?>
+        <div class="block-title cat_heading">
+            <strong><span><?php echo Mage::registry('current_category')->getName(); ?></span></strong>
+        </div>
+		<?php else:?>
+        <div class="block-title cat_heading">
+            <strong><span><?php echo $this->__('Main Categories'); ?></span></strong>
+        </div>
+    <?php endif?>
+    
+	<?php $store_categories = $this->toLinearArray($this->getStoreCategories()) ?>
+		<?php if ($count = count($store_categories)): ?>
+                <ul id="magicat">
+        <?php endif; ?>
+                <?php foreach ($store_categories as $i => $_category): ?>
+                	<?php echo $this->drawOpenCategoryItem($_category, 0, $class);?>
+                <?php endforeach ?>
+        <?php if ($count): ?>
+                </ul>
+        <?php endif; ?>
+    </div>
+</div>

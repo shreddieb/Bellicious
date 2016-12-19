@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <sections>
+        <mdltestimonials translate="label" module="mdltestimonials">
+            <label>Mdl Testimonial Settings</label>
+            <tab>Mdlext</tab>
+            <frontend_type>text</frontend_type>
+			<sort_order>150</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>               
+            <groups>
+                <general translate="label">
+                    <label>Testimonial</label>
+                    <sort_order>601</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>                    
+                        <mdltestimonialsenabled translate="label">
+                            <label>Enable/Disable Testimonial</label>                            
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </mdltestimonialsenabled>     
+						          
+                        <testimonialstitle translate="label">
+                            <label>Testimonial Title</label>                            
+                            <frontend_type>text</frontend_type>                                                                
+                            <comment>
+                            <![CDATA[This input will be visible on the frontend the default title is "Testimonials".]]>
+                            </comment>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </testimonialstitle>     
+						
+						<left_pos translate="label comment">
+							<label>Show on left Column: </label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>30</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</left_pos>		
+                        
+						<mdltestimonialsresizeenabled translate="label">
+                            <label>Thumb Resizing</label>                            
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </mdltestimonialsresizeenabled> 
+                        
+                        <thumbheight translate="label">
+                            <label>Thumb Height</label>                            
+                            <frontend_type>text</frontend_type>                            
+                            <comment>
+                <![CDATA[Depends on this value your thumb will be resized and visible on frontend .]]>
+                            </comment>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </thumbheight>
+						              
+                        <thumbwidth translate="label">
+                            <label>Thumb Width</label>                            
+                            <frontend_type>text</frontend_type>                            
+                            <comment>
+                <![CDATA[Depends on this value your thumb will be resized and visible on frontend.]]>
+                            </comment>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </thumbwidth>  
+						
+                        <enableautoslide translate="label">
+                            <label>Enable Auto Slide</label>                            
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>70</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enableautoslide>                                               
+                    </fields>
+                </general>                    
+            </groups>
+        </mdltestimonials>       
+    </sections>
+</config>

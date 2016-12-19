@@ -1,0 +1,232 @@
+<?xml version="1.0"?>
+<config>
+	  <sections>
+		<brand  translate="label" module="brand">                    
+			<label>Mdl Brand Settings</label>
+			<tab>Mdlext</tab>
+			<frontend_type>text</frontend_type>
+			<sort_order>300</sort_order>
+			<show_in_default>1</show_in_default>
+			<show_in_website>1</show_in_website>
+			<show_in_store>1</show_in_store>            
+				  <groups>
+					 <general translate="label"> 
+					 <label>General</label>
+					 <frontend_type>text</frontend_type>
+					 <sort_order>1</sort_order>
+					 <show_in_default>1</show_in_default>
+					 <show_in_website>1</show_in_website>
+					 <show_in_store>1</show_in_store>
+					   <fields>
+						  <enable translate="label">
+						  <label>Enable</label>
+							  <frontend_type>select</frontend_type>
+							  <source_model>adminhtml/system_config_source_yesno</source_model>
+							  <sort_order>1</sort_order>
+							  <show_in_default>1</show_in_default>
+							  <show_in_website>1</show_in_website>
+							  <show_in_store>1</show_in_store>
+							  <comment>Enable extension</comment>
+						  </enable>
+						  <sort_by translate="label">
+							  <frontend_type>select</frontend_type>
+							   <label>Brands Sort Order</label>
+							  <source_model>brand/system_config_source_SortOptions</source_model>
+							  <sort_order>2</sort_order>
+							  <show_in_default>1</show_in_default>
+							  <show_in_website>1</show_in_website>
+							  <show_in_store>1</show_in_store>
+							  <comment></comment>
+						  </sort_by>
+						</fields>
+				    </general>
+				    <frontend>
+				      <label>Home Brand Settings</label>
+				      <frontend_type>text</frontend_type>
+				      <sort_order>3</sort_order>
+					  <show_in_default>1</show_in_default>
+					  <show_in_website>1</show_in_website>
+					  <show_in_store>1</show_in_store>
+				      <fields>
+						  <brandTitle translate="label">
+							  <label>Brand Title for home page</label>
+							  <frontend_type>Text</frontend_type>
+							  <sort_order>1</sort_order>
+							  <show_in_default>1</show_in_default>
+							  <show_in_website>1</show_in_website>
+							  <show_in_store>1</show_in_store>
+							  <comment>Brnad Title for home page.</comment>
+						  </brandTitle>
+						  
+						  <col_brands translate="label">
+							  <label>Show No Of Brands</label>
+							  <frontend_type>Text</frontend_type>
+							  <sort_order>2</sort_order>
+							  <show_in_default>1</show_in_default>
+							  <show_in_website>1</show_in_website>
+							  <show_in_store>1</show_in_store>
+							  <comment>show no of brands and than show more link</comment>
+						  </col_brands>
+						  
+						  <show_first_row translate="label">
+							  <label>Brands show on row.</label>
+							  <frontend_type>Text</frontend_type>
+							  <sort_order>3</sort_order>
+							  <show_in_default>1</show_in_default>
+							  <show_in_website>1</show_in_website>
+							  <show_in_store>1</show_in_store>
+							  <comment>show no of brands in a row.</comment>
+						  </show_first_row>
+						  
+						  <slider_auto_play translate="label">
+							  <label>Slider auto play.</label>
+							  <frontend_type>select</frontend_type>
+							  <source_model>adminhtml/system_config_source_yesno</source_model>
+							  <sort_order>4</sort_order>
+							  <show_in_default>1</show_in_default>
+							  <show_in_website>1</show_in_website>
+							  <show_in_store>1</show_in_store>
+							  <comment>Slider auto play on off.</comment>
+						  </slider_auto_play>
+						  
+						  <resize_image translate="label">
+							  <label>Resize Images</label>
+							  <frontend_type>select</frontend_type>
+							  <source_model>adminhtml/system_config_source_yesno</source_model>
+							  <sort_order>5</sort_order>
+							  <show_in_default>1</show_in_default>
+							  <show_in_website>1</show_in_website>
+							  <show_in_store>1</show_in_store>
+							  <comment></comment>
+						  </resize_image>
+			              <brand_image_height translate="label">
+							  <label>Brand Image Height</label>
+							  <frontend_type>Text</frontend_type>
+							  <sort_order>6</sort_order>
+							  <show_in_default>1</show_in_default>
+							  <show_in_website>1</show_in_website>
+							  <show_in_store>1</show_in_store>
+							  <comment></comment>
+							  <depends><resize_image>1</resize_image></depends>
+						  </brand_image_height>
+						  <brand_image_width translate="label">
+							  <label>Brand Image  Width</label>
+							  <frontend_type>Text</frontend_type>
+							  <sort_order>7</sort_order>
+							  <show_in_default>1</show_in_default>
+							  <show_in_website>1</show_in_website>
+							  <show_in_store>1</show_in_store>
+							  <depends><resize_image>1</resize_image></depends>
+						  <comment></comment>
+						  </brand_image_width>
+						  <brand_thumb_image_height translate="label">
+							  <label>Brand thumbnail Image Height</label>
+							  <frontend_type>Text</frontend_type>
+							  <sort_order>8</sort_order>
+							  <show_in_default>1</show_in_default>
+							  <show_in_website>1</show_in_website>
+							  <show_in_store>1</show_in_store>
+							  <comment></comment>
+							  <depends><resize_image>1</resize_image></depends>
+						  </brand_thumb_image_height>
+						  <brand_thumb_image_width translate="label">
+							  <label>Brand thumbnail Image  Width</label>
+							  <frontend_type>Text</frontend_type>
+							  <sort_order>9</sort_order>
+							  <show_in_default>1</show_in_default>
+							  <show_in_website>1</show_in_website>
+							  <show_in_store>1</show_in_store>
+							  <comment></comment>
+							  <depends><resize_image>1</resize_image></depends>
+						  </brand_thumb_image_width>
+						  <show_options translate="label">
+							  <label>Show Brand Name</label>
+							  <frontend_type>select</frontend_type>
+							  <source_model>brand/system_config_source_ShowOptions</source_model>
+							  <sort_order>10</sort_order>
+							  <show_in_default>1</show_in_default>
+							  <show_in_website>1</show_in_website>
+							  <show_in_store>1</show_in_store>
+							  <comment></comment>
+						  </show_options>
+						  <enable_brand_search translate="label">
+							  <label>Enable Brand Search</label>
+							  <frontend_type>select</frontend_type>
+							  <source_model>brand/system_config_source_sidebar</source_model>
+							  <sort_order>11</sort_order>
+							  <show_in_default>1</show_in_default>
+							  <show_in_website>1</show_in_website>
+							  <show_in_store>1</show_in_store>
+							  <comment></comment>
+						  </enable_brand_search>
+				     </fields>
+				    </frontend>
+					
+					<sidebar>
+				      <label>Brand Sidebar</label>
+				      <frontend_type>text</frontend_type>
+				      <sort_order>4</sort_order>
+					  <show_in_default>1</show_in_default>
+					  <show_in_website>1</show_in_website>
+					  <show_in_store>1</show_in_store>
+				      <fields>
+						  <enable_sidebar translate="label">
+						  <label>Show Brands In Sidebar</label>
+						  <frontend_type>select</frontend_type>
+						  <source_model>brand/system_config_source_sidebar</source_model>
+                          <sort_order>2</sort_order>
+						  <show_in_default>1</show_in_default>
+						  <show_in_website>1</show_in_website>
+						  <show_in_store>1</show_in_store>
+						  <comment></comment>
+						  </enable_sidebar>
+						  
+						  <no_of_brands translate="label">
+							  <label>Show No Of Brands</label>
+							  <frontend_type>Text</frontend_type>
+							  <sort_order>3</sort_order>
+							  <show_in_default>1</show_in_default>
+							  <show_in_website>1</show_in_website>
+							  <show_in_store>1</show_in_store>
+							  <comment>show no of brands and than show more link</comment>
+						  </no_of_brands>
+						  
+						  <brand_featured translate="label">
+							  <label>Featured Product</label>
+							  <frontend_type>select</frontend_type>
+							  <source_model>adminhtml/system_config_source_yesno</source_model>
+							  <sort_order>4</sort_order>
+							  <show_in_default>1</show_in_default>
+							  <show_in_website>1</show_in_website>
+							  <show_in_store>1</show_in_store>
+							  <comment>Show Featured Product on side bar for brand listing page</comment>
+						  </brand_featured>
+						  
+						  <brand_testimonial translate="label">
+							  <label>Testimonails</label>
+							  <frontend_type>select</frontend_type>
+							  <source_model>adminhtml/system_config_source_yesno</source_model>
+							  <sort_order>5</sort_order>
+							  <show_in_default>1</show_in_default>
+							  <show_in_website>1</show_in_website>
+							  <show_in_store>1</show_in_store>
+							  <comment>Show Testimonails on side bar for brand listing page</comment>
+						  </brand_testimonial>
+						  
+						   <brand_blog translate="label">
+							  <label>Blog</label>
+							   <frontend_type>select</frontend_type>
+							  <source_model>adminhtml/system_config_source_yesno</source_model>
+							  <sort_order>5</sort_order>
+							  <show_in_default>1</show_in_default>
+							  <show_in_website>1</show_in_website>
+							  <show_in_store>1</show_in_store>
+							  <comment>Show blogs on side bar for brand listing page</comment>
+						  </brand_blog>
+						  
+						</fields>
+				    </sidebar>
+				  </groups>
+		</brand>
+	  </sections>
+</config>

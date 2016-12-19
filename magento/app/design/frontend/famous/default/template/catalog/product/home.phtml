@@ -1,0 +1,102 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+
+	<?php 
+		$config = Mage::getStoreConfig('bestsellingproduct/jqueryfile');
+		$config2 = Mage::getStoreConfig('mdlpump/featuredpro');
+		$config3 = Mage::getStoreConfig('mdlpump/mostpro');
+		$config4 = Mage::getStoreConfig('mdlpump/newpro');
+		$config5 = Mage::getStoreConfig('mdlpump/homeproducts');
+	?>
+    <!--content-->
+	
+	<div class="container zeroNine">
+	  <div class="oneBox">		
+		<!--Bestseller tabs-->
+		<?php if($config['enable']==1):?>
+		<div class="slider-box f-block">
+			<?php echo $this->getLayout()->createBlock('bestseller/bestsellingproduct')->setTemplate('mdl-bestseller/bestsellingproduct.phtml')->toHtml(); ?>
+		</div>
+		<?php endif;?>
+		<!--End Bestseller tabs-->
+		
+		<!--New products-->
+        <?php if($config4['enable']==1):?>
+			<div class="slider-box f-block areaBox">
+				<?php echo $this->getLayout()->createBlock('catalog/product_list')->setTemplate('catalog/product/new.phtml')->toHtml(); ?>
+			</div>
+        <?php endif;?>
+		<!--End New products-->
+		
+		<!--Featured category-->
+		<?php echo $this->getLayout()->createBlock('featuredcategory/categoryblock')->setTemplate('featuredcategory/featuredcat.phtml')->toHtml();?>
+		<!--End Featured category-->
+		
+		<div class="row">
+			 <?php if(($config2['enable']==1) && ($config3['enable']==1)):?>
+				<?php $proSize = 'col-sm-6'?>
+			 <?php else:?>
+				<?php $proSize = 'col-sm-12'?>
+			 <?php endif;?>
+			<!--Featured products-->
+             <?php if($config2['enable']==1):?>
+				<div class="<?php echo $proSize;?>">
+					<div class="areaBox">
+					<?php echo $this->getLayout()->createBlock('catalog/product_list')->setTemplate('catalog/product/featured.phtml')->toHtml(); ?>
+					</div>
+				</div>
+             <?php endif;?>
+			<!--End Featured products-->
+			
+			<!--Most popular products-->
+            <?php if($config3['enable']==1):?>
+            <div class="<?php echo $proSize;?>">
+				<div class="areaBox">
+                <?php echo $this->getLayout()->createBlock('catalog/product_list')->setTemplate('catalog/product/most-popular.phtml')->toHtml(); ?>
+				</div>
+            </div>
+             <?php endif;?>
+			<!--End Most popular products-->
+        </div> 
+	   </div> 
+	</div>
+	
+	
+    <?php echo $this->getLayout()->createBlock('catalog/product_list')->setTemplate('catalog/product/highlighter.phtml')->toHtml();?>
+	
+    <?php if($config5['enable']==1):?>
+	<div class="container zeroNine">
+		<div class="row oneBox">
+			<div class="slider-box f-block areaBox">
+				<?php echo $this->getLayout()->createBlock('catalog/product_list')->setTemplate('catalog/product/new_trends.phtml')->toHtml(); ?>
+			</div>
+		</div>
+	</div>
+    <?php endif;?>
+	
+	<!--end -->
+

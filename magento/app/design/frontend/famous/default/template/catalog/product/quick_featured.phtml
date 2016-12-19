@@ -1,0 +1,67 @@
+<?php $config = Mage::getStoreConfig('mdlpump/qfreatured');?>
+<?php if($config['quick_featued_settings']):?>
+<?php 
+          $collection = Mage::getModel('catalog/product')->getCollection();
+		   $attributes = Mage::getSingleton('catalog/config')
+			->getProductAttributes();
+		   $collection->addAttributeToSelect($attributes)
+			->addMinimalPrice()
+			->addFinalPrice()
+			->addTaxPercents()
+						->addAttributeToFilter(array(array( // Flat Catalog Product workaround
+							'attribute' => 'mdl_featured',
+							'eq' => 1,
+						)), null, 'left')
+			->addStoreFilter()->setPageSize($config['total_pro']);
+		   Mage::getSingleton('catalog/product_status')->addVisibleFilterToCollection($collection);
+		   Mage::getSingleton('catalog/product_visibility')->addVisibleInCatalogFilterToCollection($collection);
+		   Mage::getSingleton('cataloginventory/stock')->addInStockFilterToCollection($collection);
+		  $_helper = $this->helper('catalog/output');	
+		 
+ ?>
+ 
+ 
+<div class="col-md-3 col-sm-6">
+	<div class="block-title">
+	  <h2><span><?php echo $config['quick_featured_heading']?></span></h2>
+	</div>
+	<?php if(count($collection)==0):?>
+		<p class="note-msg"><?php echo $this->__('There are no products matching the selection.') ?></p>
+	<?php else:?>
+
+	<ul class="quick_products">
+	  <?php $i=1;foreach($collection as $_productData): ?>
+	  <?php $_product = Mage::getModel('catalog/product')->load($_productData['entity_id']); ?>
+		<li>
+			<a href="<?php echo $_product->getProductUrl() ?>" class="product-image"> 
+				<img class="hoverImg" src="<?php echo Mage::helper('catalog/image')->init($_product, 'thumbnail')->resize(200); ?>" 
+					alt="<?php echo $this->htmlEscape($_product['name']); ?>"  />
+			</a>
+			<div class="quickContent">
+				<!-- Product Title -->
+				<h2 class="product-name"> 
+					<?php if($config['quick_featured_name_character']!=''):?>
+						<?php echo substr($_helper->productAttribute($_product, $_product->getName(), 'name'),0, $config['quick_featured_name_character'])?>
+					<?php else:?>
+						<?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?> 
+					<?php endif;?> 
+				</h2>
+				<!-- End Product Title -->
+				<!-- Rating -->
+						<?php echo $this->getReviewsSummaryHtml($_product, "short", true);?>
+				<!-- End rating -->
+				
+				<!--Price-->  
+					<?php echo $this->getPriceHtml($_product, true, '-right');?>
+					<?php if($_product->getSpecialPrice()): ?>
+						<?php echo Mage::helper("myfunction")->specialPriceDiscount($_product); ?>
+					<?php endif; ?>
+				<!--End price--> 
+				
+			</div>
+		</li>
+	<?php endforeach ?>	
+	</ul>
+<?php endif; ?>
+</div>
+<?php endif; ?>

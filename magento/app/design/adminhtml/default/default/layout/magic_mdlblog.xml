@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <mdlblog_admin_manage_mdlblog_index>
+        <update handle="editor" />
+        <reference name="content">
+            <block type="mdlblog/manage_mdlblog" name="mdlblog" />
+        </reference>
+    </mdlblog_admin_manage_mdlblog_index>
+    <mdlblog_admin_manage_mdlblog_edit>
+        <update handle="editor" />
+    </mdlblog_admin_manage_mdlblog_edit>
+    <mdlblog_admin_manage_mdlblog_new>
+        <update handle="editor" />
+    </mdlblog_admin_manage_mdlblog_new>
+    <mdlblog_admin_manage_comment_index>
+        <reference name="content">
+            <block type="mdlblog/manage_comment" name="comment" />
+        </reference>
+    </mdlblog_admin_manage_comment_index>
+    <mdlblog_admin_manage_cat_index>
+        <reference name="content">
+            <block type="adminhtml/store_switcher" name="store_switcher" before="-" />
+            <block type="mdlblog/manage_cat" name="cat" />
+        </reference>
+    </mdlblog_admin_manage_cat_index>
+</layout>

@@ -1,0 +1,49 @@
+<?php $config = Mage::getStoreConfig('mdlpump/featuredpro');?>
+<?php if($config['enable']):?>
+<?php 
+       $collection = Mage::getModel('catalog/product')->getCollection();
+		   $attributes = Mage::getSingleton('catalog/config')
+			->getProductAttributes();
+		   $collection->addAttributeToSelect($attributes)
+			->addMinimalPrice()
+			->addFinalPrice()
+			->addTaxPercents()
+						->addAttributeToFilter(array(array( // Flat Catalog Product workaround
+							'attribute' => 'mdl_featured',
+							'eq' => 1,
+						)), null, 'left')
+			->addStoreFilter()->setPageSize($config['total_pro']);
+		   Mage::getSingleton('catalog/product_status')->addVisibleFilterToCollection($collection);
+		   Mage::getSingleton('catalog/product_visibility')->addVisibleInCatalogFilterToCollection($collection);
+		   Mage::getSingleton('cataloginventory/stock')->addInStockFilterToCollection($collection);
+		  $_helper = $this->helper('catalog/output');
+		 
+		 
+?>
+ 
+<div class="box-title">
+  <h2><span><?php echo $config['heading']?></span></h2>
+</div>
+	<?php if(count($collection)==0):?>
+		<p class="note-msg"><?php echo $this->__('There are no products matching the selection.') ?></p>
+	<?php else:?>
+		<div class="jcarousel-wrapper new-products">
+		<?php if(($config['itemviewbox']==1)):?>
+			<?php echo $this->getLayout()->createBlock('catalog/product_list')->setTemplate('catalog/product/featured_pro/type1.phtml')->toHtml();?>
+		<?php elseif(($config['itemviewbox']==2)):?>
+			<?php echo $this->getLayout()->createBlock('catalog/product_list')->setTemplate('catalog/product/featured_pro/type2.phtml')->toHtml();?>
+		<?php elseif(($config['itemviewbox']==3)):?>
+			<?php echo $this->getLayout()->createBlock('catalog/product_list')->setTemplate('catalog/product/featured_pro/type3.phtml')->toHtml();?>
+		<?php elseif(($config['itemviewbox']==4)):?>
+			<?php echo $this->getLayout()->createBlock('catalog/product_list')->setTemplate('catalog/product/featured_pro/type4.phtml')->toHtml();?>
+		<?php else:?>
+			<?php echo $this->getLayout()->createBlock('catalog/product_list')->setTemplate('catalog/product/featured_pro/type5.phtml')->toHtml();?>
+		<?php endif;?>
+		</div>  
+	<?php endif; ?>
+	
+<?php endif; ?>
+
+
+	
+	

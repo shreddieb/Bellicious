@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<root>
+	<system>
+		<config>
+			<item>
+				<design-package-name>famous</design-package-name>
+				<web-default-cms_home_page>famous_home_page</web-default-cms_home_page>
+			</item>
+		</config>
+	</system>
+</root>

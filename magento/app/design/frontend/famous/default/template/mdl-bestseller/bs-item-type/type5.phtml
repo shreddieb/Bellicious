@@ -1,0 +1,211 @@
+<?php 
+$config = Mage::getStoreConfig('mdloption/homeproducts');
+$config2 = Mage::getStoreConfig('bestsellingproduct/jqueryfile');
+$config3 = Mage::getStoreConfig('mdloption/genral_theme_setting');
+$id = $this->getRequest()->getParam('tabid');
+
+// Check if clicked tab is bestseller
+if($id=='tab-bestseller')
+	{
+		$new_new = $this->getLayout()->getBlockSingleton('Mdl_Bestseller_Block_Bestsellingproduct');
+				
+				$new_product=$new_new->getProductCollection();
+				$count_product = count($new_product);
+				$jcarousel_status = Mage::helper('bestsellingproduct')->getBestsellingJcarousel();
+	}
+ ?>
+			<?php if($config2['rowPro']=='1'):?>
+				<?php $itemwidth = 'col-xs-6 col-sm-6'; $proCount = '2';?>
+			<?php $imgSize = '600'?>
+				<?php elseif ($config2['rowPro']=='2'):?>
+			<?php $itemwidth = 'col-sm-4';  $proCount = '3'; ?>
+				<?php $imgSize = '400'?>
+			<?php elseif ($config2['rowPro']=='3'):?>
+				<?php $itemwidth = 'col-xs-6 col-sm-3 col-md-3';  $proCount = '4'; ?>
+			<?php $imgSize = '300'?>
+				<?php elseif ($config2['rowPro']=='4'):?>
+			<?php $itemwidth = 'col-xs-6 col-sm-4 col-md-2' ;  $proCount = '6'; ?>
+				<?php $imgSize = '200'?>
+			<?php endif; ?>
+             
+			<?php if($config['flip_view']==1 && $config['flip_view_style']==2):?>
+				<?php $flipviewStyleL='fadeView'; ?>
+			<?php endif; ?>  
+
+	<?php foreach($new_product as $new):?>	
+	<li data-galcounter="<?php echo $i;?>" class="item galView fifthView  galbox<?php echo $i;?> <?php echo $itemwidth ?>">
+		<div class="itemInner areaBox">
+					
+                <!--Images and price container-->
+                    <div class="proImage <?php echo $flipviewStyleL; ?> flipView">
+						<!--Badge view-->
+							<div class="badgeBox">
+									<!--New badge-->
+									<?php if($new->getData('mdl_new')):?>
+										<span class="new">
+											<strong><?php echo $this->__('new')?></strong>
+										</span>
+									<?php endif;?>
+									<!--End new badge-->
+							</div>	
+						<!--end badge view-->
+						
+						
+						<!--Sale badge view-->
+							<?php if($new->getSpecialPrice()): ?>
+                                <?php echo Mage::helper("myfunction")->specialPriceDiscount($new); ?>
+                            <?php endif; ?>
+                        <!--End sale badge view-->
+						                        
+						
+                   		    <a href="<?php echo $new->getProductUrl() ?>" class="product-image"> 
+                                <img id="product-collection-image-<?php echo $new->getId(); ?>" src="<?php echo $this->helper('catalog/image')->init($new, 'small_image')->resize($imgSize); ?>" alt="<?php echo $this->stripTags($this->getImageLabel($new, 'small_image'), null, true) ?>" /> 
+                            </a>
+						
+                         
+						
+						
+					
+                          <!--Quick links-->
+                           <div class="lowPanel">
+                           		<div class="lowPanelin">
+                           		 <?php if($config['itemviewbox_quick_view']==1):?>
+									  <?php if($new->isSaleable()): ?>
+										  <?php if ( !($new->getTypeInstance(true)->hasRequiredOptions($new) || $new->isGrouped()) ): ?>
+										  <button  type="button" title="<?php echo $this->__('Add to Cart') ?>" class="add-cart" onclick="setLocation('<?php echo $this->getAddToCartUrl($new) ?>')"><span><span><i class="fa fa-shopping-cart"></i> <?php echo $this->__('Add to cart') ?></span></span></button>
+										  <?php else: ?>
+										  <a title="<?php echo $this->__('Add to Cart') ?>"  href='<?php echo $this->getUrl('ajax/index/options',array('product_id'=>$new->getId()));?>' class='fancybox add-cart' id='fancybox<?php echo $new->getId();?>'><span><span><?php echo $this->__('Add to cart') ?></span></span></a>
+										  <?php endif; ?>
+									  <?php else: ?>
+										   <p class="availability out-of-stock"><span><?php echo $this->__('Out of stock') ?></span></p>
+									  <?php endif;?>
+								<?php else: ?>
+									  <?php if($new->isSaleable()): ?>
+									  <button  type="button" title="<?php echo $this->__('Add to Cart') ?>" class="add-cart" onclick="setLocation('<?php echo $this->getAddToCartUrl($new) ?>')"><span><span><i class="fa fa-shopping-cart"></i> <?php echo $this->__('Add to Cart') ?></span></span></button>
+									  <?php else: ?>
+									  <p class="availability out-of-stock"><span><?php echo $this->__('Out of stock') ?></span></p>
+									  <?php endif; ?>
+								<?php endif; ?>
+                                
+                                <!--Gallery View Button-->    
+                                <?php if(($config2['gallery_view']==1)):?> 	
+                                	<a href="javascript:void(0);" class="galleryBtn"><?php echo $this->__('View Gallery');?></a>
+                                <?php endif; ?>
+                                <!--End Gallery View Button-->    
+								</div>
+						  </div> 
+                          <!--End Quick links-->
+						  
+					
+                    </div>
+				<!--End images and price container--> 
+                
+                
+                 
+                
+                
+				<!--Product detail container-->  
+				<div class="bottomProDetail">
+					<h2 class="product-name"> 
+                    	<a href="<?php echo $new->getProductUrl() ?>" title="<?php echo $this->stripTags($new->getName(), null, true) ?>"> 
+                        	<?php if($config2['name_character']!=''):?>
+                            	<?php echo substr($new->getName(),0, $config2['name_character']);?>
+                            <?php else:?>
+                            	<?php echo $new->getName();?>
+                            <?php endif;?>        
+                        </a> 
+                    </h2>
+					
+					
+                    <!--Price-->  
+                        <?php echo $this->getPriceHtml($new, true, '-right') ?>
+					<!--End price--> 
+                    
+                    
+                    <div class="lpBottom">
+                    	<!--Quick view icon-->
+								  <?php if($config2['itemviewbox_quick_view']==1):?>
+                                  <a  title="<?php echo $this->__('Quick View')?>" href='<?php echo $this->getUrl('ajax/index/options',array('product_id'=>$new->getId()));?>' class='fancybox qv-btn w-btn' id='fpfancybox<?php echo $new->getId();?>'><i class="fa fa-search"></i></a>
+                                  <?php endif; ?>
+                         <!--End quick view icon-->
+                        
+                        <!--Comapare-->
+                        <?php if ($config3['compare_box']) :?>
+                             <?php if($_compareUrl=$this->getAddToCompareUrl($new)): ?>
+                                  <a href="javascript:void(0);" class="w-btn" onclick="setLocation('<?php echo $_compareUrl?>','<?php echo $new->getId()?>'); return false;" > 
+                                        <i class="fa fa-clone"></i> 
+                                  </a>
+                             <?php endif; ?>
+                        <?php endif; ?>	 
+                        <!--End comapare-->
+                          
+                        <!--wishlist-->
+                              <?php if ($this->helper('wishlist')->isAllow()) : ?>
+                              <a href="<?php echo $this->helper('wishlist')->getAddUrl($new) ?>" title="<?php echo $this->__('Add to Wishlist') ?>"  class="w-btn">
+                                 <i class="fa fa-heart"></i>
+                              </a>
+                              <?php endif; ?>
+                        <!--End wishlist-->
+                        
+                        <!-- Rating -->
+                            <?php echo $this->getReviewsSummaryHtml($new, "short", true)?>
+                        <!-- End rating -->
+                         
+                    </div>
+                    
+					
+                </div>
+                <!--End product detail container-->     
+        </div>
+        	
+            <!--Gallery View Container-->    
+              <?php if(($config2['gallery_view']==1)):?> 
+            <div class="galleryBox">
+            	<a class="closeGallery" href="javascript:void(0);"></a>
+                <div class="listGallery">
+                    <?php $media_gallery = $new->getMediaGallery(); ?>
+                            <?php foreach ($media_gallery['images'] as $_image):?>
+                            <div class="list">
+								<img src="<?php echo $this->helper('catalog/image')->init($new, 'image', $_image['file'])->resize(300); ?>" alt="<?php echo $this->escapeHtml($_image['label']) ?>" />
+                            </div>
+                            <?php endforeach; ?>
+                            </div>
+                </div>
+                <?php endif;?>  
+             <!--End Gallery View Container-->  	
+	</li>	
+		
+        
+      <?php $i++; $j++; endforeach;?>
+    </div>
+  </div>
+  <script type="text/javascript">
+		(function($){
+			$(function(){
+					$('.tab-contents .listGallery').owlCarousel({
+					loop:false,
+					smartSpeed: 500,
+					margin:10,
+					dots: false,
+					nav: true,
+					navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>" ],
+					responsiveClass:true,
+					items:1
+				})
+					
+			});
+			
+			$('li.item').each(function(index,v){
+				var i = $(v).data('galcounter');
+				$(document).on('click','li.galbox'+i+' a.galleryBtn',function(){
+					$('li.item').addClass('galView');
+					$('li.galbox'+i).removeClass('galView');
+					return false;
+				});
+				$(document).on('click','li.galbox'+i+' a.closeGallery',function(){
+					$('li.galbox'+i).addClass('galView');
+					return false;
+				});
+			});
+		})(jQuery);			
+		</script>

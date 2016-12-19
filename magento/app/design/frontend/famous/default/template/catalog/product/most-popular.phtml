@@ -1,0 +1,24 @@
+<?php $config = Mage::getStoreConfig('mdlpump/mostpro');?>
+
+<?php if($config['enable']):?>
+    <div class="box-title">
+      <h2><span><?php echo $config['heading']?></span></h2>
+    </div>
+	<?php if($config['category_id']==''):?>	
+		<p class="note-msg"><?php echo $this->__('There are no products matching the selection.') ?></p>
+	<?php else:?>
+		<div class="jcarousel-wrapper new-products">
+			<?php if(($config['itemviewbox']==1)):?>
+				<?php echo $this->getLayout()->createBlock('catalog/product_list')->setTemplate('catalog/product/most_popular/type1.phtml')->toHtml();?>
+			<?php elseif(($config['itemviewbox']==2)):?>
+				<?php echo $this->getLayout()->createBlock('catalog/product_list')->setTemplate('catalog/product/most_popular/type2.phtml')->toHtml();?>
+			<?php elseif(($config['itemviewbox']==3)):?>
+				<?php echo $this->getLayout()->createBlock('catalog/product_list')->setTemplate('catalog/product/most_popular/type3.phtml')->toHtml();?>
+			<?php elseif(($config['itemviewbox']==4)):?>
+				<?php echo $this->getLayout()->createBlock('catalog/product_list')->setTemplate('catalog/product/most_popular/type4.phtml')->toHtml();?>
+			<?php else:?>
+				<?php echo $this->getLayout()->createBlock('catalog/product_list')->setTemplate('catalog/product/most_popular/type5.phtml')->toHtml();?>
+			<?php endif;?>
+		</div>  
+	<?php endif; ?>
+<?php endif; ?>

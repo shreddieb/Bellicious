@@ -1,0 +1,45 @@
+<?php $config = Mage::getStoreConfig('mdlpump/newpro');?>
+<?php $config2 = Mage::getStoreConfig('mdloption/genral_theme_setting'); ?>
+<?php 
+  $visibility = array(
+	  Mage_Catalog_Model_Product_Visibility::VISIBILITY_BOTH,
+	  Mage_Catalog_Model_Product_Visibility::VISIBILITY_IN_CATALOG
+  ); 
+  $todayDate  = Mage::app()->getLocale()->date()->toString(Varien_Date::DATETIME_INTERNAL_FORMAT);
+  $_productCollection = Mage::getResourceModel('catalog/product_collection')
+  ->addAttributeToSelect('*')
+  ->addAttributeToFilter('visibility', $visibility)
+  ->addAttributeToFilter('status', 1)
+  ->addAttributeToFilter('news_from_date', array('date' => true, 'to' => $todayDate))
+  ->addAttributeToFilter('news_to_date', array('or'=> array(
+  0 => array('date' => true, 'from' => $todayDate),
+  1 => array('is' => new Zend_Db_Expr('null')))
+  ), 'left');
+  $_productCollection->setOrder('entity_id', 'desc');
+  $_productCollection->setPageSize($config['newItem']); 
+  Mage::getSingleton('cataloginventory/stock')->addInStockFilterToCollection($_productCollection);
+  $_helper = $this->helper('catalog/output');
+ ?>
+ 
+<?php if($config['enable']):?>
+    <div class="box-title">
+        <h2><span><?php echo $config['heading']?></span></h2>
+    </div>
+	<?php if(count($_productCollection)==0):?>
+		<p class="note-msg"><?php echo $this->__('There are no products matching the selection.') ?></p>
+	<?php else:?>
+		<div class="jcarousel-wrapper new-products">
+			<?php if(($config['itemviewbox']==1)):?>
+				<?php echo $this->getLayout()->createBlock('catalog/product_list')->setTemplate('catalog/product/new_type/type1.phtml')->toHtml();?>
+			<?php elseif(($config['itemviewbox']==2)):?>
+				<?php echo $this->getLayout()->createBlock('catalog/product_list')->setTemplate('catalog/product/new_type/type2.phtml')->toHtml();?>
+			<?php elseif(($config['itemviewbox']==3)):?>
+				<?php echo $this->getLayout()->createBlock('catalog/product_list')->setTemplate('catalog/product/new_type/type3.phtml')->toHtml();?>
+			<?php elseif(($config['itemviewbox']==4)):?>
+				<?php echo $this->getLayout()->createBlock('catalog/product_list')->setTemplate('catalog/product/new_type/type4.phtml')->toHtml();?>
+			<?php else:?>
+				<?php echo $this->getLayout()->createBlock('catalog/product_list')->setTemplate('catalog/product/new_type/type5.phtml')->toHtml();?>
+			<?php endif;?>
+		</div>  
+	<?php endif; ?>
+<?php endif; ?>

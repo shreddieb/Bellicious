@@ -1,0 +1,106 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     default_modern
+ * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+
+/**
+ * Product view template
+ *
+ * @see Mage_Catalog_Block_Product_View
+ */
+?>
+<div class="tabs accordionRow">
+    <ul class="product-tabs">
+        <?php foreach ($this->getTabs() as $_index => $_tab): ?>
+            <?php if($this->getChildHtml($_tab['alias'])): ?>
+                <li class="<?php echo !$_index?'first':(($_index==count($this->getTabs())-1)?' last':'')?>">
+                <a href="#product_tabs_<?php echo $_tab['alias'] ?>_contents"><?php echo $_tab['title']?></a></li>
+            <?php endif; ?>
+        <?php endforeach; ?>
+    </ul>
+	
+	
+    <?php foreach ($this->getTabs() as $_index => $_tab): ?>
+        <?php if($this->getChildHtml($_tab['alias'])): ?>
+			<dt><a href="#"><?php echo $_tab['title']?></a></dt>
+            <div class="product-tabs-content" id="product_tabs_<?php echo $_tab['alias'] ?>_contents"><?php echo $this->getChildHtml($_tab['alias']) ?></div>
+        <?php endif; ?>
+    <?php endforeach; ?>
+</div>
+
+<script type="text/javascript">
+jQuery(document).ready(function(){
+	var tabContainers=jQuery('div.tabs > div');
+	tabContainers.hide().filter(':first').show();
+	jQuery('div.tabs ul.product-tabs a').click(function(){
+		tabContainers.hide();
+		tabContainers.filter(this.hash).show();
+		jQuery('div.tabs ul.product-tabs li').removeClass('active');
+		jQuery(this).parent().addClass('active');
+		return false;
+		}).filter(':first').click();
+		
+	(function($) {  
+	  var allPanels = $('.accordionRow div.product-tabs-content').hide();
+	  var allheads = $('.accordionRow dt');
+	  allPanels.filter(':first').show();
+	  allheads.filter(':first').addClass('active');
+			$('.accordionRow > dt > a').click(function() {	  
+				allPanels.slideUp();
+				allheads.removeClass('active');
+				$(this).parent().addClass('active');
+				$(this).parent().next().slideDown();
+				return false;
+			});
+		
+		})(jQuery);
+	
+	});
+	
+	jQuery(document).ready(function(){
+		var tabsBox = jQuery('ul.product-tabs li');
+		var tragetpan = jQuery('.product-view .product-tabs-content');
+		var tragetbox = jQuery('#product_tabs_tabreviews_contents');
+		var s_url = document.URL;
+		if(s_url.search('#tabs') > 0){
+			tabsBox.removeClass('active');
+			jQuery('a[href="#product_tabs_tabreviews_contents"]').parent().addClass('active');
+			tragetpan.hide().removeClass('active');
+			tragetbox.show();
+		  }
+		  
+		jQuery('.no-rating').click(function(){
+			tabsBox.removeClass('active');
+			tragetpan.hide().removeClass('active');
+			jQuery('a[href="#product_tabs_tabreviews_contents"]').parent().addClass('active');
+			tragetbox.show();
+		});	
+		jQuery('.rating-links a').click(function(){
+			tabsBox.removeClass('active');
+			jQuery('a[href="#product_tabs_tabreviews_contents"]').parent().addClass('active');
+			tragetpan.hide().removeClass('active');
+			tragetbox.show();
+		});	
+	});
+</script>

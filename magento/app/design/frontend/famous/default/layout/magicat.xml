@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+	<catalog_category_default>
+	 	<reference name="left">
+			 <block type="magicat/navigation" name="catalog.magicatl" before="-">
+                <action method="setTemplate" ifconfig="mdlmdlnavi/navsettings/navleftposhomecat">
+                    <template>magicat/left.phtml</template>
+                </action>
+            </block>
+		 </reference>
+		 
+		  <reference name="right">
+			 <block type="magicat/navigation" name="catalog.magicatcr" before="-">
+                <action method="setTemplate" ifconfig="mdlmdlnavi/navsettings/navrightposhomecat">
+                    <template>magicat/left.phtml</template>
+                </action>
+            </block>
+		 </reference>
+	 </catalog_category_default>
+	 
+	 <catalog_category_layered>
+		 <reference name="left">
+			 <block type="magicat/navigation" name="catalog.magicatl" before="-">
+                <action method="setTemplate" ifconfig="mdlmdlnavi/navsettings/navleftposhomecat">
+                    <template>magicat/left.phtml</template>
+                </action>
+            </block>
+		 </reference>
+		 
+		  <reference name="right">
+			 <block type="magicat/navigation" name="catalog.magicatcr" before="-">
+                <action method="setTemplate" ifconfig="mdlmdlnavi/navsettings/navrightposhomecat">
+                    <template>magicat/left.phtml</template>
+                </action>
+            </block>
+		 </reference>
+	 </catalog_category_layered>
+	 
+	 <cms_index_index>
+	 	<reference name="left">
+			 <block type="magicat/navigation" name="catalog.magicathl" before="-">
+                <action method="setTemplate" ifconfig="mdlmdlnavi/navsettings/navleftposhome">
+                    <template>magicat/left.phtml</template>
+                </action>
+            </block>
+		 </reference>
+		 
+		 <reference name="right">
+			 <block type="magicat/navigation" name="catalog.magicathr" before="-">
+                <action method="setTemplate" ifconfig="mdlmdlnavi/navsettings/navrighttposhome">
+                    <template>magicat/left.phtml</template>
+                </action>
+            </block>
+		 </reference>
+	 </cms_index_index>
+</layout>

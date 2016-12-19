@@ -1,0 +1,15 @@
+<?php 
+	$config2 = Mage::getStoreConfig('bestsellingproduct/jqueryfile');
+?>
+		
+<?php if(($config2['itemviewbox']==1)):?>
+	<?php echo $this->getLayout()->createBlock('catalog/product_list')->setTemplate('mdl-bestseller/new-item-type/type1.phtml')->toHtml();?>
+<?php elseif(($config2['itemviewbox']==2)):?>
+	<?php echo $this->getLayout()->createBlock('catalog/product_list')->setTemplate('mdl-bestseller/new-item-type/type2.phtml')->toHtml();?>
+<?php elseif(($config2['itemviewbox']==3)):?>
+	<?php echo $this->getLayout()->createBlock('catalog/product_list')->setTemplate('mdl-bestseller/new-item-type/type3.phtml')->toHtml();?>
+<?php elseif(($config2['itemviewbox']==4)):?>
+	<?php echo $this->getLayout()->createBlock('catalog/product_list')->setTemplate('mdl-bestseller/new-item-type/type4.phtml')->toHtml();?>
+<?php else:?>
+	<?php echo $this->getLayout()->createBlock('catalog/product_list')->setTemplate('mdl-bestseller/new-item-type/type5.phtml')->toHtml();?>
+<?php endif;?>

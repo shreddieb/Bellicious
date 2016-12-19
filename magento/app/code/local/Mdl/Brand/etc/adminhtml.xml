@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<config>
+	<menu>
+		<mdlext translate="title" module="mdloption">
+                <title>Mdl</title>
+                <sort_order>72</sort_order>
+				 <children>
+            <brand module="brand">
+                <title>Mdl Brand</title><!-- Main title in Admin menu-->
+                <sort_order>80</sort_order>
+                <children>
+                    <brandgrid module="brand">
+                     <title>Manage Brand</title>
+                        <sort_order>0</sort_order>
+                       <action>admin_brand/adminhtml_index/index</action>
+                    </brandgrid>
+					<setting module="brand">
+                     <title>Settings</title>
+                        <sort_order>1</sort_order>
+                       <action>adminhtml/system_config/edit/section/brand/</action>
+                    </setting>
+                </children>
+            </brand>
+			 </children>
+				 </mdlext>
+        </menu>
+	<acl>
+		<resources>
+			<admin>
+				<children>
+					<brand translate="title" module="brand">
+						<title>Brand</title>
+						<sort_order>80</sort_order>
+				        <children>
+								<brandgrid translate="title">
+										<title>Manage Brands</title>
+										<sort_order>0</sort_order>
+								</brandgrid>
+								<setting module="brand">
+									<title>Settings</title>
+									<sort_order>1</sort_order>
+                                </setting>
+						</children>
+					</brand>
+					<system>
+							<children>
+									<config>
+										<children>
+											<brand translate="title" module="brand">
+												 <title>Mdl Brand Settings</title>
+											</brand>
+										 </children>
+									 </config>
+							</children>
+					 </system>
+				</children>
+			</admin>
+		</resources>
+	</acl>
+</config>

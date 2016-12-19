@@ -1,0 +1,84 @@
+<?php // block Mdl_brand_Block_Brand
+$config=Mage::helper('brand/data')->getStoreConfig();
+$enable=$config['general']['enable'];
+$showOption=$config['frontend']['show_options'];?>
+<?php $height=$config['frontend']['brand_thumb_image_height'];?>
+<?php $width=$config['frontend']['brand_thumb_image_width'];?> 
+
+<?php if($enable):?>
+<div class="logBox f-fix">
+	<div class="container">
+		<div class="areaBox">
+			<div class="box-title">
+			  <h2><span><?php echo Mage::getStoreConfig('brand/frontend/brandTitle');?></span></h2>
+			</div>
+<?php  $_brandCollection=$this->getBrandColletion();
+  $_helper=Mage::helper('brand');
+  if(!$_brandCollection->count()): ?>
+  <p class="note-msg"><?php echo $this->__('There are no Brands.') ?></p>
+  <?php else: ?>
+		<div class="jcarousel-wrapper">
+			<div class="jcarousel scroller-brand">
+				<?php foreach ($_brandCollection as $_brand): ?>
+					<?php $imageUrl=$_helper->getBrandImage($_brand->getBrandThumbnailImage());?>
+					   <div class="logopan">
+							<?php $showoption = Mage::getStoreConfig('brand/frontend/show_options');?>
+							<a href="<?php echo  $_helper->getBrandUrl($_brand->getBrandOptionName()); ?>">
+							    <?php if($showoption == 'label_only'):?>
+								<span class="brandName"><?php echo $this->__($_brand->getBrandTitle()); ?></span>
+								<?php elseif($showoption == 'image_only'):?>
+									<?php  if($imageUrl!=''): ?>
+										  <img src="<?php  echo Mage::helper('brand/data')->resizeImage($imageUrl,$height,$width); ?>" alt="<?php echo $_brand->getBrandOptionName(); ?>" />
+									<?php endif ?>
+								<?php else:?>
+									<span class="brandName"><?php echo $this->__($_brand->getBrandTitle()); ?></span>
+									<?php  if($imageUrl!=''): ?>
+										  <img src="<?php  echo Mage::helper('brand/data')->resizeImage($imageUrl,$height,$width); ?>" alt="<?php echo $_brand->getBrandOptionName(); ?>" />
+									<?php endif ?>	
+								<?php endif;?>	
+							</a>
+					   </div>
+				<?php endforeach ?>
+			</div>
+		</div>
+	<?php endif; ?>
+		</div>
+	</div>
+</div>
+<?php endif ?>
+
+<script type="text/javascript">
+			(function($) {	
+			$('.scroller-brand').owlCarousel({
+					loop:true,
+					smartSpeed: 500,
+					dots: false,
+					dotsContainer: false,
+					margin:10,
+					navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>" ],
+					responsiveClass:true,
+					<?php if (Mage::getStoreConfig('brand/frontend/slider_auto_play') == 1):?>
+					autoplay: true,
+					autoplayTimeout: 5000,
+					<?php endif;?>
+					responsive:{
+						0:{
+							items:2,
+							nav: true
+						},
+						600:{
+							items:4,
+							nav: true
+						},
+						1000:{
+							items:<?php echo Mage::getStoreConfig('brand/frontend/show_first_row')?>,
+							nav: true,
+							loop:true
+						}
+					}
+				})
+			
+			
+				
+			})(jQuery);			
+		</script>

@@ -1,0 +1,161 @@
+<?php if(Mage::getStoreConfigFlag('underConstruction/settings/enabled')): ?>
+<?php $config = Mage::getStoreConfig('underConstruction/settings'); ?>
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title><?php echo Mage::getStoreConfig('underConstruction/settings/pageTitle'); ?></title>
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<!-- Mobile Specific Meta -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<!-- Stylesheets -->
+	<link rel="stylesheet" href="<?php echo $this->getSkinUrl('css/underconstruction/countdown-reset.css');?>" />
+	<link rel="stylesheet" href="<?php echo $this->getSkinUrl('css/underconstruction/countdown-styles.css');?>" />
+    <link href='http://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
+    <?php if($config['enablefontHeading']):?>
+		<link href='//fonts.googleapis.com/css?family=<?php echo str_replace(' ', '+', $config['fontHeading']); ?>:300,400,700' rel='stylesheet' type='text/css'>
+    <?php endif;?>
+	
+    <?php if($config['enablebodyfont']):?>
+		<link href='//fonts.googleapis.com/css?family=<?php echo str_replace(' ', '+', $config['bodyfont']); ?>:300,400,700' rel='stylesheet' type='text/css'>
+    <?php endif;?>
+	
+     <?php if($config['enablefontTimer']):?>
+		<link href='//fonts.googleapis.com/css?family=<?php echo str_replace(' ', '+', $config['fontTimer']); ?>:300,400,700' rel='stylesheet' type='text/css'>
+    <?php endif;?>
+
+	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+	<!-- JS -->
+	
+	
+	
+</head>
+<body>
+
+	<!-- LOGO -->
+	<header class="container">
+		<a class="logo" href="#">
+       <?php if($config['ucLogo']):?>
+        <img src="<?php  echo Mage::getBaseUrl('media') . 'uclogo/logo/' . $config['ucLogo'];?>" alt="Logo" title="Under Construction">
+        <?php else:?>
+         <img src="<?php echo $this->getSkinUrl('images/underconstruction/logo.png');?>" alt="Logo" title="Under Construction">
+        <?php endif;?>
+        </a> 
+	</header>
+	
+	<div class="timer-area">
+		
+		<h1 <?php if($config['enablefontHeading']):?>style="font-family:<?php echo $config['fontHeading'];?>"<?php endif;?>><?php echo Mage::getStoreConfig('underConstruction/settings/headingText'); ?></h1>
+		
+	<!-- TIMER -->
+    <?php if(Mage::getStoreConfig('underConstruction/settings/endTimer')): ?>
+				<ul id="countdown">
+					<li>
+						<span class="days">00</span>
+						<p class="timeRefDays">days</p>
+					</li>
+					<li>
+						<span class="hours">00</span>
+						<p class="timeRefHours">hours</p>
+					</li>
+					<li>
+						<span class="minutes">00</span>
+						<p class="timeRefMinutes">minutes</p>
+					</li>
+					<li>
+						<span class="seconds">00</span>
+						<p class="timeRefSeconds">seconds</p>
+					</li>
+				</ul>
+				 <script type="text/javascript" src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB); ?>js/bootstrap/jquery-1.8.2.min.js"></script>
+			<script src="<?php echo $this->getSkinUrl('js/countdown.js');?>"></script>
+			<script>
+				$(document).ready(function(){
+					$("#countdown").countdown({
+						date: "<?php echo Mage::getStoreConfig('underConstruction/settings/endDate'); ?>:00",
+						format: "on"
+					},		
+					function() {
+						// callback function
+					});
+				});
+			
+			</script>
+    <?php endif; ?>
+        
+        <p class="ucDescription">
+			<?php echo Mage::getStoreConfig('underConstruction/settings/desText'); ?>
+        </p>
+        <?php echo Mage::getStoreConfig('underConstruction/settings/socialLinks'); ?>
+     		
+		
+	</div> 
+   
+    <!-- end timer-area -->
+    
+	<!-- FOOTER -->
+	<footer id="main-footer">
+		<p><?php echo Mage::getStoreConfig('underConstruction/settings/footerEditor'); ?></p>
+	</footer>
+     
+
+
+
+
+	<style>
+		body{
+			<?php if($config['body_bg']):?>  
+			background-image:url(<?php  echo Mage::getBaseUrl('media') . 'underconstruction/bg/' . $config['body_bg'];?>);
+			<?php endif;?>
+			background-color:<?php echo $config['body_bg_color'];?>;
+			background-repeat:<?php echo $config['bg_repeat'];?>;
+			background-position:<?php echo $config['bgPosition'];?>;
+			background-size:<?php echo $config['fitScreen'];?>;
+			<?php if($config['enablebodyfont']):?>
+				font-family:<?php echo $config['bodyfont'];?>;
+			<?php endif;?>
+		}
+		
+		.timer-area h1{
+			font-size:<?php echo $config['headingFontsize'];?>;
+			color:<?php echo $config['headingcolor'];?>;
+		}
+		ul#countdown li span{
+			font-size:<?php echo $config['timerfontsize'];?>;
+			color:<?php echo $config['timerfontcolor'];?>;
+			<?php if($config['enablefontTimer']):?>
+			font-family:<?php echo $config['fontTimer'];?>
+			<?php endif;?>
+		}
+		ul#countdown li p{
+			font-size:<?php echo $config['timercaptionfontsize'];?>;
+			color:<?php echo $config['timercaption'];?>;
+			background:<?php echo $config['timercaptionbg'];?>;
+		}
+		ul#countdown li p:after{
+			border-bottom-color:<?php echo $config['timercaptionbg'];?>;	
+		}
+		ul#countdown li:hover p{background:<?php echo $config['timercaptionbghover'];?>;}
+		ul#countdown li:hover p:after {border-bottom-color:<?php echo $config['timercaptionbghover'];?>;}
+		.ucDescription{
+			font-size:<?php echo $config['desTextfontsize'];?>;
+			color:<?php echo $config['desTextfontcolor'];?>;
+		}
+		footer#main-footer p{
+			font-size:<?php echo $config['footerEditorsize'];?>;
+			color:<?php echo $config['footerEditorcolor'];?>;
+		}
+	</style>
+	
+<?php endif; ?>
+</body>
+</html>
+
+

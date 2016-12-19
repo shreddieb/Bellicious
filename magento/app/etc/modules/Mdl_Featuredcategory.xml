@@ -1,0 +1,8 @@
+<config>
+    <modules>
+        <Mdl_Featuredcategory>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Mdl_Featuredcategory>
+    </modules>
+</config>

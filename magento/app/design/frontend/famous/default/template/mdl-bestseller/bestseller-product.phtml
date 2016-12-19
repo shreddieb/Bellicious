@@ -1,0 +1,31 @@
+<?php 
+$config = Mage::getStoreConfig('mdloption/homeproducts');
+$config2 = Mage::getStoreConfig('bestsellingproduct/jqueryfile');
+$config3 = Mage::getStoreConfig('mdloption/genral_theme_setting');
+$id = $this->getRequest()->getParam('tabid');
+
+// Check if clicked tab is bestseller
+if($id=='tab-bestseller')
+	{
+		$new_new = $this->getLayout()->getBlockSingleton('Mdl_Bestseller_Block_Bestsellingproduct');
+				
+				$new_product=$new_new->getProductCollection();
+				$count_product = count($new_product);
+				$jcarousel_status = Mage::helper('bestsellingproduct')->getBestsellingJcarousel();
+	}
+ ?>
+			  
+			  
+	<ul class="products-grid itemPro">
+		<?php if(($config2['itemviewbox']==1)):?>
+			<?php echo $this->getLayout()->createBlock('catalog/product_list')->setTemplate('mdl-bestseller/bs-item-type/type1.phtml')->toHtml();?>
+		<?php elseif(($config2['itemviewbox']==2)):?>
+			<?php echo $this->getLayout()->createBlock('catalog/product_list')->setTemplate('mdl-bestseller/bs-item-type/type2.phtml')->toHtml();?>
+		<?php elseif(($config2['itemviewbox']==3)):?>
+			<?php echo $this->getLayout()->createBlock('catalog/product_list')->setTemplate('mdl-bestseller/bs-item-type/type3.phtml')->toHtml();?>
+		<?php elseif(($config2['itemviewbox']==4)):?>
+			<?php echo $this->getLayout()->createBlock('catalog/product_list')->setTemplate('mdl-bestseller/bs-item-type/type4.phtml')->toHtml();?>
+		<?php else:?>
+			<?php echo $this->getLayout()->createBlock('catalog/product_list')->setTemplate('mdl-bestseller/bs-item-type/type5.phtml')->toHtml();?>
+		<?php endif;?>	
+	</ul>

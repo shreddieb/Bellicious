@@ -1,0 +1,393 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magento.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magento.com for more information.
+ *
+ * @category    design
+ * @package     rwd_default
+ * @copyright   Copyright (c) 2006-2014 X.commerce, Inc. (http://www.magento.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+
+/**
+ * Product media data template
+ *
+ * @see Mage_Catalog_Block_Product_View_Media
+ */
+
+/* @var $this Mage_Catalog_Block_Product_View_Media */
+?>
+<?php
+    $_product = $this->getProduct();
+    $_helper = $this->helper('catalog/output');
+	$config = Mage::getStoreConfig('mdlpump/product-type-option');
+?>
+
+<?php if(($config['moreViewType']==1) && (count($this->getGalleryImages()) > 0)):?>
+<div class="col-xs-3">
+	<div class="more-views jcarousel-wrapper vertical">
+		<div class="product-image-thumbs more-views scrollerVert jcarousel">
+		<?php $i=0; foreach ($this->getGalleryImages() as $_image): ?>
+			<?php if ($this->isGalleryImageVisible($_image)): ?>
+			<div class="verSlide">
+				<a class="thumb-link" href="#" title="<?php echo $this->escapeHtml($_image->getLabel()) ?>" data-image-index="<?php echo $i; ?>">
+					<img src="<?php echo $this->helper('catalog/image')->init($this->getProduct(), 'thumbnail', $_image->getFile())->resize(150); ?>"
+						 alt="<?php echo $this->escapeHtml($_image->getLabel()) ?>" />
+				</a>
+			</div>
+			<?php endif; ?>
+		<?php $i++; endforeach; ?>
+		</div>
+	</div>
+</div>
+<?php endif; ?>
+
+<?php if(($config['moreViewType']==1) && (count($this->getGalleryImages()) > 0)):?>
+	<div class="col-xs-9" style="padding:0;">
+<?php endif;?>
+
+
+<!--Badge view-->
+	<div class="badgeBox">
+		<!--New badge-->
+		<?php if($_product->getData('mdl_new')):?>
+			<span class="new">
+				<strong><?php echo $this->__('new')?></strong>
+			</span>
+		<?php endif;?>
+		<!--End new badge-->
+	</div>	
+<!--end badge view-->
+									
+	<?php $mainImage = $this->helper('catalog/image')->init($_product, 'image');?>
+	<div class="product-image ">
+		
+		<a href="#image-gallery-popup" id="triggerPop"><?php echo $this->__('Zoom');?></a>
+		
+		<div class="product-image-gallery product-image-zoom">
+			<img id="image-main"
+				 class="gallery-image visible"
+				 src="<?php echo $mainImage; ?>"
+				 alt="<?php echo $this->escapeHtml($this->getImageLabel()) ?>"
+				 title="<?php echo $this->escapeHtml($this->getImageLabel()); ?>" />
+
+			<?php $i=0; foreach ($this->getGalleryImages() as $_image): ?>
+				<?php if ($this->isGalleryImageVisible($_image)): 
+				?>
+				<img id="image-<?php echo $i; ?>"
+					 class="gallery-image"
+					 src="<?php echo $this->getGalleryImageUrl($_image); ?>"
+					 data-zoom-image="<?php echo  $this->getGalleryImageUrl($_image); ?>" />
+				<?php endif; ?>
+			<?php $i++; endforeach; ?>
+		</div>
+	</div>
+<?php if(($config['moreViewType']==1) && (count($this->getGalleryImages()) > 0)):?>
+</div>
+<script type="text/javascript">
+(function($) {
+    $(function() {
+           $('.scrollerVert').bxSlider({
+				mode: 'vertical',
+				slideWidth: 300,
+				minSlides:4,
+				maxSlides:4,
+				pager:false,
+				slideMargin:10,
+				infiniteLoop:false
+			});
+    });
+})(jQuery);	
+</script>
+<?php else:?>
+
+<?php if (count($this->getGalleryImages()) > 0): ?>
+<div class="more-views bottomSide">
+    <div class="product-image-thumbs more-views scrollerMedia jcarousel">
+	<?php $i=0; foreach ($this->getGalleryImages() as $_image): ?>
+        <?php if ($this->isGalleryImageVisible($_image)): ?>
+        <div class="moreViewItem">
+            <a class="thumb-link" href="#" title="<?php echo $this->escapeHtml($_image->getLabel()) ?>" data-image-index="<?php echo $i; ?>">
+                <img src="<?php echo $this->helper('catalog/image')->init($this->getProduct(), 'thumbnail', $_image->getFile())->resize(150); ?>"
+                     alt="<?php echo $this->escapeHtml($_image->getLabel()) ?>" />
+            </a>
+        </div>
+        <?php endif; ?>
+    <?php $i++; endforeach; ?>
+    </div>
+</div>
+<?php endif; ?>
+
+
+<script type="text/javascript">
+			(function($){
+				$(function(){
+						$('.scrollerMedia').owlCarousel({
+						loop:false,
+						smartSpeed: 500,
+						margin:10,
+						dots: false,
+						navText: ["<i class='fa fa-angle-left'></i>", "<i class='fa fa-angle-right'></i>" ],
+						responsiveClass:true,
+						responsive:{
+							0:{
+								items:2,
+								nav: true
+							},
+							600:{
+								items:3,
+								nav: true
+							},
+							1000:{
+								items:4,
+								nav: true
+							}
+						}
+					});
+						
+				});
+			})(jQuery);			
+			</script>
+
+<?php endif;?>
+
+
+<?php echo $this->getChildHtml('after'); ?>
+
+<!--Popup Code Begin-->
+<?php $galleryImages = array(); ?>
+<div id="image-gallery-popup" style="display:none;">
+<?php $_imgSize = 300; ?>
+    <div class="custom-gallery-popup row-fluid">
+        <div class="view-img">
+			<div class="view-img-cover">
+            <!-- <a class="nav prev" data-move="prev" href="javascript:void(0);"><i class="fa fa-angle-left"></i></a> -->
+            <div  id="large_zoom">
+            <?php $mainIndex=0; $i = 0; foreach ($this->getGalleryImages() as $_image): ?>
+            <?php if ($this->isGalleryImageVisible($_image) && $mainImage == $this->getGalleryImageUrl($_image)): ?>
+			<?php $mainIndex = $i;$i++;
+			?>
+            <?php endif; ?>
+            <?php endforeach; ?>
+            <img data-main-index="<?php echo 0;//echo $mainIndex; ?>" id="slider-image-main" class="slider-gallery-image"  src="<?php echo $this->helper('catalog/image')->init($_product, 'image'); ?>" data-zoom-image="<?php echo  $this->helper('catalog/image')->init($_product, 'image'); ?>"/>
+            </div>
+            <!-- <a class="nav next" data-move="next" href="javascript:void(0);"><i class="fa fa-angle-right"></i></a>-->
+			</div>
+        </div>
+        <div class="more-view">
+			<h2><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></h2>
+            <ul class="product-image-thumbs">
+    <?php $i=0; foreach ($this->getGalleryImages() as $_image): ?>
+        <?php if ($this->isGalleryImageVisible($_image)): ?>
+        <?php $galleryImages[] = $this->getGalleryImageUrl($_image); ?>
+        <li id="popImgThumb<?php echo $i;?>">
+		<?php //echo $mainImage.' == '.$this->getGalleryImageUrl($_image)?>
+            <a class="slider-thumb-link" href="#" title="<?php echo $this->escapeHtml($_image->getLabel()) ?>" data-image-index="<?php echo $i; ?>">
+                <img src="<?php echo $this->helper('catalog/image')->init($this->getProduct(), 'thumbnail', $_image->getFile())->resize(65); ?>"
+                     width="65" height="65" alt="<?php echo $this->escapeHtml($_image->getLabel()) ?>" />
+            </a>
+        </li>
+        <?php $i++; endif; ?>
+    <?php  endforeach; ?>
+    </ul>
+        </div>
+    </div>
+</div>
+
+<script>
+var galleryImages = <?php echo json_encode($galleryImages); ?>;
+jQuery(document).ready(function(){
+    var mdlPop;
+	mdlPopFn = function(){
+		
+	}
+    mdlPopFn.prototype.open = function(){
+		    //jQuery('.product-image-gallery img').click(function(){
+            //   jQuery('#triggerPop').trigger('click');        
+            //});
+			jQuery('#slider-image-main').attr('src',jQuery('.gallery-image.visible').attr('src'));
+            jQuery('#triggerPop').fancybox({
+				'openEffect'	: 'elastic',
+				'closeEffect'	: 'elastic',
+                'type' : 'inline',
+				 'margin': 0,
+                'scrolling'		: 'yes',
+                'titleShow'		: false,
+                'beforeClose'		: function() {
+                    jQuery("#image-gallery-popup").hide();
+                },
+                'afterShow' : function(){
+                    mdlPop.afterOpen();    
+                }
+            });
+            mdlPop.addZoom();
+    }
+    mdlPopFn.prototype.addZoom = function(){
+        jQuery('#large_zoom').zoom({ on:'click' });
+    }
+    mdlPopFn.prototype.removeZoom = function(){
+        jQuery('#large_zoom').trigger('zoom.destroy');
+		jQuery('#large_zoom').removeClass('zoom-out');
+    }
+	mdlPopFn.prototype.updateSelection = function(imgIndex, imgCount){
+        if( imgIndex == (imgCount-1)){
+			jQuery('a.nav.prev').removeClass('disable');
+			jQuery('a.nav.next').addClass('disable');
+		}else if( imgIndex == 0){
+			jQuery('a.nav.next').removeClass('disable');
+			jQuery('a.nav.prev').addClass('disable');
+		} else {
+			jQuery('a.nav').removeClass('disable');
+		}
+		jQuery('.product-image-thumbs li a').removeClass('active');
+		jQuery('.product-image-thumbs li#popImgThumb'+imgIndex+' a').addClass('active');
+    }
+    mdlPopFn.prototype.afterOpen = function(){
+			jQuery('a.slider-thumb-link').removeClass('active');
+            var imgCount = galleryImages.length;
+			jQuery('#image-gallery-popup a.slider-thumb-link').click(function(){
+                var imgIndex = jQuery(this).data('image-index');
+                jQuery('a.slider-thumb-link').removeClass('active');
+                jQuery(this).addClass('active');
+                jQuery.each(galleryImages, function(i,v){
+					if( i == imgIndex){
+                        jQuery('#slider-image-main').attr('src', v);
+                        mdlPop.removeZoom();
+                        mdlPop.addZoom();
+						mdlPop.updateSelection(imgIndex, imgCount);
+                        return false;
+                    }    
+                });
+				 return false;
+            });
+            jQuery('#image-gallery-popup a.nav').off('click');
+            jQuery('#image-gallery-popup a.nav').on('click',function(){
+                var navMove = jQuery(this).data('move');
+                var imgIndex = jQuery('#slider-image-main').data('main-index');
+				var imgIndex1 = imgIndex;
+				if( (navMove == 'next' && (imgCount-1 == imgIndex1)) || (navMove == 'prev' && (0 == imgIndex1))){
+					return false;
+				}
+				if (navMove == 'next' && (imgCount-1) > imgIndex) {
+                    //code
+                    imgIndex++;
+					jQuery('a.nav.prev').removeClass('disable');
+                }
+				if (navMove == 'prev' && imgIndex > 0) {
+					//code
+                    imgIndex--;
+					jQuery('a.nav.next').removeClass('disable');
+                }
+				// Reset active
+				jQuery('.product-image-thumbs li a').removeClass('active');
+				jQuery('.product-image-thumbs li#popImgThumb'+imgIndex+' a').addClass('active');
+				
+                jQuery.each(galleryImages, function(i,v){
+					if( i == imgIndex){
+                        jQuery('#slider-image-main').attr('src', v);
+                        jQuery('#slider-image-main').data('main-index', i)
+                        mdlPop.removeZoom();
+                        mdlPop.addZoom();
+						if( imgIndex == (imgCount-1)){
+							jQuery('a.nav.next').addClass('disable');
+						}
+						if( imgIndex == 0){
+							jQuery('a.nav.prev').addClass('disable');
+						}
+                        return;
+                    }    
+                });
+            });
+	};
+    mdlPop = new mdlPopFn();
+    mdlPop.open();
+	jQuery('#large_zoom').on('click', function(e){
+			if(jQuery('#large_zoom').hasClass('zoom-out')){
+				jQuery('#large_zoom').removeClass('zoom-out');
+			} else {
+				jQuery('#large_zoom').addClass('zoom-out');
+			}
+	});
+    jQuery('.more-views a.thumb-link').click(function(){
+		var imgCount = galleryImages.length;
+        var imgIndex = jQuery(this).data('image-index');
+        mdlPop.open();
+		jQuery.each(galleryImages, function(i,v){
+            if( i == imgIndex){
+                mdlPop.removeZoom();
+				jQuery('#slider-image-main').attr('src', v);
+                jQuery('#slider-image-main').data('main-index', i);
+                mdlPop.addZoom();
+				mdlPop.updateSelection(imgIndex, imgCount);
+                return;
+            }    
+        });
+    });
+    
+	if(jQuery('#configurable_swatch_color').length > 0){
+		ConfigurableMediaImages.updateImage = function(el) {
+			var select = jQuery(el);
+			var label = select.find('option:selected').attr('data-label');
+			var productId = optionsPrice.productId; //get product ID from options price object
+
+			//find all selected labels
+			var selectedLabels = new Array();
+
+			jQuery('.product-options .super-attribute-select').each(function() {
+				var $option = jQuery(this);
+				if($option.val() != '') {
+					selectedLabels.push($option.find('option:selected').attr('data-label'));
+				}
+			});
+
+			var swatchImageUrl = ConfigurableMediaImages.getSwatchImage(productId, label, selectedLabels);
+			if(!ConfigurableMediaImages.isValidImage(swatchImageUrl)) {
+				return;
+			}
+
+			var swatchImage = ConfigurableMediaImages.getImageObject(productId, swatchImageUrl);
+
+			ProductMediaManager.swapImage(swatchImage);
+			
+			// Custom Pop Up
+			var imgCount = galleryImages.length;
+			var imgIndex = 0;
+			mdlPop.open();
+			jQuery.each(galleryImages, function(i,v){
+				if(swatchImageUrl.indexOf('_') != -1){
+					var aa = swatchImageUrl.split('_');
+					swatchImageUrl = aa[0];
+				}
+				if( v.indexOf(swatchImageUrl) != -1){
+					imgIndex = i;
+					jQuery('#slider-image-main').attr('src', v);
+					jQuery('#slider-image-main').data('main-index', i);
+					mdlPop.removeZoom();
+					mdlPop.addZoom();
+					mdlPop.updateSelection(imgIndex, imgCount);
+					return;
+				}    
+			});
+			
+		}
+	}
+});
+</script>
+
+<script type="text/javascript" src="<?php echo $this->getSkinUrl('js/jquery.zoom.min.js');?>"></script>
+

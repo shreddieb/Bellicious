@@ -1,0 +1,43 @@
+<?php // block Mdl_brand_Block_Brand 
+$config=Mage::helper('brand/data')->getStoreConfig();
+$enable=$config['general']['enable'];?>
+<?php if($enable):?>
+<?php $_brandCollection=$this->getBrand(); 
+$_helper=Mage::helper('brand'); ?>
+<div class="brand-info">
+<?php if($_brandCollection->count()): ?>
+   <?php foreach ($_brandCollection as $_brand): ?>
+      <?php $imageUrl=$_helper->getBrandImage($_brand->getBrandImage());?>
+	  <?php $brandDesc= $_brand->getBrandDescription()?>
+       <?php if($imageUrl!=''):?>
+            <?php $brand_imgUrl = Mage::helper('brand/data')->resizeImage($imageUrl,$height,$width);?>
+			<div class="category-banner" style="background:url('<?php echo $brand_imgUrl;?>'); background-size:cover;">
+				<div class="container">
+					<div class="category-top-description">
+						<div class="category-title">
+							<h2><?php echo $_brand->getBrandOptionName(); ?></h2>
+						</div>
+						<?php echo $brandDesc ;?>
+					</div>
+				</div>	
+			</div>
+		<?php else:?>
+			<?php if($brandDesc!='') :?>
+				<div class="category-banner">
+					<div class="container">
+						<div class="category-top-description">
+							<div class="category-title">
+								<h2><?php echo $_brand->getBrandOptionName(); ?></h2>
+							</div>
+							<?php echo $brandDesc ;?>
+						</div>
+					</div>	
+				</div>
+			<?php endif; ?>
+		<?php endif;?>
+	  
+<?php endforeach ?>
+<?php endif; ?>
+<?php $brandDesc;?>
+</div>
+<?php endif; ?>

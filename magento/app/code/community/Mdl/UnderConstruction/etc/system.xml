@@ -1,0 +1,358 @@
+<?xml version="1.0"?>
+<!--
+/**
+ *
+ * Do not edit or add to this file if you wish to upgrade the to newer versions in the future.
+ * If you wish to customize this module for your needs
+ * Please refer to http://www.magentocommerce.com for more information.
+ * @package   Comming soon page
+ * @version   1.0.0
+ */
+ -->
+<config>
+    <sections>
+        <underConstruction translate="label" module="Mdl_UnderConstruction">
+            <label>Mdl Under Construction</label>
+            <tab>Mdlext</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>170</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>0</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+			    <settings translate="label">
+                    <label>Settings</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>0</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <enabled translate="label">
+                            <label>Maintenance Mode</label>
+                            <comment>Here you can enable or disable Maintenance mode.</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enabled>
+						
+                       <allowFrontendForAdmins translate="label">
+                            <label>Access for Admin</label>
+                            <comment>Here admin can set access frontend for admin.</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </allowFrontendForAdmins>
+                        <allowedIPs translate="label">
+                            <label>Allowed IPs</label>
+                            <comment>IPs access frontend.</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </allowedIPs>
+						<pageTitle translate="label">
+                            <label>Page Title</label>
+                            <comment>Here you can change page title.</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </pageTitle>
+						<ucLogo>
+                            <label>Logo for this page</label>
+							<comment><![CDATA[Here you can upload logo.(This logo is only visible on under construction page..)]]></comment>
+                            <frontend_type>image</frontend_type>
+                            <backend_model>adminhtml/system_config_backend_image</backend_model>
+                            <upload_dir config="system/filesystem/media" scope_info="1">uclogo/logo</upload_dir>
+                            <base_url type="media" scope_info="1">uclogo/logo</base_url>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </ucLogo>
+						
+						<enablebodyfont translate="label comment">
+							<label>Enable google font for body: </label>
+							<comment>Here you can enable or disable google font for body.</comment>
+                            <frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>6</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>1</show_in_store>
+						</enablebodyfont>
+						<bodyfont translate="label comment">
+							<label>Body Font: </label>
+							<comment><![CDATA[Here you can change body font-family<br />(Enable google font to use this option)]]></comment>
+							<frontend_type>select</frontend_type>
+							<frontend_model>Mdl_UnderConstruction/adminhtml_system_config_form_field_font</frontend_model>
+							<source_model>Mdl_UnderConstruction/adminhtml_system_config_source_font</source_model>
+							<sort_order>7</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>0</show_in_website>
+							<show_in_store>1</show_in_store>
+						</bodyfont>
+						
+						<body_bg_color translate="label comment">
+                            <label>Body Bg Color: </label>
+                            <comment>Here you can body background color</comment>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>Mdl_UnderConstruction/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>8</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </body_bg_color>
+						<body_bg>
+                            <label>Body background image</label>
+                            <frontend_type>image</frontend_type>
+                            <backend_model>adminhtml/system_config_backend_image</backend_model>
+                            <upload_dir config="system/filesystem/media" scope_info="1">underconstruction/bg</upload_dir>
+                            <base_url type="media" scope_info="1">underconstruction/bg</base_url>
+                            <sort_order>9</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </body_bg>
+						<bg_repeat translate="label comment">
+							<label>Backgrond repeat: </label>
+                            <comment>Here you can set background repeat</comment>
+							<frontend_type>select</frontend_type>
+							<source_model>Mdl_UnderConstruction/source_styles</source_model>
+							<sort_order>10</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>0</show_in_website>
+							<show_in_store>1</show_in_store>
+						</bg_repeat>
+						
+						<bgPosition translate="label comment">
+							<label>Backgrond Position:</label>
+                            <comment>Here you can set background repeat</comment>
+							<frontend_type>select</frontend_type>
+							<source_model>Mdl_UnderConstruction/source_bgposition</source_model>
+							<sort_order>11</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>0</show_in_website>
+							<show_in_store>1</show_in_store>
+						</bgPosition>
+						
+						<fitScreen translate="label">
+                            <label>Fit to screen: </label>
+                            <comment>Here you can fit your background image to your screen.</comment>
+                            <frontend_type>select</frontend_type>
+							<source_model>Mdl_UnderConstruction/source_fitscreen</source_model>
+                            <sort_order>12</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </fitScreen>
+                        <headingText translate="label">
+                            <label>Heading</label>
+                            <comment><![CDATA[Heading text]]></comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>13</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </headingText>
+					
+						<enablefontHeading translate="label comment">
+							<label>Enable google font for heading: </label>
+							<comment>Here you can enable or disable google font for heading.</comment>
+                            <frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>14</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>1</show_in_store>
+						</enablefontHeading>
+						
+						<fontHeading translate="label comment">
+							<label>Heading font-family: </label>
+							<comment><![CDATA[Here you can change heading font-family<br />(Enable google font to use this option)]]></comment>
+							<frontend_type>select</frontend_type>
+							<frontend_model>Mdl_UnderConstruction/adminhtml_system_config_form_field_font</frontend_model>
+							<source_model>Mdl_UnderConstruction/adminhtml_system_config_source_font</source_model>
+							<sort_order>15</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>0</show_in_website>
+							<show_in_store>1</show_in_store>
+						</fontHeading>
+					
+						
+						<headingFontsize translate="label">
+                            <label>Heading font size:</label>
+                            <comment>Here you can set heading font size (Please define font size in px, em or %  EX: 15px, 15em, 80%)</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>16</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </headingFontsize>
+						
+						<headingcolor translate="label comment">
+                            <label>Heading text color: </label>
+                            <comment>Here you can change heading font color</comment>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>Mdl_UnderConstruction/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>17</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </headingcolor>
+						
+                        <endTimer translate="label comment">
+                            <label>Enable Timer: </label>
+                            <comment>Here you can enable or disable timer</comment>
+                            <frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>18</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </endTimer>
+						<endDate translate="label comment">
+                            <label>End Date: </label>
+                            <comment>Here you can set coming soon end date.</comment>
+                            <frontend_type>text</frontend_type>
+							<frontend_model>Mdl_UnderConstruction/adminhtml_system_config_form_field_calendar</frontend_model>
+                            <sort_order>19</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </endDate>
+						<enablefontTimer translate="label comment">
+							<label>Enable google font for Timer: </label>
+							<comment>Here you can enable or disable google font for heading.</comment>
+                            <frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>21</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>1</show_in_store>
+						</enablefontTimer>
+						
+						<fontTimer translate="label comment">
+							<label>Timer font-family: </label>
+							<comment><![CDATA[Here you can change timer font-family<br />(Enable google font to use this option)]]></comment>
+							<frontend_type>select</frontend_type>
+							<frontend_model>Mdl_UnderConstruction/adminhtml_system_config_form_field_font</frontend_model>
+							<source_model>Mdl_UnderConstruction/adminhtml_system_config_source_font</source_model>
+							<sort_order>22</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>0</show_in_website>
+							<show_in_store>1</show_in_store>
+						</fontTimer>					
+						<timerfontsize translate="label">
+                            <label>Timer font size:</label>
+                            <comment>Here you can set timer font size (Please define font size in px, em or %  EX: 15px, 15em, 80%)</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>23</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </timerfontsize>
+						<desText translate="label">
+                            <label>Description</label>
+                            <comment><![CDATA[Description text]]></comment>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>29</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </desText>
+						<desTextfontsize translate="label">
+                            <label>Description font size:</label>
+                            <comment>Here you can set description font size (Please define font size in px, em or %  EX: 15px, 15em, 80%)</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </desTextfontsize>
+						<desTextfontcolor translate="label comment">
+                            <label>Description text color: </label>
+                            <comment>Here you can change description font color</comment>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>Mdl_UnderConstruction/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>31</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </desTextfontcolor>
+
+						<socialLinks translate="label">
+							<label>Static Block </label>
+							<comment><![CDATA[Here you can add static content as per your requirement.]]></comment>
+							<frontend_type>editor</frontend_type>
+							<frontend_model>Mdl_UnderConstruction/adminhtml_system_config_form_field_editor</frontend_model>
+							<sort_order>32</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>0</show_in_website>
+							<show_in_store>1</show_in_store>
+						</socialLinks>
+						<footerEditor translate="label comment">
+                            <label>Footer Copyright Text: </label>
+                            <comment>Here you can add footer copyright text.</comment>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>33</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </footerEditor>
+						<footerEditorsize translate="label">
+                            <label>Copyright font size:</label>
+                            <comment>Here you can set copyright font size (Please define font size in px, em or %  EX: 15px, 15em, 80%)</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>34</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </footerEditorsize>
+						<footerEditorcolor translate="label comment">
+                            <label>Copyright text color: </label>
+                            <comment>Here you can change copyright font color</comment>
+                            <frontend_type>text</frontend_type>
+                            <frontend_model>Mdl_UnderConstruction/adminhtml_system_config_form_field_color</frontend_model>
+                            <sort_order>35</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </footerEditorcolor>
+		
+                    </fields>
+                </settings>
+				<scriptsetting translate="label">
+                    <label>Script Setting</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>2</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>0</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <enabledjs translate="label">
+                            <label>Enable jQuery</label>
+                            <comment>Here you can enable or disable jQuery (Sometime jQuery already included.)</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enabledjs>
+                    </fields>
+                </scriptsetting>
+				
+            </groups>
+        </underConstruction>
+    </sections>
+</config>
