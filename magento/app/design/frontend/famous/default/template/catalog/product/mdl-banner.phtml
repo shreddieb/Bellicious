@@ -25,8 +25,8 @@
  */
 ?>
 
-<?php 
-	$config = Mage::getStoreConfig('bannerslider/homepage'); 
+<?php
+	$config = Mage::getStoreConfig('bannerslider/homepage');
 	$config2 = Mage::getStoreConfig('bannerslider/general');
 ?>
 <?php if($config2['enable']):?>
@@ -62,11 +62,11 @@
 			</div>
         </div>
         <!--end -->
-        
+
         <?php elseif($config['home-page-option']==3):?>
         <!--banner content static block content-->
            <?php echo $this->getLayout()->createBlock('bannerslider/default')->setTemplate('mdl/bannerslider/bannerslider.phtml')->setBannersliderId(1)->toHtml(); ?>
-      
+
             <div class="f-fix">
             <div class="promoBox2 container">
                 <div class="rowExt">
@@ -74,21 +74,21 @@
                 </div>
             </div>
         </div>
-       
+
         <!--end -->
-        
+
         <?php elseif($config['home-page-option']==4):?>
         <!--banner content static block content-->
             <div class="span9">
             <?php echo $this->getLayout()->createBlock('bannerslider/default')->setTemplate('mdl/bannerslider/bannerslider.phtml')->setBannersliderId(1)->toHtml(); ?>
             </div>
-            
+
             <div class="promoBox span3">
                 <div class="rowExt">
                     <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('promotional_right_block_2')->toHtml() ?>
                 </div>
             </div>
-            
+
         <!--end -->
         <?php endif; ?>
 

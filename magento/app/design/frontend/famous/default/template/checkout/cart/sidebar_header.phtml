@@ -33,13 +33,13 @@
 ?>
 <div class="block-cart header_cart">
     <?php
-	 $cart_text='Cart';	
+	 $cart_text='Cart';
 	 $_cartQty = $this->getSummaryCount() ?>
     <div class="block-content_pan">
         <div class="summary">
 			<a class="fLink" href="<?php echo $this->getUrl('checkout/cart');?>"></a>
          	<h2 class="classy openCart <?php echo (($_cartQty >=1)?'activated':''); ?>">
-				<?php echo $this->__('cart');?>
+				<?php //echo $this->__('cart');?>
             <?php if ($_cartQty==0): ?>
             	<?php echo $this->__('<a href="%s">0</a>', $this->getUrl('checkout/cart')) ?>
             <?php endif ?>
@@ -50,23 +50,22 @@
                 <?php echo $this->__('<a href="%s">%s</a>', $this->getUrl('checkout/cart'), $_cartQty) ?>
             <?php endif ?>
              <?php endif ?>
-			 <i class="fa fa-sort-desc"></i>
             </h2>
         </div>
-   
+
     <div class="remain_cart" id="minicart">
     <div class="minicartInner">
     <?php if($_cartQty && $this->isPossibleOnepageCheckout()): ?>
-    
+
     <?php endif ?>
     <?php $_items = $this->getRecentItems() ?>
     <?php if(count($_items)): ?>
     	<div class="shopping-bag f-block">
-    	<?php if ($_cartQty==1): ?>	
+    	<?php if ($_cartQty==1): ?>
         <p class="empty f-left"><?php echo $this->__('Shopping Bag (1 items)') ?></p>
          <?php else:?>
     	 <p class="empty f-left"><?php echo $this->__('Shopping Bag (%s items)',$_cartQty) ?></p>
-        <?php endif?> 
+        <?php endif?>
         <p class="subtotal f-right">
                 <?php if ($this->canApplyMsrp()): ?>
                     <span class="map-cart-sidebar-total"><?php echo $this->__('ORDER TOTAL WILL BE DISPLAYED BEFORE YOU SUBMIT THE ORDER');?></span>

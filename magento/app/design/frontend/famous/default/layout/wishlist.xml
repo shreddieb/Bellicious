@@ -33,7 +33,8 @@ Default layout, loads most of the pages
 -->
 
     <default>
-		<reference name="top.links">
+	<!-- EB: REMOVING WISHLIST FROM TOP NAV
+        <reference name="top.links">
             <block type="wishlist/links" name="wishlist_link" />
             <action method="addLink" translate="label title" module="wishlist">
 				<label>Wishlist</label>
@@ -45,6 +46,7 @@ Default layout, loads most of the pages
 				<li/><a>class="topWishlist"</a>
 			</action>
         </reference>
+        -->
 
         <!-- Mage_Wishlist -->
         <reference name="right">
@@ -131,12 +133,12 @@ Wishlist pages
         <reference name="head">
 			<remove name="mdlajaxcheckout"/>
 			<action method="removeItem"><type>skin_js</type><name>js/mdl/ajax_cart.js</name></action>
-			<remove name="options_js"/> 
+			<remove name="options_js"/>
         </reference>
         <reference name="product.info.options.wrapper.bottom">
             <action method="unsetChild"><name>product.info.addto</name></action>
             <!--<action method="append"><block>product.info.addto</block></action>-->
-			
+
         </reference>
     </wishlist_index_configure>
 

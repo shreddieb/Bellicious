@@ -22,7 +22,6 @@
                 <action method="addBlogLink" ifconfig="mdlblog/menu/top"><param>top</param></action>
             </block>
         </reference>
-        
     </default>
 
     <mdlblog_index_index>

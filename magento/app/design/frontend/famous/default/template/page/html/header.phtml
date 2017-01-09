@@ -38,7 +38,7 @@
 $routeName = Mage::app()->getRequest()->getRouteName();
 $controller = $this->getRequest()->getControllerName();
 $action = $this->getRequest()->getActionName();
- 
+
 if($routeName == 'cms' && $controller == 'index' && $action == 'index') {
 	if($this->getIsHomePage()){
 	 $bannerTy = $config5['bannerType'];
@@ -68,7 +68,7 @@ if($routeName == 'cms' && $controller == 'index' && $action == 'index') {
 						<p class="welcome-msg"><?php echo $this->getChildHtml('welcome') ?> <?php echo $this->getAdditionalHtml() ?></p>
 					<?php endif;?>
 				</div>
-				
+
 				<!--LANGUAGE - CURRENCY - COMPARE-->
 				<div class="col-sm-5 top-info">
 					<?php echo $this->getChildHtml('store_language') ?>
@@ -77,23 +77,23 @@ if($routeName == 'cms' && $controller == 'index' && $action == 'index') {
 					<div class="compareBox">
 						<?php if ($config2['compare_box']) :?>
 							<?php echo $this->getChildHtml('catalog.product.compare.sidebar'); ?>
-						<?php endif; ?>	
-					</div>	
+						<?php endif; ?>
+					</div>
 					 <!--END COMPARE-->
 				</div>
 			</div>
         </div>
       </div>
-	  
+
 	<!--COMPARE-->
 		<div class="compareBox secComp">
 			<?php if ($config2['compare_box']) :?>
 				<a class="compBtn openComp" href="javascript:void(0);"></a>
 				<?php echo $this->getChildHtml('catalog.product.compare.sidebar'); ?>
-			<?php endif; ?>	
-		</div>	
+			<?php endif; ?>
+		</div>
 	<!--END COMPARE-->
-	  
+
 	  <!--TOP SECTION-->
 	  <div class="header-block f-fix fixNavBox">
 	  <?php if($config4['navoption_main']==2):?>
@@ -108,38 +108,38 @@ if($routeName == 'cms' && $controller == 'index' && $action == 'index') {
 							<?php if($config2['logo_img']==true):?>
 								<img class="logoLg" src="<?php  echo Mage::getBaseUrl('media') . 'logo/' .$config2['logo_img'];?>" alt="<?php echo $this->getLogoAlt() ?>" />
 							<?php else:?>
-								<img class="logoLg" src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" /> 
+								<img class="logoLg" src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" />
 							<?php endif;?>
-							
+
 							<?php if($config2['logo_sm']==true):?>
 								<img class="logoSm" src="<?php  echo Mage::getBaseUrl('media') . 'logo/' .$config2['logo_sm'];?>" alt="<?php echo $this->getLogoAlt() ?>" />
-							<?php endif;?>	
-							
+							<?php endif;?>
+
 							<?php if($config2['logo_tp']==true):?>
 								<img class="logoTp" src="<?php  echo Mage::getBaseUrl('media') . 'logo/' .$config2['logo_tp'];?>" alt="<?php echo $this->getLogoAlt() ?>" />
-							<?php endif;?>	
+							<?php endif;?>
 						</a>
 					</h1>
 				</div>
-				
-				
+
+
 				<div class="col-xs-12 col-md-9 header-left searchArea">
 					<!--TOP CART-->
 					<div class="cartright">
 						<?php echo $this->getChildHtml('cart_header'); ?>
 					</div>
-					
+
 					<!-- SEARCH-->
 					<a class="searchIcon openSearch" href="javascript:void(0);"><i class="fa fa-search"></i></a>
 					<div class="searchCenter">
 						<?php if ($config3['enable_categories']):?>
 							<?php echo $this->getChildHtml('topSearchcat')?>
-						<?php else:?>   
+						<?php else:?>
 							<?php echo $this->getChildHtml('topSearch')?>
 						<?php endif; ?>
 					</div>
-				
-				</div>	
+
+				</div>
 				<?php if($config4['navoption_main']==1):?>
 				<!-- Navigation -->
 				<div class="col-xs-6 col-sm-12 navLeft">
@@ -150,28 +150,28 @@ if($routeName == 'cms' && $controller == 'index' && $action == 'index') {
 					</div>
 				</div>
 				<?php endif;?>
-				
+
 			</div>
-			
+
 		</header>
 	</div>
-	
-    
+
+
 </div>
 
 
 
-<?php elseif($config['header-option']==2):?> 
+<?php elseif($config['header-option']==2):?>
 <!-- Header 02 -->
 
 <div class="header-container f-fix mainHeaderPan header-wrapper02 bannerType<?php echo $bannerTy;?> <?php echo $navPos;?>">
-	
+
 	<!--TOP BAR-->
 	<a class="topLinkBtn openLinks" href="javascript:void(0);"><span></span></a>
 	<div class="f-fix header-top">
         <div class="container">
             <div class="row">
-				
+
 				<!--TOP SOCIAL LINKS WELCOME MESSAGE-->
 				<div class="col-sm-7 alignRight socialHeader">
 					<!--TOP LINKS-->
@@ -181,17 +181,17 @@ if($routeName == 'cms' && $controller == 'index' && $action == 'index') {
 						<p class="welcome-msg"><?php echo $this->getChildHtml('welcome') ?> <?php echo $this->getAdditionalHtml() ?></p>
 					<?php endif;?>
 				</div>
-				
+
 				<!--LANGUAGE - CURRENCY - COMPARE-->
 				<div class="col-sm-5 top-info">
 					<?php echo $this->getChildHtml('store_language') ?>
 					<?php echo $this->getChildHtml('currency')?>
                 </div>
-				
+
 			</div>
         </div>
       </div>
-	  
+
 	  <!--TOP SECTION-->
 	  <div class="header-block f-fix fixNavBox">
 		<?php if($config4['navoption_main']!=1):?>
@@ -206,27 +206,27 @@ if($routeName == 'cms' && $controller == 'index' && $action == 'index') {
 							<?php if($config2['logo_img']==true):?>
 								<img class="logoLg" src="<?php  echo Mage::getBaseUrl('media') . 'logo/' .$config2['logo_img'];?>" alt="<?php echo $this->getLogoAlt() ?>" />
 							<?php else:?>
-								<img class="logoLg" src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" /> 
+								<img class="logoLg" src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" />
 							<?php endif;?>
-							
+
 							<?php if($config2['logo_sm']==true):?>
 								<img class="logoSm" src="<?php  echo Mage::getBaseUrl('media') . 'logo/' .$config2['logo_sm'];?>" alt="<?php echo $this->getLogoAlt() ?>" />
-							<?php endif;?>	
-							
+							<?php endif;?>
+
 							<?php if($config2['logo_tp']==true):?>
 								<img class="logoTp" src="<?php  echo Mage::getBaseUrl('media') . 'logo/' .$config2['logo_tp'];?>" alt="<?php echo $this->getLogoAlt() ?>" />
-							<?php endif;?>	
+							<?php endif;?>
 						</a>
 					</h1>
 				</div>
-				
+
 				<div class="col-xs-12 col-md-6 searchArea">
 					<!-- SEARCH-->
 					<a class="searchIcon openSearch" href="javascript:void(0);"><i class="fa fa-search"></i></a>
 					<div class="searchCenter">
 						<?php if ($config3['enable_categories']):?>
 							<?php echo $this->getChildHtml('topSearchcat')?>
-						<?php else:?>   
+						<?php else:?>
 							<?php echo $this->getChildHtml('topSearch')?>
 						<?php endif; ?>
 					</div>
@@ -236,17 +236,17 @@ if($routeName == 'cms' && $controller == 'index' && $action == 'index') {
 					<div class="cartright">
 						<?php echo $this->getChildHtml('cart_header'); ?>
 					</div>
-					
+
 					<!--COMPARE-->
 					<div class="compareBox">
 						<?php if ($config2['compare_box']) :?>
 							<a class="compBtn openComp" href="javascript:void(0);"></a>
 							<?php echo $this->getChildHtml('catalog.product.compare.sidebar'); ?>
-						<?php endif; ?>	
+						<?php endif; ?>
 					</div>
-					
-				</div>	
-				
+
+				</div>
+
 				<?php if($config4['navoption_main']==1):?>
 				<!-- Navigation -->
 				<div class="col-xs-6 col-sm-12 navLeft">
@@ -257,26 +257,26 @@ if($routeName == 'cms' && $controller == 'index' && $action == 'index') {
 					</div>
 				</div>
 				<?php endif;?>
-				
+
 			</div>
-			
+
 		</header>
 	</div>
-	
-    
+
+
 </div>
 
-<?php elseif($config['header-option']==3):?> 
+<?php elseif($config['header-option']==3):?>
 <!-- Header 03 -->
 
 <div class="header-container f-fix mainHeaderPan header-wrapper02 bannerType<?php echo $bannerTy;?> <?php echo $navPos;?>">
-	
+
 	<!--TOP BAR-->
 	<a class="topLinkBtn openLinks" href="javascript:void(0);"><span></span></a>
 	<div class="f-fix header-top">
         <div class="container">
             <div class="row">
-				
+
 				<!--TOP SOCIAL LINKS WELCOME MESSAGE-->
 				<div class="col-sm-7 alignRight socialHeader">
 					<!--TOP LINKS-->
@@ -286,39 +286,39 @@ if($routeName == 'cms' && $controller == 'index' && $action == 'index') {
 						<p class="welcome-msg"><?php echo $this->getChildHtml('welcome') ?> <?php echo $this->getAdditionalHtml() ?></p>
 					<?php endif;?>
 				</div>
-				
+
 				<!--LANGUAGE - CURRENCY - COMPARE-->
 				<div class="col-sm-5 top-info">
 					<?php echo $this->getChildHtml('store_language') ?>
 					<?php echo $this->getChildHtml('currency')?>
                 </div>
-				
+
 			</div>
         </div>
       </div>
-	  
+
 	  <!--TOP SECTION-->
 	  <div class="header-block f-fix fixNavBox">
-		
+
 		<?php if($config4['navoption_main']!=1):?>
 			<a class="leftFixNav" href="javascript:void(0);"><span></span></a>
 	    <?php endif;?>
-		
+
 		<header class="container">
 			<div class="headerMid row">
-				
+
 				<div class="col-xs-12 col-md-4 searchArea">
 					<!-- SEARCH-->
 					<a class="searchIcon openSearch" href="javascript:void(0);"><i class="fa fa-search"></i></a>
 					<div class="searchCenter">
 						<?php if ($config3['enable_categories']):?>
 							<?php echo $this->getChildHtml('topSearchcat')?>
-						<?php else:?>   
+						<?php else:?>
 							<?php echo $this->getChildHtml('topSearch')?>
 						<?php endif; ?>
 					</div>
 				</div>
-				
+
 				<!--LOGO SECTION-->
 				<div class="col-sm-4 logo-block">
 					<h1 class="logo <?php if($config2['logo_tp']==true):?>tpLogo<?php endif;?>">
@@ -326,37 +326,37 @@ if($routeName == 'cms' && $controller == 'index' && $action == 'index') {
 							<?php if($config2['logo_img']==true):?>
 								<img class="logoLg" src="<?php  echo Mage::getBaseUrl('media') . 'logo/' .$config2['logo_img'];?>" alt="<?php echo $this->getLogoAlt() ?>" />
 							<?php else:?>
-								<img class="logoLg" src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" /> 
+								<img class="logoLg" src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" />
 							<?php endif;?>
-							
+
 							<?php if($config2['logo_sm']==true):?>
 								<img class="logoSm" src="<?php  echo Mage::getBaseUrl('media') . 'logo/' .$config2['logo_sm'];?>" alt="<?php echo $this->getLogoAlt() ?>" />
-							<?php endif;?>	
-							
+							<?php endif;?>
+
 							<?php if($config2['logo_tp']==true):?>
 								<img class="logoTp" src="<?php  echo Mage::getBaseUrl('media') . 'logo/' .$config2['logo_tp'];?>" alt="<?php echo $this->getLogoAlt() ?>" />
-							<?php endif;?>	
+							<?php endif;?>
 						</a>
 					</h1>
 				</div>
-				
-				
+
+
 				<div class="col-xs-12 col-md-4 header-left">
 					<!--TOP CART-->
 					<div class="cartright">
 						<?php echo $this->getChildHtml('cart_header'); ?>
 					</div>
-					
+
 					<!--COMPARE-->
 					<div class="compareBox">
 						<?php if ($config2['compare_box']) :?>
 							<a class="compBtn openComp" href="javascript:void(0);"></a>
 							<?php echo $this->getChildHtml('catalog.product.compare.sidebar'); ?>
-						<?php endif; ?>	
+						<?php endif; ?>
 					</div>
-					
-				</div>	
-				
+
+				</div>
+
 				<?php if($config4['navoption_main']==1):?>
 				<!-- Navigation -->
 				<div class="col-xs-6 col-sm-12 navLeft">
@@ -367,20 +367,25 @@ if($routeName == 'cms' && $controller == 'index' && $action == 'index') {
 					</div>
 				</div>
 				<?php endif;?>
-				
+
 			</div>
-			
+
 		</header>
 	</div>
-	
-    
+
+
 </div>
 
-<?php elseif($config['header-option']==4):?> 
+
+
+
+
+
+<?php elseif($config['header-option']==4):?>
 <!-- Header 04 -->
 
 <div class="header-container f-fix mainHeaderPan header-wrapper02 bannerType<?php echo $bannerTy;?> <?php echo $navPos;?>">
-	
+
 	  <!--TOP SECTION-->
 	  <div class="header-block f-fix fixNavBox">
 		<header>
@@ -392,20 +397,20 @@ if($routeName == 'cms' && $controller == 'index' && $action == 'index') {
 							<?php if($config2['logo_img']==true):?>
 								<img class="logoLg" src="<?php  echo Mage::getBaseUrl('media') . 'logo/' .$config2['logo_img'];?>" alt="<?php echo $this->getLogoAlt() ?>" />
 							<?php else:?>
-								<img class="logoLg" src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" /> 
+								<img class="logoLg" src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" />
 							<?php endif;?>
-							
+
 							<?php if($config2['logo_sm']==true):?>
 								<img class="logoSm" src="<?php  echo Mage::getBaseUrl('media') . 'logo/' .$config2['logo_sm'];?>" alt="<?php echo $this->getLogoAlt() ?>" />
-							<?php endif;?>	
-							
+							<?php endif;?>
+
 							<?php if($config2['logo_tp']==true):?>
 								<img class="logoTp" src="<?php  echo Mage::getBaseUrl('media') . 'logo/' .$config2['logo_tp'];?>" alt="<?php echo $this->getLogoAlt() ?>" />
-							<?php endif;?>	
+							<?php endif;?>
 						</a>
 					</h1>
 				</div>
-				
+
 				<!-- Navigation -->
 				<div class="col-xs-6 col-sm-7 navLeft">
 				<?php if($config4['navoption_main']==1):?>
@@ -414,27 +419,27 @@ if($routeName == 'cms' && $controller == 'index' && $action == 'index') {
 							<?php echo $this->getChildHtml('topMenu') ?>
 						</div>
 					</div>
-				<?php else:?>	
+				<?php else:?>
 					<a class="leftFixNav" href="javascript:void(0);"><span></span></a>
-				<?php endif;?>	
+				<?php endif;?>
 				</div>
-				
-				
+
+
 				<div class="col-xs-12 col-md-3 header-left">
-					
+
 					<!--TOP CART-->
 					<div class="cartright">
 						<?php echo $this->getChildHtml('cart_header'); ?>
 					</div>
-					
+
 					<!--COMPARE-->
 					<div class="compareBox">
 						<?php if ($config2['compare_box']) :?>
 							<a class="compBtn openComp" href="javascript:void(0);"></a>
 							<?php echo $this->getChildHtml('catalog.product.compare.sidebar'); ?>
-						<?php endif; ?>	
+						<?php endif; ?>
 					</div>
-					
+
 					<div class="slideNav">
 						<!--MENU BUTTON-->
 						<a class="ctsClose" href="javascript:void(0);">
@@ -443,7 +448,7 @@ if($routeName == 'cms' && $controller == 'index' && $action == 'index') {
 							<span class="cs3"></span>
 							<span class="cs4"></span>
 						</a>
-						
+
 						<div class="slideNavBox">
 							<a class="ctsClose" href="javascript:void(0);">
 								<span class="cs1"></span>
@@ -456,62 +461,69 @@ if($routeName == 'cms' && $controller == 'index' && $action == 'index') {
 								<?php if ($this->helper('customer')->isLoggedIn() ):?>
 									<p class="welcome-msg"><?php echo $this->getChildHtml('welcome') ?> <?php echo $this->getAdditionalHtml() ?></p>
 								<?php endif;?>
-								
+
 								<!-- SEARCH-->
 								<a class="searchIcon openSearch" href="javascript:void(0);"><i class="fa fa-search"></i></a>
 								<div class="searchCenter">
 									<?php if ($config3['enable_categories']):?>
 										<?php echo $this->getChildHtml('topSearchcat')?>
-									<?php else:?>   
+									<?php else:?>
 										<?php echo $this->getChildHtml('topSearch')?>
 									<?php endif; ?>
 								</div>
-								
+
 								<!--TOP LINKS-->
 								<div class="topLinks"><?php echo $this->getChildHtml('topLinks') ?></div>
-								
+
 								<!--LANGUAGE - CURRENCY-->
 								<?php echo $this->getChildHtml('store_language') ?>
 								<?php echo $this->getChildHtml('currency')?>
-								
+
 								<!--STATIC BLOCK-->
 								<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('left_mene_block')->toHtml(); ?>
-							
+
 							</div>
 						</div>
-						
+
 						<script>
 							jQuery(document).ready(function(){
 								jQuery('.ctsClose').click(function(){
 									jQuery('.ctsClose').parent().toggleClass('activeBox');
 								});
-								
-							});		
+
+							});
 						</script>
-					</div>	
-					
+					</div>
+
 				</div>
-				
-				
-				
-				
-				
+
+
+
+
+
 			</div>
-			
+
 		</header>
 	</div>
-	
-    
+
+
 </div>
 
 
-<?php elseif($config['header-option']==5):?> 
-<!-- Header 05 -->
+
+
+
+
+
+
+
+<?php elseif($config['header-option']==99):?>
+<!-- Header 05 ORIGINAL -->
 
 <div class="header-container f-fix mainHeaderPan header-wrapper02 bannerType<?php echo $bannerTy;?> <?php echo $navPos;?>">
-	
+
 	  <!--TOP SECTION-->
-	  
+
 	  <div class="header-block f-fix fixNavBox">
 		<header>
 			<div class="headerMid">
@@ -522,35 +534,35 @@ if($routeName == 'cms' && $controller == 'index' && $action == 'index') {
 							<?php if($config2['logo_img']==true):?>
 								<img class="logoLg" src="<?php  echo Mage::getBaseUrl('media') . 'logo/' .$config2['logo_img'];?>" alt="<?php echo $this->getLogoAlt() ?>" />
 							<?php else:?>
-								<img class="logoLg" src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" /> 
+								<img class="logoLg" src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" />
 							<?php endif;?>
-							
+
 							<?php if($config2['logo_sm']==true):?>
 								<img class="logoSm" src="<?php  echo Mage::getBaseUrl('media') . 'logo/' .$config2['logo_sm'];?>" alt="<?php echo $this->getLogoAlt() ?>" />
-							<?php endif;?>	
-							
+							<?php endif;?>
+
 							<?php if($config2['logo_tp']==true):?>
 								<img class="logoTp" src="<?php  echo Mage::getBaseUrl('media') . 'logo/' .$config2['logo_tp'];?>" alt="<?php echo $this->getLogoAlt() ?>" />
-							<?php endif;?>	
+							<?php endif;?>
 						</a>
 					</h1>
 				</div>
-				
+
 				<!--COMPARE-->
 					<div class="compareBox secComp">
 						<?php if ($config2['compare_box']) :?>
 							<a class="compBtn openComp" href="javascript:void(0);"></a>
 							<?php echo $this->getChildHtml('catalog.product.compare.sidebar'); ?>
-						<?php endif; ?>	
-					</div>	
+						<?php endif; ?>
+					</div>
 				<!--END COMPARE-->
-				
+
 				<div class="col-xs-6 col-sm-10 hLeft">
-					
+
 					<?php if($config4['navoption_main']!=1):?>
 						<a class="leftFixNav" href="javascript:void(0);"><span></span></a>
 					<?php endif;?>
-					
+
 					<!--TOP BAR-->
 					<a class="topLinkBtn openLinks" href="javascript:void(0);"><span></span></a>
 					<div class="header-top">
@@ -561,39 +573,40 @@ if($routeName == 'cms' && $controller == 'index' && $action == 'index') {
 								<div class="compareBox">
 									<?php if ($config2['compare_box']) :?>
 										<?php echo $this->getChildHtml('catalog.product.compare.sidebar'); ?>
-									<?php endif; ?>	
-								</div>	
+									<?php endif; ?>
+								</div>
 							</div>
 							<!--TOP LINKS-->
 							<?php echo $this->getChildHtml('topLinks') ?>
 							<!--WELCOME MSG-->
 							<?php if ($this->helper('customer')->isLoggedIn() ):?>
 								<p class="welcome-msg">
-									<?php echo $this->getChildHtml('welcome') ?> 
+									<?php echo $this->getChildHtml('welcome') ?>
 									<?php echo $this->getAdditionalHtml() ?>
 								</p>
 							<?php endif;?>
-						
-						
+
+
 					</div>
 					<div class="headerBottom">
 						<!-- SEARCH-->
+
 						<a class="searchIcon openSearch" href="javascript:void(0);"><i class="fa fa-search"></i></a>
 						<div class="searchCenter">
 							<?php if ($config3['enable_categories']):?>
 								<?php echo $this->getChildHtml('topSearchcat')?>
-							<?php else:?>   
+							<?php else:?>
 								<?php echo $this->getChildHtml('topSearch')?>
 							<?php endif; ?>
 						</div>
-						
+
 						<div class="header-left">
 							<!--TOP CART-->
 							<div class="cartright">
 								<?php echo $this->getChildHtml('cart_header'); ?>
 							</div>
 						</div>
-						
+
 						<?php if($config4['navoption_main']==1):?>
 						<!-- Navigation -->
 						<div class="navLeft">
@@ -604,28 +617,164 @@ if($routeName == 'cms' && $controller == 'index' && $action == 'index') {
 							</div>
 						</div>
 						<?php endif;?>
-					
-						
-					</div>	
-				</div>	
-				
-				
-				
-				
-				
+
+
+					</div>
+				</div>
+
+
+
+
+
 			</div>
-			
+
 		</header>
 	</div>
-	
-    
+
+
 </div>
 
-<?php elseif($config['header-option']==6):?> 
+
+<?php elseif($config['header-option']==5):?>
+<!-- Header 05 -->
+
+<div class="header-container f-fix mainHeaderPan header-wrapper02 bannerType<?php echo $bannerTy;?> <?php echo $navPos;?>">
+
+	  <!--TOP SECTION-->
+
+	  <div class="header-block f-fix fixNavBox">
+		<header>
+			<div class="headerMid">
+				<!--LOGO SECTION-->
+				<div class="col-sm-2 logo-block">
+					<h1 class="logo <?php if($config2['logo_tp']==true):?>tpLogo<?php endif;?>">
+						<a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo <?php if($config2['logo_sm']==true):?>smLogo<?php endif;?>">
+							<?php if($config2['logo_img']==true):?>
+								<img class="logoLg" src="<?php  echo Mage::getBaseUrl('media') . 'logo/' .$config2['logo_img'];?>" alt="<?php echo $this->getLogoAlt() ?>" />
+							<?php else:?>
+								<img class="logoLg" src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" />
+							<?php endif;?>
+
+							<?php if($config2['logo_sm']==true):?>
+								<img class="logoSm" src="<?php  echo Mage::getBaseUrl('media') . 'logo/' .$config2['logo_sm'];?>" alt="<?php echo $this->getLogoAlt() ?>" />
+							<?php endif;?>
+
+							<?php if($config2['logo_tp']==true):?>
+								<img class="logoTp" src="<?php  echo Mage::getBaseUrl('media') . 'logo/' .$config2['logo_tp'];?>" alt="<?php echo $this->getLogoAlt() ?>" />
+							<?php endif;?>
+						</a>
+					</h1>
+				</div>
+
+				<!--COMPARE-->
+					<div class="compareBox secComp">
+						<?php if ($config2['compare_box']) :?>
+							<a class="compBtn openComp" href="javascript:void(0);"></a>
+							<?php echo $this->getChildHtml('catalog.product.compare.sidebar'); ?>
+						<?php endif; ?>
+					</div>
+				<!--END COMPARE-->
+
+				<div class="col-xs-6 col-sm-10 hLeft">
+
+					<?php if($config4['navoption_main']!=1):?>
+						<a class="leftFixNav" href="javascript:void(0);"><span></span></a>
+					<?php endif;?>
+
+
+					<!--TOP BAR-->
+					<a class="topLinkBtn openLinks" href="javascript:void(0);"><span></span></a>
+					<div class="header-top">
+							<!--LANGUAGE - CURRENCY - COMPARE-->
+							<div class="top-info">
+								<?php echo $this->getChildHtml('store_language') ?>
+								<?php echo $this->getChildHtml('currency')?>
+								<div class="compareBox">
+									<?php if ($config2['compare_box']) :?>
+										<?php echo $this->getChildHtml('catalog.product.compare.sidebar'); ?>
+									<?php endif; ?>
+								</div>
+							</div>
+							<!--TOP LINKS-->
+
+                                                        <div class="mobile-nav">
+                                                          <?php echo $this->getChildHtml('topMenu') ?>
+                                                          <div class="top-border"></div>
+                                                          <?php echo $this->getChildHtml('topLinks') ?>
+                                                        </div>
+					</div>
+
+					<div class="headerBottom">
+						<div class="header-left">
+							<!--TOP CART-->
+							<div class="cartright">
+								<?php echo $this->getChildHtml('cart_header'); ?>
+							</div>
+						</div>
+
+						<?php if($config4['navoption_main']==1):?>
+						<!-- Navigation -->
+						<div class="navLeft">
+							<div class="f-fix nav-wrapper">
+								<div class="nav-container">
+									<?php echo $this->getChildHtml('topMenu') ?>
+
+
+
+							<!--WELCOME MSG-->
+							<?php if ($this->helper('customer')->isLoggedIn() ):?>
+
+                                                          <nav id="drop_nav_wrap">
+                                                            <ul>
+                                                                <li class="welcome-msg">
+                                                                    <?php echo $this->getChildHtml('welcome') ?>
+                                                                    <i class="fa fa-angle-down"></i>
+                                                                    <?php echo $this->getAdditionalHtml() ?>
+                                                                    <?php echo $this->getChildHtml('topLinks') ?>
+                                                                </li>
+                                                            </ul>
+                                                          </nav>
+
+
+                                                        <?php else: ?>
+                                                        <div class="guest">
+                                                          <?php echo $this->getChildHtml('topLinks') ?>
+                                                        </div>
+                                                        <?php endif;?>
+
+
+								</div>
+							</div>
+						</div>
+						<?php endif;?>
+
+
+					</div>
+				</div>
+
+			</div>
+
+
+
+                        <svg class="curveDownColor" xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100" viewBox="0 0 100 100" preserveAspectRatio="none">
+                          <path d="M0 0 C 20 10 80 50 100 0"></path>
+                        </svg>
+
+
+
+
+
+		</header>
+	</div>
+
+
+</div>
+
+<?php elseif($config['header-option']==6):?>
 <!-- Header 06 -->
 
 <div class="header-container f-fix mainHeaderPan header-wrapper02 bannerType<?php echo $bannerTy;?> <?php echo $navPos;?>">
-	
+
 	  <!--TOP SECTION-->
 	  <div class="header-block f-fix fixNavBox">
 		<?php if($config4['navoption_main']!=1):?>
@@ -641,20 +790,20 @@ if($routeName == 'cms' && $controller == 'index' && $action == 'index') {
 							<?php if($config2['logo_img']==true):?>
 								<img class="logoLg" src="<?php  echo Mage::getBaseUrl('media') . 'logo/' .$config2['logo_img'];?>" alt="<?php echo $this->getLogoAlt() ?>" />
 							<?php else:?>
-								<img class="logoLg" src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" /> 
+								<img class="logoLg" src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" />
 							<?php endif;?>
-							
+
 							<?php if($config2['logo_sm']==true):?>
 								<img class="logoSm" src="<?php  echo Mage::getBaseUrl('media') . 'logo/' .$config2['logo_sm'];?>" alt="<?php echo $this->getLogoAlt() ?>" />
-							<?php endif;?>	
-							
+							<?php endif;?>
+
 							<?php if($config2['logo_tp']==true):?>
 								<img class="logoTp" src="<?php  echo Mage::getBaseUrl('media') . 'logo/' .$config2['logo_tp'];?>" alt="<?php echo $this->getLogoAlt() ?>" />
-							<?php endif;?>	
+							<?php endif;?>
 						</a>
 					</h1>
 				</div>
-				
+
 				<!-- Navigation -->
 				<div class="col-xs-6 col-sm-7 navLeft">
 					<?php if($config4['navoption_main']==1):?>
@@ -665,7 +814,7 @@ if($routeName == 'cms' && $controller == 'index' && $action == 'index') {
 						</div>
 					<?php endif;?>
 				</div>
-				
+
 				<div class="col-xs-12 col-md-3 header-left">
 					<!-- SEARCH-->
 					<div class="serchB">
@@ -673,25 +822,25 @@ if($routeName == 'cms' && $controller == 'index' && $action == 'index') {
 						<div class="searchCenter">
 							<?php if ($config3['enable_categories']):?>
 								<?php echo $this->getChildHtml('topSearchcat')?>
-							<?php else:?>   
+							<?php else:?>
 								<?php echo $this->getChildHtml('topSearch')?>
 							<?php endif; ?>
 						</div>
 					</div>
-					
+
 					<!--TOP CART-->
 					<div class="cartright">
 						<?php echo $this->getChildHtml('cart_header'); ?>
 					</div>
-					
+
 					<!--COMPARE-->
 					<div class="compareBox">
 						<?php if ($config2['compare_box']) :?>
 							<a class="compBtn openComp" href="javascript:void(0);"></a>
 							<?php echo $this->getChildHtml('catalog.product.compare.sidebar'); ?>
-						<?php endif; ?>	
+						<?php endif; ?>
 					</div>
-					
+
 					<div class="slideNav">
 						<!--MENU BUTTON-->
 						<a class="ctsClose" href="javascript:void(0);">
@@ -700,62 +849,62 @@ if($routeName == 'cms' && $controller == 'index' && $action == 'index') {
 							<span class="cs3"></span>
 							<span class="cs4"></span>
 						</a>
-						
+
 						<div class="slideNavBox">
 							<div class="slideNavinner">
 								<!--WELCOME MSG-->
 								<?php if ($this->helper('customer')->isLoggedIn() ):?>
 									<p class="welcome-msg"><?php echo $this->getChildHtml('welcome') ?> <?php echo $this->getAdditionalHtml() ?></p>
 								<?php endif;?>
-								
+
 								<!--TOP LINKS-->
 								<div class="topLinks"><?php echo $this->getChildHtml('topLinks') ?></div>
-								
+
 								<!--LANGUAGE - CURRENCY-->
 								<?php echo $this->getChildHtml('store_language') ?>
 								<?php echo $this->getChildHtml('currency')?>
-								
+
 								<!--STATIC BLOCK-->
 								<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('left_mene_block')->toHtml(); ?>
-							
+
 							</div>
 						</div>
-						
+
 						<script>
 							jQuery(document).ready(function(){
 								jQuery('.ctsClose').click(function(){
 									jQuery('.ctsClose').parent().toggleClass('activeBox');
 								});
-								
-							});		
+
+							});
 						</script>
-					</div>	
-					
+					</div>
+
 				</div>
 			</div>
 			</div>
 		</header>
 	</div>
-	
-    
+
+
 </div>
 
-<?php elseif($config['header-option']==7):?> 
+<?php elseif($config['header-option']==7):?>
 <!-- Header 07 -->
 
 <div class="header-container f-fix mainHeaderPan header-wrapper02 bannerType<?php echo $bannerTy;?> <?php echo $navPos;?>">
-	
+
 	<!--TOP BAR-->
 	<a class="topLinkBtn openLinks" href="javascript:void(0);"><span></span></a>
 	<div class="f-fix header-top">
         <div class="container">
             <div class="row">
-				
+
 				<!--TOP SOCIAL LINKS WELCOME MESSAGE-->
 				<div class="col-sm-6 socialHeader">
 					<!--TOP LINKS-->
 					<div class="topLinks"><?php echo $this->getChildHtml('topLinks') ?></div>
-					
+
 					<!--Custom Block-->
 					<ul class="customLinks">
 						<li><a href="#">Call +001 555 801</a></li>
@@ -768,7 +917,7 @@ if($routeName == 'cms' && $controller == 'index' && $action == 'index') {
 						<p class="welcome-msg"><?php echo $this->getChildHtml('welcome') ?> <?php echo $this->getAdditionalHtml();?></p>
 					<?php endif;?>
 				</div>
-				
+
 				<!--LANGUAGE - CURRENCY - COMPARE-->
 				<div class="col-sm-6 alignRight">
 					<?php echo $this->getChildHtml('store_language') ?>
@@ -777,38 +926,38 @@ if($routeName == 'cms' && $controller == 'index' && $action == 'index') {
 					<div class="compareBox">
 						<?php if ($config2['compare_box']) :?>
 							<?php echo $this->getChildHtml('catalog.product.compare.sidebar'); ?>
-						<?php endif; ?>	
+						<?php endif; ?>
 					</div>
 				</div>
-				
+
 			</div>
         </div>
       </div>
-	  
+
 	  <!--COMPARE-->
 		<div class="compareBox secComp">
 			<?php if ($config2['compare_box']) :?>
 				<a class="compBtn openComp" href="javascript:void(0);"></a>
 				<?php echo $this->getChildHtml('catalog.product.compare.sidebar'); ?>
-			<?php endif; ?>	
-		</div>	
+			<?php endif; ?>
+		</div>
 	<!--END COMPARE-->
-	  
+
 	  <!--TOP SECTION-->
 	  <div class="header-block f-fix fixNavBox">
-		
+
 		<?php if($config4['navoption_main']!=1):?>
 			<a class="leftFixNav" href="javascript:void(0);"><span></span></a>
 		<?php endif;?>
-		
+
 		<header class="container">
 			<div class="headerMid row">
-				
+
 				<div class="col-sm-4 linkB">
 					<!--TOP LINKS-->
 					<div class="topLinks"><?php echo $this->getChildHtml('topLinks') ?></div>
 				</div>
-				
+
 				<div class="col-md-4 logo-block">
 					<!--LOGO SECTION-->
 					<h1 class="logo <?php if($config2['logo_tp']==true):?>tpLogo<?php endif;?>">
@@ -816,41 +965,41 @@ if($routeName == 'cms' && $controller == 'index' && $action == 'index') {
 							<?php if($config2['logo_img']==true):?>
 								<img class="logoLg" src="<?php  echo Mage::getBaseUrl('media') . 'logo/' .$config2['logo_img'];?>" alt="<?php echo $this->getLogoAlt() ?>" />
 							<?php else:?>
-								<img class="logoLg" src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" /> 
+								<img class="logoLg" src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" />
 							<?php endif;?>
-							
+
 							<?php if($config2['logo_sm']==true):?>
 								<img class="logoSm" src="<?php  echo Mage::getBaseUrl('media') . 'logo/' .$config2['logo_sm'];?>" alt="<?php echo $this->getLogoAlt() ?>" />
-							<?php endif;?>	
-							
+							<?php endif;?>
+
 							<?php if($config2['logo_tp']==true):?>
 								<img class="logoTp" src="<?php  echo Mage::getBaseUrl('media') . 'logo/' .$config2['logo_tp'];?>" alt="<?php echo $this->getLogoAlt() ?>" />
-							<?php endif;?>	
+							<?php endif;?>
 						</a>
 					</h1>
 				</div>
-				
+
 				<div class="col-xs-12 col-md-4 header-left">
-					
+
 					<!-- SEARCH-->
 					<div class="serchB">
 						<a class="searchIcon openSearch" href="javascript:void(0);"><i class="fa fa-search"></i></a>
 						<div class="searchCenter">
 							<?php if ($config3['enable_categories']):?>
 								<?php echo $this->getChildHtml('topSearchcat')?>
-							<?php else:?>   
+							<?php else:?>
 								<?php echo $this->getChildHtml('topSearch')?>
 							<?php endif; ?>
 						</div>
 					</div>
-					
+
 					<!--TOP CART-->
 					<div class="cartright">
 						<?php echo $this->getChildHtml('cart_header'); ?>
 					</div>
-					
-				</div>	
-				
+
+				</div>
+
 				<?php if($config4['navoption_main']==1):?>
 				<!-- Navigation -->
 				<div class="col-xs-6 col-sm-12 navLeft">
@@ -861,13 +1010,13 @@ if($routeName == 'cms' && $controller == 'index' && $action == 'index') {
 					</div>
 				</div>
 				<?php endif;?>
-				
+
 			</div>
-			
+
 		</header>
 	</div>
-	
-    
+
+
 </div>
 
 
@@ -887,7 +1036,7 @@ if($routeName == 'cms' && $controller == 'index' && $action == 'index') {
 		}
 	});
 <?php endif?>
-	
+
 jQuery(function(){
 	var searchHideShowFn = function(){
 		jQuery(document).on('click','.searchIcon', function(e){
@@ -899,22 +1048,22 @@ jQuery(function(){
 				jQuery(this).addClass('openSearch');
 			}
 		});
-		
+
 		jQuery(document).click(function(e){
-		<?php if($config['header-option']==4):?> 
-		var container = jQuery(".slideNavinner");	
+		<?php if($config['header-option']==4):?>
+		var container = jQuery(".slideNavinner");
 		<?php elseif($config['header-option']==5):?>
 			var container = jQuery(".headerBottom");
 		<?php elseif($config['header-option']==6):?>
 			var container = jQuery(".header-left");
 		<?php elseif($config['header-option']==7):?>
-			var container = jQuery(".serchB");	
+			var container = jQuery(".serchB");
 		<?php else:?>
 		var container = jQuery(".searchArea");
 		<?php endif;?>
 		if (
-			jQuery(".searchCenter").is(':visible') && 
-				!container.is(e.target) && container.has(e.target).length === 0    
+			jQuery(".searchCenter").is(':visible') &&
+				!container.is(e.target) && container.has(e.target).length === 0
 			){
 				jQuery(".searchCenter").css({"opacity":"","display":""});
 				jQuery(".searchIcon").addClass('openSearch');
@@ -923,7 +1072,7 @@ jQuery(function(){
 		return false;
 	}
 	searchHideShowFn();
-	
+
 	var topLinkFn = function(){
 		jQuery(document).on('click','.topLinkBtn', function(e){
 			if(jQuery(this).hasClass('openLinks')){
@@ -936,12 +1085,12 @@ jQuery(function(){
 				jQuery('.header-block').removeClass('fakeover');
 			}
 		});
-		
+
 		jQuery(document).click(function(e){
 		var container = jQuery(".header-container");
 		if (
-			jQuery(".header-top").is(':visible') && 
-				!container.is(e.target) && container.has(e.target).length === 0    
+			jQuery(".header-top").is(':visible') &&
+				!container.is(e.target) && container.has(e.target).length === 0
 			){
 				jQuery(".header-top").css({"right":'-100%'});
 				jQuery(".topLinkBtn").addClass('openLinks');
@@ -951,8 +1100,8 @@ jQuery(function(){
 		return false;
 	}
 	topLinkFn();
-	
-	
+
+
 	var compareFn = function(){
 		jQuery(document).on('click','.compBtn', function(e){
 			if(jQuery(this).hasClass('openComp')){
@@ -963,12 +1112,12 @@ jQuery(function(){
 				jQuery(this).addClass('openComp');
 			}
 		});
-		
+
 		jQuery(document).click(function(e){
 		var container = jQuery(".compareBox");
 		if (
-			jQuery(".header-compare").is(':visible') && 
-				!container.is(e.target) && container.has(e.target).length === 0    
+			jQuery(".header-compare").is(':visible') &&
+				!container.is(e.target) && container.has(e.target).length === 0
 			){
 				jQuery(".header-compare").css({"opacity":"","display":""});
 				jQuery(".compBtn").addClass('openComp');
@@ -977,7 +1126,7 @@ jQuery(function(){
 		return false;
 	}
 	compareFn();
-	
+
 });
 </script>
 <div class="mdl_loading_filters" style="display:none"><div class="filter_loader"></div></div>
@@ -1001,18 +1150,18 @@ jQuery(function(){
 		jQuery(document).ready(function(){
 			jQuery('.leftFixNav').click(function(){
 				jQuery('.leftFixNav').parent().parent().toggleClass('actNav');
-				<?php if($config['header-option']==4 || $config['header-option']==5):?> 
+				<?php if($config['header-option']==4 || $config['header-option']==5):?>
 				if(jQuery('.headerMid').hasClass('actNav')){
 				<?php else:?>
-				if(jQuery('.header-container').hasClass('actNav')){	
-				<?php endif;?>	
+				if(jQuery('.header-container').hasClass('actNav')){
+				<?php endif;?>
 					jQuery('.navBox').addClass('actNav1');
 				}else{
 					jQuery('.navBox').removeClass('actNav1');
 				}
-				
+
 			});
-			
+
 			jQuery('.leftNav').hover(
 			function() {
 				navPointer = true;
@@ -1020,17 +1169,17 @@ jQuery(function(){
 			function(e){
 				if(navPointer == true){
 						jQuery('.navBox').removeClass('actNav1');
-						<?php if($config['header-option']==4 || $config['header-option']==5):?> 
+						<?php if($config['header-option']==4 || $config['header-option']==5):?>
 						jQuery('.headerMid').removeClass('actNav');
 						<?php else:?>
-						jQuery('.header-container').removeClass('actNav');	
+						jQuery('.header-container').removeClass('actNav');
 						<?php endif;?>
 						navPointer == false;
 						console.log('andar'+e.target);
 				}
 			}
 			);
-		});		
+		});
 	</script>
 	<?php endif;?>
 <?php endif;?>

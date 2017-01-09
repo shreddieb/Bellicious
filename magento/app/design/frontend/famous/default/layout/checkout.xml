@@ -57,6 +57,7 @@ Default layout, loads most of the pages
 		</reference>
 
         <!-- Mage_Checkout -->
+        <!-- EB: REMOVING CHECKOUT FROM TOP NAV
          <reference name="top.links">
             <block type="checkout/links" name="checkout_cart_link">
                 <action method="addCheckoutLink"><aParams>
@@ -64,6 +65,7 @@ Default layout, loads most of the pages
             </aParams></action>
             </block>
         </reference>
+        -->
         <reference name="new">
             <block type="checkout/cart_sidebar" name="cart_sidebar" template="checkout/cart/sidebar.phtml" before="-">
                 <action method="addItemRender"><type>simple</type><block>checkout/cart_item_renderer</block><template>checkout/cart/sidebar/default.phtml</template></action>
