@@ -58,14 +58,14 @@
 	<section class="f-block footer-top-wrapper">
 		<div class="container">
 			<div class="row">
-				
+
 				<div class="col-sm-6 coloredIcon">
 					<?php echo $this->getLayout()->createBlock('core/template')->setTemplate('mdlsociallinks/mdlsociallinks.phtml')->toHtml();?>
 				</div>
 				<div class="col-sm-6">
 					<?php echo $this->getLayout()->createBlock('newsletter/subscribe')->setTemplate('newsletter/footer_subscribe.phtml')->toHtml(); ?>
 				</div>
-				
+
 			</div>
 		</div>
 	</section>
@@ -84,11 +84,12 @@
 			<p class="copyText"><?php echo $this->getCopyright() ?></p>
 			<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('payment-box')->toHtml() ?>
 		</div>
-	</div>	
+	</div>
 	<div id="back-top" class="goTop"><a href="javascript:void(0);"><i class="fa fa-angle-up"></i></a></div>
 	</footer>
 
-<?php elseif($config['footerType']==3):?>
+<?php elseif($config['footerType']==99):?>
+<!-- FOOTER 03 ORIGINAL -->
 	<footer class="footer3">
 	<section class="f-block footer-wrapper">
 		<div class="container">
@@ -114,10 +115,48 @@
 
 	<div id="back-top" class="goTop"><a href="javascript:void(0);"><i class="fa fa-angle-up"></i></a></div>
 	</footer>
+
+
+<?php elseif($config['footerType']==3):?>
+	<footer class="footer3">
+
+        <svg class="curveUpColor" xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100" viewBox="0 0 100 100" preserveAspectRatio="none">
+          <path d="M0 50 C 20 50 50 0 100 100"></path>
+        </svg>
+
+	<section class="f-block footer-wrapper">
+		<div class="container">
+			<div class="areaBox f-block">
+				<div class="col-sm-12 col-md-6">
+                                        <?php echo $this->getLayout()->createBlock('newsletter/subscribe')->setTemplate('newsletter/footer_subscribe.phtml')->toHtml(); ?>
+					<?php echo $this->getLayout()->createBlock('core/template')->setTemplate('mdlsociallinks/mdlsociallinks.phtml')->toHtml();?>
+				</div>
+				<div class="col-sm-12 col-md-6">
+					<div class="row">
+						<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('footer3')->toHtml() ?>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<div class="copyrightBox f-block">
+		<div class="container">
+                        <div class="top-border"></div>
+			<p class="copyText"><?php echo $this->getCopyright() ?></p>
+		</div>
+		<div class="container">
+                        <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('footer-icon')->toHtml() ?>
+		</div>
+	</div>
+
+	<div id="back-top" class="goTop"><a href="javascript:void(0);"><i class="fa fa-angle-up"></i></a></div>
+	</footer>
+
+
 <?php elseif($config['footerType']==4):?>
-	
+
 	<footer class="footer4">
-	
+
 	<section class="f-block footer-wrapper-top">
 		<div class="container">
 			<div class="areaBox f-block">
@@ -127,7 +166,7 @@
 			</div>
 		</div>
 	</section>
-	
+
 
 	<section class="f-block footer-wrapper">
 		<div class="container">
@@ -138,7 +177,7 @@
 			</div>
 		</div>
 	</section>
-	
+
 	<section class="f-block footer-bottom-wrapper">
 		<div class="container">
 			<div class="row">
@@ -151,19 +190,19 @@
 			</div>
 		</div>
 	</section>
-	
-	
+
+
 	<div class="copyrightBox f-block">
 		<div class="container">
 			<p class="copyText"><?php echo $this->getCopyright() ?></p>
 			<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('payment-box')->toHtml() ?>
 		</div>
-	</div>	
+	</div>
 	<div id="back-top" class="goTop"><a href="javascript:void(0);"><i class="fa fa-angle-up"></i></a></div>
 	</footer>
 <?php else:?>
 <footer class="footer5 <?php if($config['footer_bg']):?>footBg<?php endif;?>">
-	
+
 	<section class="f-block footer-wrapper">
 		<div class="container">
 			<div class="row">
@@ -176,20 +215,18 @@
 				<div class="col-sm-12 hexagon">
 					<?php echo $this->getLayout()->createBlock('core/template')->setTemplate('mdlsociallinks/mdlsociallinks.phtml')->toHtml();?>
 				</div>
-				
+
 			</div>
 		</div>
 	</section>
-	
-	
+
+
 	<div class="copyrightBox f-block">
 		<div class="container">
 			<p class="copyText"><?php echo $this->getCopyright() ?></p>
 			<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('payment-box')->toHtml() ?>
 		</div>
-	</div>	
+	</div>
 	<div id="back-top" class="goTop"><a href="javascript:void(0);"><i class="fa fa-angle-up"></i></a></div>
 	</footer>
 <?php endif;?>
-
-

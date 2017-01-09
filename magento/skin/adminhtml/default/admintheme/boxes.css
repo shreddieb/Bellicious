@@ -44,7 +44,7 @@ dl.accordion dt.open a:after, div.collapseable a.open:after,
 .adminhtml-sales-order-creditmemo-view tr:nth-child(1) .value a,
 .adminhtml-sales-order-shipment-view tr:nth-child(1) .value a,
 .adminhtml-sales-order-invoice-view tr:nth-child(1) .value a,
-#sales_order_view table.form-list tr:nth-child(1) .value a{color:#444444 !important;text-decoration: none;}	
+#sales_order_view table.form-list tr:nth-child(1) .value a{color:#444444 !important;text-decoration: none;}
 .adminhtml-sales-order-creditmemo-view tr:nth-child(2) .value a,
 .adminhtml-sales-order-shipment-view tr:nth-child(2) .value a,
 .adminhtml-sales-order-invoice-view tr:nth-child(2) .value a,
@@ -55,7 +55,7 @@ dl.accordion dt.open a:after, div.collapseable a.open:after,
 #productsReviewedGrid_table tbody tr td.last{text-align: center !important;}
 .form-list td.label{ width:250px;display: table-cell;}
 .dashboard_diagram_totals td span{color: #25bce9;font-size: 18px;font-weight: 400;display: block;margin-top: 10px;}
-.adminhtml-sales-shipment-index .content-header h3, .adminhtml-sales-creditmemo-index .content-header h3,.adminhtml-cache-index .content-header h3{padding-left:0;} 
+.adminhtml-sales-shipment-index .content-header h3, .adminhtml-sales-creditmemo-index .content-header h3,.adminhtml-cache-index .content-header h3{padding-left:0;}
 .box-left1{width:100%; margin-top:20px;}.notification-global{display:none;}
 .nb-navbar1, .nbhd{display:none;}
 p.note-block{color:#777;}.interface_theme{width:155px;}
@@ -88,7 +88,7 @@ p.note-block{color:#777;}.interface_theme{width:155px;}
 .diagrams-das #diagram_tab:before
 {
 content:"Revenue";color:#fff;  font-size: 14px;vertical-align:top;line-height:15px;
-}  
+}
 .adminhtml-catalog-product-edit .content-header h3{padding-left:0;}
 .nb-navbar1-dashboard a{ background: url("images/cmsmart/das-menu.png") no-repeat 10px center;padding-left: 35px !important;}
 .nb-navbar1-order a{ background: url("images/cmsmart/i-sales.png") no-repeat 10px center;padding-left: 35px !important;}
@@ -132,7 +132,7 @@ content:"Revenue";color:#fff;  font-size: 14px;vertical-align:top;line-height:15
     line-height: 25px;
 }
 .massaction .field-row .select-style:after, .nb-export .select-style:after{
-    background: #ffffff;  
+    background: #ffffff;
     color: #888888;
 }
 .nb-export select{
@@ -204,11 +204,11 @@ content:"Revenue";color:#fff;  font-size: 14px;vertical-align:top;line-height:15
     -moz-box-shadow: 0px 4px 12px -5px rgba(0,0,0, 0.3);
 }
 .side-col h3{font-size: 18px; color:#555555; font-weight: 300;margin: 0 0 15px 0;}
-.lifetime-sales {  
+.lifetime-sales {
     padding-top: 5%;
     float: left;
     font-size: 14px;
-    width: 50%; 
+    width: 50%;
 }
 .cms-entry-edit-head {height: 80px; line-height: 80px;
     margin: 20px 0;
@@ -217,7 +217,7 @@ content:"Revenue";color:#fff;  font-size: 14px;vertical-align:top;line-height:15
 .cms-va .price{font-size: 32px;}
 .diagrams-das{margin-bottom:20px;}
 .diagrams-das #diagram_tab{background:url(images/cmsmart/i-dasbd.png) no-repeat 10px center #61b9ff; padding-right:50px;padding-left:32px;margin:0;padding-top:14px;}
-.diagrams-das p.switcher{text-align: left !important;} 
+.diagrams-das p.switcher{text-align: left !important;}
 #diagram_tab_amounts_content p{margin-bottom:0;}
 .diagrams-das #diagram_tab_content{ border-left: 1px solid #61B9FF; border-right:1px solid #61B9FF;}
 #diagram_tab_orders_content p{margin-bottom:0;}
@@ -262,9 +262,9 @@ background:#f5f5f5;
     margin-bottom: 0;
 }
 .adminhtml-sales-order-view .side-col{
-    float:none; 
+    float:none;
     width:100%;
-    margin-right:0; 
+    margin-right:0;
     margin-bottom:5px;
     padding-top: 180px;
 }
@@ -336,7 +336,7 @@ background:#f5f5f5;
 #sales_order_view_tabs li a{
     border-right:none;
     line-height:31px;
-    padding:0 10px; 
+    padding:0 10px;
     border-bottom:none;
     background: transparent;
     color: #888888;
@@ -353,7 +353,7 @@ background:#f5f5f5;
     color: #444444;
 }
 #sales_order_view_tabs li a.active span{
-    color: #444444; 
+    color: #444444;
 }
 #sales_order_view_tabs span{
     background-color: transparent;
@@ -428,9 +428,9 @@ background:#f5f5f5;
 #shipment_tracking_info tfoot td{background:#fff; padding: 5px 3px;}
 .adminhtml-sales-order-shipment-view{}
 .nbshipping-tracking strong{ color: #303030;font-weight: normal;}
-.adminhtml-sales-order-shipment-view .content-header h3,  
+.adminhtml-sales-order-shipment-view .content-header h3,
 .adminhtml-sales-order-view .content-header h3{
-    
+
 }
 .adminhtml-sales-order-invoice-view .content-header .breadcrumb h3,
 .adminhtml-sales-order-shipment-view .content-header .breadcrumb h3,
@@ -610,9 +610,9 @@ table.actions td                { vertical-align:top;}
 .pager .pages-change > a i{
     color: #888888;
 }
-.pager .arrow{ 
-    margin:0 3px; 
-    vertical-align:middle; 
+.pager .arrow{
+    margin:0 3px;
+    vertical-align:middle;
 }
 .pager > span.pages-change{
     padding-right: 20px;
@@ -633,7 +633,7 @@ table.actions td                { vertical-align:top;}
 .grid-top .select-style:after{
     top: 9px;
     right: 1px;
-    width: 22px;   
+    width: 22px;
 }
 /* Grid - Headings */
 .grid tr.headings { background-color:#e4e8ee;}
@@ -658,7 +658,7 @@ table.actions td                { vertical-align:top;}
 .grid tr.headings th a.sort-arrow-desc span.sort-title:after{
     content: "(\f175)";
 }
-.grid tr.headings th a.sort-arrow-asc span.sort-title:after{ 
+.grid tr.headings th a.sort-arrow-asc span.sort-title:after{
     content: "(\f176)";
 }
 
@@ -693,7 +693,7 @@ table.actions td                { vertical-align:top;}
 .grid tr.filter th.last          { border-right:0; }
 .grid tr.filter input.input-text { width:85%; height: 15px;border-color: #d7d9de;color: #888888;}
 .grid tr.filter .field-100{ border-color: #d7d9de;}
-.grid tr.filter select{ 
+.grid tr.filter select{
     width:100%;
     height: 21px;
     background-color: #ffffff;
@@ -712,7 +712,7 @@ table.actions td                { vertical-align:top;}
 .grid tr.filter .range .range-line:nth-child(1){margin-right: 5px;}
 .grid tr.filter .range .range-line:nth-child(2){margin-right: 0px;}
 .grid tr.filter .range div.date  { min-width:135px;float: left;margin-right: 10px;}
-.grid tr.filter .range input     { 
+.grid tr.filter .range input     {
     float: left;
     width: 67px !important;
     margin-top: 0;
@@ -739,12 +739,12 @@ table.actions td                { vertical-align:top;}
 .adminhtml-catalog-product-index .grid tr.filter .range-line{
     margin-bottom: 5px;
 }
-.grid tr.filter .date img        { 
-    max-width:19px; 
-    height:auto; 
-    cursor:pointer; 
-    vertical-align:middle; 
-    margin-left: 5px; 
+.grid tr.filter .date img        {
+    max-width:19px;
+    height:auto;
+    cursor:pointer;
+    vertical-align:middle;
+    margin-left: 5px;
     margin-top: 3px;
     margin-top: 2px;
     float: left;
@@ -780,8 +780,8 @@ dl.accordion .grid      { margin-bottom:0; }
 .entry-edit .entry-edit-head,
 ul.config-tabs dt,
 dl.accordion dt{
-    background:#e4e8ee; 
-    height: 36px; 
+    background:#e4e8ee;
+    height: 36px;
     border-bottom: 1px solid #c5c7cc;
     line-height: 36px;
     color: #444444;
@@ -834,7 +834,7 @@ dl.accordion dt a, div.collapseable a{
     position: relative;
 }
 dl.accordion dt a:after, div.collapseable a:after,
-dl.accordion dt.open a:after, div.collapseable a.open:after{ 
+dl.accordion dt.open a:after, div.collapseable a.open:after{
     font-size: 10px;
     color: #444444;
     position: absolute;
@@ -1009,9 +1009,9 @@ select[multiple], select[size]{
 .form-list td.use-default       { border:0 !important; padding-top:5px !important; padding-bottom:5px !important; padding-left:5px !important; background:0 !important; }
 .form-list td.hidden            { border:0 !important; padding:0 !important; background:0 !important; }
 .form-list td.use-default label { display:inline-block; vertical-align:middle; padding:0 3px; }
-.form-list td.label label       {     
+.form-list td.label label       {
     font-weight: 300;
-    margin-top: 5px; 
+    margin-top: 5px;
     min-width: 250px;
 }
 .form-list td.value input.input-text,
@@ -1095,7 +1095,7 @@ button.add span:after,
 button.delete span:after { display:inline-block; clear:both; content:"."; font-size:0; line-height:0; height:0; overflow:hidden; }
 button.delete > span:before{
     content: "\f00d";
-    padding-right:7px; 
+    padding-right:7px;
     font-size: 16px;
 }
 
@@ -1144,8 +1144,8 @@ button.icon-btn span { text-indent:-999em; display:block; width:16px; padding:0;
 
 .col-main-title .conf-button button,
 .col-main-title .conf-button .form-button,
-.categories-side-col button{ 
-    height: 35px; 
+.categories-side-col button{
+    height: 35px;
     padding: 3px 10px;
     line-height: 28px;
 }
@@ -1157,7 +1157,7 @@ button span:before{
 }
 button.save > span:before{
     font-family: 'themify';
-    content: "\e746";    
+    content: "\e746";
 }
 button.add > span:before{
     font-family: 'FontAwesome';
@@ -1176,7 +1176,7 @@ button.add > span:before{
     margin-top: 32px;
 }
 .switcher label,
-.import-service label{ 
+.import-service label{
     margin-bottom: 0;
     margin-right: 10px;
     font-weight: 300;
@@ -1199,7 +1199,7 @@ button.add > span:before{
     color: #444444;
 }
 .switcher select{
-    padding-left: 15px; 
+    padding-left: 15px;
 }
 /* SPACE
 *******************************************************************************/
@@ -1293,7 +1293,7 @@ div.main-col-inner { float:left; /* Fixes some inner clears in the liquid main-c
 
 /* HEADER & FOOTER
 *******************************************************************************/
-.logo{ 
+.logo{
     float:left;
     display: block;
     width: 156px;
@@ -1306,14 +1306,14 @@ div.main-col-inner { float:left; /* Fixes some inner clears in the liquid main-c
     border-bottom: 1px solid #c5c7cc;
 }
 /*
-* Header right 
+* Header right
 */
 .header-right.col-xlg-6{
     float: right;
 }
-.header-right a, 
-.header-right a:hover{ 
-    color:#888888; 
+.header-right a,
+.header-right a:hover{
+    color:#888888;
 }
 .header-list,
 .nb-topsearch{
@@ -1528,7 +1528,7 @@ div.autocomplete ul li { padding:.5em .7em; min-height:32px; cursor:pointer; tex
     margin-bottom: 30px;
 }
 .content-header table           { width:100%; }
-.content-header h3              { 
+.content-header h3              {
     color: #444444;
     font-size: 28px;
     font-weight: 300;
@@ -1550,7 +1550,7 @@ div.autocomplete ul li { padding:.5em .7em; min-height:32px; cursor:pointer; tex
 }
 .content-header h3:before,
 .content-header .breadcrumb li > span:before{
-    content: "";
+    display: none; /* EB added: was covering add category button */
     position: absolute;
     background: -webkit-gradient(linear, left top, right top, color-stop(85%, rgba(244,244,244,0)), color-stop(90%, rgba(233, 237, 242,0.7)), to(#E9EDF2));
     background: -webkit-linear-gradient(left, rgba(244,244,244,0) 85%, rgba(233, 237, 242,0.7) 90%, #E9EDF2 100%);
@@ -1794,13 +1794,13 @@ div.autocomplete ul li { padding:.5em .7em; min-height:32px; cursor:pointer; tex
     background: rgba(37, 188, 233, 0.6);
 }
 #page-login button.forgot-password{
-    background:#71B2E7; 
+    background:#71B2E7;
     border:none;
     font-size: 14px;
     font-weight: normal;
     height: 36px;
 }
-#page-login .legal{ 
+#page-login .legal{
     width: 100%;
     text-align: center;
     color: #ffffff;
@@ -1858,7 +1858,7 @@ div.autocomplete ul li { padding:.5em .7em; min-height:32px; cursor:pointer; tex
 .top-report .top-report-head{
     height: 30px;
     background: #25bce9;
-    padding: 0px 15px;    
+    padding: 0px 15px;
     border-top-left-radius: 2px;
     border-top-right-radius: 2px;
     -webkit-border-top-left-radius: 2px;
@@ -1977,7 +1977,7 @@ div.autocomplete ul li { padding:.5em .7em; min-height:32px; cursor:pointer; tex
 }
 .dashboard-container fieldset table{padding:10px;}
 .dashboard-container .grid tbody td{
-    color:#888888; 
+    color:#888888;
     border-width: 0 0 1px 0px;
     border-bottom: 1px solid #f1f1f1;
     text-align: left !important;
@@ -2458,8 +2458,8 @@ input[type=checkbox], input[type=radio]{
 .categories-side-col .tree-actions a.cate-collapse-all{
     padding-right: 30px;
 }
-.categories-side-col .tree-holder { 
-    margin-right:20px; 
+.categories-side-col .tree-holder {
+    margin-right:20px;
 }
 #category_tab_content .fieldset{
     box-shadow: 0px 4px 12px -5px rgba(0,0,0, 0.3);
@@ -2857,8 +2857,8 @@ ul.config-tabs              { border-top:none; }
 ul.config-tabs dt {
     display: block;
 }
-ul.config-tabs dl           { 
-    margin-bottom:16px; 
+ul.config-tabs dl           {
+    margin-bottom:16px;
     box-shadow: 0px 4px 12px -5px rgba(0,0,0, 0.3);
     -webkit-box-shadow: 0px 4px 12px -5px rgba(0,0,0, 0.3);
     -moz-box-shadow: 0px 4px 12px -5px rgba(0,0,0, 0.3);
@@ -3276,7 +3276,7 @@ div.actions:after,
     padding: 7px 30px;}
 .grid tbody td{text-align: left !important;padding:8px 10px;}
 .grid tbody td.a-center:first-child{text-align: center !important;}
-.grid tbody td.a-center:first-child input[type=checkbox], 
+.grid tbody td.a-center:first-child input[type=checkbox],
 .grid tbody td.a-center:first-child input[type=radio]{
     text-align: center !important;
     float: none;

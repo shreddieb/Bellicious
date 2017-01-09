@@ -25,7 +25,7 @@
  */
 ?>
 
-	<?php 
+	<?php
 		$config = Mage::getStoreConfig('bestsellingproduct/jqueryfile');
 		$config2 = Mage::getStoreConfig('mdlpump/featuredpro');
 		$config3 = Mage::getStoreConfig('mdlpump/mostpro');
@@ -33,17 +33,18 @@
 		$config5 = Mage::getStoreConfig('mdlpump/homeproducts');
 	?>
     <!--content-->
-	
+
 	<div class="container zeroNine">
-	  <div class="oneBox">		
-		<!--Bestseller tabs-->
-		<?php if($config['enable']==1):?>
+	  <div class="oneBox">
+		<!--Bestseller tabs
+		<?php //if($config['enable']==1):?>
 		<div class="slider-box f-block">
 			<?php echo $this->getLayout()->createBlock('bestseller/bestsellingproduct')->setTemplate('mdl-bestseller/bestsellingproduct.phtml')->toHtml(); ?>
 		</div>
-		<?php endif;?>
+		<?php //endif;?>
+                -->
 		<!--End Bestseller tabs-->
-		
+
 		<!--New products-->
         <?php if($config4['enable']==1):?>
 			<div class="slider-box f-block areaBox">
@@ -51,11 +52,11 @@
 			</div>
         <?php endif;?>
 		<!--End New products-->
-		
+
 		<!--Featured category-->
 		<?php echo $this->getLayout()->createBlock('featuredcategory/categoryblock')->setTemplate('featuredcategory/featuredcat.phtml')->toHtml();?>
 		<!--End Featured category-->
-		
+
 		<div class="row">
 			 <?php if(($config2['enable']==1) && ($config3['enable']==1)):?>
 				<?php $proSize = 'col-sm-6'?>
@@ -71,7 +72,7 @@
 				</div>
              <?php endif;?>
 			<!--End Featured products-->
-			
+
 			<!--Most popular products-->
             <?php if($config3['enable']==1):?>
             <div class="<?php echo $proSize;?>">
@@ -81,13 +82,13 @@
             </div>
              <?php endif;?>
 			<!--End Most popular products-->
-        </div> 
-	   </div> 
+        </div>
+	   </div>
 	</div>
-	
-	
+
+
     <?php echo $this->getLayout()->createBlock('catalog/product_list')->setTemplate('catalog/product/highlighter.phtml')->toHtml();?>
-	
+
     <?php if($config5['enable']==1):?>
 	<div class="container zeroNine">
 		<div class="row oneBox">
@@ -97,6 +98,5 @@
 		</div>
 	</div>
     <?php endif;?>
-	
-	<!--end -->
 
+	<!--end -->

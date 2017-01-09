@@ -42,7 +42,11 @@ class Mage_Page_Block_Html_Welcome extends Mage_Core_Block_Template
     {
         if (empty($this->_data['welcome'])) {
             if (Mage::isInstalled() && Mage::getSingleton('customer/session')->isLoggedIn()) {
-                $this->_data['welcome'] = $this->__('Welcome, %s!', $this->escapeHtml(Mage::getSingleton('customer/session')->getCustomer()->getName()));
+                //$this->_data['welcome'] = $this->__('Welcome, %s!', $this->escapeHtml(Mage::getSingleton('customer/session')->getCustomer()->getName()));
+                $this->_data['welcome'] = $this->__('%slicious', $this->escapeHtml(Mage::getSingleton('customer/session')->getCustomer()->getFirstname()));
+                echo '<span class="avatar">';
+                echo $this->_data['welcome'][0];
+                echo '</span>';
             } else {
                 $this->_data['welcome'] = Mage::getStoreConfig('design/header/welcome');
             }

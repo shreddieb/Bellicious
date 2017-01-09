@@ -46,12 +46,12 @@ Supported layout update handles (special):
 Default layout, loads most of the pages
 -->
 
-    <default>
+    <customer_logged_in>
         <!-- Mage_Customer -->
         <reference name="top.links">
             <action method="addLink" translate="label title" module="customer"><label>My Account</label><url helper="customer/getAccountUrl"/><title>My Account</title><prepare/><urlParams/><position>10</position></action>
         </reference>
-    </default>
+    </customer_logged_in>
 
 <!--
 Load this update on every page when customer is logged in
@@ -73,6 +73,7 @@ Load this update on every page when customer is logged out
         </reference>-->
         <reference name="top.links">
             <action method="addLink" translate="label title" module="customer"><label>Log In</label><url helper="customer/getLoginUrl"/><title>Log In</title><prepare/><urlParams/><position>100</position></action>
+            <action method="addLink" translate="label title" module="customer"><label>Register</label><url helper="customer/getLoginUrl"/><title>Register</title><prepare/><urlParams/><position>100</position></action>
         </reference>
         <remove name="reorder"></remove>
     </customer_logged_out>
