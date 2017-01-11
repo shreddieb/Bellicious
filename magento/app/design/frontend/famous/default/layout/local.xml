@@ -13,7 +13,6 @@
 		 <action method="addCss"><stylesheet>css/default-color.css</stylesheet></action>
                  <action method="addCss"><stylesheet>css/custom.css</stylesheet></action>
 		 <action method="addItem" ifconfig="sales/msrp/enabled"><type>skin_js</type><name>js/msrp.js</name></action>
-                 <action method="addItem"><type>skin_js</type><name>js/custom.js</name><params/></action>
   	    </reference>
 
         <!-- Mage_Poll -->

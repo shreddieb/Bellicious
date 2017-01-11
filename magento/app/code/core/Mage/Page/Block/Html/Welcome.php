@@ -43,10 +43,11 @@ class Mage_Page_Block_Html_Welcome extends Mage_Core_Block_Template
         if (empty($this->_data['welcome'])) {
             if (Mage::isInstalled() && Mage::getSingleton('customer/session')->isLoggedIn()) {
                 //$this->_data['welcome'] = $this->__('Welcome, %s!', $this->escapeHtml(Mage::getSingleton('customer/session')->getCustomer()->getName()));
-                $this->_data['welcome'] = $this->__('%slicious', $this->escapeHtml(Mage::getSingleton('customer/session')->getCustomer()->getFirstname()));
-                echo '<span class="avatar">';
-                echo $this->_data['welcome'][0];
-                echo '</span>';
+                //$this->_data['welcome'] = $this->__('%slicious', $this->escapeHtml(Mage::getSingleton('customer/session')->getCustomer()->getFirstname()));
+                $firstname = $this->__('%s', $this->escapeHtml(Mage::getSingleton('customer/session')->getCustomer()->getFirstname()));
+                $this->_data['welcome'] = '<span class="avatar">'. $firstname[0] .'</span>';
+                $this->_data['welcome'] .= $firstname .'licious';
+
             } else {
                 $this->_data['welcome'] = Mage::getStoreConfig('design/header/welcome');
             }
@@ -57,7 +58,8 @@ class Mage_Page_Block_Html_Welcome extends Mage_Core_Block_Template
             $returnHtml .= ' ' . $this->_data['additional_html'];
         }
 
-        return $returnHtml;
+        echo $returnHtml;
+
     }
 
     /**

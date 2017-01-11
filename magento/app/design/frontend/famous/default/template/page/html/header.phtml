@@ -646,7 +646,7 @@ if($routeName == 'cms' && $controller == 'index' && $action == 'index') {
 		<header>
 			<div class="headerMid">
 				<!--LOGO SECTION-->
-				<div class="col-sm-2 logo-block">
+				<div class="col-sm-4 col-md-2 logo-block">
 					<h1 class="logo <?php if($config2['logo_tp']==true):?>tpLogo<?php endif;?>">
 						<a href="<?php echo $this->getUrl('') ?>" title="<?php echo $this->getLogoAlt() ?>" class="logo <?php if($config2['logo_sm']==true):?>smLogo<?php endif;?>">
 							<?php if($config2['logo_img']==true):?>
@@ -675,7 +675,7 @@ if($routeName == 'cms' && $controller == 'index' && $action == 'index') {
 					</div>
 				<!--END COMPARE-->
 
-				<div class="col-xs-6 col-sm-10 hLeft">
+				<div class="col-xs-6 col-sm-8 col-md-10 hLeft">
 
 					<?php if($config4['navoption_main']!=1):?>
 						<a class="leftFixNav" href="javascript:void(0);"><span></span></a>
@@ -698,9 +698,39 @@ if($routeName == 'cms' && $controller == 'index' && $action == 'index') {
 							<!--TOP LINKS-->
 
                                                         <div class="mobile-nav">
-                                                          <?php echo $this->getChildHtml('topMenu') ?>
-                                                          <div class="top-border"></div>
-                                                          <?php echo $this->getChildHtml('topLinks') ?>
+
+                                                            <div class="slide-nav-content">
+                                                                <?php if ($this->helper('customer')->isLoggedIn() ):?>
+                                                                  <div class="member">
+                                                                      <nav id="slide_nav_header">
+                                                                        <ul>
+                                                                            <li class="welcome-msg">
+                                                                                <?php echo $this->getChildHtml('welcome') ?>
+                                                                            </li>
+                                                                        </ul>
+                                                                      </nav>
+
+                                                                      <div class="top-border"></div>
+                                                                          <?php echo $this->getChildHtml('topMenu') ?>
+                                                                      <div class="top-border"></div>
+                                                                          <?php echo $this->getChildHtml('topLinks') ?>
+
+                                                                      <div class="slide-nav-footer">
+                                                                        <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('footer-icon')->toHtml() ?>
+                                                                      </div>
+                                                                  </div>
+
+                                                                <?php else: ?>
+                                                                    <div class="guest">
+                                                                        <div class="icon"><?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('footer-icon')->toHtml() ?></div>
+                                                                        <?php echo $this->getChildHtml('topLinks') ?>
+                                                                        <div class="top-border"></div>
+                                                                        <?php echo $this->getChildHtml('topMenu') ?>
+                                                                    </div>
+                                                                <?php endif;?>
+
+                                                            </div>
+
                                                         </div>
 					</div>
 
