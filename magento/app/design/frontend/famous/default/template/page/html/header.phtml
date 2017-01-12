@@ -704,9 +704,12 @@ if($routeName == 'cms' && $controller == 'index' && $action == 'index') {
                                                                   <div class="member">
                                                                       <nav id="slide_nav_header">
                                                                         <ul>
+                                                                            <a href="<?php echo Mage::getUrl('customer/account'); ?>">
                                                                             <li class="welcome-msg">
+
                                                                                 <?php echo $this->getChildHtml('welcome') ?>
                                                                             </li>
+                                                                            </a>
                                                                         </ul>
                                                                       </nav>
 

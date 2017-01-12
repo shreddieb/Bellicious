@@ -121,8 +121,7 @@ light text: #A8A8A8
 	margin:0;
 	padding:0
 }
-#drop_nav_wrap ul a,
-#slide_nav_header ul a {
+#drop_nav_wrap ul a {
 	display:block;
 	color:#333;
 	text-decoration:none;
