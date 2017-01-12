@@ -3,9 +3,6 @@
 <div id="messages_product_view">
   <?php Mage::app()->getLayout()->getMessagesBlock()->setMessages(Mage::getSingleton('customer/session')->getMessages(true)); ?>
   <?php echo Mage::app()->getLayout()->getMessagesBlock()->getGroupedHtml(); ?> </div>
-<div class="page-title">
-  <h1>Blog</h1>
-</div>
 <?php echo $this->getChildHtml('magic_mdlblog_comments_toolbar'); ?>
 <?php
 //print_r(get_obj_vars($posts));die;
@@ -27,12 +24,12 @@ foreach($post_chunk as $posts):
 		<div class="date-block"><?php echo date('M', strtotime($post->getCreatedTime())); ?> <?php echo date('d', strtotime($post->getCreatedTime())); ?></div>
 	    <h2><a href="<?php echo $post->getAddress(); ?>" ><?php echo $post->getTitle(); ?></a></h2>
     <div class="postContent f-fix">
-      <div class="f-block"> 
-      	<a href="<?php echo $post->getAddress(); ?>" > 
+      <div class="f-block">
+      	<a href="<?php echo $post->getAddress(); ?>" >
         	<img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) . $post->getBlogimage(); ?>" alt="" width="100%"/>
         </a>
       </div>
-	  
+
 	  <ul class="f-block bList">
 		  	<li><span class="author"><?php echo $post->getUser(); ?></span><strong>|</strong></li>
             <li>
@@ -53,26 +50,26 @@ foreach($post_chunk as $posts):
               <?php foreach ($postCats as $data): ?>
               		<a href="<?php echo $data['url']; ?>"><?php echo $data['title']; ?></a>
               <?php endforeach; ?>
-           
+
             <?php else: ?>
             	<?php echo Mage::helper('mdlblog')->__('Posted'); ?>
             <?php endif; ?>
              </li>
-             
-            		
+
+
           </ul>
-	  
-	  
+
+
 	  <div class="blog-short-dec">
 	   		<?php if((Mage::getStoreConfig('mdlblog/bloglist/useshortcontent')==1)):?>
-				<?php 
+				<?php
                    $desc = $post->getPostContent();
                    $text = substr(strip_tags($desc),0,250);
-                   echo $text; 
+                   echo $text;
                 ?>
         	 <?php endif?>
 	  </div>
-      
+
       </div>
     </div>
   </li>
@@ -80,4 +77,4 @@ foreach($post_chunk as $posts):
 </ul>
 </div>
 <?php endforeach; ?>
-<?php echo $this->getChildHtml('magic_mdlblog_comments_toolbar'); ?> 
+<?php echo $this->getChildHtml('magic_mdlblog_comments_toolbar'); ?>
