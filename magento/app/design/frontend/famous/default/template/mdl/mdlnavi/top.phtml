@@ -16,3 +16,9 @@
                         <li class="level0 nav-99 last level-top default"><a href="<?php echo $this->getUrl('blog') ?>"><?php echo $this->__('Blog')?></a></li>
 		</ul>
 <?php endif ?>
+<script>
+//adds active class to blog menu link
+if(window.location.href.indexOf("/blog") > -1) {
+  jQuery('.nav-99').addClass('active');
+}
+</script>
