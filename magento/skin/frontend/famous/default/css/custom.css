@@ -238,6 +238,12 @@ li.welcome-msg {
 
 
 
+/* sets page content zone */
+.proArea, .sidebar {
+  margin-top: 50px;
+}
+
+
 /* form */
 form {
 }
@@ -505,7 +511,6 @@ form {
 .cd-faq-group .cd-faq-title h2 {
   text-transform: uppercase;
   color: #A8A8A8;
-  margin-top: 50px;
 }
 .no-js .cd-faq-group {
   display: block;
@@ -526,14 +531,14 @@ form {
   color: #444;
 }
 
-
-
-
+.cd-faq-group {
+  margin-bottom: 50px;
+}
 
 @media only screen and (min-width: 768px) {
   .cd-faq {
     position: relative;
-    margin: 4em auto;
+    margin: 0 auto;
     box-shadow: none;
   }
 
@@ -558,7 +563,6 @@ form {
   .cd-faq-categories a::after {
     display: none;
   }
-
 
   .cd-faq-categories a::before {
     /* decorative rectangle on the left visible for the selected item */
@@ -612,7 +616,6 @@ form {
   .no-js .cd-faq-items {
     padding-left: 0;
   }
-
   .cd-faq-group {
     /* all groups visible */
     display: block;
