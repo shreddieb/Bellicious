@@ -11,7 +11,7 @@
 		 <action method="addCss"><stylesheet>css/owl.transitions.css</stylesheet></action>
 		 <action method="addCss" ifconfig="mdloption/genral_theme_setting/page-scroll"><stylesheet>css/nicescroll.css</stylesheet></action>
 		 <action method="addCss"><stylesheet>css/default-color.css</stylesheet></action>
-                 <action method="addCss"><stylesheet>css/custom.css</stylesheet></action>
+                 <action method="addCss"><stylesheet>css/custom/main.css</stylesheet></action>
 		 <action method="addItem" ifconfig="sales/msrp/enabled"><type>skin_js</type><name>js/msrp.js</name></action>
   	    </reference>
 
