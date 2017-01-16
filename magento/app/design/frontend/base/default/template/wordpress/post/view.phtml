@@ -15,13 +15,13 @@
 		<h1><?php echo $this->escapeHtml($post->getPostTitle()) ?></h1>
 	</div>
 	<div class="post-view">
-		<p class="post-date when"><?php echo stripslashes($this->__('This entry was posted on %s<span class=\"by-author\"> by %s</span>.', $post->getPostDate(), $post->getAuthor()->getDisplayName())) ?></p>
+		<!-- <p class="post-date when"><?php echo stripslashes($this->__('This entry was posted on %s<span class=\"by-author\"> by %s</span>.', $post->getPostDate(), $post->getAuthor()->getDisplayName())) ?></p> -->
 		<?php echo $this->getBeforePostContentHtml() ?>
 		<div class="post-entry entry std<?php if ($post->getFeaturedImage()): ?> post-entry-with-image<?php endif; ?>">
 			<?php if ($post->isViewableForVisitor()): ?>
 				<?php if ($featuredImage = $post->getFeaturedImage()): ?>
 					<div class="featured-image left">
-						<img src="<?php echo $featuredImage->getAvailableImage() ?>" alt="<?php echo $this->escapeHtml($post->getPostTitle()) ?>"/>
+						<img src="<?php echo $featuredImage->getLargeImage() ?>" alt="<?php echo $this->escapeHtml($post->getPostTitle()) ?>"/>
 					</div>
 				<?php endif; ?>
 				<?php echo $post->getPostContent() ?>
