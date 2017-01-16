@@ -238,10 +238,19 @@ li.welcome-msg {
     padding: 35px 0 10px 0;
 }
 
+
+
 /* sets page content zone */
 .proArea, .sidebar {
   margin-top: 50px;
 }
+.columnTwoLeft .sidebar {
+  margin-top: 45px;
+}
+
+
+
+
 
 
 /* form */
@@ -308,6 +317,37 @@ form {
 
 
 
+/* blog */
+.featured-image {
+    border: none;
+    margin: 0px 0px 10px 0;
+}
+.post-list h2 {
+    font-size: 24px;
+    font-weight: 300;
+}
+.post-entry {
+    font-size: 16px;
+    margin-bottom: 0;
+}
+.post-meta a {
+  font-weight: bold;
+}
+
+.post-meta a:hover {
+  color: #2AB0C5;
+}
+.wp-sidebar {
+  margin-top: -8px;
+}
+
+.tags-list {
+    border: none;
+    background: none;
+    padding: 0;
+}
+
+
 
 
 
@@ -352,7 +392,7 @@ form {
       background: #333;
   }
   .fLink {
-      background: rgba(0, 0, 0, 0) url(../images/carticon.png) no-repeat scroll 0 1px / 35px 60px;
+      background: rgba(0, 0, 0, 0) url(../../images/carticon.png) no-repeat scroll 0 1px / 35px 60px;
       /* fixes cart from disappearing when near homepage carousels */
       will-change: top;
   }
