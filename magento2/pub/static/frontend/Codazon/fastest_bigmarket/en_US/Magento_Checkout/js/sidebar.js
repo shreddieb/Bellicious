@@ -1,0 +1,1 @@
+/Users/eddiebell/code/Bellicious/magento2/vendor/magento/module-checkout/view/frontend/web/js/sidebar.js
