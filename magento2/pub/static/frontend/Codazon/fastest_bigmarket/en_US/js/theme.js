@@ -1,0 +1,1 @@
+/Users/eddiebell/code/Bellicious/magento2/vendor/magento/theme-frontend-blank/web/js/theme.js
