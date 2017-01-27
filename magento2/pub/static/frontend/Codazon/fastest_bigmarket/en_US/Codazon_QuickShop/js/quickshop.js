@@ -1,1 +1,0 @@
-/Users/eddiebell/code/Bellicious/magento2/app/code/Codazon/QuickShop/view/frontend/web/js/quickshop.js

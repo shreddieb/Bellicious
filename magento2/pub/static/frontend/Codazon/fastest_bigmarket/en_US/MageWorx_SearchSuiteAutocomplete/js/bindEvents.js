@@ -1,1 +1,0 @@
-/Users/eddiebell/code/Bellicious/magento2/app/design/frontend/Codazon/fastest/fashion/MageWorx_SearchSuiteAutocomplete/web/js/bindEvents.js
