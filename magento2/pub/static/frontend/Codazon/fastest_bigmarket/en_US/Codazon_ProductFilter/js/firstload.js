@@ -1,1 +1,0 @@
-/Users/eddiebell/code/Bellicious/magento2/app/code/Codazon/ProductFilter/view/frontend/web/js/firstload.js

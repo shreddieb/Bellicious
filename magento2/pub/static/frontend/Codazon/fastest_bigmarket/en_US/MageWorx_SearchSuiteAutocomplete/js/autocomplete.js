@@ -1,1 +1,0 @@
-/Users/eddiebell/code/Bellicious/magento2/app/code/MageWorx/SearchSuiteAutocomplete/view/frontend/web/js/autocomplete.js
