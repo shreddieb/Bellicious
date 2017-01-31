@@ -17,8 +17,8 @@
     $_post = $this->getPost();
     $_postUrl = $_post->getPostUrl();
     $_postName = $block->escapeHtml($_post->getTitle(), null, true);
-    $height = 620;
     $width = 840;
+    $height = 420;
     $helper = $this->helper('Magefan\Blog\Helper\Image');
 ?>
 <li class="post-holder post-holder-<?php echo $_post->getId() ?>">
