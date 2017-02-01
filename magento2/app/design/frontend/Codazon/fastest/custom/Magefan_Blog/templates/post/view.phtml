@@ -27,7 +27,7 @@
             <a href="<?php echo $_postUrl ?>">                
                  <img class="img-responsive" width="<?php echo $width ?>" height="<?php echo $height ?>" src="<?php echo $helper->init($_post->getPostImage())->resize($width,$height); ?>" />
             </a>
-            <div class="blog-date"><?php echo $block->getPostedOn('F d, Y'); ?></span></div>
+            <div class="blog-date"><?php echo $block->getPostedOn('F d, Y'); ?></div>
         </div>
         <div class="post-header">
             <?php echo $this->getInfoHtml() ?>
