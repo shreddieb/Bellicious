@@ -458,6 +458,7 @@
 		}
 	}
 }
+
 /*
 .media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__xl) {
 	@groupmenu-width: 1180px;
@@ -492,7 +493,7 @@
 				> a.menu-link{
 					.abs-link(@menu_text, @menu_hover_text);
 					.abs-cssall(@menu_text, @menu_border, @menu_background, @menu_font);
-					padding: 15px 20px 14px;
+					padding: 12px 20px;
 				}
 				&:hover > a.menu-link{
 					.abs-cssall(@menu_hover_text, @menu_border, @menu_hover_background, @menu_font);
@@ -574,6 +575,95 @@
 		.groupmenu(6);
 	}*/
 	
+
+
+	//overrides mobile slide nav
+	.menu-container {
+		.cdz-main-menu .groupmenu li.level0 > a.menu-link {
+		    background-color: #444;
+		    padding-left: 20px;
+		}
+		.cdz-main-menu .groupmenu li.level0:hover > a.menu-link {
+		    background-color: #444;
+		    border-color: #444;
+		}
+	}
+	.nav-sections {
+		.header.links li.greet.welcome {
+	    	display: none;
+	    }
+		.header.links li > a {
+	    	background: #444;
+		}
+		.header.links li .customer-menu ul {
+		    margin-left: -40px;
+		}
+		.header.links > .customer-welcome + .authorization-link {
+		    display: none;
+		}
+		.header.links li .welcome-name {
+		    color: #ebebeb;
+		}
+		.header.links li .avatar {
+		    left: -40px;
+		    top: -3px;
+		}
+		.header.links li button.action.switch {
+		    display: none;
+		}
+		.header.links li > a,
+		.header.links li > a:hover {
+		    background: none;
+		    border: none;
+		    margin-left: -10px;
+		    padding: 7px 10px;
+		}
+		.header.links li > a:before {
+		    /* content: ""; */
+		}
+		.header.links li > a.my-account,
+		.header.links li > a.log-out {
+		}
+		.header.links li > a.register-link,
+		.header.links li > a.log-in {
+		    position: absolute;
+		    top: 15px;
+		    text-transform: uppercase;
+		    font-size: 11px;
+		}
+		.header.links li > a.register-link {
+		    margin-left: 0;	
+		    background: #ddd;
+		}
+		.header.links li > a.register-link:hover {
+		    color: #282828;
+		}
+		.header.links li > a.log-in {
+		    margin-left: 65px;
+		}
+		.nav-sections-item-title {
+			display: none;
+		}
+		.nav-sections-item-content {
+		    float: none;
+		    margin: 0;
+		    margin-top: 40px;
+		}
+		.nav-sections-item-content:last-child {
+			margin-top: -10px;
+			padding-top: 0;
+			display: block !important;
+		}
+		.customer-name {
+		    display: block; 
+		    position: absolute;
+		    top: 20px;
+		    left: 55px;
+		}
+	}
+
+
+
 	//////		
 	.cdz-main-menu{
 		.cdz-vertical-menu .groupmenu{
