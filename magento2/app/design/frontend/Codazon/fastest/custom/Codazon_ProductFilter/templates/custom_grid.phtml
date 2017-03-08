@@ -7,6 +7,8 @@ $_productCollection = $block->getProductCollection();
 $_helper = $this->helper('Magento\Catalog\Helper\Output');
 $_productSize = $_productCollection->count();
 $_objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$cart = $_objectManager->get('\Magento\Checkout\Model\Cart'); 
+$items = $cart->getQuote()->getAllItems();
 $_imageHelper = $this->helper('Magento\Catalog\Helper\Image');
 $labelHelper = $this->helper('Codazon\ProductLabel\Helper\Data');
 $filterHelper = $this->helper('Codazon\ProductFilter\Helper\Data');
@@ -30,6 +32,18 @@ $uniqId = uniqid('block_');
      */
     $pos = $block->getPositioned();
     $row = 2;
+
+
+	//$items = $_cart->getQuote()->getAllItems();
+	//foreach($items as $item) {
+	    //echo 'ID: '.$item->getProductId().'<br />';
+	    //echo 'Name: '.$item->getName().'<br />';
+	    //echo 'Sku: '.$item->getSku().'<br />';
+	    //echo 'Quantity: '.$item->getQty().'<br />';
+	    //echo 'Price: '.$item->getPrice().'<br />';
+	    //echo "<br />";            
+	//}
+
     ?>
     <div class="block widget block-products-list <?php /* @escapeNotVerified */ echo $viewMode; ?>">
 		<?php if ($title):?>
@@ -39,316 +53,195 @@ $uniqId = uniqid('block_');
 		<?php endif ?>
 		<div class="block-content <?php echo $classid ?>">
 			<div class="products wrapper <?php /* @escapeNotVerified */ echo $viewMode; ?> products-<?php /* @escapeNotVerified */ echo $viewMode; ?>">
-				<?php $iterator = 0; ?>
-				<div class="products list items product-items">
+				<?php //$iterator = 0; ?>
+				<div id="mini-cart" class="minicart-items products list items product-items">
 				    <?php /** @var $_product \Magento\Catalog\Model\Product */ ?>
 				    <?php foreach ($_productCollection as $_product): ?>
-				    	<?php if($iterator == 0): ?>
-				    		<div class="item product product-item width-1 big-product">
-						        <div class="product-item-info" data-container="product-grid">
-						            <div class="product-images">							        		
-							            <?php
-							            $productImage = $block->getImage($_product, $image);
-							            $productHoverImage = $block->getImage($_product, $image_hover);
-							            if ($pos != null) {
-							                $position = ' style="left:' . $productImage->getWidth() . 'px;'
-							                    . 'top:' . $productImage->getHeight() . 'px;"';
-							            }
-							            ?>
-							            <?php // Product Image ?>
-							            <?php if($block->isShow('thumb')): ?>
-							            <div class="base-image">
-							            <a href="<?php /* @escapeNotVerified */ echo $_product->getProductUrl() ?>" class="product photo product-item-photo" tabindex="-1">
-							                <span class="main-image">
-												<?php echo $productImage->toHtml(); ?>
-											</span>
-											<span class="hover-image">
-												<?php echo $productHoverImage->toHtml(); ?>
-											</span>
-							            </a>
-							            </div>
-							            <?php            		                                        								    
-		                                        $objectProduct = $_objectManager->get('Magento\Catalog\Model\Product')->load($_product->getId());		                                        	                            
-		                                        $_images = $objectProduct->getMediaGalleryImages();		                                        		                                            
-		                                        $_wThumbs = 170;
-		                                        $_hThumbs = 170;		                                       
-		                                    ?>                          		                                        		                                   
-                            				<?php if (count($_images) > 0): ?>
-                        
-				                             <div class="more-views">                                                     
 
-				                                <?php $j=0; foreach($_images as $_image): ?>                                   
-				                                    <?php
-				                                      $thumbImage = $_imageHelper->init($_product, $image)
-				                                      					->setImageFile($_image->getFile())
-				                                          			->resize($_wThumbs,$_hThumbs);				                                          							                                      
-				                                    ?>               				                                                         
-				                                    <div class="more-view-img">
-				                                        <a class="thumb-img" href="<?php /* @escapeNotVerified */ echo $_product->getProductUrl() ?>">
-				                                              <img src="<?php /* @escapeNotVerified */ echo $thumbImage->getUrl(); ?>" 
-				                                              width="<?php /* @escapeNotVerified */ echo $_wThumbs ?>" alt="<?php echo $block->escapeHtml($thumbImage->getLabel()) ?>" title="<?php echo $block->escapeHtml($thumbImage->getLabel()) ?>" class="img-responsive"/>
-				                                        </a>
-				                                    </div>
-				                                <?php if($j>=3) break;?>
-				                                <?php $j++;?>                                
-				                                <?php endforeach; ?>
-				                            </div>
-							            	<?php endif ?>
-							            <?php endif ?>	
-							             <?php $labelHelper->showLabel($_product) ?>
-										<?php if($block->isShow('addto')): ?>
-									<div class="cdz-product-wishlist">
-				                        <div data-role="add-to-links" class="actions-secondary  show-tooltip"<?php echo strpos($pos, $viewMode . '-secondary') ? $position : ''; ?>>
-				                            <?php if ($this->helper('Magento\Wishlist\Helper\Data')->isAllow()): ?>
-				                                <a href="#"
-				                                   class="action towishlist"
-				                                   title="<?php echo $block->escapeHtml(__('Add to Wish List')); ?>"
-				                                   aria-label="<?php echo $block->escapeHtml(__('Add to Wish List')); ?>"
-				                                   data-post='<?php /* @escapeNotVerified */ echo $block->getAddToWishlistParams($_product); ?>'
-				                                   data-action="add-to-wishlist"
-				                                   role="button">
-				                                    <span><?php /* @escapeNotVerified */ echo __('Add to Wish List') ?></span>
-				                                </a>
-				                            <?php endif; ?>				                           
-				                        </div>										
-				                    </div>										
-								<?php endif ?>
-										<div class="qs-button-icon">
-										<?php echo $this->helper('Codazon\QuickShop\Helper\Data')->getQuickShopButton($_product); ?></div>   						        											        
-							        	</div>
-						            <div class="product details product-item-details">
-				                <?php
-				                    $_productNameStripped = $block->stripTags($_product->getName(), null, true);
-				                ?>
-				                <?php if($block->isShow('name')): ?>
-				                <strong class="product name product-item-name">
-				                    <a class="product-item-link"
-				                       href="<?php /* @escapeNotVerified */ echo $_product->getProductUrl() ?>">
-				                        <?php /* @escapeNotVerified */ echo $_helper->productAttribute($_product, $_product->getName(), 'name'); ?>
-				                    </a>
-				                </strong>
-				                <?php endif ?>
-								<?php if($block->isShow('description')): ?>
-									<?php $desc = $_helper->productAttribute($_product, $_product->getShortDescription(), 'short_description');
-						$descLength = 100;
-                                    if(strlen($desc)> $descLength ) { 
-                                        $strCutDesc = substr($desc, 0, $descLength);
-                                        $desc = substr($strCutDesc, 0, strrpos($strCutDesc, ' ')).'&hellip;';
-                                    }
-                                    $desc = $this->stripTags($desc,null,true);
-?>
-                                    <div class="product description product-item-description">
-                                        <?php /* @escapeNotVerified */ echo $desc; ?>
-                                    </div>
-                                <?php endif; ?>	
-								<?php if($block->isShow('price')): ?>
-				                <?php /* @escapeNotVerified */ echo $block->getProductPrice($_product) ?>
-				                <?php endif ?>
-				                <?php if($block->isShow('review')): ?>
-				                <?php echo $block->getReviewsSummaryHtml($_product, $templateType); ?>
-				                <?php endif ?>
-				                
-				                <?php echo $block->getProductDetailsHtml($_product); ?>
 
-				                
-				            	<div class="cdz-product-bottom-cart">
-                                	<div class="cdz-buttons-container">
-                                    	<div class="cdz-buttons-inner">
-				                    	<?php if($block->isShow('addtocart')): ?>
-				                            <?php if ($_product->isSaleable()): ?>
-				                                <?php $postParams = $block->getAddToCartPostParams($_product); ?>
-				                                <form data-role="tocart-form" action="<?php /* @escapeNotVerified */ echo $postParams['action']; ?>" method="post">
-				                                    <input type="hidden" name="product" value="<?php /* @escapeNotVerified */ echo $postParams['data']['product']; ?>">
-				                                    <input type="hidden" name="<?php /* @escapeNotVerified */ echo Action::PARAM_NAME_URL_ENCODED; ?>" value="<?php /* @escapeNotVerified */ echo $postParams['data'][Action::PARAM_NAME_URL_ENCODED]; ?>">
-				                                    <?php echo $block->getBlockHtml('formkey')?>
-				                                    <?php if ($filterHelper->shouldRenderQuantity($_product)): ?>
-											        <div class="field qty box-tocart">								           
-											            <div class="control">
-											            	<div class="qty-minus"> <a class="btn-qty minus" href="#">-</a></div>
-																<div class="qty-input">
-											                		<input type="number"
-													               name="qty"
-													               id="<?php echo $uniqId.'_'.$_product->getId() ?>_qty"
-													               maxlength="12"
-													               value="<?php /* @escapeNotVerified */ echo $filterHelper->getProductDefaultQty($_product) * 1 ?>"
-													               title="<?php /* @escapeNotVerified */ echo __('Qty') ?>" class="input-text qty"
-													               data-validate="<?php echo $block->escapeHtml(json_encode($filterHelper->getQuantityValidators())) ?>"
-													               />
-											                       </div>
-													<div class="qty-plus"> <a class="btn-qty plus" href="#">+</a></div>
-											            </div>
-											        </div>
-											        <script type="text/javascript">
-													require(['jquery','domReady!'],function($){
-														$(".btn-qty").click(function (event) {
-															var $button = $(this);
-															var oldValue = $button.closest('.control').find("input#<?php echo $uniqId.'_'.$_product->getId() ?>_qty").val();
-															var defaultValue = <?php /* @escapeNotVerified */ echo $block->getProductDefaultQty($_product) * 1 ?>;
-															if ($button.hasClass('plus')) {
-																var newVal = parseFloat(oldValue) + 1;
+			    		<div class="item product product-item width-1 big-product" data-role="product-item">
+					        <div class="product product-item-info" data-container="product-grid">
+					            <div class="product-images">							        		
+						            <?php
+						            $productImage = $block->getImage($_product, $image);
+						            $productHoverImage = $block->getImage($_product, $image_hover);
+						            if ($pos != null) {
+						                $position = ' style="left:' . $productImage->getWidth() . 'px;'
+						                    . 'top:' . $productImage->getHeight() . 'px;"';
+						            }
+						            ?>
+						            <?php // Product Image ?>
+						            <?php if($block->isShow('thumb')): ?>
+						            <div class="base-image">
+						            <a href="<?php /* @escapeNotVerified */ echo $_product->getProductUrl() ?>" class="product photo product-item-photo" tabindex="-1">
+						                <span class="main-image">
+											<?php echo $productImage->toHtml(); ?>
+										</span>
+										<span class="hover-image">
+											<?php echo $productHoverImage->toHtml(); ?>
+										</span>
+						            </a>
+						            </div>
+						            <?php endif ?>	
+						             <?php $labelHelper->showLabel($_product) ?>
+									<?php if($block->isShow('addto')): ?>
+								<div class="cdz-product-wishlist">
+			                        <div data-role="add-to-links" class="actions-secondary  show-tooltip"<?php echo strpos($pos, $viewMode . '-secondary') ? $position : ''; ?>>
+			                            <?php if ($this->helper('Magento\Wishlist\Helper\Data')->isAllow()): ?>
+			                                <a href="#"
+			                                   class="action towishlist"
+			                                   title="<?php echo $block->escapeHtml(__('Add to Wish List')); ?>"
+			                                   aria-label="<?php echo $block->escapeHtml(__('Add to Wish List')); ?>"
+			                                   data-post='<?php /* @escapeNotVerified */ echo $block->getAddToWishlistParams($_product); ?>'
+			                                   data-action="add-to-wishlist"
+			                                   role="button">
+			                                    <span><?php /* @escapeNotVerified */ echo __('Add to Wish List') ?></span>
+			                                </a>
+			                            <?php endif; ?>				                           
+			                        </div>										
+			                    </div>										
+							<?php endif ?>
+									<div class="qs-button-icon">
+									<?php echo $this->helper('Codazon\QuickShop\Helper\Data')->getQuickShopButton($_product); ?></div>   						        											        
+						        	</div>
+					            <div class="product details product-item-details">
+			                <?php
+			                    $_productNameStripped = $block->stripTags($_product->getName(), null, true);
+			                ?>
+			                <?php if($block->isShow('name')): ?>
+			                <strong class="product name product-item-name">
+			                    <a class="product-item-link"
+			                       href="<?php /* @escapeNotVerified */ echo $_product->getProductUrl() ?>">
+			                        <?php /* @escapeNotVerified */ echo $_helper->productAttribute($_product, $_product->getName(), 'name'); ?>
+			                    </a>
+			                </strong>
+			                <?php endif ?>
+							<?php if($block->isShow('description')): ?>
+								<?php $desc = $_helper->productAttribute($_product, $_product->getShortDescription(), 'short_description');
+								$descLength = 100;
+                                if(strlen($desc)> $descLength ) { 
+                                    $strCutDesc = substr($desc, 0, $descLength);
+                                    $desc = substr($strCutDesc, 0, strrpos($strCutDesc, ' ')).'&hellip;';
+                                }
+                                $desc = $this->stripTags($desc,null,true);
+							?>
+                                <div class="product description product-item-description">
+                                    <?php /* @escapeNotVerified */ echo $desc; ?>
+                                </div>
+                            <?php endif; ?>	
+							<?php if($block->isShow('price')): ?>
+			                <?php /* @escapeNotVerified */ echo $block->getProductPrice($_product) ?>
+			                <?php endif ?>
+			                <?php if($block->isShow('review')): ?>
+			                <?php echo $block->getReviewsSummaryHtml($_product, $templateType); ?>
+			                <?php endif ?>
+			                
+			                <?php echo $block->getProductDetailsHtml($_product); ?>
+
+			                
+			            	<div class="cdz-product-bottom-cart">
+                            	<div class="cdz-buttons-container">
+                                	<div class="cdz-buttons-inner">
+			                    	<?php if($block->isShow('addtocart')): ?>
+			                            <?php if ($_product->isSaleable()): ?>
+			                                <?php $postParams = $block->getAddToCartPostParams($_product); ?>
+			                                <form data-role="tocart-form" action="<?php /* @escapeNotVerified */ echo $postParams['action']; ?>" method="post">
+			                                    <input type="hidden" name="product" value="<?php /* @escapeNotVerified */ echo $postParams['data']['product']; ?>">
+			                                    <input type="hidden" name="<?php /* @escapeNotVerified */ echo Action::PARAM_NAME_URL_ENCODED; ?>" value="<?php /* @escapeNotVerified */ echo $postParams['data'][Action::PARAM_NAME_URL_ENCODED]; ?>">
+			                                    <?php echo $block->getBlockHtml('formkey')?>
+			                                    <?php if ($filterHelper->shouldRenderQuantity($_product)): ?>
+										        <div class="field qty box-tocart">								           
+										            <div class="control">
+										            	<!--
+										            	<div class="qty-minus"> <a class="btn-qty minus" href="#">-</a></div>
+										            	-->
+														<div class="qty-input selectdiv">
+															<!--
+								                		   <input type="number"
+											               name="qty"
+											               id="cdz-cart-item-<?php echo $_product->getId() ?>-qty"
+											               maxlength="12"
+											               value="<?php /* @escapeNotVerified */ echo $filterHelper->getProductDefaultQty($_product) * 1 ?>"
+											               title="<?php /* @escapeNotVerified */ echo __('Qty') ?>" class="input-text qty"
+											               data-validate="<?php echo $block->escapeHtml(json_encode($filterHelper->getQuantityValidators())) ?>"
+											               />
+											           		-->
+
+														<select 
+														name="qty" 
+														id="cdz-cart-item-<?php echo $_product->getId() ?>-qty"
+														class="input-text qty"
+														data-validate="<?php echo $block->escapeHtml(json_encode($filterHelper->getQuantityValidators())) ?>">
+														  <option value="1">1</option>
+														  <option value="2">2</option>
+														  <option value="3">3</option>
+														  <option value="4">4</option>
+														  <option value="5">5</option>
+														  <option value="6">6</option>
+														  <option value="7">7</option>
+														  <option value="8">8</option>
+														</select>
+
+										                </div>
+														<!--
+														<div class="qty-plus"> <a class="btn-qty plus" href="#">+</a></div>
+														-->
+										            </div>
+										        </div>
+										        <script type="text/javascript">
+												require(['jquery','domReady!'],function($){
+													//TO USE FOR QTY INCREMENT/DECREMENT
+													$(".btn-qty").click(function (event) {
+														var $button = $(this);
+														var oldValue = $button.closest('.control').find("input#cdz-cart-item-<?php echo $_product->getId() ?>-qty").val();
+														var defaultValue = <?php /* @escapeNotVerified */ echo $block->getProductDefaultQty($_product) * 1 ?>;
+														if ($button.hasClass('plus')) {
+															var newVal = parseFloat(oldValue) + 1;
+															//alert(newVal);
+														} else {
+															if (oldValue > defaultValue) {
+															    var newVal = parseFloat(oldValue) - 1;
 															} else {
-																if (oldValue > defaultValue) {
-																    var newVal = parseFloat(oldValue) - 1;
-																} else {
-																    newVal = defaultValue;
-																}
+															    newVal = defaultValue;
 															}
-															$button.closest('.control').find("input#<?php echo $uniqId.'_'.$_product->getId() ?>_qty").val(newVal);
-															event.preventDefault();
-														});
-											
+															//alert(newVal);
+														}
+														$button.closest('.control').find("input#cdz-cart-item-<?php echo $_product->getId() ?>-qty").val(newVal);
+														event.preventDefault();
 													});
-											        </script>
-											        <?php endif; ?>
-				                                    <button type="submit"
-				                                            title="<?php echo $block->escapeHtml(__('Add to Cart')); ?>"
-				                                            class="action tocart primary">
-				                                        <span><?php /* @escapeNotVerified */ echo __('Add to Cart') ?></span>
-				                                    </button>
-				                                </form>
-				                            <?php else: ?>
-				                                <?php if ($_product->getIsSalable()): ?>
-				                                    <div class="stock available"><span><?php /* @escapeNotVerified */ echo __('In stock') ?></span></div>
-				                                <?php else: ?>
-				                                    <div class="stock unavailable"><span><?php /* @escapeNotVerified */ echo __('Out of stock') ?></span></div>
-				                                <?php endif; ?>
-				                            <?php endif; ?>
-				                        
-				                        <?php endif ?>
-				                        
-										</div>
-				                    </div>
-				                   
-				                </div>
-				            </div>
-						        </div>
-					        </div>
-			    		<?php else: ?>
-			    			
-						        <div class="item product product-item width-2 small-product">
-							        <div class="product-item-info" data-container="product-grid">
-							        	<div class="product-images">
-							        		
-							            <?php
-							            $productImage = $block->getImage($_product, $image);
-							        	$productHoverImage = $block->getImage($_product, $image_hover);
-							            if ($pos != null) {
-							                $position = ' style="left:' . $productImage->getWidth() . 'px;'
-							                    . 'top:' . $productImage->getHeight() . 'px;"';
-							            }
-							            ?>
-							            <?php // Product Image ?>
-							            <?php if($block->isShow('thumb')): ?>
-							            <div class="base-image">
-							            <a href="<?php /* @escapeNotVerified */ echo $_product->getProductUrl() ?>" class="product photo product-item-photo" tabindex="-1">
-							                <span class="main-image">
-												<?php echo $productImage->toHtml(); ?>
-											</span>
-											<span class="hover-image">
-												<?php echo $productHoverImage->toHtml(); ?>
-											</span>
-							            </a>
-							            </div>
-							           
-							            <?php endif ?>
-							        		 <?php $labelHelper->showLabel($_product) ?>   
-									        
-							        	</div>
-							            <div class="product details product-item-details">
-							                <?php
-							                    $_productNameStripped = $block->stripTags($_product->getName(), null, true);
-							                ?>
-							                <?php if($block->isShow('name')): ?>
-							                <strong class="product name product-item-name">
-							                    <a class="product-item-link"
-							                       href="<?php /* @escapeNotVerified */ echo $_product->getProductUrl() ?>">
-							                        <?php /* @escapeNotVerified */ echo $_helper->productAttribute($_product, $_product->getName(), 'name'); ?>
-							                    </a>
-							                </strong>
-							                <?php endif ?>
-											<?php if($block->isShow('description')): ?>
-												<?php $desc = $_helper->productAttribute($_product, $_product->getShortDescription(), 'short_description');
-			                                    if(strlen($desc)> $descLength ) { 
-			                                        $strCutDesc = substr($desc, 0, $descLength);
-			                                        $desc = substr($strCutDesc, 0, strrpos($strCutDesc, ' ')).'&hellip;';
-			                                    }
-			                                    $desc = $this->stripTags($desc,null,true);
-			?>
-			                                    <div class="product description product-item-description">
-			                                        <?php /* @escapeNotVerified */ echo $desc; ?>
-			                                    </div>
-			                                <?php endif; ?>	
-											<?php if($block->isShow('price')): ?>
-							                <?php /* @escapeNotVerified */ echo $block->getProductPrice($_product) ?>
-							                <?php endif ?>
-							                <?php if($block->isShow('review')): ?>
-							                <?php echo $block->getReviewsSummaryHtml($_product, $templateType); ?>
-							                <?php endif ?>
-							                
-							                <?php echo $block->getProductDetailsHtml($_product); ?>
+										
+												});
+										        </script>
+										        <?php endif; ?>
 
-				                
-							            	<div class="cdz-product-bottom-cart">
-			                                	<div class="cdz-buttons-container">
-			                                    	<div class="cdz-buttons-inner">
-							                    	<?php if($block->isShow('addtocart')): ?>
-							                            <?php if ($_product->isSaleable()): ?>
-							                                <?php $postParams = $block->getAddToCartPostParams($_product); ?>
-							                                <form data-role="tocart-form" action="<?php /* @escapeNotVerified */ echo $postParams['action']; ?>" method="post">
-							                                    <input type="hidden" name="product" value="<?php /* @escapeNotVerified */ echo $postParams['data']['product']; ?>">
-							                                    <input type="hidden" name="<?php /* @escapeNotVerified */ echo Action::PARAM_NAME_URL_ENCODED; ?>" value="<?php /* @escapeNotVerified */ echo $postParams['data'][Action::PARAM_NAME_URL_ENCODED]; ?>">
-							                                    <?php echo $block->getBlockHtml('formkey')?>
-							                                    <button type="submit"
-							                                            title="<?php echo $block->escapeHtml(__('Add to Cart')); ?>"
-							                                            class="action tocart primary">
-							                                        <span><?php /* @escapeNotVerified */ echo __('Add to Cart') ?></span>
-							                                    </button>
-							                                </form>
-							                            <?php else: ?>
-							                                <?php if ($_product->getIsSalable()): ?>
-							                                    <div class="stock available"><span><?php /* @escapeNotVerified */ echo __('In stock') ?></span></div>
-							                                <?php else: ?>
-							                                    <div class="stock unavailable"><span><?php /* @escapeNotVerified */ echo __('Out of stock') ?></span></div>
-							                                <?php endif; ?>
-							                            <?php endif; ?>
-							                        
-							                        <?php endif ?>
-							                        <?php if($block->isShow('addto')): ?>
-							                        <div data-role="add-to-links" class="actions-secondary"<?php echo strpos($pos, $viewMode . '-secondary') ? $position : ''; ?>>
-							                            <?php if ($this->helper('Magento\Wishlist\Helper\Data')->isAllow()): ?>
-							                                <a href="#"
-							                                   class="action towishlist"
-							                                   title="<?php echo $block->escapeHtml(__('Add to Wish List')); ?>"
-							                                   aria-label="<?php echo $block->escapeHtml(__('Add to Wish List')); ?>"
-							                                   data-post='<?php /* @escapeNotVerified */ echo $block->getAddToWishlistParams($_product); ?>'
-							                                   data-action="add-to-wishlist"
-							                                   role="button">
-							                                    <span><?php /* @escapeNotVerified */ echo __('Add to Wish List') ?></span>
-							                                </a>
-							                            <?php endif; ?>
-							                            <?php
-							                            $compareHelper = $this->helper('Magento\Catalog\Helper\Product\Compare');
-							                            ?>
-							                            <a href="#"
-							                               class="action tocompare"
-							                               title="<?php echo $block->escapeHtml(__('Add to Compare')); ?>"
-							                               aria-label="<?php echo $block->escapeHtml(__('Add to Compare')); ?>"
-							                               data-post='<?php /* @escapeNotVerified */ echo $compareHelper->getPostDataParams($_product); ?>'
-							                               role="button">
-							                                <span><?php /* @escapeNotVerified */ echo __('Add to Compare') ?></span>
-							                            </a>
-							                        </div>										
-							                        <?php endif ?>
-													<?php echo $this->helper('Codazon\QuickShop\Helper\Data')->getQuickShopButton($_product); ?>
-													</div>
-							                    </div>							                   
-							                </div>
-				            			</div>
-							        </div>
-						        </div>														
-				    	<?php endif; ?>
-					
-				        <?php $iterator++; ?>
+			                                    <button type="submit"
+			                                            title="<?php echo $block->escapeHtml(__('Add to Cart')); ?>"
+			                                            class="btn-addtocart">
+			                                        <?php /* @escapeNotVerified */ echo __('Add to Cart') ?>
+			                                    </button>
+			                                </form>
+
+
+
+
+			                            <?php else: ?>
+			                                <?php if ($_product->getIsSalable()): ?>
+			                                    <div class="stock available"><span><?php /* @escapeNotVerified */ echo __('In stock') ?></span></div>
+			                                <?php else: ?>
+			                                    <div class="stock unavailable"><span><?php /* @escapeNotVerified */ echo __('Out of stock') ?></span></div>
+			                                <?php endif; ?>
+			                            <?php endif; ?>
+			                        
+			                        <?php endif ?>
+			                        
+									</div>
+			                    </div>
+			                   
+			                </div>
+			            </div>
+					        </div>
+				        </div>
+
 				    <?php endforeach; ?>
 				</div>
 			</div>
