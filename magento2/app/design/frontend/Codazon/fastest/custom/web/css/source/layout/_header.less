@@ -25,7 +25,7 @@
 	    color: #fff;
 	}
 	.header.panel > .header.links > li > a.register-link:hover {
-	    background: #71d3c6;
+	    background: #55c0d1;
 	    color: #fff;
 	}
 	.header-stores{
@@ -63,6 +63,11 @@
 						margin-right:0;
 						margin-left:@indent__xs;
 					}
+				}
+			}
+			> a.log-in{
+				&:before{
+					.abs-iconfont("\f090", 12px);
 				}
 			}
 			&.greet.welcome{ display:inline-block;}
@@ -171,6 +176,12 @@
 				padding: 0 50px 0 90px;
 			}
 		}
+		.sticky-menu.active {
+			.logo{
+				.small-logo{display:none;}
+				.main-logo{display:inline-block;}
+			}
+		}
 	}
 	.mobile-search-wrapper{ 
 		.mobile-search-content{
@@ -248,9 +259,9 @@
 				padding:0 10px 0 120px;
 			}
 		}
-		.header-wrapper-bottom{padding:4px 0;}
+		/* .header-wrapper-bottom{padding: 4px 0;} */
 		.header-main-menu { 
-			margin-left: 60px; 
+			margin-left: 100px; 
 		}
 		//logo
 		.logo{
@@ -258,8 +269,8 @@
 			position:absolute;
 			left:10px;
 			top:0;
-			width:50px;
-			height:40px;
+			width:70px;
+			height:70px;
 			z-index:5;
 		}
 		//Search
@@ -276,7 +287,7 @@
 			position: absolute;
 			right: 70px;
 			width:40px;
-			height:40px;
+			height:70px;
 			.rtl-layout &{
 				left:70px; 
 				right:auto; 
@@ -287,16 +298,21 @@
 					.abs-transition();
 					border-width:0;
 					width:0;
+					height: 70px;
 					float:right;
 					padding:0;
 					.rtl-layout &{
 						float:left;
 					}
 				}
+				button.action.search {
+					height: 70px;
+				}
 			}
 			&:hover {
 				.block-search input[type="text"]{
 					width:250px;
+					height: 70px;
 					padding:0 40px 0 10px;
 					border-width:1px;
 					.rtl-layout &{
@@ -311,7 +327,7 @@
 			margin:0;
 			position:absolute;
 			right:10px;
-			top:0;
+			top:8px;
 			z-index:5;
 			.rtl-layout &{
 				left:10px; 
