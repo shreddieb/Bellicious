@@ -28,7 +28,7 @@
                 <width>280</width>
                 <height>345</height>
             </image>
-            <image id="category_page_grid_hover" type="thumbnail">
+            <image id="category_page_grid_hover" type="small_image">
                 <width>280</width>
                 <height>345</height>
             </image>
@@ -40,7 +40,7 @@
                 <width>280</width>
                 <height>345</height>
             </image>
-			<image id="category_page_list_hover" type="thumbnail">
+			<image id="category_page_list_hover" type="small_image">
                 <width>280</width>
                 <height>345</height>
             </image>
@@ -72,7 +72,7 @@
                 <width>280</width>
                 <height>345</height>
             </image>
-            <image id="new_products_content_widget_grid_hover" type="thumbnail">
+            <image id="new_products_content_widget_grid_hover" type="small_image">
                 <width>280</width>
                 <height>345</height>
             </image>
@@ -93,7 +93,7 @@
                 <height>140</height>
             </image>
             <image id="product_page_image_large" type="small_image"/>
-            <image id="product_page_image_large_hover" type="thumbnail"/>
+            <image id="product_page_image_large_hover" type="small_image"/>
             <image id="product_page_image_medium" type="image">
                 <width>700</width>
                 <height>875</height>
@@ -162,7 +162,7 @@
                 <width>280</width>
                 <height>345</height>
             </image>
-            <image id="related_products_list_hover" type="thumbnail">
+            <image id="related_products_list_hover" type="small_image">
                 <width>280</width>
                 <height>345</height>
             </image>
@@ -190,7 +190,7 @@
                 <width>280</width>
                 <height>345</height>
             </image>
-            <image id="upsell_products_list_hover" type="thumbnail">
+            <image id="upsell_products_list_hover" type="small_image">
                 <width>280</width>
                 <height>345</height>
             </image>
@@ -210,7 +210,7 @@
                 <width>480</width>
                 <height>590</height>
             </image>
-			<image id="home_bestseller_grid_hover" type="thumbnail">
+			<image id="home_bestseller_grid_hover" type="small_image">
                 <width>480</width>
                 <height>590</height>
             </image>
@@ -218,7 +218,7 @@
                 <width>240</width>
                 <height>295</height>
             </image>
-			<image id="home_bestseller_grid_small_hover" type="thumbnail">
+			<image id="home_bestseller_grid_small_hover" type="small_image">
                 <width>240</width>
                 <height>295</height>
             </image>
