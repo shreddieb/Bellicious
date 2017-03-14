@@ -38,6 +38,7 @@
                 </block>
             </block>
         </referenceContainer>
-        <move element="page.main.title" destination="content.top" before="-"/>
+        <!-- <move element="page.main.title" destination="content.top" before="-"/> -->
+        <move element="page.main.title" destination="page.top" before="breadcrumbs"/>
     </body>
 </page>
