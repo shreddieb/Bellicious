@@ -21,7 +21,7 @@
         </referenceBlock>
 		<referenceContainer name="content">
             <container name="content.contact" htmlTag="div" htmlClass="row">
-				<container name="content.left" htmlTag="div" htmlClass="col-sm-12">
+				<container name="content.left" htmlTag="div" htmlClass="col-sm-12 col-sm-offset-6">
 					 <block class="Magento\Contact\Block\ContactForm" name="contactForm" template="Magento_Contact::form.phtml">
 						<container name="form.additional.info" label="Form Additional Info"/>
 					</block>

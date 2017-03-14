@@ -16,7 +16,7 @@
 use Magento\Catalog\Model\Product\ProductList\Toolbar;
 ?>
 <div class="toolbar-sorter sorter">
-    <label class="sorter-label" for="sorter"><?php /* @escapeNotVerified */ echo __('Sort By') ?></label>
+    <label class="sorter-label" for="sorter"><?php /* @escapeNotVerified */ echo __('Sort') ?></label>
     <select id="sorter" data-role="sorter" class="sorter-options">
         <?php foreach ($block->getAvailableOrders() as $_key => $_order): ?>
             <option value="<?php /* @escapeNotVerified */ echo $_key; ?>"

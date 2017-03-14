@@ -213,7 +213,7 @@
 //  Mobile
 //  _____________________________________________
 
-.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__s) {
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
     body {
         &.filter-active {
             .page-wrapper {
@@ -384,7 +384,7 @@
     }
 }
 
-.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__s) {
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
 
     .filter {
         &.block {
@@ -619,7 +619,7 @@
     }
 }
 
-.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__s) {
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
 	.page-layout-1column.catalog-category-view .columns{
 		padding-top:60px;
 		.block.filter{
@@ -648,7 +648,7 @@
 				left: 0;
 				position: absolute;
 				text-align: center;
-				top: -60px;
+				top: -100px;
 				z-index: 2;
 				display:inline-block;
 				border:@_btnline solid @btn_primary_border !important;

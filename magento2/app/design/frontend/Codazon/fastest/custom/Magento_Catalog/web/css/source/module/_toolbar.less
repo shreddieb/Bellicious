@@ -147,7 +147,7 @@
 	}
 }
 
-.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__s) {
+//.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__s) {
     .page-products {
         .columns {
             padding-top: 0;
@@ -188,7 +188,8 @@
         }
 
         &-label {
-            &:extend(.abs-visually-hidden-desktop-s all);
+            //&:extend(.abs-visually-hidden-desktop-s all);
+            display: none;
         }
 
         &-mode {
@@ -257,7 +258,7 @@
             display: block;
         }
     }
-}
+//}
 
 
 //RTL====//

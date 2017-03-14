@@ -52,7 +52,7 @@ $filterHelper = $this->helper('Codazon\ProductFilter\Helper\Data');
 					$columnsTabClass = 'tablet_'.$_optionHelper->getConfig('general_section/category_view/category_tablet_view/product_row_tablet_2col');
 					break;
 				default:					
-					$columnsDeskClass = 'desktop_'.$_optionHelper->getConfig('general_section/category_view/category_desktop_view/product_row_desk_2col');
+					$columnsDeskClass = 'desktop_'.$_optionHelper->getConfig('general_section/category_view/category_desktop_view/product_row_desk_4col');
 					$columnsTabClass = 'tablet_'.$_optionHelper->getConfig('general_section/category_view/category_tablet_view/product_row_tablet_2col');
 					break;	
 				}
@@ -88,7 +88,7 @@ $filterHelper = $this->helper('Codazon\ProductFilter\Helper\Data');
     <div class="products wrapper <?php /* @escapeNotVerified */ echo $viewMode; ?> products-<?php /* @escapeNotVerified */ echo $viewMode; ?>">
         <?php $iterator = 1; ?>
 		<div class="<?php echo $columnsClass ?>" id="category-products-grid">
-			<ol class="products list items product-items same-height">
+			<ol class="products list items product-items same-height-OFF">
 				<?php /** @var $_product \Magento\Catalog\Model\Product */ ?>
 				<?php foreach ($_productCollection as $_product): ?>
 					<?php /* @escapeNotVerified */ echo($iterator++ == 1) ? '<li class="item product product-item">' : '</li><li class="item product product-item">' ?>
@@ -143,7 +143,15 @@ $filterHelper = $this->helper('Codazon\ProductFilter\Helper\Data');
 									<?php /* @escapeNotVerified */ echo $_helper->productAttribute($_product, $_product->getName(), 'name'); ?>
 								</a>
 							</strong>
-							
+							<?php if ($showDescription):?>
+								<div class="product description product-item-description">
+									<?php /* @escapeNotVerified */ echo $_helper->productAttribute($_product, $_product->getShortDescription(), 'short_description') ?>
+									<!--
+									<a href="<?php /* @escapeNotVerified */ echo $_product->getProductUrl() ?>" title="<?php /* @escapeNotVerified */ echo $_productNameStripped ?>"
+									   class="action more"><?php /* @escapeNotVerified */ echo __('Learn More') ?></a>
+									-->
+								</div>
+							<?php endif; ?>
 							<?php /* @escapeNotVerified */ echo $block->getProductPrice($_product) ?>
 							<?php if($showReviewRating): ?>
 							<?php echo $block->getReviewsSummaryHtml($_product, $templateType); ?> 
@@ -158,18 +166,10 @@ $filterHelper = $this->helper('Codazon\ProductFilter\Helper\Data');
 									<div data-role="add-to-links" class="actions-secondary"<?php echo strpos($pos, $viewMode . '-secondary') ? $position : ''; ?>>
 									</div>
 								</div>-->
-								<?php if ($showDescription):?>
-									<div class="product description product-item-description">
-										<?php /* @escapeNotVerified */ echo $_helper->productAttribute($_product, $_product->getShortDescription(), 'short_description') ?>
-										<a href="<?php /* @escapeNotVerified */ echo $_product->getProductUrl() ?>" title="<?php /* @escapeNotVerified */ echo $_productNameStripped ?>"
-										   class="action more"><?php /* @escapeNotVerified */ echo __('Learn More') ?></a>
-									</div>
-								<?php endif; ?>
-								 
 							</div>
 							
 							<!--quiclick-addtocart-->
-							 <div class="cdz-product-bottom <?php echo $showHover ? 'hover-effect' : 'non-hover' ?>">
+							 <div class="cdz-product-bottom-cart">
 								<div class="cdz-buttons-container">
 								<div class="cdz-buttons-inner">								
 									<?php if ($_product->isSaleable()): ?>
@@ -181,25 +181,52 @@ $filterHelper = $this->helper('Codazon\ProductFilter\Helper\Data');
 											<?php if ($filterHelper->shouldRenderQuantity($_product)): ?>
 															        <div class="field qty box-tocart">								           
 															            <div class="control">
+															            	<!--
 															            	<div class="qty-minus"> <a class="btn-qty minus" href="#">-</a></div>
-																				<div class="qty-input">
-															                		<input type="number"
-																	               name="qty"
-																	               id="<?php echo $_product->getId() ?>_qty"
-																	               maxlength="12"
-																	               value="<?php /* @escapeNotVerified */ echo $filterHelper->getProductDefaultQty($_product) * 1 ?>"
-																	               title="<?php /* @escapeNotVerified */ echo __('Qty') ?>" class="input-text qty"
-																	               data-validate="<?php echo $block->escapeHtml(json_encode($filterHelper->getQuantityValidators())) ?>"
-																	               />
-															                       </div>
-																	<div class="qty-plus"> <a class="btn-qty plus" href="#">+</a></div>
+															            	-->
+																			<div class="qty-input selectdiv">
+														                		
+																			<!--
+														                		<input type="number"
+																               name="qty"
+																               id="<?php echo $_product->getId() ?>_qty"
+																               maxlength="12"
+																               value="<?php /* @escapeNotVerified */ echo $filterHelper->getProductDefaultQty($_product) * 1 ?>"
+																               title="<?php /* @escapeNotVerified */ echo __('Qty') ?>" class="input-text qty"
+																               data-validate="<?php echo $block->escapeHtml(json_encode($filterHelper->getQuantityValidators())) ?>"
+																               />
+																            -->
+														                
+																				<select 
+																				name="qty" 
+																				id="cdz-cart-item-<?php echo $_product->getId() ?>-qty"
+																				class="input-text qty"
+																				data-validate="<?php echo $block->escapeHtml(json_encode($filterHelper->getQuantityValidators())) ?>">
+																				  <option value="1">1</option>
+																				  <option value="2">2</option>
+																				  <option value="3">3</option>
+																				  <option value="4">4</option>
+																				  <option value="5">5</option>
+																				  <option value="6">6</option>
+																				  <option value="7">7</option>
+																				  <option value="8">8</option>
+																				</select>
+
+
+														                	</div>
+															                <!--
+																			<div class="qty-plus"> <a class="btn-qty plus" href="#">+</a></div>
+																			-->
+
 															            </div>
 															        </div>
 															        <script type="text/javascript">
 																	require(['jquery','domReady!'],function($){
+																		//TO USE FOR QTY INCREMENT/DECREMENT
 																		$(".btn-qty").click(function (event) {
 																			var $button = $(this);
-																			var oldValue = $button.closest('.control').find("input#<?php echo $_product->getId() ?>_qty").val();
+																			//var oldValue = $button.closest('.control').find("input#<?php echo $_product->getId() ?>_qty").val();
+																			var oldValue = $button.closest('.control').find("input#cdz-cart-item-<?php echo $_product->getId() ?>-qty").val();
 																			var defaultValue = <?php /* @escapeNotVerified */ echo $block->getProductDefaultQty($_product) * 1 ?>;
 																			if ($button.hasClass('plus')) {
 																				var newVal = parseFloat(oldValue) + 1;
@@ -210,18 +237,19 @@ $filterHelper = $this->helper('Codazon\ProductFilter\Helper\Data');
 																				    newVal = defaultValue;
 																				}
 																			}
-																			$button.closest('.control').find("input#<?php echo $_product->getId() ?>_qty").val(newVal);
+																			//$button.closest('.control').find("input#<?php echo $_product->getId() ?>_qty").val(newVal);
+																			$button.closest('.control').find("input#cdz-cart-item-<?php echo $_product->getId() ?>-qty").val(newVal);
 																			event.preventDefault();
 																		});
 															
 																	});
 															        </script>
 															        <?php endif; ?>
-											<button type="submit"
-													title="<?php echo $block->escapeHtml(__('Add to Cart')); ?>"
-													class="action tocart primary show-tooltip">
-												<span><?php /* @escapeNotVerified */ echo __('Add to Cart') ?></span>
-											</button>
+		                                    <button type="submit"
+		                                            title="<?php echo $block->escapeHtml(__('Add to Cart')); ?>"
+		                                            class="btn-addtocart">
+		                                        <?php /* @escapeNotVerified */ echo __('Add to Cart') ?>
+		                                    </button>
 										</form>
 									<?php else: ?>
 										<?php if ($_product->getIsSalable()): ?>
@@ -234,7 +262,8 @@ $filterHelper = $this->helper('Codazon\ProductFilter\Helper\Data');
 									<?php
 										$compareHelper = $this->helper('Magento\Catalog\Helper\Product\Compare');
 									?>
-									<?php if($showCompareWishlist): ?>
+									<?php //if($showCompareWishlist): ?>
+									<!--
 									<a href="#"
 									   class="action tocompare show-tooltip"
 									   title="<?php echo $block->escapeHtml(__('Add to Compare')); ?>"
@@ -243,7 +272,8 @@ $filterHelper = $this->helper('Codazon\ProductFilter\Helper\Data');
 									   role="button">
 										<span><?php /* @escapeNotVerified */ echo __('Add to Compare') ?></span>
 									</a>
-									<?php endif ?>
+									-->
+									<?php //endif ?>
 								</div>
 								</div>
 							</div>							

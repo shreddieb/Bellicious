@@ -19,7 +19,7 @@ use Magento\Catalog\Model\Product\ProductList\Toolbar;
 <div class="modes">
     <?php $_modes = $block->getModes(); ?>
     <?php if ($_modes && count($_modes) > 1): ?>
-    <strong class="modes-label" id="modes-label"><?php /* @escapeNotVerified */ echo __('View as') ?></strong>
+    <strong class="modes-label" id="modes-label"><?php /* @escapeNotVerified */ echo __('') ?></strong>
     <?php foreach ($block->getModes() as $_code => $_label): ?>
         <?php if ($block->isModeActive($_code)): ?>
             <strong title="<?php /* @escapeNotVerified */ echo $_label ?>"

@@ -22,7 +22,8 @@
   border-bottom: 1px solid #555b61;
   text-overflow: ellipsis;
 }
-.cd-faq-categories a:hover {
+.cd-faq-categories a:hover,
+.cd-faq-categories a:visited {
   color: #fff;
 }
 .cd-faq-categories a::before, .cd-faq-categories a::after {
