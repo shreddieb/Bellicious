@@ -8,6 +8,12 @@
 	    }
 	}
 }
+.product-item-info.related-available {
+    border: 1px solid #f2f2f2;
+}
+.block.related .related-available .product-item-name {
+    margin-left: 0;
+}
 
 .product-main-content,
 .product.info.detailed:not(.without_tab) {
@@ -21,6 +27,17 @@
     border: 1px solid @main_logo_color;
 }
 
+.loading-mask.loading-dark {
+	padding: 0 0 50px;
+	position: static;
+	background: #f2f2f2;
+	.loader:after, 
+	.loader:before, 
+	.qs-loader:after, 
+	.qs-loader:before {
+	    border-color: #ddd;
+	}
+}
 
 //CUSTOM ADDITIONS NOT IN BROKEN OUT .LESS FILES
 .block-static-block.widget, 
@@ -28,8 +45,11 @@
     margin-bottom: 0;
 }
 
-.page-layout-2columns-right,
-.page-layout-2columns-left,
+.page-layout-1column {
+	.page-wrapper {
+		background: #fff;
+	}
+}
 .page-main-wrapper {
     background: #f2f2f2;
 }
@@ -42,10 +62,20 @@
 
 //page titles
 .page-title-wrapper {
-    background: #ddd;
+	background: #fff url(../images/food-banner.jpg);
+	background-position: center;
+	border-bottom: 1px solid #f2f2f2;
     padding-top: 40px;
     text-align: center;
     padding-bottom: 20px;
+	.page-title span {
+		background: #fff;
+	}
+}
+.page-title-wrapper.product {
+    background: none;
+    padding: 0;
+    text-align: left;
 }
 
 /*
@@ -202,6 +232,9 @@
 
 /////////////Mobile////////////////
 .media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+	.product.media .fotorama__stage {
+		margin-left: 0;
+	}
 	//hides compare button on product page
 	.product-addto-links .action.tocompare span {
 	    display: none !important;
@@ -227,6 +260,9 @@
 			    font-weight: normal;
 			}
 		}
+	}
+	.product-item-info.related-available {
+	    border: 1px solid #f2f2f2;
 	}
 	.cdz-product-bottom-cart {
 	    form { 

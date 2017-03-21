@@ -36,12 +36,27 @@
 			&:before{
 				position:absolute; bottom:-11px; width:40px; height:20px; line-height:20px;
 				.lib-css(background, @main_background);
-				.abs-iconfont('\f219', 14px); 
+				.abs-iconfont('\f107', 21px); 
 				left:40%; 
 				left: calc(~'50% - 20px');
 				-webkit-left: calc(~'50% - 20px');
 				-o-left: calc(~'50% - 20px');
 				-moz-left: calc(~'50% - 20px');
+			}
+		}
+		.b-title.current-menu{
+			&:before{
+				.abs-iconfont('\f06c', 21px); 
+			}
+		}
+		.b-title.suppliers{
+			&:before{
+				.abs-iconfont('\f08a', 21px); 
+			}
+		}
+		.b-title.blog-home{
+			&:before{
+				.abs-iconfont('\f0e5', 21px); 
 			}
 		}
 	}
@@ -136,8 +151,14 @@
 		.b-title{
 			padding:0 0 (@indent__s + 5) ; min-width:0;
 			.lib-css(font, @f_h3);
-			font-weight:600;
 			strong{font-size:100%;}
+		}
+		.b-title.current-menu,
+		.b-title.suppliers,
+		.b-title.blog-home{
+			&:before{
+				font-size: 14px; 
+			}
 		}
 	}
 	/*Block Sidebar*/

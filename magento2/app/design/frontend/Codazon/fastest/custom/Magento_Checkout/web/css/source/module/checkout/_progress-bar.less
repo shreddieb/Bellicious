@@ -166,12 +166,14 @@
 
         &._active {
             &:before {
-                background: @checkout-progress-bar-item__active__background-color;
+                //background: @checkout-progress-bar-item__active__background-color;
+                background: #fc7070;
             }
             > span {
                 .lib-css(color, @checkout-progress-bar-item__color);
                 &:before {
-                    .lib-css(background, @checkout-progress-bar-item__active__background-color);
+                    //.lib-css(background, @checkout-progress-bar-item__active__background-color);
+                    background: #fc7070;
                 }
                 &:after {
                     .lib-css(font-family, @icons__font-name);
