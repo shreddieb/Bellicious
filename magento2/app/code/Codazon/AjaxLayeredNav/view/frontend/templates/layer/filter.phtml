@@ -63,10 +63,14 @@ require([
     }
     
     function getHref(from,to){
-        uriRequest = setParam(uriRequest, 'price', from+'-'+to);
-        var href = window.location.href + "?" + uriRequest.replace(catparam,'');
-        console.log(href);
-        $('#price-fake').attr('href',href);
+        var uriRequest = setParam(uriRequest, 'price', from+'-'+to);
+        if ( typeof catparam !== 'undefined' && catparam ) {
+            var href = window.location.href + "?" + uriRequest.replace(catparam,'');
+            console.log(href);
+            $('#price-fake').attr('href',href);
+        } else {
+            window.location.href = window.location.href + uriRequest;
+        }
     }
     var keypressSlider = document.getElementById('price-slider');
     var input0 = document.getElementById('price-from');
