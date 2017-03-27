@@ -1,0 +1,16 @@
+<!--@subject {{var subject}} @-->
+
+{{template config_path="design/email/header_template"}}
+
+<h2>{{trans "Related Products"}}</h2>
+<p class="greeting">{{trans "Hello %name," name=$customer.name}}</p></p>
+
+<p>
+You may like to know about the following products
+{{block template='Ebizmarts_AutoResponder::related/items.phtml' products=$related}}
+</p>
+<br>
+
+<p>{{trans "Thanks,<br>your friends at %store_name" store_name=$store.getFrontendName() |raw}}</p>
+
+{{template config_path="design/email/footer_template"}}

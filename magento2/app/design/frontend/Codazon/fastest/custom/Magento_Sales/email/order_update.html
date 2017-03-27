@@ -14,10 +14,12 @@
 } @-->
 {{template config_path="design/email/header_template"}}
 
+<h2>{{trans "Order Update"}}</h2>
+
 <table>
     <tr class="email-intro">
         <td>
-            <p class="greeting">{{trans "%name," name=$order.getCustomerName()}}</p>
+            <p class="greeting">{{trans "Hello %name," name=$order.getCustomerName()}}</p>
             <p>
                 {{trans
                     "Your order #%increment_id has been updated with a status of <strong>%order_status</strong>."
@@ -37,7 +39,7 @@
             {{depend comment}}
             <table class="message-info">
                 <tr>
-                    <td>
+                    <td style="background:#f2f2f2 !important;">
                         {{var comment|escape|nl2br}}
                     </td>
                 </tr>

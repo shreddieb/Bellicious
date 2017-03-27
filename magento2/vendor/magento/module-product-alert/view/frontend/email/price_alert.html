@@ -14,7 +14,8 @@
 
 {{template config_path="design/email/header_template"}}
 
-<p class="greeting">{{trans "%name," name=$customerName}}</p>
+<h2>{{trans "Price Alert"}}</h2>
+<p class="greeting">{{trans "Hello %name," name=$customer.name}}</p>
 {{var alertGrid|raw}}
 
 {{template config_path="design/email/footer_template"}}
