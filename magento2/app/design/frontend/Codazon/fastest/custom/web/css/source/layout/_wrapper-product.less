@@ -267,6 +267,34 @@
 }
 
 
+.product-options-wrapper {
+	.fieldset > .field .field.choice, 
+	.fieldset > .fields > .field .field.choice {
+	    display: inline-block;
+	    margin-right: 10px;
+	}
+	.fieldset > .field .choice input, 
+	.fieldset > .fields > .field .choice input,
+	.fieldset > .field .choice .price-notice {
+	    display: none;
+	}
+	.fieldset > .field .choice {
+		input[type="checkbox"] + label {
+		    padding: 5px 0;
+		    width: 35px;
+		    display: inline-block;
+		    text-align: center;
+		    border: 1px solid #f2f2f2;
+		}
+		input[type="checkbox"]:checked + label {
+		    background: #2ab0c5;
+		    color: #fff;
+		    display: inline-block;
+		    text-align: center;
+		}
+	}
+}
+
 
 
 .media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
