@@ -76,6 +76,7 @@
 
 ul.cd-faq-categories { 
   padding: 0;
+  list-style: none; 
 }
 ul.cd-faq-categories li {  
   margin-bottom: 0;
