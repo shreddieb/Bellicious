@@ -27,6 +27,21 @@
     border: 1px solid @main_logo_color;
 }
 
+.product.media {
+	.nav-hidden,
+	.nav-visible {
+		.fotorama__stage {
+    		margin-left: 0;
+    	}
+    }
+    .nav-visible {
+		.fotorama__stage__frame .fotorama__img {
+			padding-left: 25px;
+		}
+    }
+}
+
+
 .loading-mask.loading-dark {
 	padding: 0 0 50px;
 	position: static;
@@ -248,9 +263,6 @@
 
 /////////////Mobile////////////////
 .media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
-	.product.media .fotorama__stage {
-		margin-left: 0;
-	}
 	//hides compare button on product page
 	.product-addto-links .action.tocompare span {
 	    display: none !important;
@@ -258,6 +270,16 @@
 	.block-static-block.widget, 
 	.block-cms-link.widget {
 	    margin-bottom: 0;
+	}
+	.product.media {
+	    .nav-hidden {
+	    	margin-bottom: 10px;
+	    }
+	    .nav-visible {
+			.fotorama__stage__frame .fotorama__img {
+				padding-left: 0;
+			}
+	    }
 	}
 	.products-grid{
 		.product-item {
