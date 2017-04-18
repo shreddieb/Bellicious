@@ -41,40 +41,45 @@
 
 <div class="giftcard-info">
     <fieldset id="giftcard-fieldset" class="giftcard-fieldset">
-        <?php if ($block->getPriceStatus() == \MageWorx\GiftCards\Block\Product\View\Type\GiftCards::PRICE_TYPE_CUSTOMER) : ?>
-        <div class="field ">
-            <label for="card-amount" class="required"><?php echo __('Amount') ?><em>*</em>:</label><br/>
-            <input type="text" id="card-amount" name="card_amount" value="<?php echo $_preValues->getCardAmount(); ?>" 
-                   data-validate="{required: true, 'validate-float-range' : true}" 
-                   class="input-text float-range-<?php echo $_from;?>-<?php echo $_to;?>"/>&nbsp;(<?php echo $_currency->format($_from) ?> - <?php echo $_currency->format($_to) ?>)
+
+        <div class="hidden">
+            <?php if ($block->getPriceStatus() == \MageWorx\GiftCards\Block\Product\View\Type\GiftCards::PRICE_TYPE_CUSTOMER) : ?>
+            <div class="field ">
+                <label for="card-amount" class="required"><?php echo __('Amount') ?><em>*</em>:</label><br/>
+                <input type="text" id="card-amount" name="card_amount" value="<?php echo $_preValues->getCardAmount(); ?>" 
+                       data-validate="{required: true, 'validate-float-range' : true}" 
+                       class="input-text float-range-<?php echo $_from;?>-<?php echo $_to;?>"/>&nbsp;(<?php echo $_currency->format($_from) ?> - <?php echo $_currency->format($_to) ?>)
+            </div>
+            <?php elseif ($block->getPriceStatus() == \MageWorx\GiftCards\Block\Product\View\Type\GiftCards::PRICE_TYPE_SELECTED) : ?>
+            <br/>
+            <label for="card-amount" class="required"><?php echo __('Select amount') ?><em>*</em>:</label><br/>
+            <select id="card-amount" name="card_amount" class="validate-select">
+                <?php foreach($block->getAdditionalPrices() as $additionalPrice) : ?>
+                <option value="<?php echo $additionalPrice;?>" <?php if ($_preValues->getCardAmount() == $additionalPrice ) { echo 'selected'; }; ?>><?php echo $additionalPrice;?></option>
+                <?php endforeach; ?>
+            </select>
+            <?php else: ?>
+                <h2><div class="price-box"><span class="regular-price"><?php echo $this->helper('Magento\Checkout\Helper\Data')->formatPrice($_product->getPrice()) ?></span></div></h2>
+            <?php endif; ?>
         </div>
-        <?php elseif ($block->getPriceStatus() == \MageWorx\GiftCards\Block\Product\View\Type\GiftCards::PRICE_TYPE_SELECTED) : ?>
-        <br/>
-        <label for="card-amount" class="required"><?php echo __('Select amount') ?><em>*</em>:</label><br/>
-        <select id="card-amount" name="card_amount" class="validate-select">
-            <?php foreach($block->getAdditionalPrices() as $additionalPrice) : ?>
-            <option value="<?php echo $additionalPrice;?>" <?php if ($_preValues->getCardAmount() == $additionalPrice ) { echo 'selected'; }; ?>><?php echo $additionalPrice;?></option>
-            <?php endforeach; ?>
-        </select>
-        <?php else: ?>
-            <h2><div class="price-box"><span class="regular-price"><?php echo $this->helper('Magento\Checkout\Helper\Data')->formatPrice($_product->getPrice()) ?></span></div></h2>
-        <?php endif; ?>
-        <div class="field">
-            <label for="mail-from"><?php echo __('From Name') ?>:</label><br/>
+
+
+        <div class="field input">
+            <label for="mail-from"><?php echo __('Sender Name') ?></label><br/>
             <input type="text" id="mail-from" name="mail_from" class="input-text" value="<?php echo $_preValues->getMailFrom();?>"/>
         </div>
-        <div class="field">
-            <label for="mail-to"><?php echo __('To Name') ?>:</label><br/>
+        <div class="field input">
+            <label for="mail-to"><?php echo __('Recipient Name') ?></label><br/>
             <input type="text" id="mail-to" name="mail_to" class="input-text" value="<?php echo $_preValues->getMailTo();?>"/>
         </div>
         <?php if ($block->getCardType() == 1): ?>
-            <div class="field">
-                <label for="mail-to-email" class="required"><?php echo __('To E-mail') ?><em>*</em>:</label><br/>
+            <div class="field input">
+                <label for="mail-to-email" class="required"><?php echo __('Recipient E-mail') ?><em>*</em></label><br/>
                 <input type="text" id="mail-to-email" name="mail_to_email" class="input-text required-entry validate-email" value="<?php echo $_preValues->getMailToEmail();?>"/>
             </div>
         <?php endif; ?>
-        <div class="field">
-            <label for="mail-message"><?php echo __('Message') ?>:</label><br/>
+        <div class="field input">
+            <label for="mail-message"><?php echo __('Message') ?></label><br/>
             <textarea id="mail-message" name="mail_message" ><?php echo $_preValues->getMailMessage();?></textarea>
         </div>
         <?php if ($block->getCardType() == MageWorx\GiftCards\Model\GiftCards::TYPE_EMAIL) : ?>
@@ -111,6 +116,7 @@
     </fieldset>
 </div>
 
+<!--
 <?php if ($block->displayProductStockStatus()): ?>
     <?php if ($_product->isAvailable()): ?>
         <div class="stock available" title="<?php /* @escapeNotVerified */ echo __('Availability') ?>">
@@ -122,3 +128,4 @@
         </div>
     <?php endif; ?>
 <?php endif; ?>
+-->

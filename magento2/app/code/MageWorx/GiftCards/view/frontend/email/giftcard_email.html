@@ -5,29 +5,32 @@
 <table>
     <tr class="email-intro">
         <td>
-            <p class="greeting">{{trans "%customer_name" customer_name=$email-to}},</p>
+            <p class="greeting">{{trans "Hello %customer_name" customer_name=$email-to}},</p>
             <p>
-                {{trans "You have received a %amount Gift Card" amount=$amount |raw}} {{depend email-from}} {{trans " from %email-from" email-from=$email-from}} {{/depend}} {{trans 'to <a href="%store_url" >' store_url=$this.getUrl($store,'/',[_nosid:1]) |raw}} {{trans "%store_name </a>" store_name=$store.getFrontendName() |raw}}.
+                {{trans "You have received a %amount Gift Card" amount=$amount |raw}} {{depend email-from}} {{trans " from %email-from" email-from=$email-from}} {{/depend}} {{trans 'to <a href="%store_url" >' store_url=$this.getUrl($store,'/',[_nosid:1]) |raw}} {{trans "%store_name</a>" store_name=$store.getFrontendName() |raw}}.
             </p>
         </td>
     </tr>
     <tr>
         <td class="a-center">
-		<center><img src="{{var picture|raw}}" /></center>
-	</td>
+		      <center><p><img src="{{var picture|raw}}" width="660"/></p></center>
+	    </td>
     </tr>
     <tr class="email-information">
 	<td>
-	        {{trans "Gift Card details"}}:<br />
+        <p>
+	        {{trans "GIFT CARD DETAILS"}}<br />
                 {{depend email-to}} {{trans "To: %email-to" email-to=$email-to}}<br />{{/depend}}
                 {{depend email-from}} {{trans "From: %email-from" email-from=$email-from}}<br />{{/depend}}
                 {{depend email-message}} {{trans "Message: %email-message" email-message=$email-message}}<br />{{/depend}}
-	        {{trans "Gift card value:"}}{{var amount |raw}}<br />
-		{{trans "Gift card claim code: %code" code=$code}}<br />
+	        {{trans "Gift card value: "}}{{var amount |raw}}<br />
+		    {{trans "Gift card claim code: %code" code=$code}}<br />
+        </p>
 	</td>
     </tr>
     <tr class="email-information">
-        <td>{{trans '<a href="%store_url" >' store_url=$this.getUrl($store,'/',[_nosid:1]) |raw}} {{trans "Start shopping now</a>, and apply your gift card code in shopping cart or during checkout" |raw}}.</td>
+        <td>
+                {{trans '<a href="%store_url" >' store_url=$this.getUrl($store,'/',[_nosid:1]) |raw}} {{trans "Start shopping now</a>, and apply your gift card code in shopping cart or during checkout" |raw}}.</td>
     </tr>
     <tr class="email-information">
 	<td>
