@@ -44,6 +44,19 @@
 				-moz-left: calc(~'50% - 20px');
 			}
 		}
+		.b-title.empty{
+			.lib-css(border-bottom, none);
+			&:before{
+				.abs-iconfont('', 21px); 
+				background: none;
+			}
+		}
+		.b-title.how{
+			&:before{
+				.abs-iconfont('\f085', 21px); 
+				background: #fff;
+			}
+		}
 		.b-title.current-menu{
 			&:before{
 				.abs-iconfont('\f06c', 21px); 
@@ -59,6 +72,9 @@
 				.abs-iconfont('\f0e5', 21px); 
 			}
 		}
+	}
+	.cdz-block-title.no-widget {
+		margin: 10px 0;
 	}
 	
 	.cdz-block-title03{

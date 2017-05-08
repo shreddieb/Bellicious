@@ -119,6 +119,14 @@
 			color:#42464b;
 		}
 	}
+	&.slide-right{
+		left:auto;
+		right:-20%;
+	}
+	&.slide-left{
+		left:-20%;
+		right:auto;
+	}
 	.slide-text{
 		font-size:16px;
 		margin-bottom:15px;
@@ -250,17 +258,6 @@
 /////////////Desktop////////////////
 .media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
 	.slide-caption{
-		max-width: 600px;
-		top:25%;
-		left:30%;
-		&.slide-right{
-			left:auto;
-			right:10%;
-		}
-		&.slide-left{
-			left:10%;
-			right:auto;
-		}
 		.slide-title{
 			margin-bottom:40px;
 			span{
