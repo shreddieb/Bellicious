@@ -1,0 +1,69 @@
+<?php
+/**
+ * Solwin Infotech
+ * Solwin Instagram Extension
+ * 
+ * @category   Solwin
+ * @package    Solwin_Instagram
+ * @copyright  Copyright © 2006-2016 Solwin (https://www.solwininfotech.com)
+ * @license    https://www.solwininfotech.com/magento-extension-license/
+ */
+$helper = $this->helper('\Solwin\Instagram\Helper\Data');
+$enable = $helper->getConfig('instagramsection/instagramgroup/active');
+$userId = $helper->getConfig('instagramsection/instagramgroup/userid');
+$accessToken = $helper->getConfig('instagramsection/instagramgroup/accesstoken');
+$imageNumber = $this->getData('numberimage');
+?>
+
+<?php
+if ($enable) {
+    ?>
+    <!--
+    <div class="cp-ftitle">
+        <h3><?php echo $this->getData('title'); ?></h3>
+    </div>
+    -->
+    <div class="cp-fcontent">
+        <?php
+        $url = 'https://api.instagram.com/v1/users/' . $userId . '/media/recent/?access_token=' . $accessToken;
+        $args = stream_context_create(array('http' => array('timeout' => 2500,)));
+        //for Live server
+        $instagramFeedsData = file_get_contents($url, false, $args );
+        // for local server
+        // $instagramFeedsData = $helper->getInstagramData($url);
+
+        $instagramFeeds = json_decode($instagramFeedsData);
+
+        $instagramData = $instagramFeeds->data;
+        $count = 1;
+        foreach ($instagramData as $instagramFeed) {
+        //foreach (array_chunk($instagramData, 4, true) as $array) {
+        //    echo '<div class="row">';
+        //    foreach ($array as $instagramFeed) {
+
+                if ($imageNumber < $count) {
+                    break;
+                }
+                //$instagramImage = $instagramFeed->images->thumbnail->url;
+                $instagramImage = str_replace('s150x150/', 's320x320/', $instagramFeed->images->thumbnail->url);
+                $count++;
+                ?>
+
+                <?php
+                $caption_text = 'Instagram';
+                if (is_object($instagramFeed->caption)) {
+                    $caption_text = $instagramFeed->caption->text;
+                }
+                ?>
+                <div class="col-xs-6 instagram-feed">
+                    <a href ="<?php echo $instagramFeed->link; ?>" target="_blank">
+                        <img class="img-responsive" src="<?php echo $instagramImage; ?>" title="<?php echo $caption_text; ?>" alt="<?php echo $caption_text; ?>"/>
+                    </a>
+                </div>
+                <?php
+        //    }
+        //    echo '</div>';
+        }
+    }
+    ?>
+</div>

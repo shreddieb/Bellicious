@@ -52,6 +52,7 @@
 	.footer-social{	
 		overflow:hidden;
 		margin:0 -@indent__xs; padding-top:@indent__m * 2;
+		clear: both;
 		a{
 			display:inline-block; vertical-align:top; width:30px; height:30px; line-height:30px; text-align:center; float:left; margin: @indent__xs;
 			.abs-transition();
@@ -131,6 +132,16 @@
 	.page-footer {
 		.footer-container-wrapper{
 			padding-top:0;
+		}
+		.footer-box.no-toggle{
+			p.h5{
+				text-transform: uppercase;
+				font-style: normal;
+				text-align: center;
+				&:after{
+					display: none;
+				}
+			}
 		}
 		.footer-box{
 			p.h5{
