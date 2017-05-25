@@ -47,10 +47,24 @@
 		</referenceContainer>
 		
 		<move element="header-wrapper" destination="header.wrapper.content" before="-" />
+		<!-- moves nav after sign in <move element="header.wrapper.bottom" destination="header.wrapper.content" before="-" /> -->
+
+		<move element="header.wrapper.bottom" destination="header.container" before="-" />
 		<move element="navigation.sections" destination="main.menu" />
 		<move element="menu.container" destination="store.menu" />
 		<move element="top.search" destination="header.bottom.content" />
 		<!--move element="minicart" destination="header.bottom.right" /-->
+
+
+		<!--
+		<move element="header.links" destination="header.panel.store" before="-" />
+		<move element="header.links" destination="header.wrapper.content" before="-" />
+		<move element="header.links" destination="main" before="-" />
+		<move element="logo" destination="header.bottom.content" after="navigation.sections"/>
+		<move element="minicart" destination="header.bottom.content" before="top.search"/>
+		<move element="minicart" destination="header-wrapper" after="-"/>
+		-->
+
 		
 		<referenceBlock name="store.menu" >
 		    <arguments>

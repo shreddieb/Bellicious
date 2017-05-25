@@ -381,6 +381,9 @@
 				.abs-link(@menu_text, @menu_hover_text);
 				.abs-cssall(@menu_text, @menu_border, @menu_background, @menu_font);
 			}
+			> a.menu-link.active {
+				.abs-cssall(@menu_hover_text, @menu_border, @menu_hover_background, @menu_font);
+			}
 			&:hover{
 				> a.menu-link{
 					cursor:pointer;
@@ -498,6 +501,14 @@
 	.cdz-main-menu{
 		.cdz-horizontal-menu{
 			font-size:0;
+			li.level0.home-icon { 
+				> a.menu-link{
+				}
+				&:hover > a.menu-link{
+					background: transparent;
+					border: none;
+				}
+			}
 			li.level0{
 				> a.menu-link{
 					.abs-link(@menu_text, @menu_hover_text);
@@ -608,6 +619,9 @@
 			}
 		}
 		.groupmenu{
+			li.level0.home-icon { 
+				display: none;
+			}
 			li.level0{ 
 				width:100%;
 				margin-bottom:3px;

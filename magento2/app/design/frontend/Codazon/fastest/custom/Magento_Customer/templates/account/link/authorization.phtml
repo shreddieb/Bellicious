@@ -23,16 +23,17 @@ if ($block->isLoggedIn()) {
         <?php echo $block->escapeHtml($block->getLabel()); ?>
     </a>
 	<div class="actions dropdown options switcher-options">
-		<div class="action toggle switcher-trigger" id="authorization-trigger">
+		<div 
+			role="link"
+			tabindex="0"
+			data-mage-init='{"dropdown":{}}'
+			data-toggle="dropdown"
+			data-trigger-keypress-button="true"
+			
+			class="action toggle switcher-trigger" id="authorization-trigger">
 			<?php echo $block->escapeHtml($block->getLabel()); ?>
 		</div>
-		<div style="display:none;" id="cdz-login-form-dropdown" class="cdz-login-form-dropdown dropdown switcher-dropdown"  data-mage-init='{"dropdownDialog":{
-					"appendTo":"#authorization-top-link > .options",
-					"triggerTarget":"#authorization-trigger",
-					"closeOnMouseLeave": false,
-					"triggerClass":"active",
-					"parentClass":"active",
-					"buttons":null}}'>
+		<div id="cdz-login-form-dropdown" class="cdz-login-form-dropdown dropdown switcher-dropdown" data-target="dropdown">
 			<?php echo $block->getChildHtml('customer_form_login_mini') ?>
 		</div>
 	</div>

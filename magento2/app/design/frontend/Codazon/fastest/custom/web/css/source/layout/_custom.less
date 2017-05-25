@@ -1,4 +1,6 @@
+html { font-size: 14px; }
 .teal-txt { color: @secondary_color; }
+.red-txt { color: @main_logo_color; }
 .font-light { font-weight: 200; }
 
 //Home Sections
@@ -20,6 +22,10 @@
 
 
 //Icons
+.cdz-main-menu .cdz-horizontal-menu li.level0.home-icon > a.menu-link {
+  background: transparent;
+  height: 40px;
+}
 .fa-stack.cat-icon {
     width: 16em;
     height: 16em;
@@ -27,7 +33,58 @@
 }
 
 
+//header overrides
+.dropdown.switcher-options {
+  .cdz-login-form-dropdown {
+    display: none;
+  }
+}
+.dropdown.switcher-options.active {
+  .cdz-login-form-dropdown {
+    display: inline-block;
+  }
+}
 
+.home-icon {
+    width: 50px;
+    height: 40px;
+    content: "";
+    background-size: 50px;
+   	position: relative;
+    top: 0;
+    display: inline-block;
+    background-image: url(../images/b-gray-transparent.svg);
+    background-repeat: no-repeat;
+}
+
+
+.header-wrapper-content {
+	.header.content {
+		padding: 0 15px !important;
+    position: absolute;
+    width: 100%;
+	}
+}
+.header.content {
+	text-align: center;
+	max-width: 100%;
+	.logo {
+		float: none;
+		display: inline-block;
+	}
+}
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+	.header.content {
+		padding: 0 !important;
+	}
+	.header-wrapper-content.sticky-menu.active .minicart-wrapper .action.showcart:before {
+	    background-position: 7px 8px;
+	}
+}
+#opener h1 {
+	font-size: 40px;
+	font-weight: 200;
+}
 
 //layout overrides
 .block-static-block.widget, 
@@ -49,6 +106,7 @@
 .page-main {
 	padding: 20px 0;
 }
+.cms-home .page-main { padding: 0; }
 .top-main-wrapper {
 	padding: 0;
 }
@@ -134,18 +192,76 @@
     background-size: cover;
     -o-background-size: cover;
 }
+.callout.quote{
+    height: 300px;
+}
+
 .text-vertical-center {
     display: table-cell;
     text-align: center;
     vertical-align: middle;
 }
+
 .text-vertical-center h1 {
     margin: 0;
     padding: 0;
     font-size: 4em;
-    font-weight: 600;
+    font-weight: 200;
 }
 
+.side-by-side h1 {
+    margin: 0;
+    padding: 0;
+    font-size: 2.5em;
+    font-weight: 200;
+    margin-top: 25px;
+}
+
+
+#founder-quote {
+	.text-vertical-center h1 {
+    	font-size: 24px;
+    	font-weight: 200;
+    }
+    .author {
+    	margin-top: 25px;
+    	color: #bbb;
+    	text-transform: uppercase;
+    }
+}
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+	.side-by-side h1 {
+	    font-size: 3em;
+	    margin-top: 50px;
+	}
+	#founder-quote {
+		.timeline > li .timeline-image {
+		    left: 50%;
+		    margin-left: -50px;
+		}
+		.timeline::before {
+			display: none;
+		}
+	}
+}
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__l) {
+	.side-by-side h1 {
+	    font-size: 3em;
+	    margin-top: 100px;
+	}
+}
+.sep {
+	padding: 100px 0;
+}
+.sep-bottom {
+	margin: 0;
+	padding-bottom: 100px;
+}
+.sep-top {
+    margin: 0;
+    padding-top: 50px;
+}
 
 /*
 .page-title-wrapper {
@@ -202,3 +318,206 @@
 	    max-width: 400px;
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.page-section {
+	position: relative;
+	width: 90%;
+  margin: 0 auto;
+	padding: 60px 30px;
+	color: inherit;
+	overflow: hidden;
+	background-color: #fff;
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat; 
+	font-size: 1.25rem;
+}
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+	.page-section {
+    width: 80%;
+		padding: 120px 1rem;
+    font-size: 1.5rem;
+	}
+}
+
+.section-sep.btm {
+  padding-bottom: 0 !important; 
+}
+.section-sep:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  content: '';
+  margin: 0 auto;
+  border-top: 1px solid;
+  border-top-color: #ccc;
+  border-top-color: rgba(0, 0, 0, 0.1); 
+}
+
+
+.section-title {
+  padding-bottom: 60px;
+}
+
+.icon-list {
+  text-align: center;
+  .icon-item {
+    margin-bottom: 30px;
+  }
+  h3,
+  p {
+    font-size: 16px;
+  }
+  h3 {
+    font-weight: 700;
+  }
+  img {
+    max-width: 100px;
+    margin: 0 auto;
+  }
+}
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+  .icon-list {
+    text-align: left;
+    img {
+      max-width: 60px;
+    }
+  }
+}
+
+.stat {
+  text-align: left;
+  margin: 25px 0;
+  .stat-num {
+    font-size: 3.5rem;
+    line-height: 1;
+  }
+  .stat-title {
+    font-size: 65%;
+    letter-spacing: .15em;
+    color: #888;
+    text-transform: uppercase;
+  }
+}
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+  .stat {
+    .stat-num {
+      font-size: 5.5rem;
+    }
+  }
+}
+
+.btm {
+  img {
+    vertical-align: bottom;
+  }
+}
+
+.no-overflow {
+  overflow: hidden;
+}
+
+.ztop {
+  z-index: 10;
+}
+
+.zbtm {
+  z-index: 1;
+  .basket {
+    margin-top: -40px;
+    margin-left: -440px;
+  }
+  .lineup {
+    margin-top: -40px;
+    margin-left: -440px;
+  }
+  .slant {
+    margin-top: -140px;
+    margin-left: -440px;
+  }
+  img {
+    max-width: none;
+    vertical-align: bottom;
+  }
+}
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+  .zbtm {
+    .basket {
+      margin-top: 0;
+      margin-left: -80px;
+    }
+    .lineup {
+      margin-top: 100px;
+      margin-left: -300px;
+    }
+    .slant {
+      margin-top: -220px;
+      margin-left: 0;
+    }
+  }
+}
+
+
+
+.quote {
+  padding: 0;
+  margin: 0 auto;
+  border-left: 0;
+  text-align: center; 
+  p {
+    font-size: 1.25rem;
+    margin-top: 30px; 
+  }
+  img {
+    width: 75px;
+    height: 75px; 
+    border-radius: 50%;
+    border: 5px solid #f2f2f2;
+  }
+  cite {
+    display: block;
+    margin-top: 30px;
+    font-size: 12px;
+    font-style: normal;
+    letter-spacing: .15em;
+    color: #aaa;
+    text-transform: uppercase; 
+  }
+}
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+  .quote {
+    max-width: 75%; 
+    cite {
+      font-size: 14px; 
+    }
+    img {
+      width: 100px;
+      height: 100px; 
+    }
+    p {
+      font-size: 1.5rem; 
+    } 
+  }
+}
+
+
+
+
