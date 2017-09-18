@@ -1,0 +1,59 @@
+<?php
+/**
+ * Copyright © 2016 MageWorx. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+?>
+
+<?php
+if ($block->canShow()) :
+
+?>
+
+<div class="cart-discount">
+<div class="block discount" id="block-giftcard" data-mage-init='{"collapsible":{"openedState": "active", "saveState": false}}'>
+    <div class="title" data-role="title">
+        <strong id="block-discount-heading" role="heading" aria-level="2"><?php /* @escapeNotVerified */ echo __('Gift Cards'); ?></strong>
+    </div>
+    <div class="content" data-role="content" aria-labelledby="block-discount-heading">
+            <form method="post" action="<?php echo $block->getUrl('mageworx_giftcards/cart/activateGiftCard'); ?>" id="activateGiftCard" novalidate="novalidate">
+            <div class="fieldset giftcard">
+            <div class="field">
+                <label for="giftcard_code" class="label"><?php echo __('Redeem and use your Gift Card now'); ?></label>
+                <div class="control">
+                    <input type="text" value="" name="giftcard_code" id="giftcard_code" class="input-text" placeholder="<?php echo __('Redeem and use your Gift Card now');?>" >
+                </div>
+            </div>
+            <div class="actions-toolbar">
+                <div class="primary">
+                <button value="<?php echo __('Activate') ?>" class="action giftcards primary"
+                        title="Activate" type="submit"><span><span><?php echo __('Activate') ?></span></span>
+                </button>
+                </div>
+            </div>
+            </div>
+            </form>
+
+        <?php $currencySymbol = $block->getCurrencySymbol(); ?>
+        <?php $temp = 0; ?>
+        <?php if ($block->getSessionActive()) {
+                    foreach($block->getFrontOptions() as $key => $value)
+                    {
+                        if ($temp) {
+                            echo '<br/><br/>';
+                        }
+                        echo '<b>'. $this->helper('Magento\Checkout\Helper\Data')->formatPrice($value['applied']).' '.__('applied from Gift Card').' '.$value['code'].'.</b><br/>';
+                        echo __('Remaining card balance').': '. $this->helper('Magento\Checkout\Helper\Data')->formatPrice($value['remaining']).'. (<a href="'.$block->getUrl("mageworx_giftcards/cart/deActivateGiftCard/id/$key").'">'.__('Remove').'</a>)';
+                        $temp = 1;
+                    }
+              }
+        ?>
+        </div>
+    </div>
+</div>
+</div>
+<?php
+
+endif;
+
+?>

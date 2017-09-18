@@ -58,7 +58,7 @@ class ReviewRenderer extends \Magento\Framework\View\Element\Template implements
         $displayIfNoReviews = false
     ) {
         if (!$product->getRatingSummary() && !$displayIfNoReviews) {
-            return '';
+            //return '';
         }
         // pick template among available
         if (empty($this->_availableTemplates[$templateType])) {

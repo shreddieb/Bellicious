@@ -1,0 +1,21 @@
+<!--@subject {{var subject}} @-->
+
+{{template config_path="design/email/header_template"}}
+
+<h2>{{trans "Happy Birthday!"}}</h2>
+<p class="greeting">{{trans "Hello %name," name=$customer.name}}</p></p>
+
+<p>
+    {{trans "On behalf of %store_name, we wish a very happy birthday." store_name=$store.getFrontendName()}}
+    {{depend couponcode}}
+    <br>We have the pleasure of giving you a coupon with code <b>{{var couponcode}}</b>
+    {{/depend}}
+    {{depend discount}}
+    and obtain a discount of {{var discount}} from now until {{var todate}}
+    {{/depend}}
+</p>
+<br>
+
+<p>{{trans "Thanks,<br>your friends at %store_name" store_name=$store.getFrontendName() |raw}}</p>
+
+{{template config_path="design/email/footer_template"}}

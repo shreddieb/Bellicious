@@ -1,0 +1,38 @@
+<!--@subject {{var subject}} @-->
+{{template config_path="design/email/header_template"}}
+
+<h2>{{trans "Still Interested?"}}</h2>
+<p class="greeting">{{trans "Hello %name," name=$customer.name}}</p>
+
+<p>
+These great items are still in your {{var store.getFrontendName()}} cart.
+If you need any help, be sure to give us a shout {{trans '<a href="mailto:%store_email">%store_email</a>' store_email=$store_email |raw}}.
+<br>
+
+{{block type='ebizmarts_abandonedcart/email_order_items' area='frontend'
+template='ebizmarts_abandonedcart/email/order/items.phtml' quote=$quote url}}
+
+<div style="margin-top: 30px; margin-bottom:20px;">
+    <a bgcolor="#EAEAEA"
+    style="background:#4e5359; text-align:center; color:#ffffff !important; text-decoration:none !important; padding:10px 20px; font-size:15px;"
+    href="{{var url}}">RESUME CHECKOUT
+    </a>
+
+</div>
+
+{{depend couponcode}}
+<br>You can use this coupon code <b>{{var couponcode}}</b>
+{{/depend}}
+{{depend discount}}
+and obtain a discount of {{var discount}} until {{var todate}}
+{{/depend}}
+{{depend points}}
+<br/>You currently have {{var points}} points available.
+{{/depend}}
+
+</p>
+
+
+<p>{{trans "Thanks,<br>your friends at %store_name" store_name=$store.getFrontendName() |raw}}</p>
+
+{{template config_path="design/email/footer_template"}}

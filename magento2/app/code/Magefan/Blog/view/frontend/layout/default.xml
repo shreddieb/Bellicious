@@ -17,5 +17,6 @@
                 </arguments>
             </block>
         </referenceBlock>
+        <move element="page.main.title" destination="page.top" before="breadcrumbs"/>
     </body>
 </page>

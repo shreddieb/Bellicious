@@ -5,7 +5,7 @@
  */
 use \Magento\Framework\Component\ComponentRegistrar;
 $dirs = array_filter(glob(__DIR__.'/*'), 'is_dir');
-$parentHome = 'fashion';
+$parentHome = 'custom';
 $parentHomeDir = __DIR__.'/'.$parentHome;
 if(($key = array_search($parentHomeDir, $dirs)) !== false) {
     unset($dirs[$key]);

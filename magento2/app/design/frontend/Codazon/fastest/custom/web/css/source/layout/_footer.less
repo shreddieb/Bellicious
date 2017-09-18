@@ -45,13 +45,14 @@
 		li a{float:left; padding:@indent__s; border:1px solid @footer__border;  margin:@indent__xs; .abs-transition();
 			&:hover{
 				.lib-css(background, @footer__border);
-				.lib-css(color, #fff);
+				.lib-css(color, @footer-title__text);
 			}
 		}
 	}
 	.footer-social{	
 		overflow:hidden;
 		margin:0 -@indent__xs; padding-top:@indent__m * 2;
+		clear: both;
 		a{
 			display:inline-block; vertical-align:top; width:30px; height:30px; line-height:30px; text-align:center; float:left; margin: @indent__xs;
 			.abs-transition();
@@ -61,7 +62,7 @@
 			}
 			&:hover{
 				.lib-css(background, @footer__border);
-				.lib-css(color, #fff);
+				.lib-css(color, @footer-title__text);
 			}
 		}
 	}
@@ -131,6 +132,16 @@
 	.page-footer {
 		.footer-container-wrapper{
 			padding-top:0;
+		}
+		.footer-box.no-toggle{
+			p.h5{
+				text-transform: uppercase;
+				font-style: normal;
+				text-align: center;
+				&:after{
+					display: none;
+				}
+			}
 		}
 		.footer-box{
 			p.h5{
