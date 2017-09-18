@@ -31,10 +31,7 @@ $uniqId = uniqid("menu-{$menu->getId()}-");
 		$layout = explode(',',$content->layout);
 		$totalPart = array_sum($layout);
         ?>
-		<?php if($content->background): ?>
-        <img class="groupdrop-banner-pos" src="<?php echo $content->background ?>" style="<?php echo $this->getBackgroundStyle($content) ?>" />
-        <?php endif ?>
-        <div class="<?php echo $content->class ?> groupmenu-drop-content <?php echo ($content->width_class)?'groupmenu-width-'.$content->width_class:'' ?>" style=" <?php echo $content->style ?>">
+        <div class="ztop <?php echo $content->class ?> groupmenu-drop-content <?php echo ($content->width_class)?'groupmenu-width-'.$content->width_class:'' ?>" style=" <?php echo $content->style ?>">
         	<?php if($totalPart > 1): ?>
         	<div class="row">
             <?php foreach($layout as $key => $column): ?>
@@ -45,6 +42,9 @@ $uniqId = uniqid("menu-{$menu->getId()}-");
             	<?php echo $text ?>
             <?php endif ?>
         </div>
+        <?php if($content->background): ?>
+        <img class="groupdrop-banner-pos zbtm" src="<?php echo $content->background ?>" style="<?php echo $this->getBackgroundStyle($content) ?>" />
+        <?php endif ?>
         <?php /* End Text */ ?>
         <?php elseif($itemType == 'category'): ?> class="<?php echo $this->getItemCSSClass($items,$i); ?>">
 		<?php /* Category */ ?>
@@ -73,3 +73,4 @@ $uniqId = uniqid("menu-{$menu->getId()}-");
 </ul>
 </div>
 <?php endif ?>
+

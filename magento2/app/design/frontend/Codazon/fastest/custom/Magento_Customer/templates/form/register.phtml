@@ -43,8 +43,16 @@
             </div>
         </div>
         <?php if ($block->isNewsletterEnabled()): ?>
+            <?php
+                $checked = true;
+                if($block->getFormData()->getEmail()) {
+                    if(!$block->getFormData()->getIsSubscribed()) {
+                        $checked = true;
+                    }
+                } 
+            ?>
             <div class="field choice newsletter">
-                <input type="checkbox" name="is_subscribed" title="<?php /* @escapeNotVerified */ echo __('Sign Up for Newsletter') ?>" value="1" id="is_subscribed"<?php if ($block->getFormData()->getIsSubscribed()): ?> checked="checked"<?php endif; ?> class="checkbox">
+                <input type="checkbox" name="is_subscribed" title="<?php /* @escapeNotVerified */ echo __('Sign Up for Newsletter') ?>" value="1" id="is_subscribed" checked="checked" class="checkbox">
                 <label for="is_subscribed" class="label"><span><?php /* @escapeNotVerified */ echo __('Sign Up for Newsletter') ?></span></label>
             </div>
             <?php /* Extensions placeholder */ ?>

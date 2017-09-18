@@ -423,7 +423,9 @@
 				.groupdrop-link{
 					margin-bottom:15px;
 					li{ 
-						margin:0; padding:6px 0;
+						margin:0; 
+						padding:10px;
+						text-align: left;
 						a{
 							position:relative;
 							.abs-transition();
@@ -531,14 +533,13 @@
 						.abs-iconfont('\f0dd', 24px);
 						.lib-css(color, @menu_hover_background);
 						position:absolute;
-						bottom:-10px;
+						bottom:-9px;
 						left:42%; 
 						left: calc(~'(100% - 14px) / 2');
 						-webkit-left: calc(~'(100% - 14px) / 2');
 						-o-left: calc(~'(100% - 14px) / 2');
 						-moz-left: calc(~'(100% - 14px) / 2');
-						z-index:100;
-						
+						z-index:1000;
 					}
 				}
 			}
@@ -639,9 +640,18 @@
 					.lib-css(color, #777777);
 				}
 				> .dropdown-toggle{
+					/*
 					width:37px;
 					height:37px;
-					&:before{margin-top: 5px;}
+					*/
+					width: 100%;
+					height: 38px;
+					background: transparent;
+					text-align: right;
+					&:before{
+						margin-top: 5px;
+						width: 38px;
+					}
 				}
 				&:hover{
 					> a.menu-link{

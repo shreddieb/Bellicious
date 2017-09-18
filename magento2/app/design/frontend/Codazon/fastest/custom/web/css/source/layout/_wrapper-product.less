@@ -11,6 +11,11 @@
 .product-item-info.related-available {
     border: 1px solid #f2f2f2;
 }
+.product-item-name {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
 .block.related .related-available .product-item-name {
     margin-left: 0;
 }
@@ -147,6 +152,33 @@
 			margin-top: 15px;
 		}
     }
+
+    .stock.unavailable {
+    	float: none;
+    	padding: 0;
+		.btn-addtocart {
+			width: 100% !important;
+			height: 40px;
+			margin: 0;
+		    background: #2ab0c5;
+		    border: none;
+		    color: #fff;
+		    padding-left: 54px;
+		    text-align: center;
+		}
+		button.btn-addtocart:hover {
+		    background: #55c0d1;
+		}
+		.btn-addtocart.solo {
+			text-transform: uppercase;
+		    line-height: 40px;
+		    display: block;
+		    font-size: 14px;
+		    font-weight: 600;
+			padding: 0;
+			margin-top: 15px;
+		}
+	}
 }
 // List view changes
 .products-list {

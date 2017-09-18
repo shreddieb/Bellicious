@@ -10,18 +10,22 @@
         <title>Contact Us</title>
     </head>
     <body>
-	  <referenceBlock name="page.main.title">
+                
+	    <referenceBlock name="page.main.title">
             <action method="setPageTitle">
                 <argument name="title" translate="true" xsi:type="string">Contact Us</argument>
             </action>
         </referenceBlock>      
+        <!--  -->
+        <referenceBlock name="page.main.title" remove="true"/>
+
         <referenceBlock name="content">
         	  <block class="Magento\Framework\View\Element\Template" name="contact.map" before="-" template="Magento_Contact::store_map.phtml">
             </block>
         </referenceBlock>
 		<referenceContainer name="content">
             <container name="content.contact" htmlTag="div" htmlClass="row">
-				<container name="content.left" htmlTag="div" htmlClass="col-sm-12 col-sm-offset-6">
+				<container name="content.left" htmlTag="div" htmlClass="contact-form">
 					 <block class="Magento\Contact\Block\ContactForm" name="contactForm" template="Magento_Contact::form.phtml">
 						<container name="form.additional.info" label="Form Additional Info"/>
 					</block>

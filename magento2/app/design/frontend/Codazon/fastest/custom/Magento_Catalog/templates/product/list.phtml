@@ -92,6 +92,18 @@ $filterHelper = $this->helper('Codazon\ProductFilter\Helper\Data');
 				<?php /** @var $_product \Magento\Catalog\Model\Product */ ?>
 				<?php foreach ($_productCollection as $_product): ?>
 					<?php /* @escapeNotVerified */ echo($iterator++ == 1) ? '<li class="item product product-item">' : '</li><li class="item product product-item">' ?>
+
+                    <?php if ( $_product->getAttributeSetId() == 14 /* External Products Set */) {
+                    	$_prodURL = $_product->getResource()->getAttribute('external_url')->getFrontend()->getValue($_product);
+                    	$urlTarget = '_blank';
+                    } else {
+                    	$_prodURL = $_product->getProductUrl();
+                    	$urlTarget = '_self';
+                    }
+                    ?>
+
+
+
 					<div class="product-item-info" data-container="product-grid">                	
 						<div class="cdz-hover-section">
 						<div class="cdz-product-top">
@@ -104,7 +116,7 @@ $filterHelper = $this->helper('Codazon\ProductFilter\Helper\Data');
 						}
 						?>
 						<?php // Product Image ?>
-						<a href="<?php /* @escapeNotVerified */ echo $_product->getProductUrl() ?>" class="product photo product-item-photo" tabindex="-1">
+						<a href="<?php /* @escapeNotVerified */ echo $_prodURL ?>" target="<?php echo $urlTarget ?>" class="product photo product-item-photo" tabindex="-1">
 							<span class="main-image">
 								<?php echo $productImage->toHtml(); ?>
 							</span>
@@ -139,7 +151,7 @@ $filterHelper = $this->helper('Codazon\ProductFilter\Helper\Data');
 							?>
 							<strong class="product name product-item-name">
 								<a class="product-item-link"
-								   href="<?php /* @escapeNotVerified */ echo $_product->getProductUrl() ?>">
+								   href="<?php /* @escapeNotVerified */ echo $_prodURL ?>" target="<?php echo $urlTarget ?>">
 									<?php /* @escapeNotVerified */ echo $_helper->productAttribute($_product, $_product->getName(), 'name'); ?>
 								</a>
 							</strong>
@@ -196,6 +208,12 @@ $filterHelper = $this->helper('Codazon\ProductFilter\Helper\Data');
 				                                            title="<?php echo $block->escapeHtml(__('Register')); ?>"
 				                                            class="btn-addtocart solo">
 				                                        <?php /* @escapeNotVerified */ echo __('Register') ?>
+				                                    </a>
+				                                <?php elseif ( $_product->getAttributeSetId() == 14 ): ?>
+				                                    <a href="<?php echo $_prodURL ?>" target="<?php echo $urlTarget ?>"
+				                                            title="<?php echo $block->escapeHtml(__('Shop')); ?>"
+				                                            class="btn-addtocart solo">
+				                                        <?php /* @escapeNotVerified */ echo __('Shop'); ?>
 				                                    </a>
 												<?php else: ?>
 
@@ -283,7 +301,21 @@ $filterHelper = $this->helper('Codazon\ProductFilter\Helper\Data');
 										<?php if ($_product->getIsSalable()): ?>
 											<div class="stock available"><span><?php /* @escapeNotVerified */ echo __('In stock') ?></span></div>
 										<?php else: ?>
+											<!-- 
 											<div class="stock unavailable"><span><?php /* @escapeNotVerified */ echo __('Out of stock') ?></span></div>
+											-->
+											<div class="stock unavailable">
+			                                    <button type="button"
+			                                            title="<?php echo $block->escapeHtml(__('Out of stock')); ?>"
+			                                            class="btn-addtocart solo" disabled>
+			                                        <?php /* @escapeNotVerified */ echo __('Out of stock') ?>
+			                                    </button>
+		                                	</div>
+
+
+
+
+
 										<?php endif; ?>
 									<?php endif; ?>								
 								
